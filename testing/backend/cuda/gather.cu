@@ -175,4 +175,3 @@ void TestGatherIfCudaStreams(void)
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestGatherIfCudaStreams);
-

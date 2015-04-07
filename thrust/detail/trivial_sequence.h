@@ -93,4 +93,3 @@ struct trivial_sequence
 } // end namespace detail
 
 } // end namespace thrust
-

@@ -113,4 +113,3 @@ struct TestRadixSort
   }
 };
 VariableUnitTest<TestRadixSort, RadixSortKeyTypes> TestRadixSortInstance;
-

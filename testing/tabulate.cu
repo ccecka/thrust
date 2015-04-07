@@ -108,4 +108,3 @@ void TestTabulateToDiscardIterator(size_t n)
   // nothing to check -- just make sure it compiles
 }
 DECLARE_VARIABLE_UNITTEST(TestTabulateToDiscardIterator);
-

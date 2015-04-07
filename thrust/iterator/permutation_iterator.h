@@ -207,4 +207,3 @@ permutation_iterator<ElementIterator,IndexIterator> make_permutation_iterator(El
  */
 
 } // end thrust
-

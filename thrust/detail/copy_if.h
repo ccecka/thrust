@@ -72,4 +72,3 @@ template<typename InputIterator1,
 } // end thrust
 
 #include <thrust/detail/copy_if.inl>
-

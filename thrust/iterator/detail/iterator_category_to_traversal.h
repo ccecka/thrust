@@ -131,4 +131,3 @@ template <typename CategoryOrTraversal>
 } // end detail
 
 } // end thrust
-

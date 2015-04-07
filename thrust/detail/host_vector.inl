@@ -34,4 +34,3 @@ template<typename T, typename Alloc>
 } // end host_vector::host_vector()
 
 } // end namespace thrust
-

@@ -56,4 +56,3 @@ __host__ __device__
 } // end thrust
 
 #include <thrust/system/detail/generic/copy.inl>
-

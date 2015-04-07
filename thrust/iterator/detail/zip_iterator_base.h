@@ -400,5 +400,3 @@ template<typename IteratorTuple>
 } // end detail
 
 } // end thrust
-
-

@@ -44,4 +44,3 @@ __host__ __device__
 } // end thrust
 
 #include <thrust/detail/allocator/copy_construct_range.inl>
-

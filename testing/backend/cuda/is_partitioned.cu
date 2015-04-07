@@ -91,4 +91,3 @@ void TestIsPartitionedCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestIsPartitionedCudaStreams);
-

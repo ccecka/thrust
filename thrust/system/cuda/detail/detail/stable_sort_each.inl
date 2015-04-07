@@ -334,4 +334,3 @@ void stable_sort_each_copy(execution_policy<DerivedPolicy> &exec,
 } // end cuda
 } // end system
 } // end thrust
-

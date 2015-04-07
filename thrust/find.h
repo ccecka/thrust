@@ -382,4 +382,3 @@ InputIterator find_if_not(InputIterator first,
 } // end namespace thrust
 
 #include <thrust/detail/find.inl>
-

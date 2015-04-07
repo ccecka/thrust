@@ -160,4 +160,3 @@ template <typename T>
 #include <thrust/detail/complex/catrig.h>
 #include <thrust/detail/complex/catrigf.h>
 #include <thrust/detail/complex/stream.h>
-

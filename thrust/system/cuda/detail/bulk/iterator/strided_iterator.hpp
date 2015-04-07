@@ -107,4 +107,3 @@ strided_iterator<Iterator,Size> make_strided_iterator(Iterator iter, Size stride
 
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

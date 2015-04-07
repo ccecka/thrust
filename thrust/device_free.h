@@ -65,4 +65,3 @@ inline void device_free(thrust::device_ptr<void> ptr);
 } // end thrust
 
 #include <thrust/detail/device_free.inl>
-

@@ -63,4 +63,3 @@ struct TestTupleTransform
   }
 };
 VariableUnitTest<TestTupleTransform, SignedIntegralTypes> TestTupleTransformInstance;
-

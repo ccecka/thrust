@@ -65,4 +65,3 @@
 #    undef BULK_NAMESPACE_SUFFIX_NEEDS_RESTORE
 #  endif
 #endif // __GNUC__
-

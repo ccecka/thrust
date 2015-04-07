@@ -49,4 +49,3 @@ OutputIterator copy_device_to_device(execution_policy<DerivedPolicy> &exec,
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/copy_device_to_device.inl>
-

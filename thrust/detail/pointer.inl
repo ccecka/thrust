@@ -147,4 +147,3 @@ template<typename Element, typename Tag, typename Reference, typename Derived, t
 
 
 } // end thrust
-

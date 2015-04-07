@@ -205,4 +205,3 @@ void TestDeviceReferenceManipulation(void)
     ASSERT_EQUAL(true, ref1 == ref);
 }
 DECLARE_UNITTEST(TestDeviceReferenceManipulation);
-

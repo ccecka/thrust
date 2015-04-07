@@ -79,4 +79,3 @@ using thrust::system::cuda::par;
 
 } // end cuda
 } // end thrust
-

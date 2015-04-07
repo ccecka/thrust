@@ -115,4 +115,3 @@ public:                                                                         
    static const bool value = sizeof(yes) == sizeof(deduce(static_cast<base*>(0)));                           \
    typedef thrust::detail::integral_constant<bool,value> type;                                               \
 };
-

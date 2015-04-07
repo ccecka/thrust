@@ -45,4 +45,3 @@ bool equal(thrust::execution_policy<DerivedPolicy> &exec, InputIterator1 first1,
 } // end namespace thrust
 
 #include <thrust/system/detail/generic/equal.inl>
-

@@ -68,5 +68,3 @@ inline thrust::complex<float> proj(const thrust::complex<float>& z){
 }
 
 }
-
-

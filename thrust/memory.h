@@ -540,4 +540,3 @@ inline typename detail::raw_reference<const T>::type
  */
 
 } // end thrust
-

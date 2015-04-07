@@ -34,4 +34,3 @@ struct any_system_tag
 typedef THRUST_DEPRECATED any_system_tag any_space_tag;
 
 } // end thrust
-

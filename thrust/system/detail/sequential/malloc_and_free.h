@@ -57,4 +57,3 @@ void free(sequential::execution_policy<DerivedPolicy> &, Pointer ptr)
 } // end detail
 } // end system
 } // end thrust
-

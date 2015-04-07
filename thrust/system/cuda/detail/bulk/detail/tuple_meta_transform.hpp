@@ -177,4 +177,3 @@ template<typename Tuple,
 } // end detail
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

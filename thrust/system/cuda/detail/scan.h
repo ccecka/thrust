@@ -66,4 +66,3 @@ OutputIterator exclusive_scan(execution_policy<DerivedPolicy> &exec,
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/scan.inl>
-

@@ -73,4 +73,3 @@ template<typename T> struct is_trivial_iterator< normal_iterator<T> > : public t
 
 } // end detail
 } // end thrust
-

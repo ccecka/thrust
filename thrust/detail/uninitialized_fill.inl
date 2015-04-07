@@ -89,4 +89,3 @@ template<typename ForwardIterator,
 
 
 } // end thrust
-

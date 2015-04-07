@@ -97,4 +97,3 @@ template<typename Iterator>
 #include <thrust/iterator/detail/device_system_tag.h>
 #include <thrust/iterator/detail/any_system_tag.h>
 #include <thrust/iterator/detail/iterator_traits.inl>
-

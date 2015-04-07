@@ -171,4 +171,3 @@ template<typename result_type, result_type x>
 } // end namespace detail
 
 } // end namespace thrust
-

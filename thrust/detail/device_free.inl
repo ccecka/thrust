@@ -41,4 +41,3 @@ void device_free(thrust::device_ptr<void> ptr)
 } // end device_free()
 
 } // end thrust
-

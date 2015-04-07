@@ -580,4 +580,3 @@ bool operator>(const null_type&, const null_type&);
  */
 
 } // end thrust
-

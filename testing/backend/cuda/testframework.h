@@ -22,4 +22,3 @@ class CUDATestDriver
 };
 
 UnitTestDriver &driver_instance(thrust::system::cuda::tag);
-

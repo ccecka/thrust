@@ -555,4 +555,3 @@ void TestInclusiveScanWithIndirection(void)
     ASSERT_EQUAL(data[6], T(1));
 }
 DECLARE_VECTOR_UNITTEST(TestInclusiveScanWithIndirection);
-

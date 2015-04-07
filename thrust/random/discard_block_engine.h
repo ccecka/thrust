@@ -249,4 +249,3 @@ using random::discard_block_engine;
 } // end thrust
 
 #include <thrust/random/detail/discard_block_engine.inl>
-

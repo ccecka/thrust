@@ -292,4 +292,3 @@ using random::minstd_rand0;
 } // end thrust
 
 #include <thrust/random/detail/linear_congruential_engine.inl>
-

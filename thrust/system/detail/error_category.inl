@@ -231,4 +231,3 @@ const error_category &system_category(void)
 } // end system
 
 } // end thrust
-

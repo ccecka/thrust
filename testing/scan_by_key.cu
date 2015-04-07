@@ -629,4 +629,3 @@ void TestScanByKeyWithLargeTypes(void)
     //_TestScanByKeyWithLargeTypes<int, 1024>();
 }
 DECLARE_UNITTEST(TestScanByKeyWithLargeTypes);
-

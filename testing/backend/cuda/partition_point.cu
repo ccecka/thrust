@@ -76,4 +76,3 @@ void TestPartitionPointCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestPartitionPointCudaStreams);
-

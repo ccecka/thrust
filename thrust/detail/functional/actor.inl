@@ -191,4 +191,3 @@ template<typename Eval>
 } // end functional
 } // end detail
 } // end thrust
-

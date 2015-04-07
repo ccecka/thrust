@@ -232,4 +232,3 @@ void TestCopyIfStencilCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestCopyIfStencilCudaStreams);
-

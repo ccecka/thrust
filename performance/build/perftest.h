@@ -105,5 +105,3 @@ inline void PROCESS_ARGUMENTS(int argc, char **argv)
     }
   }
 }
-
-

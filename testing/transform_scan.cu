@@ -291,4 +291,3 @@ struct TestTransformScanToDiscardIterator
     }
 };
 VariableUnitTest<TestTransformScanToDiscardIterator, IntegralTypes> TestTransformScanToDiscardIteratorInstance;
-

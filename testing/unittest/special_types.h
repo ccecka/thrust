@@ -181,4 +181,3 @@ using thrust::detail::uint64_t;
 
 
 }
-

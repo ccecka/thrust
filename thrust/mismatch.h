@@ -257,4 +257,3 @@ thrust::pair<InputIterator1, InputIterator2> mismatch(InputIterator1 first1,
 } // end namespace thrust
 
 #include <thrust/detail/mismatch.inl>
-

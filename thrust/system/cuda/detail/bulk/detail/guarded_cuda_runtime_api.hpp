@@ -60,4 +60,3 @@
 #    undef BULK_DEVICE_NEEDS_RESTORATION
 #  endif
 #endif // __GNUC__
-

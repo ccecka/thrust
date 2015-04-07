@@ -415,4 +415,3 @@ template<typename InputIterator, typename Predicate>
 
 
 } // end thrust
-

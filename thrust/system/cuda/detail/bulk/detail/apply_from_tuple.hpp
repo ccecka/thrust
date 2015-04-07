@@ -162,4 +162,3 @@ void apply_from_tuple(Function f, const thrust::tuple<Arg1,Arg2,Arg3,Arg4,Arg5,A
 } // end detail
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

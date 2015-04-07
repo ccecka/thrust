@@ -88,4 +88,3 @@ template<typename DerivedPolicy,
 } // end namespace thrust
 
 #include <thrust/system/omp/detail/partition.inl>
-

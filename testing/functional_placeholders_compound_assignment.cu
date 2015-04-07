@@ -189,5 +189,3 @@ DECLARE_VECTOR_UNITTEST(TestFunctionalPlaceholdersSuffix##name);
 
 SUFFIX_FUNCTIONAL_PLACEHOLDERS_TEST(Increment,  ++,  suffix_increment_reference);
 SUFFIX_FUNCTIONAL_PLACEHOLDERS_TEST(Decrement,  --,  suffix_decrement_reference);
-
-

@@ -215,5 +215,3 @@ template <typename ValueType>
 }
 
 }
-
-

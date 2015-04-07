@@ -48,4 +48,3 @@ struct TestSortByKeyVariableBits
   }
 };
 VariableUnitTest<TestSortByKeyVariableBits, UnsignedIntegerTypes> TestSortByKeyVariableBitsInstance;
-

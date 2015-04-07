@@ -165,4 +165,3 @@ template<typename Iterator, typename FromSystem, typename ToSystem>
 } // end thrust
 
 #include <thrust/detail/temporary_array.inl>
-

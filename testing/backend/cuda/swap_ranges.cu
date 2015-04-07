@@ -82,4 +82,3 @@ void TestSwapRangesCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestSwapRangesCudaStreams);
-

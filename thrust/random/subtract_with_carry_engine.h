@@ -253,4 +253,3 @@ using random::ranlux48_base;
 } // end thrust
 
 #include <thrust/random/detail/subtract_with_carry_engine.inl>
-

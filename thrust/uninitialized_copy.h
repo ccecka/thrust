@@ -300,4 +300,3 @@ template<typename InputIterator, typename Size, typename ForwardIterator>
 } // end thrust
 
 #include <thrust/detail/uninitialized_copy.inl>
-

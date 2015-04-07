@@ -64,4 +64,3 @@ void advance(InputIterator& i, Distance n)
 } // end namespace generic
 } // end namespace system
 } // end namespace thrust
-

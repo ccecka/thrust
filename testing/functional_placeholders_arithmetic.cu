@@ -72,4 +72,3 @@ template<typename T>
 
 UNARY_FUNCTIONAL_PLACEHOLDERS_TEST(UnaryPlus, +, unary_plus_reference);
 UNARY_FUNCTIONAL_PLACEHOLDERS_TEST(Negate,    -, thrust::negate);
-

@@ -195,4 +195,3 @@ template<typename InputIterator,
 } // end namespace thrust
 
 #include <thrust/detail/transform_reduce.inl>
-

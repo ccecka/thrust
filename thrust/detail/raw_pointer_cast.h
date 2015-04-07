@@ -30,4 +30,3 @@ template<typename Pointer>
 } // end raw_pointer_cast()
 
 } // end thrust
-

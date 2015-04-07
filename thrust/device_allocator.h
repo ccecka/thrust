@@ -120,4 +120,3 @@ template<typename T>
  */
 
 } // end thrust
-

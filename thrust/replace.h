@@ -820,4 +820,3 @@ template<typename InputIterator1, typename InputIterator2, typename OutputIterat
 } // end thrust
 
 #include <thrust/detail/replace.inl>
-

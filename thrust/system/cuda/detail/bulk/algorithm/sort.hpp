@@ -168,4 +168,3 @@ stable_sort_by_key(bulk::bounded<bound,bulk::concurrent_group<bulk::agent<grains
 
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

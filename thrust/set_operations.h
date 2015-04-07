@@ -2960,4 +2960,3 @@ template<typename InputIterator1,
 } // end thrust
 
 #include <thrust/detail/set_operations.inl>
-

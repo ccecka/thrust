@@ -321,4 +321,3 @@ template<typename Engine1, size_t s1, typename Engine2, size_t s2, typename resu
 } // end random
 
 } // end thrust
-

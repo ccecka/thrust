@@ -277,4 +277,3 @@ InputIterator for_each_n(InputIterator first,
 } // end namespace thrust
 
 #include <thrust/detail/for_each.inl>
-

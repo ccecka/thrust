@@ -38,4 +38,3 @@ struct random_access_traversal_tag
   : bidirectional_traversal_tag {};
 
 } // end thrust
-

@@ -247,4 +247,3 @@ void stable_sort_by_key(execution_policy<DerivedPolicy> &exec,
 } // end namespace omp
 } // end namespace system
 } // end namespace thrust
-

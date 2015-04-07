@@ -160,4 +160,3 @@ __host__ __device__
 } // end functional
 } // end detail
 } // end thrust
-

@@ -311,4 +311,3 @@ void TestTransformBinaryCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestTransformBinaryCudaStreams);
-

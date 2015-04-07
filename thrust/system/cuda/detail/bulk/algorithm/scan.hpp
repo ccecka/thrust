@@ -595,4 +595,3 @@ exclusive_scan(bulk::concurrent_group<agent<grainsize>,groupsize> &g,
 
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

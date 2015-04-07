@@ -196,4 +196,3 @@ __device__ void merging_sort(Context context,
 } // end namespace cuda
 } // end namespace system
 } // end namespace thrust
-

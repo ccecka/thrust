@@ -81,4 +81,3 @@ using thrust::system::cpp::tag;
 
 } // end cpp
 } // end thrust
-

@@ -54,4 +54,3 @@ template<typename Category, typename System, typename Traversal>
 
 } // end detail
 } // end thrust
-

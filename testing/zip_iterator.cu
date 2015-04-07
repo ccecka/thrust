@@ -468,4 +468,3 @@ void TestZipIteratorCopySoAToAoS(void)
   ASSERT_EQUAL_QUIET(13, get<1>(h_soa[0]));
 };
 DECLARE_UNITTEST(TestZipIteratorCopySoAToAoS);
-

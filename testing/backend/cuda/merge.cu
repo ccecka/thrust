@@ -114,4 +114,3 @@ void TestMergeCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestMergeCudaStreams);
-

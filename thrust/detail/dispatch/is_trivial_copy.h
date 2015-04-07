@@ -56,4 +56,3 @@ template<typename FromIterator, typename ToIterator>
 } // end namespace detail
 
 } // end namespace thrust
-

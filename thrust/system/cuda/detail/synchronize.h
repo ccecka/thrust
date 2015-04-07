@@ -43,4 +43,3 @@ void synchronize_if_enabled(const char *message = "");
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/synchronize.inl>
-

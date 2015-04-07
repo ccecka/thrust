@@ -280,4 +280,3 @@ template<typename Pair> struct tuple_size;
 } // end thrust
 
 #include <thrust/detail/pair.inl>
-

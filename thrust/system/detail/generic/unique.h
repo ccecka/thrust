@@ -75,4 +75,3 @@ OutputIterator unique_copy(thrust::execution_policy<DerivedPolicy> &exec,
 } // end namespace thrust
 
 #include <thrust/system/detail/generic/unique.inl>
-

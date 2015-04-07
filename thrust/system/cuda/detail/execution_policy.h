@@ -128,4 +128,3 @@ using thrust::system::cuda::tag;
 
 } // end cuda
 } // end thrust
-

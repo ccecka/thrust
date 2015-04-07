@@ -242,4 +242,3 @@ zip_iterator<IteratorTuple> make_zip_iterator(IteratorTuple t);
 } // end thrust
 
 #include <thrust/iterator/detail/zip_iterator.inl>
-

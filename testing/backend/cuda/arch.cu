@@ -241,4 +241,3 @@ void TestUnknownDeviceRobustness(void)
 DECLARE_UNITTEST(TestUnknownDeviceRobustness);
 
 #endif // defined(__CUDACC__)
-

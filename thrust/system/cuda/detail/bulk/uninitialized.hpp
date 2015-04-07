@@ -298,4 +298,3 @@ template<typename T, std::size_t N>
 
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

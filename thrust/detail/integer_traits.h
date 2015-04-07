@@ -129,4 +129,3 @@ template<>
 } // end detail
 
 } // end thrust
-

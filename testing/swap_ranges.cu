@@ -217,4 +217,3 @@ void TestSwapRangesUserSwap(void)
   ASSERT_EQUAL_QUIET(ref, d_B[2]);
 }
 DECLARE_UNITTEST(TestSwapRangesUserSwap);
-

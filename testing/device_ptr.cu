@@ -92,4 +92,3 @@ void TestRawPointerCast(void)
     //ASSERT_EQUAL(last - first, 3);
 }
 DECLARE_VECTOR_UNITTEST(TestRawPointerCast);
-

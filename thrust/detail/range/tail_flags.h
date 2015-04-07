@@ -131,4 +131,3 @@ tail_flags<RandomAccessIterator>
 
 } // end detail
 } // end thrust
-

@@ -210,4 +210,3 @@ template<typename OutputIterator,
 } // end namespace thrust
 
 #include <thrust/detail/generate.inl>
-

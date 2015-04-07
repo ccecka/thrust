@@ -116,4 +116,3 @@ template<typename InputIterator,
 
 
 } // end namespace thrust
-

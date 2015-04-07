@@ -146,4 +146,3 @@ InputIterator find_if_not(thrust::execution_policy<DerivedPolicy> &exec,
 } // end namespace detail
 } // end namespace system
 } // end namespace thrust
-

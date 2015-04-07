@@ -59,4 +59,3 @@
 #else
 #  define __BULK_HAS_PRINTF__ 1
 #endif
-

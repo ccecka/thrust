@@ -54,4 +54,3 @@ static bool equal(const EngineOrDistribution &lhs, const EngineOrDistribution &r
 } // end random
 
 } // end thrust
-

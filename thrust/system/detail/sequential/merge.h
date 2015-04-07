@@ -77,4 +77,3 @@ thrust::pair<OutputIterator1,OutputIterator2>
 } // end namespace thrust
 
 #include <thrust/system/detail/sequential/merge.inl>
-

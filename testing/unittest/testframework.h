@@ -260,4 +260,3 @@ template<template <typename> class TestName,
     loop(0);
   }
 }; // end VectorUnitTest
-

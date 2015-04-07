@@ -51,4 +51,3 @@ BidirectionalIterator2 copy_backward(BidirectionalIterator1 first,
 } // end namespace detail
 } // end namespace system
 } // end namespace thrust
-

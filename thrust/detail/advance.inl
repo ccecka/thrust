@@ -36,4 +36,3 @@ void advance(InputIterator& i, Distance n)
 
 
 } // end namespace thrust
-

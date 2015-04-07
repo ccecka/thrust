@@ -63,4 +63,3 @@ template<typename DerivedPolicy,
 } // end namespace omp
 } // end namespace system
 } // end namespace thrust
-

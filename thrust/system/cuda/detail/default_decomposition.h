@@ -45,4 +45,3 @@ thrust::system::detail::internal::uniform_decomposition<IndexType> default_decom
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/default_decomposition.inl>
-

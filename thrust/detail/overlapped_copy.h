@@ -128,4 +128,3 @@ template<typename RandomAccessIterator1,
 
 } // end detail
 } // end thrust
-

@@ -112,4 +112,3 @@ template<template<typename> class BinaryOperator>
 } // end functional
 } // end detail
 } // end thrust
-

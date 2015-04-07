@@ -131,4 +131,3 @@ OutputIterator copy_device_to_device(execution_policy<DerivedPolicy> &exec,
 } // end namespace cuda
 } // end namespace system
 } // end namespace thrust
-

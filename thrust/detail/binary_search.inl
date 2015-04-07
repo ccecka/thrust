@@ -483,4 +483,3 @@ OutputIterator binary_search(ForwardIterator first,
 }
 
 } // end namespace thrust
-

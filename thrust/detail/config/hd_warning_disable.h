@@ -31,5 +31,3 @@
 #define __thrust_hd_warning_disable__
 
 #endif
-
-

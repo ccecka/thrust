@@ -127,4 +127,3 @@ numeric_distance(Number x, Number y)
 } // end detail
 
 } // end thrust
-

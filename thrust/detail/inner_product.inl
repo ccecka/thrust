@@ -105,4 +105,3 @@ inner_product(InputIterator1 first1, InputIterator1 last1,
 
 
 } // end namespace thrust
-

@@ -158,4 +158,3 @@ struct trait_name                                                               
     static const bool value = impl<trait_name##_has_member<T,Signature>::value, Signature>::value;                                        \
     typedef thrust::detail::integral_constant<bool,value> type;                                                                           \
 };
-

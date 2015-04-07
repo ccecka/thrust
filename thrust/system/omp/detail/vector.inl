@@ -94,4 +94,3 @@ template<typename T, typename Allocator>
 } // end omp
 } // end system
 } // end thrust
-

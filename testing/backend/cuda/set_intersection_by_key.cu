@@ -110,4 +110,3 @@ void TestSetIntersectionByKeyCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestSetIntersectionByKeyCudaStreams);
-

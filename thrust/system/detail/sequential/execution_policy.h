@@ -77,4 +77,3 @@ static const tag seq;
 } // end detail
 } // end system
 } // end thrust
-

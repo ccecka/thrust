@@ -88,4 +88,3 @@ void TestSetUnionCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestSetUnionCudaStreams);
-

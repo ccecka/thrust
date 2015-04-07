@@ -48,5 +48,3 @@ template<typename T1,
 } // end detail
 
 } // end thrust
-
-

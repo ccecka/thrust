@@ -88,4 +88,3 @@ void TestSetSymmetricDifferenceCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestSetSymmetricDifferenceCudaStreams);
-

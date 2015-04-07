@@ -39,4 +39,3 @@ template<typename IteratorFacade1, typename IteratorFacade2>
 } // end detail
 
 } // end thrust
-

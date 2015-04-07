@@ -34,4 +34,3 @@ template<typename T, typename Alloc>
 } // end device_vector::device_vector()
 
 } // end namespace thrust
-

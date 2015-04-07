@@ -79,4 +79,3 @@ void stable_primitive_sort_by_key(execution_policy<DerivedPolicy> &exec,
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/detail/stable_primitive_sort.inl>
-

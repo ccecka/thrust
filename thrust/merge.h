@@ -677,4 +677,3 @@ template<typename InputIterator1, typename InputIterator2, typename InputIterato
 } // end thrust
 
 #include <thrust/detail/merge.inl>
-

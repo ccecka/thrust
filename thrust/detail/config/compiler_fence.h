@@ -51,4 +51,3 @@
 #define __thrust_compiler_fence() do {} while (0)
 
 #endif
-

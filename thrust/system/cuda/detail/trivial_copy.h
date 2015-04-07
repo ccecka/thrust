@@ -55,4 +55,3 @@ void trivial_copy_n(cross_system<System1,System2> &exec,
 } // end thrust
 
 #include <thrust/system/cuda/detail/trivial_copy.inl>
-

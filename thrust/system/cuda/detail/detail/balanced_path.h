@@ -153,4 +153,3 @@ thrust::pair<Size1,Size1>
 } // end namespace cuda
 } // end namespace system
 } // end namespace thrust
-

@@ -597,4 +597,3 @@ inline void free(ConcurrentGroup &g, void *ptr)
 
 } // end namespace bulk
 BULK_NAMESPACE_SUFFIX
-

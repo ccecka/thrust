@@ -98,4 +98,3 @@ RandomAccessIterator3 set_union(execution_policy<DerivedPolicy> &exec,
 #include <thrust/system/cuda/detail/set_intersection.inl>
 #include <thrust/system/cuda/detail/set_symmetric_difference.inl>
 #include <thrust/system/cuda/detail/set_union.inl>
-

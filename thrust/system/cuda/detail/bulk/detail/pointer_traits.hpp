@@ -72,4 +72,3 @@ inline __device__ bool is_global(const void *ptr)
 } // end detail
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

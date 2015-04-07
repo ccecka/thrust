@@ -62,4 +62,3 @@ void iter_swap(tag, Pointer1 a, Pointer2 b)
 } // end cuda
 } // end system
 } // end thrust
-

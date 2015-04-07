@@ -25,4 +25,3 @@
 #include <thrust/system/cuda/detail/bulk/algorithm.hpp>
 #include <thrust/system/cuda/detail/bulk/iterator.hpp>
 #include <thrust/system/cuda/detail/bulk/uninitialized.hpp>
-

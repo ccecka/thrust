@@ -910,4 +910,3 @@ void TestNormalDistributionSaveRestore(void)
   TestDistributionSaveRestore<double_dist>();
 }
 DECLARE_UNITTEST(TestNormalDistributionSaveRestore);
-

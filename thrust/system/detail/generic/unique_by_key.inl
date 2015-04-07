@@ -139,4 +139,3 @@ template<typename ExecutionPolicy,
 } // end namespace detail
 } // end namespace system
 } // end namespace thrust
-

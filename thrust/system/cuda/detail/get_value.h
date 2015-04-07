@@ -90,4 +90,3 @@ inline __host__ __device__
 } // end cuda
 } // end system
 } // end thrust
-

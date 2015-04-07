@@ -298,4 +298,3 @@ template<typename System1,
 } // end cuda
 } // end system
 } // end thrust
-

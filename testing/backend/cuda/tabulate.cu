@@ -99,4 +99,3 @@ void TestTabulateCudaStreams()
   cudaStreamSynchronize(s);
 }
 DECLARE_UNITTEST(TestTabulateCudaStreams);
-

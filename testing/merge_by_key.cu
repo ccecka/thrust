@@ -316,4 +316,3 @@ template<typename T>
   }
 }
 DECLARE_VARIABLE_UNITTEST(TestMergeByKeyDescending);
-

@@ -208,4 +208,3 @@ template<typename T>
   ASSERT_ALMOST_EQUAL(h_result, d_result);
 }
 DECLARE_VARIABLE_UNITTEST(TestReduceCountingIterator);
-

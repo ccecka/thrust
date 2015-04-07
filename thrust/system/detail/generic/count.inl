@@ -77,4 +77,3 @@ count_if(thrust::execution_policy<DerivedPolicy> &exec, InputIterator first, Inp
 } // end detail
 } // end system
 } // end thrust
-

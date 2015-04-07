@@ -167,4 +167,3 @@ unsigned int lookup(unsigned int key)
 
 } // end namespace detail
 } // end namespace thrust
-

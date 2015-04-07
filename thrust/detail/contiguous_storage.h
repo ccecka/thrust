@@ -153,4 +153,3 @@ void swap(detail::contiguous_storage<T,Alloc> &lhs, detail::contiguous_storage<T
 } // end thrust
 
 #include <thrust/detail/contiguous_storage.inl>
-

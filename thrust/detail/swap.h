@@ -33,4 +33,3 @@ inline void swap(Assignable1 &a, Assignable2 &b)
 } // end swap()
 
 } // end namespace thrust
-

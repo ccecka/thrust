@@ -206,4 +206,3 @@ closure<
 } // end detail
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

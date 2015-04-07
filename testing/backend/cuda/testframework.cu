@@ -199,4 +199,3 @@ UnitTestDriver &driver_instance(thrust::system::cuda::tag)
   static CUDATestDriver s_instance;
   return s_instance;
 }
-

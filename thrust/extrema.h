@@ -801,4 +801,3 @@ thrust::pair<ForwardIterator,ForwardIterator> minmax_element(ForwardIterator fir
 
 #include <thrust/detail/extrema.inl>
 #include <thrust/detail/minmax.h>
-

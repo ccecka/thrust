@@ -158,4 +158,3 @@ void TestTransformScanCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestTransformScanCudaStreams);
-

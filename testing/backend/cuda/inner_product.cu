@@ -64,4 +64,3 @@ void TestInnerProductCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestInnerProductCudaStreams);
-

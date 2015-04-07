@@ -61,4 +61,3 @@ template<typename T, typename System, typename Pointer>
 
 } // end detail
 } // end thrust
-

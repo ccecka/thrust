@@ -71,4 +71,3 @@ template<typename BaseIterator, typename Tag>
 
 } // end detail
 } // end thrust
-

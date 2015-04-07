@@ -250,4 +250,3 @@ template<typename CategoryOrSystem,
 
 } // end detail
 } // end thrust
-

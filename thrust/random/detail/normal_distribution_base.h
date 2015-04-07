@@ -146,4 +146,3 @@ template<typename RealType>
 } // end detail
 } // end random
 } // end thrust
-

@@ -293,4 +293,3 @@ template<typename T, std::size_t N>
 } // end cuda
 } // end system
 } // end thrust
-

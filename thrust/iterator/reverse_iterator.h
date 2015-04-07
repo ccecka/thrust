@@ -235,4 +235,3 @@ reverse_iterator<BidirectionalIterator> make_reverse_iterator(BidirectionalItera
 } // end thrust
 
 #include <thrust/iterator/detail/reverse_iterator.inl>
-

@@ -112,4 +112,3 @@ InputIterator find_if_not(InputIterator first,
 
 
 } // end namespace thrust
-

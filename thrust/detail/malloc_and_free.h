@@ -82,4 +82,3 @@ void free(const thrust::detail::execution_policy_base<DerivedPolicy> &exec, Poin
 // instead infers the system from the pointer
 
 } // end namespace thrust
-

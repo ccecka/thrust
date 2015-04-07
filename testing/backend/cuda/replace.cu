@@ -274,4 +274,3 @@ void TestReplaceCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestReplaceCudaStreams);
-

@@ -88,4 +88,3 @@ __host__ __device__
 
 
 } // end namespace thrust
-

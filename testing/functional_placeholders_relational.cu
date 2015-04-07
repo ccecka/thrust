@@ -44,4 +44,3 @@ BINARY_FUNCTIONAL_PLACEHOLDERS_TEST(Greater,       >, thrust::greater);
 BINARY_FUNCTIONAL_PLACEHOLDERS_TEST(Less,          <, thrust::less);
 BINARY_FUNCTIONAL_PLACEHOLDERS_TEST(GreaterEqual, >=, thrust::greater_equal);
 BINARY_FUNCTIONAL_PLACEHOLDERS_TEST(LessEqual,    <=, thrust::less_equal);
-

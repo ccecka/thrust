@@ -50,4 +50,3 @@ template<typename ElementIterator,
 } // end detail
 
 } // end thrust
-

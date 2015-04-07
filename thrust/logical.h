@@ -276,4 +276,3 @@ bool none_of(InputIterator first, InputIterator last, Predicate pred);
 } // end namespace thrust
 
 #include <thrust/detail/logical.inl>
-

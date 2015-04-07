@@ -53,4 +53,3 @@ thrust::system::detail::internal::uniform_decomposition<IndexType> default_decom
 } // end namespace omp
 } // end namespace system
 } // end namespace thrust
-

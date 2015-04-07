@@ -70,4 +70,3 @@ template<typename Vector>
 };
 VectorUnitTest<TestFunctionalPlaceholdersTransformIterator, ThirtyTwoBitTypes, thrust::device_vector, thrust::device_malloc_allocator> TestFunctionalPlaceholdersTransformIteratorInstanceDevice;
 VectorUnitTest<TestFunctionalPlaceholdersTransformIterator, ThirtyTwoBitTypes, thrust::host_vector, std::allocator> TestFunctionalPlaceholdersTransformIteratorInstanceHost;
-

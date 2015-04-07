@@ -41,4 +41,3 @@ int main(void)
     std::cout << "maximum absolute difference: " << max_abs_diff << std::endl;
     return 0;
 }
-

@@ -41,4 +41,3 @@ struct TestSortVariableBits
   }
 };
 VariableUnitTest<TestSortVariableBits, UnsignedIntegerTypes> TestSortVariableBitsInstance;
-

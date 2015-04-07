@@ -338,4 +338,3 @@ template<typename DerivedPolicy, typename Iterator1, typename Iterator2, typenam
 } // end tbb
 } // end system
 } // end thrust
-

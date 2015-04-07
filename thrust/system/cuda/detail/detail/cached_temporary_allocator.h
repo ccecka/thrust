@@ -153,4 +153,3 @@ template<typename Pointer, typename DerivedPolicy, template<typename> class Base
 } // end cuda
 } // end system
 } // end thrust
-

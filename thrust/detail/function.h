@@ -100,4 +100,3 @@ template<typename Function, typename Result>
 
 } // end detail
 } // end thrust
-

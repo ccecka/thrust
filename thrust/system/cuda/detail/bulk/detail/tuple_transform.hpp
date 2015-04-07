@@ -416,4 +416,3 @@ tuple_host_device_transform(const Tuple &t, UnaryFunction f)
 } // end detail
 } // end thrust
 BULK_NAMESPACE_SUFFIX
-

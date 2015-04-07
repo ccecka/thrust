@@ -293,4 +293,3 @@ template<typename ForwardIterator, typename T>
 } // end namespace thrust
 
 #include <thrust/detail/sequence.inl>
-

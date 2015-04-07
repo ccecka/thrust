@@ -435,4 +435,3 @@ struct TestUniqueCopyByKeyToDiscardIterator
     }
 };
 VariableUnitTest<TestUniqueCopyByKeyToDiscardIterator, IntegralTypes> TestUniqueCopyByKeyToDiscardIteratorInstance;
-

@@ -463,4 +463,3 @@ struct TestVectorBinarySearchDiscardIterator
   }
 };
 VariableUnitTest<TestVectorBinarySearchDiscardIterator, SignedIntegralTypes> TestVectorBinarySearchDiscardIteratorInstance;
-

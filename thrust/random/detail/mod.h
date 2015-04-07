@@ -94,4 +94,3 @@ __host__ __device__
 } // end random
 
 } // end thrust
-

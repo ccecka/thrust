@@ -109,4 +109,3 @@ void TestSequenceCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestSequenceCudaStreams);
-

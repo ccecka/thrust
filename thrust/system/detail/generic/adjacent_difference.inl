@@ -78,4 +78,3 @@ OutputIterator adjacent_difference(thrust::execution_policy<DerivedPolicy> &exec
 } // end namespace detail
 } // end namespace system
 } // end namespace thrust
-

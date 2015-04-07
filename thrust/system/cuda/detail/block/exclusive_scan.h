@@ -71,4 +71,3 @@ inline __device__
 } // end namespace cuda
 } // end namespace system
 } // end namespace thrust
-

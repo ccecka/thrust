@@ -1200,4 +1200,3 @@ bool operator!=(const std::vector<T1,Alloc1>&         lhs,
 }
 
 } // end thrust
-

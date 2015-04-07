@@ -195,4 +195,3 @@ inline complex<float> log(const complex<float>& z){
 }
 
 } // namespace thrust
-

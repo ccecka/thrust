@@ -112,4 +112,3 @@ parameter_ptr<T> make_parameter(const T& x)
 } // end detail
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

@@ -54,4 +54,3 @@ void synchronize_if_enabled(const char *message)
 } // end namespace cuda
 } // end namespace system
 } // end namespace thrust
-

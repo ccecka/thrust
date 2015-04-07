@@ -226,4 +226,3 @@ void TestExclusiveScanByKeyCudaStreams()
   ASSERT_EQUAL(output[6], 16);
 }
 DECLARE_UNITTEST(TestExclusiveScanByKeyCudaStreams);
-

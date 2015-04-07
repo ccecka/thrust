@@ -305,4 +305,3 @@ struct TestFindIfNot
     }
 };
 VariableUnitTest<TestFindIfNot, SignedIntegralTypes> TestFindIfNotInstance;
-

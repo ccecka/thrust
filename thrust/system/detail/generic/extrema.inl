@@ -258,4 +258,3 @@ thrust::pair<ForwardIterator,ForwardIterator> minmax_element(thrust::execution_p
 } // end namespace detail
 } // end namespace system
 } // end namespace thrust
-

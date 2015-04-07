@@ -47,4 +47,3 @@ inline void terminate_with_message(const char* message)
 } // end cuda
 } // end system
 } // end thrust
-

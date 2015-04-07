@@ -92,4 +92,3 @@ void iter_swap(tag, Pointer1, Pointer2)
 } // end detail
 } // end system
 } // end thrust
-

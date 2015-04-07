@@ -202,4 +202,3 @@ inline double hypot(double x, double y){
 } // namespace detail
 
 } // namespace thrust
-

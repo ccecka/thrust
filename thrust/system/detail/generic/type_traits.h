@@ -165,4 +165,3 @@ template<typename Tag1, typename Tag2, typename Tag3, typename Tag4, typename Ta
 } // end detail
 } // end system
 } // end thrust
-

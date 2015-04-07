@@ -93,4 +93,3 @@
 #    undef CUB_NEEDS_RESTORE
 #  endif
 #endif // __GNUC__
-

@@ -169,4 +169,3 @@ minmax_element(ForwardIterator first, ForwardIterator last, BinaryPredicate comp
 
 
 } // end namespace thrust
-

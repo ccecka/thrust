@@ -53,4 +53,3 @@ void reduce_intervals(execution_policy<DerivedPolicy> &exec,
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/reduce_intervals.inl>
-

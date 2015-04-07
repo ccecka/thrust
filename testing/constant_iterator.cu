@@ -161,4 +161,3 @@ void TestConstantIteratorReduce(void)
   ASSERT_EQUAL(sum, 4 * 7);
 };
 DECLARE_UNITTEST(TestConstantIteratorReduce);
-

@@ -220,4 +220,3 @@ template<std::size_t Len, std::size_t Align>
 } // end cuda
 } // end system
 } // end thrust
-

@@ -123,4 +123,3 @@ void TestIsCommutative(void)
   { typedef thrust::tuple<int,int> T; typedef thrust::plus<T>  Op; ASSERT_EQUAL((bool) thrust::detail::is_commutative<Op>::value, false); }
 }
 DECLARE_UNITTEST(TestIsCommutative);
-

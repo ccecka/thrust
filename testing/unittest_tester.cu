@@ -32,4 +32,3 @@ void TestTypeName(void)
     ASSERT_EQUAL(unittest::type_name<double>(),        "double");
 }
 DECLARE_UNITTEST(TestTypeName);
-

@@ -49,4 +49,3 @@ template<typename T> struct has_trivial_assign
 } // end detail
 
 } // end thrust
-

@@ -102,4 +102,3 @@ struct TestOmpReduceIntervals
   }
 };
 VariableUnitTest<TestOmpReduceIntervals, IntegralTypes> TestOmpReduceIntervalsInstance;
-

@@ -150,4 +150,3 @@ void insertion_sort_by_key(RandomAccessIterator1 first1,
 } // end namespace detail
 } // end namespace system
 } // end namespace thrust
-

@@ -82,4 +82,3 @@ void TestMinElementCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestMinElementCudaStreams);
-

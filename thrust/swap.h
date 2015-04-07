@@ -188,4 +188,3 @@ template<typename ForwardIterator1,
 } // end thrust
 
 #include <thrust/detail/swap.inl>
-

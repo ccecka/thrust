@@ -60,4 +60,3 @@ InputIterator find_if_not(thrust::execution_policy<DerivedPolicy> &exec,
 } // end namespace thrust
 
 #include <thrust/system/detail/generic/find.inl>
-

@@ -264,5 +264,3 @@ struct TestUniqueCopyToDiscardIterator
     }
 };
 VariableUnitTest<TestUniqueCopyToDiscardIterator, IntegralTypes> TestUniqueCopyToDiscardIteratorInstance;
-
-

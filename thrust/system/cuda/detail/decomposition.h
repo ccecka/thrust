@@ -249,4 +249,3 @@ aligned_decomposition<Size> make_aligned_decomposition(Size n, Size num_partitio
 } // end cuda
 } // end system
 } // end thrust
-

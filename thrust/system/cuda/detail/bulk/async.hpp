@@ -87,4 +87,3 @@ future<void> async(ExecutionGroup g, Function f, Arg1 arg1, Arg2 arg2, Arg3 arg3
 BULK_NAMESPACE_SUFFIX
 
 #include <thrust/system/cuda/detail/bulk/detail/async.inl>
-

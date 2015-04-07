@@ -222,4 +222,3 @@ template<typename InputIterator1,
 
 
 } // end thrust
-

@@ -382,4 +382,3 @@ size_t max_blocksize_subject_to_smem_usage(const device_properties_t   &properti
 } // end detail
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

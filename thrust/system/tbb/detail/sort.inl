@@ -261,4 +261,3 @@ template<typename DerivedPolicy,
 } // end namespace tbb
 } // end namespace system
 } // end namespace thrust
-

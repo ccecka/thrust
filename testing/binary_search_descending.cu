@@ -126,4 +126,3 @@ void TestScalarEqualRangeDescendingSimple(void)
     ASSERT_EQUAL_QUIET(vec.begin() + 0, thrust::equal_range(vec.begin(), vec.end(), 9, thrust::greater<int>()).second);
 }
 DECLARE_VECTOR_UNITTEST(TestScalarEqualRangeDescendingSimple);
-

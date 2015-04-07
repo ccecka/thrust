@@ -108,4 +108,3 @@ void TestIsSortedUntilCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestIsSortedUntilCudaStreams);
-

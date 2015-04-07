@@ -211,4 +211,3 @@ void TestUninitializedFillNCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestUninitializedFillNCudaStreams);
-

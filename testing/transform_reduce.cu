@@ -125,4 +125,3 @@ void TestTransformReduceCountingIterator(void)
     ASSERT_EQUAL(result, -6);
 }
 DECLARE_VECTOR_UNITTEST(TestTransformReduceCountingIterator);
-

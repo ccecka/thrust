@@ -54,4 +54,3 @@ OutputIterator copy_n(execution_policy<DerivedPolicy> &exec,
 } // end namespace thrust
 
 #include <thrust/system/omp/detail/copy.inl>
-

@@ -18,4 +18,3 @@
 
 #include <thrust/system/cuda/detail/bulk/detail/config.hpp>
 #include <thrust/system/cuda/detail/bulk/iterator/strided_iterator.hpp>
-

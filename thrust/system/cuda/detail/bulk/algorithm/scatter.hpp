@@ -199,4 +199,3 @@ void scatter_if(bulk::concurrent_group<bulk::agent<grainsize>,groupsize> &g,
 
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

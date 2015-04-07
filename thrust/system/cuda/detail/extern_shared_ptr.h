@@ -55,4 +55,3 @@ template<typename T>
 } // end cuda
 } // end system
 } // end thrust
-

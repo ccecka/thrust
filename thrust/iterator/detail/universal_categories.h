@@ -84,4 +84,3 @@ struct random_access_universal_iterator_tag
 
 
 } // end thrust
-

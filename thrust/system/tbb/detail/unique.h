@@ -56,4 +56,3 @@ template<typename ExecutionPolicy,
 } // end namespace thrust
 
 #include <thrust/system/tbb/detail/unique.inl>
-

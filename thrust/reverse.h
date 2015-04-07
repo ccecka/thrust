@@ -212,4 +212,3 @@ template<typename BidirectionalIterator, typename OutputIterator>
 } // end thrust
 
 #include <thrust/detail/reverse.inl>
-

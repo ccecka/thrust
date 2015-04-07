@@ -273,4 +273,3 @@ template<typename FromPtr, typename ToPtr, typename T = void>
 
 } // end detail
 } // end thrust
-

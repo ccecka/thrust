@@ -114,4 +114,3 @@ void TestSetSymmetricDifferenceByKeyCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestSetSymmetricDifferenceByKeyCudaStreams);
-

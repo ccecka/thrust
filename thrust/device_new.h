@@ -85,4 +85,3 @@ template <typename T>
 } // end thrust
 
 #include <thrust/detail/device_new.inl>
-

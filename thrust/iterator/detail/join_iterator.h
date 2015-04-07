@@ -125,4 +125,3 @@ join_iterator<RandomAccessIterator1,RandomAccessIterator2,Size> make_join_iterat
 
 } // end detail
 } // end thrust
-

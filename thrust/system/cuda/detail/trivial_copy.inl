@@ -125,4 +125,3 @@ void trivial_copy_n(cross_system<System1,System2> &systems,
 } // end namespace cuda
 } // end namespace system
 } // end namespace thrust
-

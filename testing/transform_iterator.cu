@@ -83,4 +83,3 @@ struct TestTransformIteratorReduce
     }
 };
 VariableUnitTest<TestTransformIteratorReduce, IntegralTypes> TestTransformIteratorReduceInstance;
-

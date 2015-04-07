@@ -63,5 +63,3 @@ thrust::pair<ForwardIterator,ForwardIterator> minmax_element(execution_policy<De
 } // end tbb
 } // end system
 } // end thrust
-
-

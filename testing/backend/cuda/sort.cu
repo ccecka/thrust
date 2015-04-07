@@ -163,4 +163,3 @@ void TestComparisonSortCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestComparisonSortCudaStreams);
-

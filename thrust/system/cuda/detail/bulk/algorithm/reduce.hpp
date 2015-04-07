@@ -266,4 +266,3 @@ T reduce(bulk::concurrent_group<> &g,
 
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

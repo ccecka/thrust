@@ -62,4 +62,3 @@ RandomAccessIterator for_each_n(execution_policy<DerivedPolicy> &s,
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/for_each.inl>
-

@@ -109,4 +109,3 @@ struct TestZipIteratorScan
   }
 };
 VariableUnitTest<TestZipIteratorScan, SignedIntegralTypes> TestZipIteratorScanInstance;
-

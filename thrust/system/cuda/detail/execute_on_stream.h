@@ -104,4 +104,3 @@ class execute_on_stream
 } // end cuda
 } // end system
 } // end thrust
-

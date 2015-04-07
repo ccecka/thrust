@@ -255,4 +255,3 @@ void TestUniqueCopyCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestUniqueCopyCudaStreams);
-

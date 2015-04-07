@@ -108,4 +108,3 @@ DECLARE_UNITTEST(Test##OperatorName##FunctionalDevice);
 DECLARE_BINARY_BITWISE_FUNCTIONAL_UNITTEST(bit_and,       BitAnd      );
 DECLARE_BINARY_BITWISE_FUNCTIONAL_UNITTEST(bit_or,        BitOr       );
 DECLARE_BINARY_BITWISE_FUNCTIONAL_UNITTEST(bit_xor,       BitXor      );
-

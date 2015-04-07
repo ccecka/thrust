@@ -36,4 +36,3 @@ template<unsigned int i>
 } // end functional
 } // end detail
 } // end thrust
-

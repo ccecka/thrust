@@ -107,4 +107,3 @@ using thrust::system::omp::tag;
 
 } // end omp
 } // end thrust
-

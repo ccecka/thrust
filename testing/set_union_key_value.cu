@@ -92,4 +92,3 @@ template<typename U>
   ASSERT_EQUAL_QUIET(h_result, d_result);
 }
 DECLARE_VARIABLE_UNITTEST(TestSetUnionKeyValueDescending);
-

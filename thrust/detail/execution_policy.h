@@ -75,4 +75,3 @@ template<typename DerivedPolicy>
 
 
 } // end thrust
-

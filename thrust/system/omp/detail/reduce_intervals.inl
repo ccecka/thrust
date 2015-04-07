@@ -90,4 +90,3 @@ void reduce_intervals(execution_policy<DerivedPolicy> &,
 } // end namespace omp
 } // end namespace system
 } // end namespace thrust
-

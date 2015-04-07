@@ -236,4 +236,3 @@ using thrust::system::cuda::experimental::pinned_allocator;
 } // end cuda
 
 } // end thrust
-

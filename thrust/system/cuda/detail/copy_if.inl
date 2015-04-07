@@ -277,4 +277,3 @@ OutputIterator copy_if(execution_policy<DerivedPolicy> &exec,
 } // end namespace thrust
 
 __THRUST_DISABLE_MSVC_POSSIBLE_LOSS_OF_DATA_WARNING_END
-

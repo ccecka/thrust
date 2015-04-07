@@ -192,4 +192,3 @@ future<void> async(ExecutionGroup g, Function f, Arg1 arg1, Arg2 arg2, Arg3 arg3
 
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

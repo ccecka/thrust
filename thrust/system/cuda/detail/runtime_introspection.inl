@@ -206,4 +206,3 @@ size_t compute_capability(void)
 } // end namespace cuda
 } // end namespace system
 } // end namespace thrust
-

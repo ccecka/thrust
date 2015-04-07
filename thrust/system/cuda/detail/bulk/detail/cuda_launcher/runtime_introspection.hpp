@@ -79,4 +79,3 @@ BULK_NAMESPACE_SUFFIX
 #endif // __BULK_HAS_CUDART__
 
 #include <thrust/system/cuda/detail/bulk/detail/cuda_launcher/runtime_introspection.inl>
-

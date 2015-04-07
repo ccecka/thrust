@@ -130,4 +130,3 @@ bool operator<(const error_condition &lhs,
 } // end system
 
 } // end thrust
-

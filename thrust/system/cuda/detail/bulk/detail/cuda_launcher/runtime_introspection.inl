@@ -173,4 +173,3 @@ inline size_t compute_capability()
 } // end namespace detail
 } // end namespace bulk
 BULK_NAMESPACE_SUFFIX
-

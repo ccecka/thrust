@@ -58,4 +58,3 @@ template <typename DerivedPolicy,
 } // end namespace thrust
 
 #include <thrust/system/omp/detail/reduce_by_key.inl>
-

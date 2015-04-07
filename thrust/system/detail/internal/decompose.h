@@ -111,4 +111,3 @@ namespace internal
 } // end namespace detail
 } // end namespace system
 } // end namespace thrust
-

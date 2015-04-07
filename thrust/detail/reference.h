@@ -171,4 +171,3 @@ operator<<(std::basic_ostream<charT, traits> &os,
 } // end thrust
 
 #include <thrust/detail/reference.inl>
-

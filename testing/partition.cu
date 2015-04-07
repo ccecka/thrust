@@ -1628,4 +1628,3 @@ void TestStablePartitionCopyStencilDispatchImplicit()
     ASSERT_EQUAL(13, vec.front());
 }
 DECLARE_UNITTEST(TestStablePartitionCopyStencilDispatchImplicit);
-

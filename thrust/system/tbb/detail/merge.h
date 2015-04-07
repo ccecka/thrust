@@ -67,4 +67,3 @@ thrust::pair<OutputIterator1,OutputIterator2>
 } // end thrust
 
 #include <thrust/system/tbb/detail/merge.inl>
-

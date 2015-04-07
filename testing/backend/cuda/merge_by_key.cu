@@ -128,4 +128,3 @@ void TestMergeByKeyCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestMergeByKeyCudaStreams);
-

@@ -76,4 +76,3 @@ template<typename, bool x>
       sizeof(::thrust::detail::STATIC_ASSERTION_FAILURE< (bool)( B ) >)>\
          THRUST_JOIN(thrust_static_assert_typedef_, __LINE__)
 #endif // gcc 4.8+
-

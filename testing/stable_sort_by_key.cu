@@ -135,4 +135,3 @@ struct TestStableSortByKeySemantics
     }
 };
 VariableUnitTest<TestStableSortByKeySemantics, unittest::type_list<unittest::uint8_t,unittest::uint16_t,unittest::uint32_t> > TestStableSortByKeySemanticsInstance;
-

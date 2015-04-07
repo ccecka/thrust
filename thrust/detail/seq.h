@@ -59,5 +59,3 @@ static const detail::seq_t seq;
 
 
 } // end thrust
-
-

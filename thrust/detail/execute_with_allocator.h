@@ -93,4 +93,3 @@ template<typename Allocator, template <typename> class BaseSystem>
 
 } // end detail
 } // end thrust
-

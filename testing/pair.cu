@@ -268,4 +268,3 @@ void TestPairSwap(void)
   ASSERT_EQUAL_QUIET(ref, (swappable_pair)d_v1[0]);
 }
 DECLARE_UNITTEST(TestPairSwap);
-

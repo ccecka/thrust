@@ -54,4 +54,3 @@ template<typename ForwardIterator, typename UnaryOperation>
 
 
 } // end namespace thrust
-

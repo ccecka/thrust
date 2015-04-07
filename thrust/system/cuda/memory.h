@@ -421,4 +421,3 @@ using thrust::system::cuda::allocator;
 } // end thrust
 
 #include <thrust/system/cuda/detail/memory.inl>
-

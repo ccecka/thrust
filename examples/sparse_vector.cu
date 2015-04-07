@@ -105,4 +105,3 @@ int main(void)
     std::cout << "B "; print_sparse_vector(B_index, B_value);
     std::cout << "C "; print_sparse_vector(C_index, C_value);
 }
-

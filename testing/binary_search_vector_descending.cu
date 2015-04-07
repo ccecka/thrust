@@ -216,4 +216,3 @@ struct TestVectorBinarySearchDescending
   }
 };
 VariableUnitTest<TestVectorBinarySearchDescending, SignedIntegralTypes> TestVectorBinarySearchDescendingInstance;
-

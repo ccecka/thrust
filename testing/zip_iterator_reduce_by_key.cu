@@ -121,4 +121,3 @@ struct TestZipIteratorReduceByKey
   }
 };
 VariableUnitTest<TestZipIteratorReduceByKey, UnsignedIntegralTypes> TestZipIteratorReduceByKeyInstance;
-

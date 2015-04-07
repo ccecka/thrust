@@ -248,4 +248,3 @@ constant_iterator<V> make_constant_iterator(V x)
  */
 
 } // end namespace thrust
-

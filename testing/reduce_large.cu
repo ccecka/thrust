@@ -34,4 +34,3 @@ void TestReduceWithLargeTypes(void)
   //  _TestReduceWithLargeTypes<int,  512>();
 }
 DECLARE_UNITTEST(TestReduceWithLargeTypes);
-

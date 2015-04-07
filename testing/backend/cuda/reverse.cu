@@ -140,4 +140,3 @@ void TestReverseCopyCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestReverseCopyCudaStreams);
-

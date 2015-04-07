@@ -318,4 +318,3 @@ void TestUniqueCopyByKeyCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestUniqueCopyByKeyCudaStreams);
-

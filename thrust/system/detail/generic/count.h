@@ -48,4 +48,3 @@ count_if(thrust::execution_policy<DerivedPolicy> &exec, InputIterator first, Inp
 } // end namespace thrust
 
 #include <thrust/system/detail/generic/count.inl>
-

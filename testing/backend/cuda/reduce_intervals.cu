@@ -105,4 +105,3 @@ struct TestCudaReduceIntervals
   }
 };
 VariableUnitTest<TestCudaReduceIntervals, IntegralTypes> TestCudaReduceIntervalsInstance;
-

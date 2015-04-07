@@ -157,5 +157,3 @@ void TestSortByKeyBoolDescending(void)
     ASSERT_EQUAL(h_values, d_values);
 }
 DECLARE_UNITTEST(TestSortByKeyBoolDescending);
-
-

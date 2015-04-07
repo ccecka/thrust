@@ -61,4 +61,3 @@ void stable_sort_by_key(sequential::execution_policy<DerivedPolicy> &exec,
 } // end namespace thrust
 
 #include <thrust/system/detail/sequential/sort.inl>
-

@@ -146,4 +146,3 @@ using thrust::system::omp::vector;
 } // end thrust
 
 #include <thrust/system/omp/detail/vector.inl>
-

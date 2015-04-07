@@ -196,4 +196,3 @@ void TestSetUnionToDiscardIterator(const size_t n)
   ASSERT_EQUAL_QUIET(reference, d_result);
 }
 DECLARE_VARIABLE_UNITTEST(TestSetUnionToDiscardIterator);
-

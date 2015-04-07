@@ -364,4 +364,3 @@ void TestScatterIfCountingIterator(void)
     ASSERT_EQUAL(output, map);
 }
 DECLARE_VECTOR_UNITTEST(TestScatterIfCountingIterator);
-

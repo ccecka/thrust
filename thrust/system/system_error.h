@@ -176,4 +176,3 @@ using system::system_error;
 } // end thrust
 
 #include <thrust/system/detail/system_error.inl>
-

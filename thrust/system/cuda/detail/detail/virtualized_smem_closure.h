@@ -62,4 +62,3 @@ template<typename Closure, typename RandomAccessIterator>
 } // end cuda
 } // end system
 } // end thrust
-

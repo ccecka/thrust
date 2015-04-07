@@ -79,4 +79,3 @@ void free(execution_policy<DerivedPolicy> &, Pointer ptr)
 } // end cuda
 } // end system
 } // end thrust
-

@@ -526,4 +526,3 @@ void stable_radix_sort_by_key(execution_policy<DerivedPolicy> &exec,
 
 
 #endif // THRUST_DEVICE_COMPILER == THRUST_DEVICE_COMPILER_NVCC
-

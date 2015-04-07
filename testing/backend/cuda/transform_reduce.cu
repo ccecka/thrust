@@ -65,4 +65,3 @@ void TestTransformReduceCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestTransformReduceCudaStreams);
-

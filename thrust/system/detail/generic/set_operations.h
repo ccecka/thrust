@@ -316,4 +316,3 @@ thrust::pair<OutputIterator1,OutputIterator2>
 } // end namespace thrust
 
 #include <thrust/system/detail/generic/set_operations.inl>
-

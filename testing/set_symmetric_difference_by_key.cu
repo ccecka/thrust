@@ -317,4 +317,3 @@ void TestSetSymmetricDifferenceByKeyMultiset(const size_t n)
   ASSERT_EQUAL(h_result_val, d_result_val);
 }
 DECLARE_VARIABLE_UNITTEST(TestSetSymmetricDifferenceByKeyMultiset);
-

@@ -170,4 +170,3 @@ RandomAccessIterator3 set_difference(execution_policy<DerivedPolicy> &exec,
 } // end namespace cuda
 } // end namespace system
 } // end namespace thrust
-

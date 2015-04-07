@@ -531,4 +531,3 @@ bool operator!=(const std::vector<T1,Alloc1>&         lhs,
 } // end thrust
 
 #include <thrust/detail/vector_base.inl>
-

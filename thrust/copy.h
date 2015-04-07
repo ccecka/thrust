@@ -510,4 +510,3 @@ template<typename InputIterator1,
 
 #include <thrust/detail/copy.h>
 #include <thrust/detail/copy_if.h>
-

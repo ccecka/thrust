@@ -122,4 +122,3 @@ template<typename DerivedPolicy, typename RandomAccessIterator1, typename Size, 
 } // end tbb
 } // end system
 } // end thrust
-

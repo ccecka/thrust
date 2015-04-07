@@ -200,4 +200,3 @@ bool operator!=(const xor_combine_engine<Engine1,s1,Engine2,s2> &lhs,
 } // end random
 
 } // end thrust
-

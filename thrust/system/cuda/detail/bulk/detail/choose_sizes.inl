@@ -119,4 +119,3 @@ thrust::pair<typename parallel_group<concurrent_group<> >::size_type,
 
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

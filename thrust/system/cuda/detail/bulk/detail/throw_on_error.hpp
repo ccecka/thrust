@@ -52,4 +52,3 @@ void throw_on_error(cudaError_t e, const char *message)
 } // end detail
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

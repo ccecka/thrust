@@ -79,4 +79,3 @@ thrust::pair<typename parallel_group<concurrent_group<> >::size_type,
 BULK_NAMESPACE_SUFFIX
 
 #include <thrust/system/cuda/detail/bulk/detail/choose_sizes.inl>
-

@@ -248,4 +248,3 @@ void TestReduceByKeyCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestReduceByKeyCudaStreams);
-

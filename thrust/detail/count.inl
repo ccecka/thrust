@@ -81,4 +81,3 @@ count_if(InputIterator first, InputIterator last, Predicate pred)
 
 
 } // end namespace thrust
-

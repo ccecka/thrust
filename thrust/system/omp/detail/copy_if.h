@@ -48,4 +48,3 @@ template<typename DerivedPolicy,
 } // end thrust
 
 #include <thrust/system/omp/detail/copy_if.inl>
-

@@ -148,4 +148,3 @@ template<typename KeyType,
 } // end namespace cuda
 } // end namespace system
 } // end namespace thrust
-

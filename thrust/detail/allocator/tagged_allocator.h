@@ -98,4 +98,3 @@ bool operator!=(const tagged_allocator<T1,Pointer1,Tag> &, const tagged_allocato
 } // end thrust
 
 #include <thrust/detail/allocator/tagged_allocator.inl>
-

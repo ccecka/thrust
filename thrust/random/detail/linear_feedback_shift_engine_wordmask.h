@@ -44,4 +44,3 @@ template<typename T, int w>
 } // end random
 
 } // end thrust
-

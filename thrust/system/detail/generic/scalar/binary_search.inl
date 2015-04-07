@@ -156,4 +156,3 @@ bool binary_search(RandomAccessIterator first, RandomAccessIterator last, const 
 } // end thrust
 
 #include <thrust/system/detail/generic/scalar/binary_search.inl>
-

@@ -67,4 +67,3 @@ struct TestRadixSortByKeyLongLongValues
 VariableUnitTest<TestRadixSortByKeyLongLongValues, UnsignedIntegerTypes> TestRadixSortByKeyLongLongValuesInstance;
 
 #endif // THRUST_DEVICE_SYSTEM == THRUST_DEVICE_SYSTEM_CUDA
-

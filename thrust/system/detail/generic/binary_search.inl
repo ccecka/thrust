@@ -383,4 +383,3 @@ equal_range(thrust::execution_policy<DerivedPolicy> &exec,
 } // end namespace detail
 } // end namespace system
 } // end namespace thrust
-

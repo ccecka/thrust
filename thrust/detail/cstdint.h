@@ -76,4 +76,3 @@ typedef divine_uintptr_t<>::type  uintptr_t;
 
 } // end detail
 } // end thrust
-

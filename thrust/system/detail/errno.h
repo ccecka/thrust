@@ -117,4 +117,3 @@ static const int emlink          = 9979;
 } // end system
 
 } // end thrust
-

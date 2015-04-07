@@ -259,4 +259,3 @@ function_attributes_t closure_attributes()
 } // end namespace cuda
 } // end namespace system
 } // end namespace thrust
-

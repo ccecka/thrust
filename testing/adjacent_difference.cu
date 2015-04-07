@@ -159,4 +159,3 @@ void TestAdjacentDifferenceDispatchImplicit()
     ASSERT_EQUAL(13, d_input.front());
 }
 DECLARE_UNITTEST(TestAdjacentDifferenceDispatchImplicit);
-

@@ -152,4 +152,3 @@ void TestAllocatorMinimal()
   ASSERT_EQUAL(ref, h_vec);
 }
 DECLARE_UNITTEST(TestAllocatorMinimal);
-

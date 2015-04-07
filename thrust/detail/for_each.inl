@@ -89,4 +89,3 @@ InputIterator for_each_n(InputIterator first,
 
 
 } // end namespace thrust
-

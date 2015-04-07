@@ -58,4 +58,3 @@ void synchronize_if_enabled(const char* message = "")
 } // end detail
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

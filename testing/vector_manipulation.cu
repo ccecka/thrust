@@ -99,4 +99,3 @@ void TestVectorManipulationDevice(size_t n)
     TestVectorManipulation< thrust::device_vector<T> >(n);
 }
 DECLARE_VARIABLE_UNITTEST(TestVectorManipulationDevice);
-

@@ -49,4 +49,3 @@ template<typename T, typename System, typename Pointer>
 } // end thrust
 
 #include <thrust/detail/allocator/malloc_allocator.inl>
-

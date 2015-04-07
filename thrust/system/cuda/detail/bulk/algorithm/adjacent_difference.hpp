@@ -139,4 +139,3 @@ RandomAccessIterator2 adjacent_difference(bulk::concurrent_group<bulk::agent<gra
 
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

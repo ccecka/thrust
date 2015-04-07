@@ -171,4 +171,3 @@ void TestSortByKeyCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestSortByKeyCudaStreams);
-

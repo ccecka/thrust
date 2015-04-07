@@ -119,4 +119,3 @@ template<typename BinaryPredicate>
 } // end not2()
 
 } // end thrust
-

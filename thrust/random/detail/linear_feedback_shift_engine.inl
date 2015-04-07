@@ -155,4 +155,3 @@ operator>>(std::basic_istream<CharT,Traits> &is,
 } // end random
 
 } // end thrust
-

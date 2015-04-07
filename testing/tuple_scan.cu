@@ -79,4 +79,3 @@ struct TestTupleScan
   }
 };
 VariableUnitTest<TestTupleScan, IntegralTypes> TestTupleScanInstance;
-

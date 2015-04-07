@@ -323,4 +323,3 @@ struct TestVectorFillInsert
     }
 }; // end TestVectorFillInsert
 VariableUnitTest<TestVectorFillInsert, IntegralTypes> TestVectorFillInsertInstance;
-

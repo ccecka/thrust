@@ -115,4 +115,3 @@ template<typename ForwardIterator, typename T>
 
 
 } // end namespace thrust
-

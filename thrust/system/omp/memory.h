@@ -411,4 +411,3 @@ using thrust::system::omp::allocator;
 } // end thrust
 
 #include <thrust/system/omp/detail/memory.inl>
-

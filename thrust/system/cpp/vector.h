@@ -146,4 +146,3 @@ using thrust::system::cpp::vector;
 } // end thrust
 
 #include <thrust/system/cpp/detail/vector.inl>
-

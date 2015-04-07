@@ -188,4 +188,3 @@ void inplace_inclusive_scan(Context &ctx, RandomAccessIterator first)
 } // end namespace cuda
 } // end namespace system
 } // end namespace thrust
-

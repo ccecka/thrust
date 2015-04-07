@@ -51,4 +51,3 @@ OutputIterator adjacent_difference(execution_policy<DerivedPolicy> &exec,
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/adjacent_difference.inl>
-

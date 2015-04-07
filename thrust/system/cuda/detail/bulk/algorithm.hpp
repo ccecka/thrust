@@ -27,4 +27,3 @@
 #include <thrust/system/cuda/detail/bulk/algorithm/reduce_by_key.hpp>
 #include <thrust/system/cuda/detail/bulk/algorithm/sort.hpp>
 #include <thrust/system/cuda/detail/bulk/algorithm/gather.hpp>
-

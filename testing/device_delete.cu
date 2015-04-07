@@ -43,4 +43,3 @@ void TestDeviceDeleteDestructorInvocation(void)
 //  ASSERT_EQUAL(true, destructor_flag[0]);
 }
 DECLARE_UNITTEST(TestDeviceDeleteDestructorInvocation);
-

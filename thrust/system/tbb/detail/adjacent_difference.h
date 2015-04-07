@@ -47,4 +47,3 @@ template<typename DerivedPolicy,
 } // end tbb
 } // end system
 } // end thrust
-

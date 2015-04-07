@@ -215,4 +215,3 @@ template<std::size_t Len, std::size_t Align>
 } // end detail
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

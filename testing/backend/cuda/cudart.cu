@@ -12,4 +12,3 @@ void TestCudaMallocResultAligned(const std::size_t n)
   ASSERT_EQUAL(true, thrust::detail::util::is_aligned(ptr));
 }
 DECLARE_VARIABLE_UNITTEST(TestCudaMallocResultAligned);
-

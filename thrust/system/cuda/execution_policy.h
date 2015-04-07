@@ -216,5 +216,3 @@ static const unspecified par;
 } // end system
 } // end thrust
 #endif
-
-

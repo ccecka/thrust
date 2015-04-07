@@ -198,4 +198,3 @@ bool operator!=(const discard_block_engine<Engine,p,r> &lhs,
 } // end random
 
 } // end thrust
-

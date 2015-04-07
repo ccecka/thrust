@@ -86,4 +86,3 @@ thrust::pair<ForwardIterator,ForwardIterator> minmax_element(thrust::execution_p
 } // end namespace thrust
 
 #include <thrust/system/detail/generic/extrema.inl>
-

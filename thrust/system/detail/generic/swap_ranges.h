@@ -44,4 +44,3 @@ __host__ __device__
 } // end namespace thrust
 
 #include <thrust/system/detail/generic/swap_ranges.inl>
-

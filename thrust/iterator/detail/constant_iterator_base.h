@@ -67,4 +67,3 @@ template<typename Value,
 } // end detail
 
 } // end thrust
-

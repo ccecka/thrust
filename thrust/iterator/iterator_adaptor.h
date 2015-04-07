@@ -236,4 +236,3 @@ template<typename Derived,
  */
 
 } // end thrust
-

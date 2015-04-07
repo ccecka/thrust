@@ -175,4 +175,3 @@ void TestScatterIfCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestScatterIfCudaStreams);
-

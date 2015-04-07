@@ -61,4 +61,3 @@ template<typename InputIterator,
 } // end namespace thrust
 
 #include <thrust/system/tbb/detail/scan.inl>
-

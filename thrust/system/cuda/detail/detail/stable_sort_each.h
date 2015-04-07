@@ -55,4 +55,3 @@ void stable_sort_each_copy(execution_policy<DerivedPolicy> &exec,
 } // end thrust
 
 #include <thrust/system/cuda/detail/detail/stable_sort_each.inl>
-

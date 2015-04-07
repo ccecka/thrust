@@ -341,4 +341,3 @@ make_transform_iterator(Iterator it, AdaptableUnaryFunction fun)
  */
 
 } // end thrust
-

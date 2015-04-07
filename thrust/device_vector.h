@@ -416,5 +416,3 @@ template<typename T, typename Alloc = thrust::device_malloc_allocator<T> >
 } // end thrust
 
 #include <thrust/detail/device_vector.inl>
-
-

@@ -38,4 +38,3 @@ template<typename Metafunction>
 } // end detail
 
 } // end thrust
-

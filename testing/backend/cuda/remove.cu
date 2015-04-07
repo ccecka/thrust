@@ -519,4 +519,3 @@ void TestRemoveCopyIfStencilCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestRemoveCopyIfStencilCudaStreams);
-

@@ -58,4 +58,3 @@ template <typename T>
   }
 }; // end TestPairZip
 VariableUnitTest<TestPairTransform, unittest::type_list<unittest::int8_t,unittest::int16_t,unittest::int32_t> > TestPairTransformInstance;
-

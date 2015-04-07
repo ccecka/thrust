@@ -56,4 +56,3 @@ bool is_aligned(T * ptr, detail::uintptr_t bytes = sizeof(T))
 } // end namespace util
 } // end namespace detail
 } // end namespace thrust
-

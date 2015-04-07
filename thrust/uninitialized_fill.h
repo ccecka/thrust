@@ -272,4 +272,3 @@ template<typename ForwardIterator, typename Size, typename T>
 } // end thrust
 
 #include <thrust/detail/uninitialized_fill.inl>
-

@@ -272,4 +272,3 @@ using random::normal_distribution;
 } // end thrust
 
 #include <thrust/random/detail/normal_distribution.inl>
-

@@ -82,4 +82,3 @@ template<typename T, typename System>
 } // end thrust
 
 #include <thrust/detail/allocator/temporary_allocator.inl>
-

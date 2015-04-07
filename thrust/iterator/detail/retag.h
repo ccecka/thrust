@@ -145,4 +145,3 @@ __host__ __device__
 
 
 } // end thrust
-

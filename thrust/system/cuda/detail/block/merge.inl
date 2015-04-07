@@ -165,4 +165,3 @@ __device__ __thrust_forceinline__
 } // end namespace cuda
 } // end namespace system
 } // end namespace thrust
-

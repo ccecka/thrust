@@ -49,4 +49,3 @@ OutputIterator copy_if(execution_policy<DerivedPolicy> &exec,
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/copy_if.inl>
-

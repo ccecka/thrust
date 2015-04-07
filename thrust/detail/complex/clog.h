@@ -209,4 +209,3 @@ inline complex<ValueType> log10(const complex<ValueType>& z){
 }
 
 } // namespace thrust
-

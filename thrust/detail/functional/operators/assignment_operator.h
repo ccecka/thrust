@@ -69,4 +69,3 @@ template<typename Eval, typename T>
 } // end functional
 } // end detail
 } // end thrust
-

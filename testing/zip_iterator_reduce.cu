@@ -49,6 +49,3 @@ struct TestZipIteratorReduce
   }
 };
 VariableUnitTest<TestZipIteratorReduce, IntegralTypes> TestZipIteratorReduceInstance;
-
-
-

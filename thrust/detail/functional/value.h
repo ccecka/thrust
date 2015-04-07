@@ -77,4 +77,3 @@ actor<value<T> > val(const T &x)
 } // end functional
 } // end detail
 } // end thrust
-

@@ -531,4 +531,3 @@ template<typename Compare>
 
 } // end namespace detail
 } // end namespace thrust
-

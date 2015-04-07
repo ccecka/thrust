@@ -55,4 +55,3 @@ bool equal(thrust::execution_policy<DerivedPolicy> &exec, InputIterator1 first1,
 } // end detail
 } // end system
 } // end thrust
-

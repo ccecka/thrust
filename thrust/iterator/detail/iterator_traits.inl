@@ -109,4 +109,3 @@ template<typename T>
 
 } // end namespace detail
 } // end namespace thrust
-

@@ -40,4 +40,3 @@ void TestStandardIntegerTypes(void)
   ASSERT_EQUAL(std::numeric_limits<thrust::detail::uintptr_t>::is_signed,  false);
 }
 DECLARE_UNITTEST(TestStandardIntegerTypes);
-

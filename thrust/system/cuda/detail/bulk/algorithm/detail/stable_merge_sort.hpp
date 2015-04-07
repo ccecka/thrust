@@ -209,4 +209,3 @@ stable_merge_sort_by_key(bulk::bounded<bound,bulk::concurrent_group<bulk::agent<
 } // end detail
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

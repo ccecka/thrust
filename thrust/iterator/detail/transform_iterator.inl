@@ -69,4 +69,3 @@ struct transform_iterator_base
 
 } // end detail
 } // end thrust
-

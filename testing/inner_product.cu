@@ -99,5 +99,3 @@ struct TestInnerProduct
     }
 };
 VariableUnitTest<TestInnerProduct, IntegralTypes> TestInnerProductInstance;
-
-

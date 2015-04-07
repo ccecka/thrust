@@ -1359,4 +1359,3 @@ template<typename ForwardIterator, typename Compare>
 } // end namespace thrust
 
 #include <thrust/detail/sort.inl>
-

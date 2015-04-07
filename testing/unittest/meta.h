@@ -257,4 +257,3 @@ template<typename TypeList1,
 };
 
 } // end unittest
-

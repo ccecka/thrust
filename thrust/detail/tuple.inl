@@ -945,4 +945,3 @@ inline bool operator>=(const detail::cons<T1, T2>& lhs, const detail::cons<S1, S
 } // end operator>=()
 
 } // end thrust
-

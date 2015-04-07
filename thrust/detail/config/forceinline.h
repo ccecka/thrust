@@ -33,4 +33,3 @@
 #define __thrust_forceinline__
 
 #endif
-

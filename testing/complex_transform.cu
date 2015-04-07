@@ -433,4 +433,3 @@ struct TestComplexTrigonometricTransform
   }
 };
 VariableUnitTest<TestComplexTrigonometricTransform, FloatingPointTypes> TestComplexTrigonometricTransformInstance;
-

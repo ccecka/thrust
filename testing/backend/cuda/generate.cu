@@ -144,4 +144,3 @@ void TestGenerateNCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestGenerateNCudaStreams);
-

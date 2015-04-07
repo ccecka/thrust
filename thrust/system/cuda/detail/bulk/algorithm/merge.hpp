@@ -609,4 +609,3 @@ merge_by_key(bulk::bounded<
 
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

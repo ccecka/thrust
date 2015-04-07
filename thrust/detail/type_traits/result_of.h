@@ -49,4 +49,3 @@ template<typename Functor, typename Arg1, typename Arg2>
 
 } // end detail
 } // end thrust
-

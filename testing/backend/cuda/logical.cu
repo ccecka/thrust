@@ -235,4 +235,3 @@ void TestNoneOfCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestNoneOfCudaStreams);
-

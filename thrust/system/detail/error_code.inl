@@ -194,4 +194,3 @@ bool operator!=(const error_condition &lhs, const error_condition &rhs)
 } // end system
 
 } // end thrust
-

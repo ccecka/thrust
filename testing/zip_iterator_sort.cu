@@ -28,4 +28,3 @@ template <typename T>
   }
 };
 VariableUnitTest<TestZipIteratorStableSort, unittest::type_list<unittest::int8_t,unittest::int16_t,unittest::int32_t> > TestZipIteratorStableSortInstance;
-

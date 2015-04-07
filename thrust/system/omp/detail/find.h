@@ -48,4 +48,3 @@ InputIterator find_if(execution_policy<DerivedPolicy> &exec,
 } // end namespace omp
 } // end namespace system
 } // end namespace thrust
-

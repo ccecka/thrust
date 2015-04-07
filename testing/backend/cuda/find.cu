@@ -205,4 +205,3 @@ void TestFindCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestFindCudaStreams);
-

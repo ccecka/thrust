@@ -47,4 +47,3 @@ template<typename DerivedPolicy,
 } // end omp
 } // end system
 } // end thrust
-

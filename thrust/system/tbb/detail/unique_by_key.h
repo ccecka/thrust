@@ -64,4 +64,3 @@ template<typename DerivedPolicy,
 } // end namespace thrust
 
 #include <thrust/system/tbb/detail/unique_by_key.inl>
-

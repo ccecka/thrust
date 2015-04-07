@@ -37,4 +37,3 @@ namespace thrust
 typedef THRUST_DEPRECATED host_system_tag host_space_tag;
 
 } // end thrust
-

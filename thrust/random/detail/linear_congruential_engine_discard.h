@@ -104,4 +104,3 @@ struct linear_congruential_engine_discard
 } // end random
 
 } // end thrust
-

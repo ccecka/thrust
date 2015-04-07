@@ -83,4 +83,3 @@ RandomAccessIterator3 gather(ExecutionGroup &g,
 
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

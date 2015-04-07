@@ -43,4 +43,3 @@ InputIterator find_if(execution_policy<DerivedPolicy> &exec,
 } // end namespace tbb
 } // end namespace system
 } // end namespace thrust
-

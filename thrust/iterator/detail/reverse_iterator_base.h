@@ -39,4 +39,3 @@ template<typename BidirectionalIterator>
 } // end detail
 
 } // end thrust
-

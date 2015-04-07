@@ -81,4 +81,3 @@ void TestCopyNDeviceDevice(size_t n)
   TestCopyNDevice<T>(thrust::device, n);
 }
 DECLARE_VARIABLE_UNITTEST(TestCopyNDeviceDevice);
-

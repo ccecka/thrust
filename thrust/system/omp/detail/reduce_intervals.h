@@ -50,4 +50,3 @@ void reduce_intervals(execution_policy<DerivedPolicy> &exec,
 } // end namespace thrust
 
 #include <thrust/system/omp/detail/reduce_intervals.inl>
-

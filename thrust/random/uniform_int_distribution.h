@@ -273,4 +273,3 @@ using random::uniform_int_distribution;
 } // end thrust
 
 #include <thrust/random/detail/uniform_int_distribution.inl>
-

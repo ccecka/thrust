@@ -67,4 +67,3 @@ unspecified_iterator_type retag(Iterator iter);
 
 
 } // end thrust
-

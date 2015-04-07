@@ -138,4 +138,3 @@ tail_flags_<RandomAccessIterator>
 } // end detail
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

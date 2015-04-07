@@ -71,4 +71,3 @@ void advance(InputIterator& i, Distance n);
 } // end thrust
 
 #include <thrust/detail/advance.inl>
-

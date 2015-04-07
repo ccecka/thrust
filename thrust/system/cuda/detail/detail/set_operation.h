@@ -54,4 +54,3 @@ RandomAccessIterator3 set_operation(execution_policy<DerivedPolicy> &exec,
 } // end thrust
 
 #include <thrust/system/cuda/detail/detail/set_operation.inl>
-

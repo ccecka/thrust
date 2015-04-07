@@ -138,4 +138,3 @@ template<typename Difference, typename Incrementable1, typename Incrementable2>
 
 } // end detail
 } // end thrust
-

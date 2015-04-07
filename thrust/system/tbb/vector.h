@@ -141,4 +141,3 @@ using thrust::system::tbb::vector;
 } // end thrust
 
 #include <thrust/system/tbb/detail/vector.inl>
-

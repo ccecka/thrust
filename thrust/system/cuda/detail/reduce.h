@@ -52,4 +52,3 @@ OutputType reduce(execution_policy<DerivedPolicy> &exec,
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/reduce.inl>
-

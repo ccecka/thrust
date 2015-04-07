@@ -51,4 +51,3 @@ template<typename DerivedPolicy,
 } // end namespace thrust
 
 #include <thrust/system/omp/detail/reduce.inl>
-

@@ -30,4 +30,3 @@ inline std::string demangle(const char* name)
 #endif
 
 } // end unittest
-

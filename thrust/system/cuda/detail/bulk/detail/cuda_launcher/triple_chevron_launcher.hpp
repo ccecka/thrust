@@ -209,4 +209,3 @@ class triple_chevron_launcher<block_size_,Function,false> : protected triple_che
 } // end detail
 } // end bul
 BULK_NAMESPACE_SUFFIX
-

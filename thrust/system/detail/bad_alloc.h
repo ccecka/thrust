@@ -54,4 +54,3 @@ class bad_alloc
 } // end detail
 } // end system
 } // end thrust
-

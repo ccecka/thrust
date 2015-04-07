@@ -69,4 +69,3 @@ void iter_swap(tag, Pointer1, Pointer2);
 } // end thrust
 
 #include <thrust/system/detail/generic/memory.inl>
-

@@ -189,4 +189,3 @@ template<typename Eval, typename Arg1, typename Arg2>
 } // end thrust
 
 #include <thrust/detail/functional/actor.inl>
-

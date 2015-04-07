@@ -179,4 +179,3 @@ thrust::device_system_tag select_system(thrust::any_system_tag)
 } // end detail
 } // end system
 } // end thrust
-

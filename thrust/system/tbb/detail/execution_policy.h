@@ -83,4 +83,3 @@ using thrust::system::tbb::tag;
 
 } // end tbb
 } // end thrust
-

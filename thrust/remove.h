@@ -803,4 +803,3 @@ template<typename InputIterator1,
 } // end thrust
 
 #include <thrust/detail/remove.inl>
-

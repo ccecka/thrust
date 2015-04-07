@@ -56,4 +56,3 @@ template<typename System1,
 } // end thrust
 
 #include <thrust/system/cuda/detail/copy_cross_system.inl>
-

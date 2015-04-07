@@ -294,4 +294,3 @@ RandomAccessIterator2 copy_n_global_to_shared(Context &ctx, RandomAccessIterator
 } // end namespace cuda
 } // end namespace system
 } // end namespace thrust
-

@@ -227,4 +227,3 @@ using random::linear_feedback_shift_engine;
 } // end thrust
 
 #include <thrust/random/detail/linear_feedback_shift_engine.inl>
-

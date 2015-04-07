@@ -87,4 +87,3 @@ OutputIterator copy_n(cross_system<System1,System2> systems,
 } // end cuda
 } // end system
 } // end thrust
-

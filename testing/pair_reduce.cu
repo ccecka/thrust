@@ -55,4 +55,3 @@ template <typename T>
   }
 }; // end TestPairReduce
 VariableUnitTest<TestPairReduce, SignedIntegralTypes> TestPairReduceInstance;
-

@@ -93,4 +93,3 @@ void TestEqualCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestEqualCudaStreams);
-

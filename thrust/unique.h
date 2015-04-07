@@ -965,4 +965,3 @@ template<typename InputIterator1,
 } // end namespace thrust
 
 #include <thrust/detail/unique.inl>
-

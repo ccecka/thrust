@@ -70,4 +70,3 @@ bool binary_search(execution_policy<DerivedPolicy> &exec,
 } // end omp
 } // end system
 } // end thrust
-

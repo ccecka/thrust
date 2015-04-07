@@ -213,4 +213,3 @@ void TestStableSortByKeyPermutationIterator(void)
   ASSERT_EQUAL(B[9], 9);
 }
 DECLARE_VECTOR_UNITTEST(TestStableSortByKeyPermutationIterator);
-

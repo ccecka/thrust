@@ -670,4 +670,3 @@ async_launch<
 
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

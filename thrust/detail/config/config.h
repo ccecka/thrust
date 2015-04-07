@@ -34,4 +34,3 @@
 #include <thrust/detail/config/forceinline.h>
 #include <thrust/detail/config/hd_warning_disable.h>
 #include <thrust/detail/config/global_workarounds.h>
-

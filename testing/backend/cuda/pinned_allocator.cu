@@ -16,4 +16,3 @@ void TestPinnedAllocatorSimple(const size_t n)
   ASSERT_EQUAL(h_input, h_output);
 }
 DECLARE_VARIABLE_UNITTEST(TestPinnedAllocatorSimple);
-

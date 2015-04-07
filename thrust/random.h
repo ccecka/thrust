@@ -117,4 +117,3 @@ using random::taus88;
 using random::default_random_engine;
 
 } // end thrust
-

@@ -55,4 +55,3 @@ template<typename L, typename R>
 } // end namespace detail
 
 } // end namespace thrust
-

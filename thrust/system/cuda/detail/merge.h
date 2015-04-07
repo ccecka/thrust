@@ -50,4 +50,3 @@ RandomAccessIterator3 merge(execution_policy<DerivedPolicy> &exec,
 } // end thrust
 
 #include <thrust/system/cuda/detail/merge.inl>
-

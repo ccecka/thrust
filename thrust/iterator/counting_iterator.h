@@ -240,4 +240,3 @@ counting_iterator<Incrementable> make_counting_iterator(Incrementable x)
  */
 
 } // end thrust
-

@@ -71,4 +71,3 @@ RandomAccessIterator2 reduce_intervals_(execution_policy<DerivedPolicy> &exec, R
 } // end cuda
 } // end system
 } // end thrust
-

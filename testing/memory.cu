@@ -254,4 +254,3 @@ void TestGetTemporaryBufferDispatchImplicit()
   }
 }
 DECLARE_UNITTEST(TestGetTemporaryBufferDispatchImplicit);
-

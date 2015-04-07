@@ -29,4 +29,3 @@ template<typename T> \
   static bool const value = sizeof(test<T>(0)) == sizeof(yes_type);\
   typedef thrust::detail::integral_constant<bool, value> type;\
 };
-

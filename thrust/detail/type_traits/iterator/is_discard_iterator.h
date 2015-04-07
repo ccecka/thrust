@@ -37,4 +37,3 @@ struct is_discard_iterator< thrust::discard_iterator<System> >
 
 } // end namespace detail
 } // end namespace thrust
-

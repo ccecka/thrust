@@ -69,4 +69,3 @@ void TestPairStableSortDeviceDevice()
   TestPairStableSortDevice(thrust::device);
 }
 DECLARE_UNITTEST(TestPairStableSortDeviceDevice);
-

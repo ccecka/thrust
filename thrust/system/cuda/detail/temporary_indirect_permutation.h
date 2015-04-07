@@ -229,4 +229,3 @@ template<typename Condition, typename DerivedPolicy, typename RandomAccessIterat
 } // end cuda
 } // end system
 } // end thrust
-

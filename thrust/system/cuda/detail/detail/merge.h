@@ -111,4 +111,3 @@ Size merge_path(Size pos, Iterator1 first1, Size n1, Iterator2 first2, Size n2, 
 } // end cuda
 } // end system
 } // end thrust
-

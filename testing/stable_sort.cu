@@ -172,4 +172,3 @@ void TestStableSortWithIndirection(void)
     ASSERT_EQUAL(data[6], T(2));
 }
 DECLARE_VECTOR_UNITTEST(TestStableSortWithIndirection);
-

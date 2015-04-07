@@ -119,4 +119,3 @@ void TestCountDispatchImplicit()
     ASSERT_EQUAL(13, result);
 }
 DECLARE_UNITTEST(TestCountDispatchImplicit);
-

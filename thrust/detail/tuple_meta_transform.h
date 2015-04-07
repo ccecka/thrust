@@ -174,4 +174,3 @@ template<typename Tuple,
 } // end detail
 
 } // end thrust
-

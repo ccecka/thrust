@@ -123,4 +123,3 @@ void TestSetDifferenceByKeyCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestSetDifferenceByKeyCudaStreams);
-

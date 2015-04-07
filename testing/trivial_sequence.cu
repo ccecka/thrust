@@ -46,4 +46,3 @@ void TestTrivialSequence(void)
     ASSERT_EQUAL(A[4], 1);  ASSERT_EQUAL(B[4], 12);
 }
 DECLARE_VECTOR_UNITTEST(TestTrivialSequence);
-

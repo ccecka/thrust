@@ -1436,4 +1436,3 @@ template<typename InputIterator, typename Predicate>
 } // end thrust
 
 #include <thrust/detail/partition.inl>
-

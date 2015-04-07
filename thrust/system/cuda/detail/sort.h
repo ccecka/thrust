@@ -57,4 +57,3 @@ void stable_sort_by_key(execution_policy<DerivedPolicy> &exec,
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/sort.inl>
-

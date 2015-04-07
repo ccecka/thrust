@@ -86,4 +86,3 @@ template <typename T>
   }
 };
 VariableUnitTest<TestPairScan, unittest::type_list<unittest::int8_t,unittest::int16_t,unittest::int32_t> > TestPairScanInstance;
-

@@ -145,4 +145,3 @@ using thrust::system::cuda::vector;
 } // end thrust
 
 #include <thrust/system/cuda/detail/vector.inl>
-

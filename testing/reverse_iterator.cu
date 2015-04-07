@@ -133,4 +133,3 @@ struct TestReverseIteratorExclusiveScan
   }
 };
 VariableUnitTest<TestReverseIteratorExclusiveScan, IntegralTypes> TestReverseIteratorExclusiveScanInstance;
-

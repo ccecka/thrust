@@ -753,4 +753,3 @@ void TestVectorReversed(void)
   ASSERT_EQUAL(1, *(v.rend() - 2));
 }
 DECLARE_VECTOR_UNITTEST(TestVectorReversed);
-

@@ -120,4 +120,3 @@ __forceinline__ void Unlock(volatile Spinlock *lock)
 
 }               // CUB namespace
 CUB_NS_POSTFIX  // Optional outer namespace(s)
-

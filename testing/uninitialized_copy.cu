@@ -274,4 +274,3 @@ struct TestUninitializedCopyNNonPODHost
   }
 };
 DECLARE_UNITTEST(TestUninitializedCopyNNonPODHost);
-

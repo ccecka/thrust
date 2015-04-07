@@ -44,4 +44,3 @@ template<typename T>
 } // end device_delete()
 
 } // end thrust
-

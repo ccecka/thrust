@@ -223,4 +223,3 @@ void TestMergeSortKeyValue(size_t n)
   ASSERT_EQUAL_QUIET(h_data, d_data);
 }
 DECLARE_VARIABLE_UNITTEST(TestMergeSortKeyValue);
-

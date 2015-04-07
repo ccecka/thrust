@@ -222,4 +222,3 @@ template<unsigned int N, typename T1, typename T2>
 
 
 } // end thrust
-

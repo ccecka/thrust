@@ -64,4 +64,3 @@ void reduce_n(Context context, ValueIterator data, unsigned int n, BinaryFunctio
 } // end namespace cuda
 } // end namespace system
 } // end namespace thrust
-

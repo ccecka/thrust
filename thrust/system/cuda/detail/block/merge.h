@@ -71,4 +71,3 @@ __device__ __thrust_forceinline__
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/block/merge.inl>
-

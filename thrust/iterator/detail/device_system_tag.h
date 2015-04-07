@@ -37,4 +37,3 @@ namespace thrust
 typedef THRUST_DEPRECATED device_system_tag device_space_tag;
 
 } // end thrust
-

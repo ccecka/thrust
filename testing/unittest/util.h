@@ -35,4 +35,3 @@ void PRINT(const char (&c)[N])
 {
   std::cout << std::string(c, c + N) << std::endl;
 }
-

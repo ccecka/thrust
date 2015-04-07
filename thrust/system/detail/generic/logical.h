@@ -60,4 +60,3 @@ bool none_of(thrust::execution_policy<ExecutionPolicy> &exec, InputIterator firs
 } // end detail
 } // end system
 } // end thrust
-

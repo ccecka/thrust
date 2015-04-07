@@ -540,4 +540,3 @@ Derived operator+ (typename Derived::difference_type n,
  */
 
 } // end thrust
-

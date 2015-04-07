@@ -48,4 +48,3 @@ namespace system
 
 #include <thrust/system/error_code.h>
 #include <thrust/system/system_error.h>
-

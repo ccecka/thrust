@@ -268,4 +268,3 @@ using random::xor_combine_engine;
 } // end thrust
 
 #include <thrust/random/detail/xor_combine_engine.inl>
-

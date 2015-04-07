@@ -79,4 +79,3 @@ void TestSetDifferenceCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestSetDifferenceCudaStreams);
-

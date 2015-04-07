@@ -95,4 +95,3 @@ template<typename OutputIterator,
 
 
 } // end thrust
-

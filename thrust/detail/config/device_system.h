@@ -58,4 +58,3 @@
 #endif
 
 #define __THRUST_DEVICE_SYSTEM_ROOT thrust/system/__THRUST_DEVICE_SYSTEM_NAMESPACE
-

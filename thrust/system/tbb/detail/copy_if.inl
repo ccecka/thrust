@@ -128,4 +128,3 @@ template<typename InputIterator1,
 } // end tbb
 } // end system
 } // end thrust
-

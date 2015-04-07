@@ -206,4 +206,3 @@ __host__ __device__
 } // end namespace thrust
 
 #include <thrust/detail/fill.inl>
-

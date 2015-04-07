@@ -290,4 +290,3 @@ template<typename InputIterator,
 } // end namespace tbb
 } // end namespace system
 } // end namespace thrust
-

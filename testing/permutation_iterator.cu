@@ -316,4 +316,3 @@ void TestPermutationIteratorWithCountingIterator(void)
   }
 }
 DECLARE_VECTOR_UNITTEST(TestPermutationIteratorWithCountingIterator);
-

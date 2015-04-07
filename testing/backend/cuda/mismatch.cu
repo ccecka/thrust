@@ -90,4 +90,3 @@ void TestMismatchCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestMismatchCudaStreams);
-

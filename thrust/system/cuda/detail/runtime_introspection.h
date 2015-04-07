@@ -91,4 +91,3 @@ size_t compute_capability();
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/runtime_introspection.inl>
-

@@ -126,4 +126,3 @@ template<typename ForwardIterator, typename UnaryOperation>
 } // end namespace thrust
 
 #include <thrust/detail/tabulate.inl>
-

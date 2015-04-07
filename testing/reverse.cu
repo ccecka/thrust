@@ -200,4 +200,3 @@ struct TestReverseCopyToDiscardIterator
   }
 };
 VariableUnitTest<TestReverseCopyToDiscardIterator, ReverseTypes> TestReverseCopyToDiscardIteratorInstance;
-

@@ -1476,4 +1476,3 @@ static const thrust::detail::functional::placeholder<9>::type _10;
 
 #include <thrust/detail/functional.inl>
 #include <thrust/detail/functional/operators.h>
-

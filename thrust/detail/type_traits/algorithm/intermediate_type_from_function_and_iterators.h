@@ -58,4 +58,3 @@ template<typename InputIterator, typename OutputIterator, typename Function>
 } // end detail
 
 } // end thrust
-

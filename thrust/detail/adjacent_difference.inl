@@ -87,4 +87,3 @@ OutputIterator adjacent_difference(InputIterator first, InputIterator last,
 
 
 } // end namespace thrust
-

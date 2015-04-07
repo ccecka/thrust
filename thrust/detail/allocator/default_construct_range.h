@@ -33,5 +33,3 @@ inline void default_construct_range(Allocator &a, Pointer p, Size n);
 } // end thrust
 
 #include <thrust/detail/allocator/default_construct_range.inl>
-
-

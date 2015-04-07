@@ -124,4 +124,3 @@ function_attributes_t closure_attributes(void);
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/detail/launch_closure.inl>
-

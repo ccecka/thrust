@@ -28,4 +28,3 @@ void TestAdvance(void)
     ASSERT_EQUAL(*i, T(10));
 }
 DECLARE_VECTOR_UNITTEST(TestAdvance);
-

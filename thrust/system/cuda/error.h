@@ -183,4 +183,3 @@ using system::cuda_category;
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/error.inl>
-

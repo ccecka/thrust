@@ -278,4 +278,3 @@ copy_n(bulk::bounded<
 
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-

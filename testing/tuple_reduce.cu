@@ -57,4 +57,3 @@ struct TestTupleReduce
   }
 };
 VariableUnitTest<TestTupleReduce, IntegralTypes> TestTupleReduceInstance;
-

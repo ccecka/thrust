@@ -664,4 +664,3 @@ template<typename T1, typename T2>
 } // end thrust
 
 #include <thrust/detail/type_traits/has_trivial_assign.h>
-

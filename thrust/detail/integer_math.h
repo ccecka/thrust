@@ -92,4 +92,3 @@ bool is_odd(Integer x)
 
 } // end detail
 } // end thrust
-

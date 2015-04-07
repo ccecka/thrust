@@ -292,4 +292,3 @@ struct TestUninitializedFillNNonPOD
   }
 };
 DECLARE_UNITTEST(TestUninitializedFillNNonPOD);
-

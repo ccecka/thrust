@@ -134,5 +134,3 @@ void TestSortBoolDescending(void)
     ASSERT_EQUAL(h_data, d_data);
 }
 DECLARE_UNITTEST(TestSortBoolDescending);
-
-

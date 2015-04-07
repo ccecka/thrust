@@ -52,4 +52,3 @@ struct any_assign
 
 } // end detail
 } // end thrust
-

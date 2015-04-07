@@ -38,4 +38,3 @@ template <typename T>
   }
 };
 VariableUnitTest<TestPairStableSort, unittest::type_list<unittest::int8_t,unittest::int16_t,unittest::int32_t> > TestPairStableSortInstance;
-

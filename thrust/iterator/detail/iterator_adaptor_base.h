@@ -108,4 +108,3 @@ template<typename Derived,
 
 } // end detail
 } // end thrust
-

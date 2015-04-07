@@ -88,4 +88,3 @@ template<typename BidirectionalIterator,
 
 
 } // end thrust
-

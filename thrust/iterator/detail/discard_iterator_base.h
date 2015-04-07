@@ -61,5 +61,3 @@ template<typename System>
 } // end detail
 
 } // end thrust
-
-

@@ -116,4 +116,3 @@ void TestMallocDeviceSeq()
   }
 }
 DECLARE_UNITTEST(TestMallocDeviceSeq);
-

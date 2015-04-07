@@ -57,4 +57,3 @@ template<typename DerivedPolicy,
 } // end namespace thrust
 
 #include <thrust/system/omp/detail/for_each.inl>
-

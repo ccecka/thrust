@@ -395,4 +395,3 @@ raw_reference_cast(thrust::detail::tuple_of_iterator_references<T0,T1,T2,T3,T4,T
 
 
 } // end thrust
-

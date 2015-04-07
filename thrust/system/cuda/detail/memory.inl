@@ -94,4 +94,3 @@ void free(pointer<void> ptr)
 } // end cuda
 } // end system
 } // end thrust
-

@@ -221,4 +221,3 @@ typedef std::random_access_iterator_tag random_access_host_iterator_tag;
 } // end namespace thrust
 
 #include <thrust/iterator/detail/universal_categories.h>
-

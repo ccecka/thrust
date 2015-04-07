@@ -518,4 +518,3 @@ using system::system_category;
 #include <thrust/system/detail/error_category.inl>
 #include <thrust/system/detail/error_code.inl>
 #include <thrust/system/detail/error_condition.inl>
-

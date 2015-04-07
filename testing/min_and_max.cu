@@ -66,4 +66,3 @@ struct TestMax
   }
 };
 SimpleUnitTest<TestMax, NumericTypes> TestMaxInstance;
-

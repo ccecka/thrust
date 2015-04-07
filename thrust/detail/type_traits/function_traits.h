@@ -93,4 +93,3 @@ template<typename T> struct is_commutative< typename thrust::bit_xor<T>     > : 
 
 } // end namespace detail
 } // end namespace thrust
-

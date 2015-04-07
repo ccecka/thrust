@@ -279,4 +279,3 @@ template<typename Alloc>
 } // end thrust
 
 #include <thrust/detail/allocator/allocator_traits.inl>
-

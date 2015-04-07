@@ -212,4 +212,3 @@ __THRUST_DISABLE_MSVC_POSSIBLE_LOSS_OF_DATA_WARNING_END
 } // end namespace cuda
 } // end namespace system
 } // end namespace thrust
-

@@ -178,4 +178,3 @@ struct future_core_access
 
 } // end namespace bulk
 BULK_NAMESPACE_SUFFIX
-

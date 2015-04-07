@@ -108,4 +108,3 @@ const char *system_error
 } // end system
 
 } // end thrust
-

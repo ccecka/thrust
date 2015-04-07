@@ -67,5 +67,3 @@ template<typename BaseAllocator>
 
 } // end detail
 } // end thrust
-
-

@@ -25,4 +25,3 @@ void TestLog2(void)
     result = thrust::detail::mpl::math::log2<512>::value;   ASSERT_EQUAL(result, 9);
 }
 DECLARE_UNITTEST(TestLog2);
-

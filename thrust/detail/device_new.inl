@@ -57,4 +57,3 @@ template<typename T>
 } // end device_new()
 
 } // thrust
-

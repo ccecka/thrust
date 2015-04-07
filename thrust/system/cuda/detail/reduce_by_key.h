@@ -59,4 +59,3 @@ thrust::pair<OutputIterator1,OutputIterator2>
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/reduce_by_key.inl>
-

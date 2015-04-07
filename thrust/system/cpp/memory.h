@@ -411,4 +411,3 @@ using thrust::system::cpp::allocator;
 } // end thrust
 
 #include <thrust/system/cpp/detail/memory.inl>
-

@@ -423,4 +423,3 @@ template<typename T, typename Alloc = std::allocator<T> >
 } // end thrust
 
 #include <thrust/detail/host_vector.inl>
-

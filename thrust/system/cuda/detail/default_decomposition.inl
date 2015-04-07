@@ -41,4 +41,3 @@ thrust::system::detail::internal::uniform_decomposition<IndexType> default_decom
 } // end namespace cuda
 } // end namespace system
 } // end namespace thrust
-

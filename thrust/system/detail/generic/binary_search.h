@@ -171,4 +171,3 @@ equal_range(thrust::execution_policy<DerivedPolicy> &exec,
 } // end namespace thrust
 
 #include <thrust/system/detail/generic/binary_search.inl>
-

@@ -92,4 +92,3 @@ InputIterator for_each_n(sequential::execution_policy<DerivedPolicy> &,
 } // end namespace detail
 } // end namespace system
 } // end namespace thrust
-

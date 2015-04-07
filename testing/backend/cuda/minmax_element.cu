@@ -101,4 +101,3 @@ void TestMinMaxElementCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestMinMaxElementCudaStreams);
-

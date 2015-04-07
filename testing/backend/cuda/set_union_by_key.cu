@@ -113,4 +113,3 @@ void TestSetUnionByKeyCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestSetUnionByKeyCudaStreams);
-

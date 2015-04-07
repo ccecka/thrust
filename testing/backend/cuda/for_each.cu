@@ -218,4 +218,3 @@ void TestForEachCudaStreams()
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestForEachCudaStreams);
-

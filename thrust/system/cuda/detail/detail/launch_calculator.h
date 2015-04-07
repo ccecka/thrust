@@ -86,4 +86,3 @@ class launch_calculator
 } // end namespace thrust
 
 #include <thrust/system/cuda/detail/detail/launch_calculator.inl>
-

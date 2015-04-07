@@ -42,4 +42,3 @@ void throw_on_error(cudaError_t error, const char *message)
 } // end cuda
 } // end system
 } // end thrust
-

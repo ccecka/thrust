@@ -56,4 +56,3 @@ OutputType inner_product(thrust::execution_policy<DerivedPolicy> &exec,
 } // end namespace thrust
 
 #include <thrust/system/detail/generic/inner_product.inl>
-

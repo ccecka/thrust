@@ -365,4 +365,3 @@ class cuda_task<parallel_group<agent<grainsize>,groupsize>,Closure>
 } // end detail
 } // end bulk
 BULK_NAMESPACE_SUFFIX
-
