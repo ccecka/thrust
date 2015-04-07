@@ -159,21 +159,21 @@ void TestTransformScanSimple(void)
     ASSERT_EQUAL(iter - output.begin(), input.size());
     ASSERT_EQUAL(input,  input_copy);
     ASSERT_EQUAL(output, result);
-    
+
     // exclusive scan with 0 init
     iter = thrust::transform_exclusive_scan(input.begin(), input.end(), output.begin(), thrust::negate<T>(), 0, thrust::plus<T>());
     result[0] = 0; result[1] = -1; result[2] = -4; result[3] = -2; result[4] = -6;
     ASSERT_EQUAL(iter - output.begin(), input.size());
     ASSERT_EQUAL(input,  input_copy);
     ASSERT_EQUAL(output, result);
-    
+
     // exclusive scan with nonzero init
     iter = thrust::transform_exclusive_scan(input.begin(), input.end(), output.begin(), thrust::negate<T>(), 3, thrust::plus<T>());
     result[0] = 3; result[1] = 2; result[2] = -1; result[3] = 1; result[4] = -3;
     ASSERT_EQUAL(iter - output.begin(), input.size());
     ASSERT_EQUAL(input,  input_copy);
     ASSERT_EQUAL(output, result);
-    
+
     // inplace inclusive scan
     input = input_copy;
     iter = thrust::transform_inclusive_scan(input.begin(), input.end(), input.begin(), thrust::negate<T>(), thrust::plus<T>());
@@ -201,22 +201,22 @@ struct TestTransformScan
 
         thrust::host_vector<T>   h_output(n);
         thrust::device_vector<T> d_output(n);
-        
+
         thrust::transform_inclusive_scan(h_input.begin(), h_input.end(), h_output.begin(), thrust::negate<T>(), thrust::plus<T>());
         thrust::transform_inclusive_scan(d_input.begin(), d_input.end(), d_output.begin(), thrust::negate<T>(), thrust::plus<T>());
         ASSERT_EQUAL(d_output, h_output);
-        
+
         thrust::transform_exclusive_scan(h_input.begin(), h_input.end(), h_output.begin(), thrust::negate<T>(), (T) 11, thrust::plus<T>());
         thrust::transform_exclusive_scan(d_input.begin(), d_input.end(), d_output.begin(), thrust::negate<T>(), (T) 11, thrust::plus<T>());
         ASSERT_EQUAL(d_output, h_output);
-        
+
         // in-place scans
         h_output = h_input;
         d_output = d_input;
         thrust::transform_inclusive_scan(h_output.begin(), h_output.end(), h_output.begin(), thrust::negate<T>(), thrust::plus<T>());
         thrust::transform_inclusive_scan(d_output.begin(), d_output.end(), d_output.begin(), thrust::negate<T>(), thrust::plus<T>());
         ASSERT_EQUAL(d_output, h_output);
-        
+
         h_output = h_input;
         d_output = d_input;
         thrust::transform_exclusive_scan(h_output.begin(), h_output.end(), h_output.begin(), thrust::negate<T>(), (T) 11, thrust::plus<T>());
@@ -253,7 +253,7 @@ struct TestTransformScanToDiscardIterator
         thrust::device_vector<T> d_input = h_input;
 
         thrust::discard_iterator<> reference(n);
-        
+
         thrust::discard_iterator<> h_result =
           thrust::transform_inclusive_scan(h_input.begin(),
                                            h_input.end(),
@@ -269,7 +269,7 @@ struct TestTransformScanToDiscardIterator
                                            thrust::plus<T>());
         ASSERT_EQUAL_QUIET(reference, h_result);
         ASSERT_EQUAL_QUIET(reference, d_result);
-        
+
         h_result =
           thrust::transform_exclusive_scan(h_input.begin(),
                                            h_input.end(),

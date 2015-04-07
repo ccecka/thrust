@@ -229,7 +229,7 @@ template<typename Alloc>
 
   template<typename T>
   inline __host__ __device__ static void construct(allocator_type &a, T *p);
-  
+
   template<typename T, typename Arg1>
   inline __host__ __device__ static void construct(allocator_type &a, T *p, const Arg1 &arg1);
 

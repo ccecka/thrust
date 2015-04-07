@@ -24,13 +24,13 @@
 
 
 // minFunctor
-// Tuple  = <seeds,seeds + k,seeds + m*k, seeds - k, 
+// Tuple  = <seeds,seeds + k,seeds + m*k, seeds - k,
 //           seeds - m*k, seeds+ k+m*k,seeds + k-m*k,
 //           seeds- k+m*k,seeds - k+m*k, i>
 struct minFunctor
 {
   int m, n, k;
-  
+
   __host__ __device__
   minFunctor(int m, int n, int k)
     : m(m), n(n), k(k) {}
@@ -39,7 +39,7 @@ struct minFunctor
   //To decide I have to change my current Voronoi site
   __host__ __device__
       int minVoro(int x_i, int y_i, int p, int q)
-      {    
+      {
           if (q == m*n)
               return p;
 
@@ -48,7 +48,7 @@ struct minFunctor
           int x_q =  q - y_q * m;
           int y_p =  p / m;
           int x_p =  p - y_p * m;
-        
+
           // squared distances
           int d_iq = (x_i-x_q) * (x_i-x_q) + (y_i-y_q) * (y_i-y_q);
           int d_ip = (x_i-x_p) * (x_i-x_p) + (y_i-y_p) * (y_i-y_p);
@@ -69,7 +69,7 @@ struct minFunctor
       int v = thrust::get<0>(t);
 
       //Current point coordinates
-      int y = i / m;    
+      int y = i / m;
       int x = i - y * m;
 
       if (x >= k)
@@ -84,7 +84,7 @@ struct minFunctor
       }
 
       if (x + k < m)
-      { 
+      {
           v = minVoro(x, y, v, thrust::get<1>(t));
 
           if (y >= k)
@@ -158,22 +158,22 @@ void jfa(thrust::device_vector<int>& in,thrust::device_vector<int>& out, unsigne
 {
    thrust::transform(
         thrust::make_zip_iterator(
-            thrust::make_tuple(in.begin(), 
-                               in.begin() + k, 
-                               in.begin() + m*k, 
-                               in.begin() - k, 
-                               in.begin() - m*k, 
+            thrust::make_tuple(in.begin(),
+                               in.begin() + k,
+                               in.begin() + m*k,
+                               in.begin() - k,
+                               in.begin() - m*k,
                                in.begin() + k+m*k,
                                in.begin() + k-m*k,
                                in.begin() - k+m*k,
                                in.begin() - k-m*k,
                                thrust::counting_iterator<int>(0))),
         thrust::make_zip_iterator(
-            thrust::make_tuple(in.begin(), 
-				    		   in.begin() + k, 
-                               in.begin() + m*k, 
-                               in.begin() - k, 
-                               in.begin() - m*k, 
+            thrust::make_tuple(in.begin(),
+				    		   in.begin() + k,
+                               in.begin() + m*k,
+                               in.begin() - k,
+                               in.begin() - m*k,
                                in.begin() + k+m*k,
                                in.begin() + k-m*k,
                                in.begin() - k+m*k,
@@ -192,18 +192,18 @@ void display_time(timer& t)
 int main(void)
 {
   int m = 2048; // number of rows
-  int n = 2048; // number of columns  
+  int n = 2048; // number of columns
   int s = 1000; // number of sites
-  
+
   timer t;
- 
+
   //Host vector to encode a 2D image
   std::cout << "[Inititialize " << m << "x" << n << " Image]" << std::endl;
   t.restart();
   thrust::host_vector<int> seeds_host(m*n, m*n);
   generate_random_sites(seeds_host,s,m,n);
   display_time(t);
-  
+
   std::cout<<"[Copy to Device]" << std::endl;
   t.restart();
   thrust::device_vector<int> seeds = seeds_host;
@@ -215,7 +215,7 @@ int main(void)
   t.restart();
   jfa(seeds,temp,1,m,n);
   seeds.swap(temp);
- 
+
   //JFA : main loop with k=n/2, n/4, ..., 1
   for(int k = thrust::max(m,n) / 2; k > 0; k /= 2)
   {
@@ -225,12 +225,12 @@ int main(void)
 
   display_time(t);
   std::cout <<"  ( " <<  seeds.size() / (1e6 * t.elapsed()) << " MPixel/s ) " << std::endl;
-  
+
   std::cout << "[Device to Host Copy]" << std::endl;
   t.restart();
   seeds_host = seeds;
   display_time(t);
-  
+
   std::cout << "[PGM Export]" << std::endl;
   t.restart();
   vector_to_pgm(seeds_host, m, n, "discrete_voronoi.pgm");

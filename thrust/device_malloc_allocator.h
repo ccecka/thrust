@@ -109,7 +109,7 @@ template<typename T>
      */
     __host__ __device__
     inline pointer address(reference r) { return &r; }
-    
+
     /*! Returns the address an allocated object.
      *  \return <tt>&r</tt>.
      */

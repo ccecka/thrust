@@ -62,7 +62,7 @@ inplace_merge_adjacent_partitions(bulk::bounded<bound,bulk::concurrent_group<bul
     KeyType *keys;
     ValType *vals;
   };
-  
+
   stage_t stage;
   stage.keys = reinterpret_cast<KeyType*>(stage_ptr);
 
@@ -107,7 +107,7 @@ inplace_merge_adjacent_partitions(bulk::bounded<bound,bulk::concurrent_group<bul
                        local_keys,
                        gather_indices,
                        comp);
-    
+
     // move values into the stage so we can index them
     bulk::copy_n(bulk::bound<grainsize>(g.this_exec), local_values, local_size, stage.vals + local_offset);
 
@@ -161,7 +161,7 @@ stable_merge_sort_by_key(bulk::bounded<bound,bulk::concurrent_group<bulk::agent<
     value_type values[tile_size];
   } stage;
 #endif
-  
+
   // load each agent's keys into registers
   bulk::copy_n(bulk::bound<tile_size>(g), keys_first, n, stage.keys);
 
@@ -176,7 +176,7 @@ stable_merge_sort_by_key(bulk::bounded<bound,bulk::concurrent_group<bulk::agent<
 
   // each agent sorts its local partition of the array
   bulk::stable_sort_by_key(bulk::bound<grainsize>(g.this_exec), local_keys, local_keys + local_size, local_values, comp);
-  
+
   // merge adjacent partitions together
   // avoid dynamic sizes when possible
   if(n == tile_size)
@@ -193,7 +193,7 @@ stable_merge_sort_by_key(bulk::bounded<bound,bulk::concurrent_group<bulk::agent<
   g.wait();
 
   bulk::copy_n(bulk::bound<tile_size>(g), stage.keys, n, keys_first);
-  
+
   // store the sorted values back to the input
   bulk::copy_n(bulk::bound<grainsize>(g.this_exec), local_values, local_size, stage.values + local_offset);
   g.wait();

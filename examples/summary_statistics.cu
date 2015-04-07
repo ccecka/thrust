@@ -13,7 +13,7 @@
 // Thanks to Joseph Rhoads for contributing this example
 
 
-// structure used to accumulate the moments and other 
+// structure used to accumulate the moments and other
 // statistical properties encountered so far.
 template <typename T>
 struct summary_stats_data
@@ -25,7 +25,7 @@ struct summary_stats_data
     T M2;
     T M3;
     T M4;
-    
+
     // initialize to the identity element
     void initialize()
     {
@@ -61,13 +61,13 @@ struct summary_stats_unary_op
     }
 };
 
-// summary_stats_binary_op is a functor that accepts two summary_stats_data 
+// summary_stats_binary_op is a functor that accepts two summary_stats_data
 // structs and returns a new summary_stats_data which are an
-// approximation to the summary_stats for 
+// approximation to the summary_stats for
 // all values that have been agregated so far
 template <typename T>
-struct summary_stats_binary_op 
-    : public thrust::binary_function<const summary_stats_data<T>&, 
+struct summary_stats_binary_op
+    : public thrust::binary_function<const summary_stats_data<T>&,
                                      const summary_stats_data<T>&,
                                            summary_stats_data<T> >
 {
@@ -75,7 +75,7 @@ struct summary_stats_binary_op
     summary_stats_data<T> operator()(const summary_stats_data<T>& x, const summary_stats_data <T>& y) const
     {
         summary_stats_data<T> result;
-        
+
         // precompute some common subexpressions
         T n  = x.n + y.n;
         T n2 = n  * n;
@@ -85,7 +85,7 @@ struct summary_stats_binary_op
         T delta2 = delta  * delta;
         T delta3 = delta2 * delta;
         T delta4 = delta3 * delta;
-        
+
         //Basic number of samples (n), min, and max
         result.n   = n;
         result.min = thrust::min(x.min, y.min);
@@ -97,14 +97,14 @@ struct summary_stats_binary_op
         result.M2 += delta2 * x.n * y.n / n;
 
         result.M3  = x.M3 + y.M3;
-        result.M3 += delta3 * x.n * y.n * (x.n - y.n) / n2; 
+        result.M3 += delta3 * x.n * y.n * (x.n - y.n) / n2;
         result.M3 += (T) 3.0 * delta * (x.n * y.M2 - y.n * x.M2) / n;
-    
+
         result.M4  = x.M4 + y.M4;
         result.M4 += delta4 * x.n * y.n * (x.n * x.n - x.n * y.n + y.n * y.n) / n3;
         result.M4 += (T) 6.0 * delta2 * (x.n * x.n * y.M2 + y.n * y.n * x.M2) / n2;
         result.M4 += (T) 4.0 * delta * (x.n * y.M3 - y.n * x.M3) / n;
-        
+
         return result;
     }
 };
@@ -115,7 +115,7 @@ void print_range(const std::string& name, Iterator first, Iterator last)
     typedef typename std::iterator_traits<Iterator>::value_type T;
 
     std::cout << name << ": ";
-    thrust::copy(first, last, std::ostream_iterator<T>(std::cout, " "));  
+    thrust::copy(first, last, std::ostream_iterator<T>(std::cout, " "));
     std::cout << "\n";
 }
 

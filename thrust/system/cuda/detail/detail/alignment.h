@@ -189,7 +189,7 @@ template<> struct aligned_type<128>
 
 #  else
 // assume the compiler allows template parameters as
-// arguments to __align__ 
+// arguments to __align__
 template<std::size_t Align> struct aligned_type
 {
   struct __align__(Align) type { };

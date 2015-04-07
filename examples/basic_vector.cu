@@ -13,7 +13,7 @@ int main(void)
     H[1] = 20;
     H[2] = 38;
     H[3] = 46;
-    
+
     // H.size() returns the size of vector H
     std::cout << "H has size " << H.size() << std::endl;
 
@@ -23,16 +23,16 @@ int main(void)
 
     // resize H
     H.resize(2);
-    
+
     std::cout << "H now has size " << H.size() << std::endl;
 
     // Copy host_vector H to device_vector D
     thrust::device_vector<int> D = H;
-    
+
     // elements of D can be modified
     D[0] = 99;
     D[1] = 88;
-    
+
     // print contents of D
     for(size_t i = 0; i < D.size(); i++)
         std::cout << "D[" << i << "] = " << D[i] << std::endl;

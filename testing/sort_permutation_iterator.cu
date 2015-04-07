@@ -22,7 +22,7 @@ class strided_range
 
         __host__ __device__
         difference_type operator()(const difference_type& i) const
-        { 
+        {
             return stride * i;
         }
     };
@@ -37,7 +37,7 @@ class strided_range
     // construct strided_range for the range [first,last)
     strided_range(Iterator first, Iterator last, difference_type stride)
         : first(first), last(last), stride(stride) {}
-   
+
     iterator begin(void) const
     {
         return PermutationIterator(first, TransformIterator(CountingIterator(0), stride_functor(stride)));
@@ -47,7 +47,7 @@ class strided_range
     {
         return begin() + ((last - first) + (stride - 1)) / stride;
     }
-    
+
     protected:
     Iterator first;
     Iterator last;
@@ -138,7 +138,7 @@ void TestSortByKeyPermutationIterator(void)
   A[7] = 6; B[7] = 7;
   A[8] = 7; B[8] = 8;
   A[9] = 4; B[9] = 9;
-  
+
   strided_range<Iterator> S(A.begin(), A.end(), 2);
   strided_range<Iterator> T(B.begin(), B.end(), 2);
 
@@ -154,7 +154,7 @@ void TestSortByKeyPermutationIterator(void)
   ASSERT_EQUAL(A[7], 6);
   ASSERT_EQUAL(A[8], 8);
   ASSERT_EQUAL(A[9], 4);
-  
+
   ASSERT_EQUAL(B[0], 2);
   ASSERT_EQUAL(B[1], 1);
   ASSERT_EQUAL(B[2], 0);
@@ -184,7 +184,7 @@ void TestStableSortByKeyPermutationIterator(void)
   A[7] = 6; B[7] = 7;
   A[8] = 7; B[8] = 8;
   A[9] = 4; B[9] = 9;
-  
+
   strided_range<Iterator> S(A.begin(), A.end(), 2);
   strided_range<Iterator> T(B.begin(), B.end(), 2);
 
@@ -200,7 +200,7 @@ void TestStableSortByKeyPermutationIterator(void)
   ASSERT_EQUAL(A[7], 6);
   ASSERT_EQUAL(A[8], 8);
   ASSERT_EQUAL(A[9], 4);
-  
+
   ASSERT_EQUAL(B[0], 2);
   ASSERT_EQUAL(B[1], 1);
   ASSERT_EQUAL(B[2], 0);

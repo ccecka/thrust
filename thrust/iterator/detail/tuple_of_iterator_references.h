@@ -26,7 +26,7 @@ namespace thrust
 namespace detail
 {
 
-  
+
 template<
   typename T0, typename T1, typename T2,
   typename T3, typename T4, typename T5,
@@ -99,7 +99,7 @@ template<
     inline __host__ __device__
     tuple_of_iterator_references() {}
 
-    inline __host__ __device__ 
+    inline __host__ __device__
     tuple_of_iterator_references(typename access_traits<T0>::parameter_type t0)
       : super_t(t0,
                 static_cast<const null_type&>(null_type()),
@@ -113,7 +113,7 @@ template<
                 static_cast<const null_type&>(null_type()))
     {}
 
-    inline __host__ __device__ 
+    inline __host__ __device__
     tuple_of_iterator_references(typename access_traits<T0>::parameter_type t0,
                                  typename access_traits<T1>::parameter_type t1)
       : super_t(t0, t1,
@@ -127,7 +127,7 @@ template<
                 static_cast<const null_type&>(null_type()))
     {}
 
-    inline __host__ __device__ 
+    inline __host__ __device__
     tuple_of_iterator_references(typename access_traits<T0>::parameter_type t0,
                                  typename access_traits<T1>::parameter_type t1,
                                  typename access_traits<T2>::parameter_type t2)
@@ -141,7 +141,7 @@ template<
                 static_cast<const null_type&>(null_type()))
     {}
 
-    inline __host__ __device__ 
+    inline __host__ __device__
     tuple_of_iterator_references(typename access_traits<T0>::parameter_type t0,
                                  typename access_traits<T1>::parameter_type t1,
                                  typename access_traits<T2>::parameter_type t2,
@@ -155,7 +155,7 @@ template<
                 static_cast<const null_type&>(null_type()))
     {}
 
-    inline __host__ __device__ 
+    inline __host__ __device__
     tuple_of_iterator_references(typename access_traits<T0>::parameter_type t0,
                                  typename access_traits<T1>::parameter_type t1,
                                  typename access_traits<T2>::parameter_type t2,
@@ -169,7 +169,7 @@ template<
                 static_cast<const null_type&>(null_type()))
     {}
 
-    inline __host__ __device__ 
+    inline __host__ __device__
     tuple_of_iterator_references(typename access_traits<T0>::parameter_type t0,
                                  typename access_traits<T1>::parameter_type t1,
                                  typename access_traits<T2>::parameter_type t2,
@@ -183,7 +183,7 @@ template<
                 static_cast<const null_type&>(null_type()))
     {}
 
-    inline __host__ __device__ 
+    inline __host__ __device__
     tuple_of_iterator_references(typename access_traits<T0>::parameter_type t0,
                                  typename access_traits<T1>::parameter_type t1,
                                  typename access_traits<T2>::parameter_type t2,
@@ -197,7 +197,7 @@ template<
                 static_cast<const null_type&>(null_type()))
     {}
 
-    inline __host__ __device__ 
+    inline __host__ __device__
     tuple_of_iterator_references(typename access_traits<T0>::parameter_type t0,
                                  typename access_traits<T1>::parameter_type t1,
                                  typename access_traits<T2>::parameter_type t2,
@@ -211,7 +211,7 @@ template<
                 static_cast<const null_type&>(null_type()))
     {}
 
-    inline __host__ __device__ 
+    inline __host__ __device__
     tuple_of_iterator_references(typename access_traits<T0>::parameter_type t0,
                                  typename access_traits<T1>::parameter_type t1,
                                  typename access_traits<T2>::parameter_type t2,
@@ -225,7 +225,7 @@ template<
                 static_cast<const null_type&>(null_type()))
     {}
 
-    inline __host__ __device__ 
+    inline __host__ __device__
     tuple_of_iterator_references(typename access_traits<T0>::parameter_type t0,
                                  typename access_traits<T1>::parameter_type t1,
                                  typename access_traits<T2>::parameter_type t2,

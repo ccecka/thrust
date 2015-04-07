@@ -222,7 +222,7 @@ __host__ __device__
  *  // *result is 0
  *  \endcode
  *
- *  \see http://www.sgi.com/tech/stl/min_element.html 
+ *  \see http://www.sgi.com/tech/stl/min_element.html
  */
 template<typename DerivedPolicy, typename ForwardIterator>
 __host__ __device__
@@ -260,7 +260,7 @@ ForwardIterator min_element(const thrust::detail::execution_policy_base<DerivedP
  *  // *result is 0
  *  \endcode
  *
- *  \see http://www.sgi.com/tech/stl/min_element.html 
+ *  \see http://www.sgi.com/tech/stl/min_element.html
  */
 template <typename ForwardIterator>
 ForwardIterator min_element(ForwardIterator first, ForwardIterator last);
@@ -325,7 +325,7 @@ ForwardIterator min_element(ForwardIterator first, ForwardIterator last);
  *  // *smallest == {0,7}
  *  \endcode
  *
- *  \see http://www.sgi.com/tech/stl/min_element.html 
+ *  \see http://www.sgi.com/tech/stl/min_element.html
  */
 template<typename DerivedPolicy, typename ForwardIterator, typename BinaryPredicate>
 __host__ __device__
@@ -385,7 +385,7 @@ ForwardIterator min_element(const thrust::detail::execution_policy_base<DerivedP
  *  // *smallest == {0,7}
  *  \endcode
  *
- *  \see http://www.sgi.com/tech/stl/min_element.html 
+ *  \see http://www.sgi.com/tech/stl/min_element.html
  */
 template <typename ForwardIterator, typename BinaryPredicate>
 ForwardIterator min_element(ForwardIterator first, ForwardIterator last,
@@ -427,7 +427,7 @@ ForwardIterator min_element(ForwardIterator first, ForwardIterator last,
  *  // *result == 3
  *  \endcode
  *
- *  \see http://www.sgi.com/tech/stl/max_element.html 
+ *  \see http://www.sgi.com/tech/stl/max_element.html
  */
 template<typename DerivedPolicy, typename ForwardIterator>
 __host__ __device__
@@ -464,7 +464,7 @@ ForwardIterator max_element(const thrust::detail::execution_policy_base<DerivedP
  *  // *result == 3
  *  \endcode
  *
- *  \see http://www.sgi.com/tech/stl/max_element.html 
+ *  \see http://www.sgi.com/tech/stl/max_element.html
  */
 template <typename ForwardIterator>
 ForwardIterator max_element(ForwardIterator first, ForwardIterator last);
@@ -529,7 +529,7 @@ ForwardIterator max_element(ForwardIterator first, ForwardIterator last);
  *  // *largest == {6,1}
  *  \endcode
  *
- *  \see http://www.sgi.com/tech/stl/max_element.html 
+ *  \see http://www.sgi.com/tech/stl/max_element.html
  */
 template<typename DerivedPolicy, typename ForwardIterator, typename BinaryPredicate>
 __host__ __device__
@@ -589,7 +589,7 @@ ForwardIterator max_element(const thrust::detail::execution_policy_base<DerivedP
  *  // *largest == {6,1}
  *  \endcode
  *
- *  \see http://www.sgi.com/tech/stl/max_element.html 
+ *  \see http://www.sgi.com/tech/stl/max_element.html
  */
 template <typename ForwardIterator, typename BinaryPredicate>
 ForwardIterator max_element(ForwardIterator first, ForwardIterator last,
@@ -667,7 +667,7 @@ thrust::pair<ForwardIterator,ForwardIterator> minmax_element(const thrust::detai
  *  \see http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1840.pdf
  */
 template <typename ForwardIterator>
-thrust::pair<ForwardIterator,ForwardIterator> minmax_element(ForwardIterator first, 
+thrust::pair<ForwardIterator,ForwardIterator> minmax_element(ForwardIterator first,
                                                              ForwardIterator last);
 
 
@@ -789,7 +789,7 @@ thrust::pair<ForwardIterator,ForwardIterator> minmax_element(const thrust::detai
  *  \see http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1840.pdf
  */
 template <typename ForwardIterator, typename BinaryPredicate>
-thrust::pair<ForwardIterator,ForwardIterator> minmax_element(ForwardIterator first, 
+thrust::pair<ForwardIterator,ForwardIterator> minmax_element(ForwardIterator first,
                                                              ForwardIterator last,
                                                              BinaryPredicate comp);
 

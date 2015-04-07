@@ -16,10 +16,10 @@ void TestUninitializedCopyDevice(ExecutionPolicy exec)
 {
   typedef thrust::device_vector<int> Vector;
   typedef typename Vector::value_type T;
-  
+
   Vector v1(5);
   v1[0] = 0; v1[1] = 1; v1[2] = 2; v1[3] = 3; v1[4] = 4;
-  
+
   // copy to Vector
   Vector v2(5);
   uninitialized_copy_kernel<<<1,1>>>(exec, v1.begin(), v1.end(), v2.begin());
@@ -49,10 +49,10 @@ void TestUninitializedCopyCudaStreams()
 {
   typedef thrust::device_vector<int> Vector;
   typedef typename Vector::value_type T;
-  
+
   Vector v1(5);
   v1[0] = 0; v1[1] = 1; v1[2] = 2; v1[3] = 3; v1[4] = 4;
-  
+
   // copy to Vector
   Vector v2(5);
 
@@ -86,10 +86,10 @@ void TestUninitializedCopyNDevice(ExecutionPolicy exec)
 {
   typedef thrust::device_vector<int> Vector;
   typedef typename Vector::value_type T;
-  
+
   Vector v1(5);
   v1[0] = 0; v1[1] = 1; v1[2] = 2; v1[3] = 3; v1[4] = 4;
-  
+
   // copy to Vector
   Vector v2(5);
   uninitialized_copy_n_kernel<<<1,1>>>(exec, v1.begin(), v1.size(), v2.begin());
@@ -119,10 +119,10 @@ void TestUninitializedCopyNCudaStreams()
 {
   typedef thrust::device_vector<int> Vector;
   typedef typename Vector::value_type T;
-  
+
   Vector v1(5);
   v1[0] = 0; v1[1] = 1; v1[2] = 2; v1[3] = 3; v1[4] = 4;
-  
+
   // copy to Vector
   Vector v2(5);
 

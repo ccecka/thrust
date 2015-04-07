@@ -6,8 +6,8 @@
 #include <thrust/iterator/retag.h>
 
 
-template<typename InputIterator, 
-         typename UnaryFunction, 
+template<typename InputIterator,
+         typename UnaryFunction,
          typename OutputType,
          typename BinaryFunction>
 OutputType transform_reduce(my_system &system,
@@ -37,8 +37,8 @@ void TestTransformReduceDispatchExplicit()
 }
 DECLARE_UNITTEST(TestTransformReduceDispatchExplicit);
 
-template<typename InputIterator, 
-         typename UnaryFunction, 
+template<typename InputIterator,
+         typename UnaryFunction,
          typename OutputType,
          typename BinaryFunction>
 OutputType transform_reduce(my_tag,

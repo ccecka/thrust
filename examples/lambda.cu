@@ -11,10 +11,10 @@
 // represented by _1, to the second argument, represented by _2.
 // The names _1, _2, _3, _4 ... _10 represent the first ten arguments
 // to the function.
-// 
+//
 // In this example, the placeholder expression "a * _1 + _2" is used
-// to implement the SAXPY operation.  Note that the placeholder 
-// implementation is considerably shorter and written inline. 
+// to implement the SAXPY operation.  Note that the placeholder
+// implementation is considerably shorter and written inline.
 
 
 // allows us to use "_1" instead of "thrust::placeholders::_1"
@@ -26,7 +26,7 @@ struct saxpy_functor
   : public thrust::binary_function<float, float, float>
 {
   float a;
-  
+
   saxpy_functor(float a) : a(a) {}
 
   __host__ __device__
@@ -44,7 +44,7 @@ int main(void)
   float a = 2.0f;
   float x[4] = {1, 2, 3, 4};
   float y[4] = {1, 1, 1, 1};
-   
+
   // SAXPY implemented with a functor (function object)
   {
     thrust::device_vector<float> X(x, x + 4);
@@ -54,7 +54,7 @@ int main(void)
                       Y.begin(),           // input range #2
                       Y.begin(),           // output range
                       saxpy_functor(a));   // functor
-    
+
     std::cout << "SAXPY (functor method)" << std::endl;
     for (size_t i = 0; i < 4; i++)
       std::cout << a << " * " << x[i] << " + " << y[i] << " = " << Y[i] << std::endl;

@@ -46,7 +46,7 @@ struct serial_bounded_set_intersection
   {
     thrust::detail::uint32_t active_mask = 0;
     thrust::detail::uint32_t active_bit = 1;
-  
+
     while(first1 != last1 && first2 != last2)
     {
       if(comp(*first1,*first2))
@@ -64,11 +64,11 @@ struct serial_bounded_set_intersection
         ++first2;
         active_mask |= active_bit;
       } // end else
-  
+
       ++result;
       active_bit <<= 1;
     } // end while
-  
+
     return active_mask;
   }
 
@@ -81,7 +81,7 @@ struct serial_bounded_set_intersection
                Compare comp)
   {
     Size result = 0;
-  
+
     while(first1 != last1 && first2 != last2)
     {
       if(comp(*first1,*first2))
@@ -99,7 +99,7 @@ struct serial_bounded_set_intersection
         ++first2;
       } // end else
     } // end while
-  
+
     return result;
   }
 }; // end serial_bounded_set_intersection
@@ -110,7 +110,7 @@ struct serial_bounded_set_intersection
 
 template<typename DerivedPolicy,
          typename RandomAccessIterator1,
-         typename RandomAccessIterator2, 
+         typename RandomAccessIterator2,
 	 typename RandomAccessIterator3,
          typename Compare>
 __host__ __device__

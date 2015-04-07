@@ -31,8 +31,8 @@ namespace generic
 
 
 template<typename ExecutionPolicy,
-         typename InputIterator, 
-         typename UnaryFunction, 
+         typename InputIterator,
+         typename UnaryFunction,
          typename OutputType,
          typename BinaryFunction>
 __host__ __device__

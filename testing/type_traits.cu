@@ -26,7 +26,7 @@ void TestIsPlainOldData(void)
     ASSERT_EQUAL((bool)thrust::detail::is_pod<char>::value, true);
     ASSERT_EQUAL((bool)thrust::detail::is_pod<signed char>::value, true);
     ASSERT_EQUAL((bool)thrust::detail::is_pod<unsigned char>::value, true);
-    
+
     ASSERT_EQUAL((bool)thrust::detail::is_pod<short>::value, true);
     ASSERT_EQUAL((bool)thrust::detail::is_pod<signed short>::value, true);
     ASSERT_EQUAL((bool)thrust::detail::is_pod<unsigned short>::value, true);
@@ -34,18 +34,18 @@ void TestIsPlainOldData(void)
     ASSERT_EQUAL((bool)thrust::detail::is_pod<int>::value, true);
     ASSERT_EQUAL((bool)thrust::detail::is_pod<signed int>::value, true);
     ASSERT_EQUAL((bool)thrust::detail::is_pod<unsigned int>::value, true);
-    
+
     ASSERT_EQUAL((bool)thrust::detail::is_pod<long>::value, true);
     ASSERT_EQUAL((bool)thrust::detail::is_pod<signed long>::value, true);
     ASSERT_EQUAL((bool)thrust::detail::is_pod<unsigned long>::value, true);
-    
+
     ASSERT_EQUAL((bool)thrust::detail::is_pod<long long>::value, true);
     ASSERT_EQUAL((bool)thrust::detail::is_pod<signed long long>::value, true);
     ASSERT_EQUAL((bool)thrust::detail::is_pod<unsigned long long>::value, true);
-    
+
     ASSERT_EQUAL((bool)thrust::detail::is_pod<float>::value, true);
     ASSERT_EQUAL((bool)thrust::detail::is_pod<double>::value, true);
-    
+
     // void
     ASSERT_EQUAL((bool)thrust::detail::is_pod<void>::value, true);
 
@@ -68,7 +68,7 @@ void TestIsTrivialIterator(void)
 {
     typedef thrust::host_vector<int>   HostVector;
     typedef thrust::device_vector<int> DeviceVector;
-    
+
     ASSERT_EQUAL((bool) thrust::detail::is_trivial_iterator< int * >::value, true);
     ASSERT_EQUAL((bool) thrust::detail::is_trivial_iterator< thrust::device_ptr<int> >::value, true);
 
@@ -107,19 +107,19 @@ void TestIsCommutative(void)
   { typedef int T; typedef thrust::bit_or<T>      Op; ASSERT_EQUAL((bool) thrust::detail::is_commutative<Op>::value, true); }
   { typedef int T; typedef thrust::bit_and<T>     Op; ASSERT_EQUAL((bool) thrust::detail::is_commutative<Op>::value, true); }
   { typedef int T; typedef thrust::bit_xor<T>     Op; ASSERT_EQUAL((bool) thrust::detail::is_commutative<Op>::value, true); }
-  
+
   { typedef char      T; typedef thrust::plus<T>  Op; ASSERT_EQUAL((bool) thrust::detail::is_commutative<Op>::value, true); }
   { typedef short     T; typedef thrust::plus<T>  Op; ASSERT_EQUAL((bool) thrust::detail::is_commutative<Op>::value, true); }
   { typedef long      T; typedef thrust::plus<T>  Op; ASSERT_EQUAL((bool) thrust::detail::is_commutative<Op>::value, true); }
   { typedef long long T; typedef thrust::plus<T>  Op; ASSERT_EQUAL((bool) thrust::detail::is_commutative<Op>::value, true); }
   { typedef float     T; typedef thrust::plus<T>  Op; ASSERT_EQUAL((bool) thrust::detail::is_commutative<Op>::value, true); }
   { typedef double    T; typedef thrust::plus<T>  Op; ASSERT_EQUAL((bool) thrust::detail::is_commutative<Op>::value, true); }
-  
+
   { typedef int   T; typedef thrust::minus<T>   Op; ASSERT_EQUAL((bool) thrust::detail::is_commutative<Op>::value, false); }
   { typedef int   T; typedef thrust::divides<T> Op; ASSERT_EQUAL((bool) thrust::detail::is_commutative<Op>::value, false); }
   { typedef float T; typedef thrust::divides<T> Op; ASSERT_EQUAL((bool) thrust::detail::is_commutative<Op>::value, false); }
   { typedef float T; typedef thrust::minus<T>   Op; ASSERT_EQUAL((bool) thrust::detail::is_commutative<Op>::value, false); }
-  
+
   { typedef thrust::tuple<int,int> T; typedef thrust::plus<T>  Op; ASSERT_EQUAL((bool) thrust::detail::is_commutative<Op>::value, false); }
 }
 DECLARE_UNITTEST(TestIsCommutative);

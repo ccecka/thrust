@@ -44,7 +44,7 @@ struct TestPairManipulation
     // test copy from pair
     p4.first  = T(2);
     p4.second = T(3);
-    
+
     P p5;
     p5 = p4;
     ASSERT_EQUAL(p4.first,  p5.first);

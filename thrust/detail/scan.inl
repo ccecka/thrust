@@ -44,7 +44,7 @@ __host__ __device__
 {
   using thrust::system::detail::generic::inclusive_scan;
   return inclusive_scan(thrust::detail::derived_cast(thrust::detail::strip_const(exec)), first, last, result);
-} // end inclusive_scan() 
+} // end inclusive_scan()
 
 
 __thrust_hd_warning_disable__

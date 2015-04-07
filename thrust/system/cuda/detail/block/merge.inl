@@ -112,29 +112,29 @@ __device__ __thrust_forceinline__
 
   RandomAccessIterator2 input1val = values_first;
   RandomAccessIterator2 input2val = values_first + n1;
-  
+
   typedef typename thrust::iterator_value<RandomAccessIterator1>::type KeyType;
   typedef typename thrust::iterator_value<RandomAccessIterator2>::type ValueType;
 
   // XXX use uninitialized here
   KeyType inp1 = input1[context.thread_index()]; ValueType inp1val = input1val[context.thread_index()];
   KeyType inp2 = input2[context.thread_index()]; ValueType inp2val = input2val[context.thread_index()];
-  
+
   // to merge input1 and input2, use binary search to find the rank of inp1 & inp2 in arrays input2 & input1, respectively
   // as before, the "end" variables point to one element after the last element of the arrays
-  
+
   // start by looking through input2 for inp1's rank
   unsigned int start_1 = 0;
-  
+
   // don't do the search if our value is beyond the end of input1
   if(context.thread_index() < n1)
   {
     start_1 = thrust::system::detail::generic::scalar::lower_bound_n(input2, n2, inp1, comp) - input2;
   } // end if
-  
+
   // now look through input1 for inp2's rank
   unsigned int start_2 = 0;
-  
+
   // don't do the search if our value is beyond the end of input2
   if(context.thread_index() < n2)
   {
@@ -143,7 +143,7 @@ __device__ __thrust_forceinline__
   } // end if
 
   context.barrier();
-  
+
   // Write back into the right position to the input arrays; can be done in place since we read in
   // the input arrays into registers before.
   if(context.thread_index() < n1)
@@ -151,7 +151,7 @@ __device__ __thrust_forceinline__
     input1[start_1 + context.thread_index()] = inp1;
     input1val[start_1 + context.thread_index()] = inp1val;
   } // end if
-  
+
   if(context.thread_index() < n2)
   {
     input1[start_2 + context.thread_index()] = inp2;

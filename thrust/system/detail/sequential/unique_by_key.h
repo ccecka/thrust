@@ -46,7 +46,7 @@ template<typename DerivedPolicy,
 __host__ __device__
   thrust::pair<OutputIterator1,OutputIterator2>
     unique_by_key_copy(sequential::execution_policy<DerivedPolicy> &,
-                       InputIterator1 keys_first, 
+                       InputIterator1 keys_first,
                        InputIterator1 keys_last,
                        InputIterator2 values_first,
                        OutputIterator1 keys_output,
@@ -99,7 +99,7 @@ template<typename DerivedPolicy,
 __host__ __device__
   thrust::pair<ForwardIterator1,ForwardIterator2>
     unique_by_key(sequential::execution_policy<DerivedPolicy> &exec,
-                  ForwardIterator1 keys_first, 
+                  ForwardIterator1 keys_first,
                   ForwardIterator1 keys_last,
                   ForwardIterator2 values_first,
                   BinaryPredicate binary_pred)

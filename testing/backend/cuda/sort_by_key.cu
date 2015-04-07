@@ -36,14 +36,14 @@ void TestComparisonSortByKeyDevice(ExecutionPolicy exec, const size_t n, Compare
 
   thrust::host_vector<T>   h_values = h_keys;
   thrust::device_vector<T> d_values = d_keys;
-  
+
   thrust::device_vector<bool> is_supported(1);
   sort_by_key_kernel<<<1,1>>>(exec, d_keys.begin(), d_keys.end(), d_values.begin(), comp, is_supported.begin());
 
   if(is_supported[0])
   {
     thrust::sort_by_key(h_keys.begin(), h_keys.end(), h_values.begin(), comp);
-    
+
     ASSERT_EQUAL(h_keys, d_keys);
     ASSERT_EQUAL(h_values, d_values);
   }
@@ -137,7 +137,7 @@ void TestComparisonSortByKeyCudaStreams()
 
   ASSERT_EQUAL(true, thrust::is_sorted(keys.begin(), keys.end()));
   ASSERT_EQUAL(true, thrust::is_sorted(vals.begin(), vals.end()));
-                      
+
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestComparisonSortByKeyCudaStreams);
@@ -167,7 +167,7 @@ void TestSortByKeyCudaStreams()
 
   ASSERT_EQUAL(true, thrust::is_sorted(keys.begin(), keys.end()));
   ASSERT_EQUAL(true, thrust::is_sorted(vals.begin(), vals.end()));
-                      
+
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestSortByKeyCudaStreams);

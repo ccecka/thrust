@@ -23,7 +23,7 @@ int main(void)
     source[4] = 50;
     source[5] = 60;
 
-    // fuse gather with reduction: 
+    // fuse gather with reduction:
     //   sum = source[map[0]] + source[map[1]] + ...
     int sum = thrust::reduce(thrust::make_permutation_iterator(source.begin(), map.begin()),
                              thrust::make_permutation_iterator(source.begin(), map.end()));

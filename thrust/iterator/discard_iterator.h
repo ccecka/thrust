@@ -81,9 +81,9 @@ namespace thrust
  *                          values.begin(),
  *                          thrust::make_discard_iterator(),
  *                          result.begin());
- *    
+ *
  *    // result is now [9, 21, 9, 3]
- *    
+ *
  *    return 0;
  *  }
  *  \endcode
@@ -118,7 +118,7 @@ template<typename System = use_default>
 
     /*! This constructor receives an optional index specifying the position of this
      *  \p discard_iterator in a range.
-     *  
+     *
      *  \p i The index of this \p discard_iterator in a range. Defaults to the
      *       value returned by \c Incrementable's null constructor. For example,
      *       when <tt>Incrementable == int</tt>, \c 0.
@@ -129,7 +129,7 @@ template<typename System = use_default>
 
     /*! \cond
      */
-  
+
   private: // Core iterator interface
     __host__ __device__
     reference dereference(void) const
@@ -166,6 +166,6 @@ discard_iterator<> make_discard_iterator(discard_iterator<>::difference_type i =
  */
 
 } // end namespace thrust
-  
+
 __THRUST_DISABLE_MSVC_POSSIBLE_LOSS_OF_DATA_WARNING_END
 

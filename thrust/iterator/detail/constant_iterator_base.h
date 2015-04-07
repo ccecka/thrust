@@ -65,6 +65,6 @@ template<typename Value,
 }; // end constant_iterator_base
 
 } // end detail
-  
+
 } // end thrust
 

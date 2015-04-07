@@ -53,7 +53,7 @@ template<typename KeyType,
       unsigned int j = threadIdx.x + d;
 
       // if j lies beyond the end of the array, we consider it "sorted" wrt i
-      // regardless of whether i lies beyond the end of the array 
+      // regardless of whether i lies beyond the end of the array
       if(threadIdx.x < (blockDim.x-d) && (threadIdx.x & p) == r && j < n)
       {
         KeyType xikey = keys[threadIdx.x];

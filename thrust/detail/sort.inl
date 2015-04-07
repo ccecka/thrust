@@ -243,7 +243,7 @@ template<typename RandomAccessIterator>
   System system;
 
   return thrust::stable_sort(select_system(system), first, last);
-} // end stable_sort() 
+} // end stable_sort()
 
 
 template<typename RandomAccessIterator,
@@ -348,7 +348,7 @@ template<typename ForwardIterator>
                  ForwardIterator last)
 {
   using thrust::system::detail::generic::select_system;
-  
+
   typedef typename thrust::iterator_system<ForwardIterator>::type System;
 
   System system;
@@ -364,7 +364,7 @@ template<typename ForwardIterator,
                  Compare comp)
 {
   using thrust::system::detail::generic::select_system;
-  
+
   typedef typename thrust::iterator_system<ForwardIterator>::type System;
 
   System system;
@@ -378,7 +378,7 @@ template<typename ForwardIterator>
                                   ForwardIterator last)
 {
   using thrust::system::detail::generic::select_system;
-  
+
   typedef typename thrust::iterator_system<ForwardIterator>::type System;
 
   System system;
@@ -394,7 +394,7 @@ template<typename ForwardIterator,
                                   Compare comp)
 {
   using thrust::system::detail::generic::select_system;
-  
+
   typedef typename thrust::iterator_system<ForwardIterator>::type System;
 
   System system;

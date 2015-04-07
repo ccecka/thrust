@@ -47,7 +47,7 @@ void TestTabulateSimple(void)
 {
   using namespace thrust::placeholders;
   typedef typename Vector::value_type T;
-  
+
   Vector v(5);
 
   thrust::tabulate(v.begin(), v.end(), thrust::identity<T>());
@@ -65,7 +65,7 @@ void TestTabulateSimple(void)
   ASSERT_EQUAL(v[2], -2);
   ASSERT_EQUAL(v[3], -3);
   ASSERT_EQUAL(v[4], -4);
-  
+
   thrust::tabulate(v.begin(), v.end(), _1 * _1 * _1);
 
   ASSERT_EQUAL(v[0], 0);

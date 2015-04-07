@@ -111,7 +111,7 @@ void stable_sort(execution_policy<DerivedPolicy> &exec,
 
 #if (THRUST_DEVICE_COMPILER_IS_OMP_CAPABLE == THRUST_TRUE)
   typedef typename thrust::iterator_difference<RandomAccessIterator>::type IndexType;
-  
+
   if(first == last)
     return;
 
@@ -186,7 +186,7 @@ void stable_sort_by_key(execution_policy<DerivedPolicy> &exec,
 
 #if (THRUST_DEVICE_COMPILER_IS_OMP_CAPABLE == THRUST_TRUE)
   typedef typename thrust::iterator_difference<RandomAccessIterator1>::type IndexType;
-  
+
   if(keys_first == keys_last)
     return;
 

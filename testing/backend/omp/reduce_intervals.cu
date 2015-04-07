@@ -4,7 +4,7 @@
 #include <thrust/system/detail/internal/decompose.h>
 #include <thrust/system/omp/detail/reduce_intervals.h>
 
-// CPP reference implementation 
+// CPP reference implementation
 template<typename InputIterator,
          typename OutputIterator,
          typename BinaryFunction,
@@ -57,7 +57,7 @@ void TestOmpReduceIntervalsSimple(void)
   Vector input(10, 1);
 
   thrust::omp::tag omp_tag;
-    
+
   {
     uniform_decomposition<int> decomp(10, 10, 1);
     Vector output(decomp.size());
@@ -65,7 +65,7 @@ void TestOmpReduceIntervalsSimple(void)
 
     ASSERT_EQUAL(output[0], 10);
   }
-  
+
   {
     uniform_decomposition<int> decomp(10, 6, 2);
     Vector output(decomp.size());
@@ -85,7 +85,7 @@ struct TestOmpReduceIntervals
   {
     using thrust::system::omp::detail::reduce_intervals;
     using thrust::system::detail::internal::uniform_decomposition;
-    
+
     thrust::host_vector<T>   h_input = unittest::random_integers<T>(n);
     thrust::device_vector<T> d_input = h_input;
 
@@ -93,7 +93,7 @@ struct TestOmpReduceIntervals
 
     thrust::host_vector<T>   h_output(decomp.size());
     thrust::device_vector<T> d_output(decomp.size());
-    
+
     ::reduce_intervals(h_input.begin(), h_output.begin(), thrust::plus<T>(), decomp);
     thrust::system::omp::tag omp_tag;
     reduce_intervals(omp_tag, d_input.begin(), d_output.begin(), thrust::plus<T>(), decomp);

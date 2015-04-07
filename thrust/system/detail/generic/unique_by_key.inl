@@ -42,7 +42,7 @@ template<typename ExecutionPolicy,
          typename ForwardIterator2>
   thrust::pair<ForwardIterator1,ForwardIterator2>
     unique_by_key(thrust::execution_policy<ExecutionPolicy> &exec,
-                  ForwardIterator1 keys_first, 
+                  ForwardIterator1 keys_first,
                   ForwardIterator1 keys_last,
                   ForwardIterator2 values_first)
 {
@@ -57,19 +57,19 @@ template<typename ExecutionPolicy,
          typename BinaryPredicate>
   thrust::pair<ForwardIterator1,ForwardIterator2>
     unique_by_key(thrust::execution_policy<ExecutionPolicy> &exec,
-                  ForwardIterator1 keys_first, 
+                  ForwardIterator1 keys_first,
                   ForwardIterator1 keys_last,
                   ForwardIterator2 values_first,
                   BinaryPredicate binary_pred)
 {
   typedef typename thrust::iterator_traits<ForwardIterator1>::value_type InputType1;
   typedef typename thrust::iterator_traits<ForwardIterator2>::value_type InputType2;
-  
+
   ForwardIterator2 values_last = values_first + (keys_last - keys_first);
-  
+
   thrust::detail::temporary_array<InputType1,ExecutionPolicy> keys(exec, keys_first, keys_last);
   thrust::detail::temporary_array<InputType2,ExecutionPolicy> vals(exec, values_first, values_last);
-  
+
   return thrust::unique_by_key_copy(exec, keys.begin(), keys.end(), vals.begin(), keys_first, values_first, binary_pred);
 } // end unique_by_key()
 
@@ -81,7 +81,7 @@ template<typename ExecutionPolicy,
          typename OutputIterator2>
   thrust::pair<OutputIterator1,OutputIterator2>
     unique_by_key_copy(thrust::execution_policy<ExecutionPolicy> &exec,
-                       InputIterator1 keys_first, 
+                       InputIterator1 keys_first,
                        InputIterator1 keys_last,
                        InputIterator2 values_first,
                        OutputIterator1 keys_output,
@@ -100,7 +100,7 @@ template<typename ExecutionPolicy,
          typename BinaryPredicate>
   thrust::pair<OutputIterator1,OutputIterator2>
     unique_by_key_copy(thrust::execution_policy<ExecutionPolicy> &exec,
-                       InputIterator1 keys_first, 
+                       InputIterator1 keys_first,
                        InputIterator1 keys_last,
                        InputIterator2 values_first,
                        OutputIterator1 keys_output,
@@ -108,19 +108,19 @@ template<typename ExecutionPolicy,
                        BinaryPredicate binary_pred)
 {
   typedef typename thrust::iterator_traits<InputIterator1>::difference_type difference_type;
-  
+
   // empty sequence
   if(keys_first == keys_last)
     return thrust::make_pair(keys_output, values_output);
-  
+
   difference_type n = thrust::distance(keys_first, keys_last);
-  
+
   thrust::detail::temporary_array<int,ExecutionPolicy> stencil(exec,n);
-  
+
   // mark first element in each group
-  stencil[0] = 1; 
-  thrust::transform(exec, keys_first, keys_last - 1, keys_first + 1, stencil.begin() + 1, thrust::detail::not2(binary_pred)); 
-  
+  stencil[0] = 1;
+  thrust::transform(exec, keys_first, keys_last - 1, keys_first + 1, stencil.begin() + 1, thrust::detail::not2(binary_pred));
+
   thrust::zip_iterator< thrust::tuple<OutputIterator1, OutputIterator2> > result =
     thrust::copy_if(exec,
                     thrust::make_zip_iterator(thrust::make_tuple(keys_first, values_first)),
@@ -128,9 +128,9 @@ template<typename ExecutionPolicy,
                     stencil.begin(),
                     thrust::make_zip_iterator(thrust::make_tuple(keys_output, values_output)),
                     thrust::identity<int>());
-  
+
   difference_type output_size = result - thrust::make_zip_iterator(thrust::make_tuple(keys_output, values_output));
-                                  
+
   return thrust::make_pair(keys_output + output_size, values_output + output_size);
 } // end unique_by_key_copy()
 

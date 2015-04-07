@@ -44,7 +44,7 @@ namespace random
  *
  *  \tparam IntType The type of integer to produce.
  *
- *  The following code snippet demonstrates examples of using a \p uniform_int_distribution with a 
+ *  The following code snippet demonstrates examples of using a \p uniform_int_distribution with a
  *  random number engine to produce random integers drawn from a given range:
  *
  *  \code
@@ -104,7 +104,7 @@ template<typename IntType = int>
 
     /*! This constructor creates a new \p uniform_int_distribution from two values defining the
      *  range of the distribution.
-     *  
+     *
      *  \param a The smallest integer to potentially produce. Defaults to \c 0.
      *  \param b The largest integer to potentially produce. Defaults to the largest representable integer in
      *           the platform.
@@ -114,7 +114,7 @@ template<typename IntType = int>
 
     /*! This constructor creates a new \p uniform_int_distribution from a \p param_type object
      *  encapsulating the range of the distribution.
-     *  
+     *
      *  \param parm A \p param_type object encapsulating the parameters (i.e., the range) of the distribution.
      */
     __host__ __device__
@@ -136,7 +136,7 @@ template<typename IntType = int>
     __host__ __device__
     result_type operator()(UniformRandomNumberGenerator &urng);
 
-    /*! This method produces a new uniform random integer as if by creating a new \p uniform_int_distribution 
+    /*! This method produces a new uniform random integer as if by creating a new \p uniform_int_distribution
      *  from the given \p param_type object, and calling its <tt>operator()</tt> method with the given
      *  \p UniformRandomNumberGenerator as a source of randomness.
      *
@@ -149,7 +149,7 @@ template<typename IntType = int>
     result_type operator()(UniformRandomNumberGenerator &urng, const param_type &parm);
 
     // property functions
-    
+
     /*! This method returns the value of the parameter with which this \p uniform_int_distribution
      *  was constructed.
      *

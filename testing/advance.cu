@@ -18,11 +18,11 @@ void TestAdvance(void)
     thrust::advance(i, 7);
 
     ASSERT_EQUAL(*i, T(7));
-    
+
     thrust::advance(i, 13);
 
     ASSERT_EQUAL(*i, T(20));
-    
+
     thrust::advance(i, -10);
 
     ASSERT_EQUAL(*i, T(10));

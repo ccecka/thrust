@@ -56,7 +56,7 @@ void TestGetTemporaryBufferDeviceSeq()
   typedef thrust::pointer<int, thrust::detail::seq_t> pointer;
   typedef thrust::pair<pointer, std::ptrdiff_t> ptr_and_sz_type;
   thrust::device_vector<ptr_and_sz_type> d_result(1);
-  
+
   get_temporary_buffer_kernel<<<1,1>>>(n, d_result.begin());
 
   ptr_and_sz_type ptr_and_sz = d_result[0];
@@ -98,7 +98,7 @@ void TestMallocDeviceSeq()
 
   typedef thrust::pointer<int, thrust::detail::seq_t> pointer;
   thrust::device_vector<pointer> d_result(1);
-  
+
   malloc_kernel<<<1,1>>>(n, d_result.begin());
 
   pointer ptr = d_result[0];

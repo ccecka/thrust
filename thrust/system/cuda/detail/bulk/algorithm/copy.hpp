@@ -204,7 +204,7 @@ template<std::size_t bound, std::size_t groupsize, std::size_t grainsize, typena
 __device__
 typename thrust::detail::enable_if<
   (bound <= groupsize * grainsize),
-  RandomAccessIterator2 
+  RandomAccessIterator2
 >::type
 copy_n(bulk::bounded<
          bound,

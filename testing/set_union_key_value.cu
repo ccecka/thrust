@@ -32,7 +32,7 @@ template<typename U>
 
   typename thrust::host_vector<T>::iterator   h_end;
   typename thrust::device_vector<T>::iterator d_end;
-  
+
   h_end = thrust::set_union(h_a.begin(), h_a.end(),
                             h_b.begin(), h_b.end(),
                             h_result.begin());
@@ -76,7 +76,7 @@ template<typename U>
 
   typename thrust::host_vector<T>::iterator   h_end;
   typename thrust::device_vector<T>::iterator d_end;
-  
+
   h_end = thrust::set_union(h_a.begin(), h_a.end(),
                             h_b.begin(), h_b.end(),
                             h_result.begin(),

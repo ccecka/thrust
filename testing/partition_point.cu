@@ -49,7 +49,7 @@ DECLARE_VECTOR_UNITTEST(TestPartitionPoint);
 
 
 template<typename ForwardIterator, typename Predicate>
-ForwardIterator partition_point(my_system &system, 
+ForwardIterator partition_point(my_system &system,
                                 ForwardIterator first,
                                 ForwardIterator last,
                                 Predicate pred)

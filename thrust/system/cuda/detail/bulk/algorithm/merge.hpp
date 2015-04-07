@@ -41,7 +41,7 @@ Size merge_path(RandomAccessIterator1 first1, Size n1,
 {
   Size begin = thrust::max<Size>(Size(0), diag - n2);
   Size end = thrust::min<Size>(diag, n1);
-  
+
   while(begin < end)
   {
     Size mid = (begin + end) >> 1;
@@ -102,20 +102,20 @@ OutputIterator merge(const bulk::bounded<bound,agent<grainsize> > &e,
     //key_b.construct(first2[idx2]);
     key_b = first2[idx2];
   } // end if
-  
+
   // avoid branching when possible
   if(bound <= n)
   {
     for(size_type i = 0; i < grainsize; ++i)
     {
       bool p = (idx2 >= n2) || ((idx1 < n1) && !comp(key_b, key_a));
-      
+
       result[i] = p ? key_a : key_b;
 
       if(p)
       {
         ++idx1;
-        
+
         // use of min avoids conditional load
         key_a = first1[min(idx1, n1 - 1)];
       } // end if
@@ -135,7 +135,7 @@ OutputIterator merge(const bulk::bounded<bound,agent<grainsize> > &e,
       if(i < n)
       {
         bool p = (idx2 >= n2) || ((idx1 < n1) && !comp(key_b, key_a));
-        
+
         result[i] = p ? key_a : key_b;
 
         if(p)
@@ -229,14 +229,14 @@ thrust::pair<RandomAccessIterator5,RandomAccessIterator6>
     key_b = keys_first2[idx2];
     val_b = values_first2[idx2];
   } // end if
-  
+
   // avoid branching when possible
   if(bound <= n)
   {
     for(size_type i = 0; i < grainsize; ++i)
     {
       bool p = (idx2 >= n2) || ((idx1 < n1) && !comp(key_b, key_a));
-      
+
       keys_result[i]   = p ? key_a : key_b;
       values_result[i] = p ? val_a : val_b;
 
@@ -265,7 +265,7 @@ thrust::pair<RandomAccessIterator5,RandomAccessIterator6>
       if(i < n)
       {
         bool p = (idx2 >= n2) || ((idx1 < n1) && !comp(key_b, key_a));
-        
+
         keys_result[i]   = p ? key_a : key_b;
         values_result[i] = p ? val_a : val_b;
 
@@ -329,7 +329,7 @@ inplace_merge(bulk::bounded<
   size_type local_offset = grainsize * g.this_exec.index();
 
   size_type mp = bulk::merge_path(first, n1, middle, n2, local_offset, comp);
-  
+
   // do a local sequential merge
   size_type local_offset1 = mp;
   size_type local_offset2 = n1 + local_offset - mp;
@@ -347,7 +347,7 @@ inplace_merge(bulk::bounded<
   // copy local result back to source
   // this is faster than getting the size from merge's result
   size_type local_size = thrust::max<size_type>(0, thrust::min<size_type>(grainsize, n1 + n2 - local_offset));
-  bulk::copy_n(bulk::bound<grainsize>(g.this_exec), local_result, local_size, first + local_offset); 
+  bulk::copy_n(bulk::bound<grainsize>(g.this_exec), local_result, local_size, first + local_offset);
 
   g.wait();
 } // end inplace_merge()
@@ -384,11 +384,11 @@ merge(bulk::bounded<
   size_type local_offset = grainsize * g.this_exec.index();
 
   size_type mp = bulk::merge_path(first1, n1, first2, n2, local_offset, comp);
-  
+
   // do a local sequential merge
   size_type local_offset1 = mp;
   size_type local_offset2 = local_offset - mp;
-  
+
   typedef typename thrust::iterator_value<RandomAccessIterator3>::type value_type;
   value_type local_result[grainsize];
   bulk::merge(bulk::bound<grainsize>(g.this_exec),
@@ -400,7 +400,7 @@ merge(bulk::bounded<
   // store local result
   // this is faster than getting the size from merge's result
   size_type local_size = thrust::max<size_type>(0, thrust::min<size_type>(grainsize, n1 + n2 - local_offset));
-  bulk::copy_n(bulk::bound<grainsize>(g.this_exec), local_result, local_size, result + local_offset); 
+  bulk::copy_n(bulk::bound<grainsize>(g.this_exec), local_result, local_size, result + local_offset);
 
   g.wait();
 
@@ -440,7 +440,7 @@ RandomAccessIterator4
   bulk::inplace_merge(bulk::bound<groupsize * grainsize>(exec),
                       buffer, buffer + n1, buffer + n1 + n2,
                       comp);
-  
+
   // copy to the result
   // XXX this might be slightly faster with a bounded copy_n
   return bulk::copy_n(exec, buffer, n1 + n2, result);
@@ -549,7 +549,7 @@ merge_by_key(bulk::bounded<
   size_type n1 = keys_last1 - keys_first1;
   size_type n2 = keys_last2 - keys_first2;
   size_type  n = n1 + n2;
-  
+
   // copy keys into stage
   bulk::copy_n(g,
                thrust::detail::make_join_iterator(keys_first1, n1, keys_first2),
@@ -559,14 +559,14 @@ merge_by_key(bulk::bounded<
   // find the start of each agent's sequential merge
   size_type diag = thrust::min<size_type>(n1 + n2, grainsize * g.this_exec.index());
   size_type mp = bulk::merge_path(stage.keys, n1, stage.keys + n1, n2, diag, comp);
-  
+
   // compute the ranges of the sources in the stage.
   size_type start1 = mp;
   size_type start2 = n1 + diag - mp;
 
   size_type end1 = n1;
   size_type end2 = n1 + n2;
-  
+
   // each agent merges sequentially
   key_type  results[grainsize];
   size_type indices[grainsize];
@@ -579,20 +579,20 @@ merge_by_key(bulk::bounded<
                      indices,
                      comp);
   g.wait();
-  
+
   // each agent stores merged keys back to the stage
   size_type local_offset = grainsize * g.this_exec.index();
   size_type local_size = thrust::max<size_type>(0, thrust::min<size_type>(grainsize, n - local_offset));
   bulk::copy_n(bulk::bound<grainsize>(g.this_exec), results, local_size, stage.keys + local_offset);
   g.wait();
-  
+
   // store merged keys to the result
   keys_result = bulk::copy_n(g, stage.keys, n, keys_result);
-  
+
   // each agent copies the indices into the stage
   bulk::copy_n(bulk::bound<grainsize>(g.this_exec), indices, local_size, stage.indices + local_offset);
   g.wait();
-  
+
   // gather values into merged order
   values_result = bulk::gather(g,
                                stage.indices, stage.indices + n,

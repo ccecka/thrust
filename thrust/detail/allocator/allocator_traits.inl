@@ -222,7 +222,7 @@ __host__ __device__
   struct workaround_warnings
   {
     __thrust_hd_warning_disable__
-    static __host__ __device__ 
+    static __host__ __device__
     typename allocator_traits<Alloc>::pointer
       allocate(Alloc &a, typename allocator_traits<Alloc>::size_type n)
     {

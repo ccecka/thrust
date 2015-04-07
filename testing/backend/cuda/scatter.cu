@@ -16,25 +16,25 @@ void TestScatterDevice(ExecutionPolicy exec)
 {
   size_t n = 1000;
   const size_t output_size = std::min((size_t) 10, 2 * n);
-  
+
   thrust::host_vector<int> h_input(n, 1);
   thrust::device_vector<int> d_input(n, 1);
-  
+
   thrust::host_vector<unsigned int> h_map = unittest::random_integers<unsigned int>(n);
-  
+
   for(size_t i = 0; i < n; i++)
   {
     h_map[i] =  h_map[i] % output_size;
   }
-  
+
   thrust::device_vector<unsigned int> d_map = h_map;
-  
+
   thrust::host_vector<int>   h_output(output_size, 0);
   thrust::device_vector<int> d_output(output_size, 0);
-  
+
   thrust::scatter(h_input.begin(), h_input.end(), h_map.begin(), h_output.begin());
   scatter_kernel<<<1,1>>>(exec, d_input.begin(), d_input.end(), d_map.begin(), d_output.begin());
-  
+
   ASSERT_EQUAL(h_output, d_output);
 }
 
@@ -71,25 +71,25 @@ void TestScatterIfDevice(ExecutionPolicy exec)
 {
   size_t n = 1000;
   const size_t output_size = std::min((size_t) 10, 2 * n);
-  
+
   thrust::host_vector<int> h_input(n, 1);
   thrust::device_vector<int> d_input(n, 1);
-  
+
   thrust::host_vector<unsigned int> h_map = unittest::random_integers<unsigned int>(n);
-  
+
   for(size_t i = 0; i < n; i++)
   {
     h_map[i] =  h_map[i] % output_size;
   }
-  
+
   thrust::device_vector<unsigned int> d_map = h_map;
-  
+
   thrust::host_vector<int>   h_output(output_size, 0);
   thrust::device_vector<int> d_output(output_size, 0);
-  
+
   thrust::scatter_if(h_input.begin(), h_input.end(), h_map.begin(), h_map.begin(), h_output.begin(), is_even_scatter_if<unsigned int>());
   scatter_if_kernel<<<1,1>>>(exec, d_input.begin(), d_input.end(), d_map.begin(), d_map.begin(), d_output.begin(), is_even_scatter_if<unsigned int>());
-  
+
   ASSERT_EQUAL(h_output, d_output);
 }
 
@@ -146,12 +146,12 @@ void TestScatterIfCudaStreams()
 {
   typedef thrust::device_vector<int> Vector;
   typedef typename Vector::value_type T;
-  
+
   Vector flg(5);  // predicate array
   Vector map(5);  // scatter indices
   Vector src(5);  // source vector
   Vector dst(8);  // destination vector
-  
+
   flg[0] = 0; flg[1] = 1; flg[2] = 0; flg[3] = 1; flg[4] = 0;
   map[0] = 6; map[1] = 3; map[2] = 1; map[3] = 7; map[4] = 2;
   src[0] = 0; src[1] = 1; src[2] = 2; src[3] = 3; src[4] = 4;
@@ -159,10 +159,10 @@ void TestScatterIfCudaStreams()
 
   cudaStream_t s;
   cudaStreamCreate(&s);
-  
+
   thrust::scatter_if(thrust::cuda::par.on(s), src.begin(), src.end(), map.begin(), flg.begin(), dst.begin());
   cudaStreamSynchronize(s);
-  
+
   ASSERT_EQUAL(dst[0], 0);
   ASSERT_EQUAL(dst[1], 0);
   ASSERT_EQUAL(dst[2], 0);

@@ -44,7 +44,7 @@ template <class Vector>
 void TestSequenceSimple(void)
 {
     typedef typename Vector::value_type T;
-    
+
     Vector v(5);
 
     thrust::sequence(v.begin(), v.end());
@@ -62,7 +62,7 @@ void TestSequenceSimple(void)
     ASSERT_EQUAL(v[2], 12);
     ASSERT_EQUAL(v[3], 13);
     ASSERT_EQUAL(v[4], 14);
-    
+
     thrust::sequence(v.begin(), v.end(), 10, 2);
 
     ASSERT_EQUAL(v[0], 10);
@@ -94,7 +94,7 @@ void TestSequence(size_t n)
     thrust::sequence(d_data.begin(), d_data.end(), T(10), T(2));
 
     ASSERT_EQUAL(h_data, d_data);
-    
+
     thrust::sequence(h_data.begin(), h_data.end(), size_t(10), size_t(2));
     thrust::sequence(d_data.begin(), d_data.end(), size_t(10), size_t(2));
 

@@ -4,7 +4,7 @@
 #include <thrust/device_vector.h>
 
 // for printing
-#include <thrust/copy.h> 
+#include <thrust/copy.h>
 #include <iterator>
 
 int main(void)

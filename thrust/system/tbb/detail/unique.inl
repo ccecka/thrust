@@ -60,7 +60,7 @@ template<typename DerivedPolicy,
 
 
 } // end namespace detail
-} // end namespace tbb 
+} // end namespace tbb
 } // end namespace system
 } // end namespace thrust
 

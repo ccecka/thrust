@@ -9,7 +9,7 @@ template <typename ForwardIterator1,
           typename ForwardIterator2>
 thrust::pair<ForwardIterator1,ForwardIterator2>
 unique_by_key(my_system &system,
-              ForwardIterator1 keys_first, 
+              ForwardIterator1 keys_first,
               ForwardIterator1,
               ForwardIterator2 values_first)
 {
@@ -33,7 +33,7 @@ template <typename ForwardIterator1,
           typename ForwardIterator2>
 thrust::pair<ForwardIterator1,ForwardIterator2>
 unique_by_key(my_tag,
-              ForwardIterator1 keys_first, 
+              ForwardIterator1 keys_first,
               ForwardIterator1,
               ForwardIterator2 values_first)
 {
@@ -45,7 +45,7 @@ void TestUniqueByKeyDispatchImplicit()
 {
     thrust::device_vector<int> vec(1);
 
-    thrust::unique_by_key(thrust::retag<my_tag>(vec.begin()), 
+    thrust::unique_by_key(thrust::retag<my_tag>(vec.begin()),
                           thrust::retag<my_tag>(vec.begin()),
                           thrust::retag<my_tag>(vec.begin()));
 
@@ -60,7 +60,7 @@ template <typename InputIterator1,
           typename OutputIterator2>
 thrust::pair<OutputIterator1,OutputIterator2>
 unique_by_key_copy(my_system &system,
-                   InputIterator1, 
+                   InputIterator1,
                    InputIterator1,
                    InputIterator2,
                    OutputIterator1 keys_output,
@@ -93,7 +93,7 @@ template <typename InputIterator1,
           typename OutputIterator2>
 thrust::pair<OutputIterator1,OutputIterator2>
 unique_by_key_copy(my_tag,
-                   InputIterator1, 
+                   InputIterator1,
                    InputIterator1,
                    InputIterator2,
                    OutputIterator1 keys_output,
@@ -144,7 +144,7 @@ template <typename Vector>
 void initialize_values(Vector& values)
 {
     values.resize(9);
-    values[0] = 0; 
+    values[0] = 0;
     values[1] = 1;
     values[2] = 2;
     values[3] = 3;
@@ -178,7 +178,7 @@ void TestUniqueByKeySimple(void)
     ASSERT_EQUAL(keys[2], 20);
     ASSERT_EQUAL(keys[3], 21);
     ASSERT_EQUAL(keys[4], 37);
-    
+
     ASSERT_EQUAL(values[0], 0);
     ASSERT_EQUAL(values[1], 2);
     ASSERT_EQUAL(values[2], 3);
@@ -187,7 +187,7 @@ void TestUniqueByKeySimple(void)
 
     // test BinaryPredicate
     initialize_keys(keys);  initialize_values(values);
-    
+
     new_last = thrust::unique_by_key(keys.begin(), keys.end(), values.begin(), is_equal_div_10_unique<T>());
 
     ASSERT_EQUAL(new_last.first  - keys.begin(),   3);
@@ -195,7 +195,7 @@ void TestUniqueByKeySimple(void)
     ASSERT_EQUAL(keys[0], 11);
     ASSERT_EQUAL(keys[1], 21);
     ASSERT_EQUAL(keys[2], 37);
-    
+
     ASSERT_EQUAL(values[0], 0);
     ASSERT_EQUAL(values[1], 2);
     ASSERT_EQUAL(values[2], 7);
@@ -228,7 +228,7 @@ void TestUniqueCopyByKeySimple(void)
     ASSERT_EQUAL(output_keys[2], 20);
     ASSERT_EQUAL(output_keys[3], 21);
     ASSERT_EQUAL(output_keys[4], 37);
-    
+
     ASSERT_EQUAL(output_values[0], 0);
     ASSERT_EQUAL(output_values[1], 2);
     ASSERT_EQUAL(output_values[2], 3);
@@ -237,7 +237,7 @@ void TestUniqueCopyByKeySimple(void)
 
     // test BinaryPredicate
     initialize_keys(keys);  initialize_values(values);
-    
+
     new_last = thrust::unique_by_key_copy(keys.begin(), keys.end(), values.begin(), output_keys.begin(), output_values.begin(), is_equal_div_10_unique<T>());
 
     ASSERT_EQUAL(new_last.first  - output_keys.begin(),   3);
@@ -245,7 +245,7 @@ void TestUniqueCopyByKeySimple(void)
     ASSERT_EQUAL(output_keys[0], 11);
     ASSERT_EQUAL(output_keys[1], 21);
     ASSERT_EQUAL(output_keys[2], 37);
-    
+
     ASSERT_EQUAL(output_values[0], 0);
     ASSERT_EQUAL(output_values[1], 2);
     ASSERT_EQUAL(output_values[2], 7);
@@ -278,7 +278,7 @@ struct TestUniqueByKey
 
         ASSERT_EQUAL(h_last.first  - h_keys.begin(), d_last.first  - d_keys.begin());
         ASSERT_EQUAL(h_last.second - h_vals.begin(), d_last.second - d_vals.begin());
-       
+
         size_t N = h_last.first - h_keys.begin();
 
         h_keys.resize(N);
@@ -323,7 +323,7 @@ struct TestUniqueCopyByKey
 
         ASSERT_EQUAL(h_last.first  - h_keys_output.begin(), d_last.first  - d_keys_output.begin());
         ASSERT_EQUAL(h_last.second - h_vals_output.begin(), d_last.second - d_vals_output.begin());
-       
+
         size_t N = h_last.first - h_keys_output.begin();
 
         h_keys_output.resize(N);

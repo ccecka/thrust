@@ -48,7 +48,7 @@ template<typename Size>
   inline __device__ thrust::pair<Size,Size> quotient_and_remainder(Size n, Size d)
 {
   Size quotient  = n / d;
-  Size remainder = n - d * quotient; 
+  Size remainder = n - d * quotient;
   return thrust::make_pair(quotient,remainder);
 } // end quotient_and_remainder()
 
@@ -78,7 +78,7 @@ void trivial_copy(Context context, void* destination_, const void* source_, size
   // reinterpret at bytes
   char* destination  = reinterpret_cast<char*>(destination_);
   const char* source = reinterpret_cast<const char*>(source_);
- 
+
   // TODO replace this with uint64
 #if THRUST_DEVICE_COMPILER != THRUST_DEVICE_COMPILER_NVCC
   typedef long long  int2;
@@ -154,14 +154,14 @@ template<typename Context,
          typename RandomAccessIterator1,
          typename RandomAccessIterator2>
   __thrust_forceinline__ __device__
-  RandomAccessIterator2 copy(Context context, 
+  RandomAccessIterator2 copy(Context context,
                              RandomAccessIterator1 first,
                              RandomAccessIterator1 last,
                              RandomAccessIterator2 result,
                              thrust::detail::false_type is_trivial_copy)
 {
   RandomAccessIterator2 end_of_output = result + (last - first);
-  
+
   // advance iterators
   first  += context.thread_index();
   result += context.thread_index();
@@ -180,7 +180,7 @@ template<typename Context,
 } // end namespace dispatch
 } // end namespace detail
 
-template<typename Context, 
+template<typename Context,
          typename RandomAccessIterator1,
          typename RandomAccessIterator2>
   __thrust_forceinline__ __device__

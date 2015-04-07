@@ -93,15 +93,15 @@ template <typename T>
 void TestScatter(const size_t n)
 {
     const size_t output_size = std::min((size_t) 10, 2 * n);
-    
+
     thrust::host_vector<T> h_input(n, (T) 1);
     thrust::device_vector<T> d_input(n, (T) 1);
-   
+
     thrust::host_vector<unsigned int> h_map = unittest::random_integers<unsigned int>(n);
 
     for(size_t i = 0; i < n; i++)
         h_map[i] =  h_map[i] % output_size;
-    
+
     thrust::device_vector<unsigned int> d_map = h_map;
 
     thrust::host_vector<T>   h_output(output_size, (T) 0);
@@ -119,15 +119,15 @@ template <typename T>
 void TestScatterToDiscardIterator(const size_t n)
 {
     const size_t output_size = std::min((size_t) 10, 2 * n);
-    
+
     thrust::host_vector<T> h_input(n, (T) 1);
     thrust::device_vector<T> d_input(n, (T) 1);
-   
+
     thrust::host_vector<unsigned int> h_map = unittest::random_integers<unsigned int>(n);
 
     for(size_t i = 0; i < n; i++)
         h_map[i] =  h_map[i] % output_size;
-    
+
     thrust::device_vector<unsigned int> d_map = h_map;
 
     thrust::scatter(h_input.begin(), h_input.end(), h_map.begin(), thrust::make_discard_iterator());
@@ -238,15 +238,15 @@ template <typename T>
 void TestScatterIf(const size_t n)
 {
     const size_t output_size = std::min((size_t) 10, 2 * n);
-    
+
     thrust::host_vector<T> h_input(n, (T) 1);
     thrust::device_vector<T> d_input(n, (T) 1);
-   
+
     thrust::host_vector<unsigned int> h_map = unittest::random_integers<unsigned int>(n);
 
     for(size_t i = 0; i < n; i++)
         h_map[i] =  h_map[i] % output_size;
-    
+
     thrust::device_vector<unsigned int> d_map = h_map;
 
     thrust::host_vector<T>   h_output(output_size, (T) 0);
@@ -264,15 +264,15 @@ template <typename T>
 void TestScatterIfToDiscardIterator(const size_t n)
 {
     const size_t output_size = std::min((size_t) 10, 2 * n);
-    
+
     thrust::host_vector<T> h_input(n, (T) 1);
     thrust::device_vector<T> d_input(n, (T) 1);
-   
+
     thrust::host_vector<unsigned int> h_map = unittest::random_integers<unsigned int>(n);
 
     for(size_t i = 0; i < n; i++)
         h_map[i] =  h_map[i] % output_size;
-    
+
     thrust::device_vector<unsigned int> d_map = h_map;
 
     thrust::scatter_if(h_input.begin(), h_input.end(), h_map.begin(), h_map.begin(), thrust::make_discard_iterator(), is_even_scatter_if<unsigned int>());
@@ -301,7 +301,7 @@ void TestScatterCountingIterator(void)
                     output.begin());
 
     ASSERT_EQUAL(output, map);
-    
+
     // map has any_system_tag
     thrust::fill(output.begin(), output.end(), 0);
     thrust::scatter(source.begin(), source.end(),
@@ -309,7 +309,7 @@ void TestScatterCountingIterator(void)
                     output.begin());
 
     ASSERT_EQUAL(output, map);
-    
+
     // source and map have any_system_tag
     thrust::fill(output.begin(), output.end(), 0);
     thrust::scatter(thrust::make_counting_iterator(0), thrust::make_counting_iterator(10),
@@ -331,7 +331,7 @@ void TestScatterIfCountingIterator(void)
 
     Vector map(10);
     thrust::sequence(map.begin(), map.end(), 0);
-    
+
     Vector stencil(10, 1);
 
     Vector output(10);
@@ -344,7 +344,7 @@ void TestScatterIfCountingIterator(void)
                        output.begin());
 
     ASSERT_EQUAL(output, map);
-    
+
     // map has any_system_tag
     thrust::fill(output.begin(), output.end(), 0);
     thrust::scatter_if(source.begin(), source.end(),
@@ -353,7 +353,7 @@ void TestScatterIfCountingIterator(void)
                        output.begin());
 
     ASSERT_EQUAL(output, map);
-    
+
     // source and map have any_system_tag
     thrust::fill(output.begin(), output.end(), 0);
     thrust::scatter_if(thrust::make_counting_iterator(0), thrust::make_counting_iterator(10),

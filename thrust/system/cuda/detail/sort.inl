@@ -113,7 +113,7 @@ typename enable_if_primitive_sort<RandomAccessIterator,StrictWeakOrdering>::type
   thrust::detail::trivial_sequence<RandomAccessIterator,DerivedPolicy> keys(exec, first, last);
 
   thrust::system::cuda::detail::detail::stable_primitive_sort(exec, keys.begin(), keys.end(), comp);
-  
+
   // copy results back, if necessary
   if(!thrust::detail::is_trivial_iterator<RandomAccessIterator>::value)
   {
@@ -151,9 +151,9 @@ typename enable_if_primitive_sort<RandomAccessIterator1,StrictWeakOrdering>::typ
   // ensure sequences have trivial iterators
   thrust::detail::trivial_sequence<RandomAccessIterator1,DerivedPolicy> keys(exec, keys_first, keys_last);
   thrust::detail::trivial_sequence<RandomAccessIterator2,DerivedPolicy> values(exec, values_first, values_first + (keys_last - keys_first));
-  
+
   thrust::system::cuda::detail::detail::stable_primitive_sort_by_key(exec, keys.begin(), keys.end(), values.begin(), comp);
-  
+
   // copy results back, if necessary
   if(!thrust::detail::is_trivial_iterator<RandomAccessIterator1>::value)
   {
@@ -269,7 +269,7 @@ void stable_sort_by_key(execution_policy<DerivedPolicy> &exec,
       thrust::stable_sort_by_key(thrust::seq, keys_first, keys_last, values_first, comp);
     }
   };
-  
+
 #if __BULK_HAS_CUDART__
   workaround::parallel_path(exec, keys_first, keys_last, values_first, comp);
 #else

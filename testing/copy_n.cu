@@ -132,7 +132,7 @@ void TestCopyNVectorBool(void)
 
     thrust::host_vector<bool> h(3);
     thrust::device_vector<bool> d(3);
-    
+
     thrust::copy_n(v.begin(), v.size(), h.begin());
     thrust::copy_n(v.begin(), v.size(), d.begin());
 
@@ -159,7 +159,7 @@ void TestCopyNListTo(void)
     l.push_back(2);
     l.push_back(3);
     l.push_back(4);
-   
+
     Vector v(l.size());
 
     typename Vector::iterator v_result = thrust::copy_n(l.begin(), l.size(), v.begin());
@@ -211,7 +211,7 @@ void TestCopyNZipIterator(void)
     typedef typename Vector::value_type T;
 
     Vector v1(3); v1[0] = 1; v1[1] = 2; v1[2] = 3;
-    Vector v2(3); v2[0] = 4; v2[1] = 5; v2[2] = 6; 
+    Vector v2(3); v2[0] = 4; v2[1] = 5; v2[2] = 6;
     Vector v3(3, T(0));
     Vector v4(3, T(0));
 

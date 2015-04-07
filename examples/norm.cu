@@ -4,10 +4,10 @@
 #include <thrust/host_vector.h>
 #include <cmath>
 
-//   This example computes the norm [1] of a vector.  The norm is 
-// computed by squaring all numbers in the vector, summing the 
+//   This example computes the norm [1] of a vector.  The norm is
+// computed by squaring all numbers in the vector, summing the
 // squares, and taking the square root of the sum of squares.  In
-// Thrust this operation is efficiently implemented with the 
+// Thrust this operation is efficiently implemented with the
 // transform_reduce() algorith.  Specifically, we first transform
 // x -> x^2 and the compute a standard plus reduction.  Since there
 // is no built-in functor for squaring numbers, we define our own
@@ -21,7 +21,7 @@ template <typename T>
 struct square
 {
     __host__ __device__
-        T operator()(const T& x) const { 
+        T operator()(const T& x) const {
             return x * x;
         }
 };

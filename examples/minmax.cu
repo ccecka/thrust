@@ -8,7 +8,7 @@
 
 // compute minimum and maximum values in a single reduction
 
-// minmax_pair stores the minimum and maximum 
+// minmax_pair stores the minimum and maximum
 // values that have been encountered so far
 template <typename T>
 struct minmax_pair
@@ -34,9 +34,9 @@ struct minmax_unary_op
   }
 };
 
-// minmax_binary_op is a functor that accepts two minmax_pair 
-// structs and returns a new minmax_pair whose minimum and 
-// maximum values are the min() and max() respectively of 
+// minmax_binary_op is a functor that accepts two minmax_pair
+// structs and returns a new minmax_pair whose minimum and
+// maximum values are the min() and max() respectively of
 // the minimums and maximums of the input pairs
 template <typename T>
 struct minmax_binary_op
@@ -82,7 +82,7 @@ int main(void)
   for(size_t i = 0; i < N; i++)
     std::cout << data[i] << " ";
   std::cout << "]" << std::endl;
- 
+
   std::cout << "minimum = " << result.min_val << std::endl;
   std::cout << "maximum = " << result.max_val << std::endl;
 

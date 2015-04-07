@@ -135,7 +135,7 @@ T reduce(bulk::concurrent_group<bulk::agent<grainsize>,groupsize> &g,
     size_type partition_size = thrust::min<size_type>(elements_per_group, last - first);
 
     typedef typename thrust::iterator_value<RandomAccessIterator>::type input_type;
-    
+
     // load input into register
     input_type local_inputs[grainsize];
 

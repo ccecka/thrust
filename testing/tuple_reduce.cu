@@ -12,7 +12,7 @@ struct SumTupleFunctor
   Tuple operator()(const Tuple &lhs, const Tuple &rhs)
   {
     using thrust::get;
-  
+
     return thrust::make_tuple(get<0>(lhs) + get<0>(rhs),
                               get<1>(lhs) + get<1>(rhs));
   }
@@ -44,7 +44,7 @@ struct TestTupleReduce
 
      // copy to device
      device_vector< tuple<T,T> > d_tuples = h_tuples;
-     
+
      tuple<T,T> zero(0,0);
 
      // sum on host

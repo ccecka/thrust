@@ -16,7 +16,7 @@
 
 
 /*! \file for_each.h
- *  \brief Defines the interface for a function that executes a 
+ *  \brief Defines the interface for a function that executes a
  *  function or functional for each value in a given range.
  */
 

@@ -93,7 +93,7 @@
 
 namespace thrust{
 namespace detail{
-namespace complex{		      	
+namespace complex{
 
 using thrust::complex;
 
@@ -190,11 +190,11 @@ __host__ __device__
 inline complex<double> tan(const complex<double>& z){
   return detail::complex::ctan(z);
 }
-  
+
 template <>
 __host__ __device__
 inline complex<double> tanh(const complex<double>& z){
   return detail::complex::ctanh(z);
 }
-  
+
 } // namespace thrust

@@ -7,7 +7,7 @@ template <typename T, unsigned int N>
 struct FixedVector
 {
     T data[N];
-    
+
     __host__ __device__
     FixedVector()
     {
@@ -30,7 +30,7 @@ struct FixedVector
             output.data[i] = data[i] + bs.data[i];
         return output;
     }
-    
+
     __host__ __device__
     bool operator<(const FixedVector& bs) const
     {
@@ -52,7 +52,7 @@ struct FixedVector
             if(!(data[i] == bs.data[i]))
                 return false;
         }
-        return true;                
+        return true;
     }
 };
 
@@ -179,6 +179,6 @@ using thrust::detail::uint16_t;
 using thrust::detail::uint32_t;
 using thrust::detail::uint64_t;
 
-  
+
 }
 

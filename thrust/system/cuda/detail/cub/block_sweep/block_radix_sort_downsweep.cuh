@@ -412,7 +412,7 @@ struct BlockRadixSortDownsweep
      */
     template <typename BlockLoadT, typename T, typename InputIterator>
     __device__ __forceinline__ void LoadItems(
-        BlockLoadT      &block_loader, 
+        BlockLoadT      &block_loader,
         T               (&items)[ITEMS_PER_THREAD],
         InputIterator   d_in,
         Offset          valid_items,
@@ -427,7 +427,7 @@ struct BlockRadixSortDownsweep
      */
     template <typename BlockLoadT, typename T, typename InputIterator>
     __device__ __forceinline__ void LoadItems(
-        BlockLoadT      &block_loader, 
+        BlockLoadT      &block_loader,
         T               (&items)[ITEMS_PER_THREAD],
         InputIterator   d_in,
         Offset          valid_items,
@@ -507,7 +507,7 @@ struct BlockRadixSortDownsweep
             loader,
             keys,
             d_keys_in + block_offset,
-            valid_items, 
+            valid_items,
             Int2Type<FULL_TILE>());
 
         __syncthreads();

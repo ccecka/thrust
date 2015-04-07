@@ -52,7 +52,7 @@ __host__ __device__
                                 BinaryFunction binary_op)
 {
   // the pseudocode for deducing the type of the temporary used below:
-  // 
+  //
   // if BinaryFunction is AdaptableBinaryFunction
   //   TemporaryType = AdaptableBinaryFunction::result_type
   // else if OutputIterator is a "pure" output iterator
@@ -62,7 +62,7 @@ __host__ __device__
   //
   // XXX upon c++0x, TemporaryType needs to be:
   // result_of<BinaryFunction>::type
-  
+
   using namespace thrust::detail;
 
   typedef typename eval_if<
@@ -110,7 +110,7 @@ __host__ __device__
                                 BinaryFunction binary_op)
 {
   // the pseudocode for deducing the type of the temporary used below:
-  // 
+  //
   // if BinaryFunction is AdaptableBinaryFunction
   //   TemporaryType = AdaptableBinaryFunction::result_type
   // else if OutputIterator is a "pure" output iterator
@@ -150,7 +150,7 @@ __host__ __device__
   }
 
   return result;
-} 
+}
 
 
 } // end namespace sequential

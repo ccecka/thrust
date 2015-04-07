@@ -64,7 +64,7 @@ struct copy_if_intervals_closure
 
   typedef Context context_type;
   context_type context;
-  
+
   __host__ __device__
   copy_if_intervals_closure(InputIterator1 input,
                             InputIterator2 stencil,
@@ -78,13 +78,13 @@ struct copy_if_intervals_closure
   void operator()(void)
   {
     typedef unsigned int PredicateType;
-    
+
     const unsigned int CTA_SIZE = context_type::ThreadsPerBlock::value;
 
     thrust::plus<PredicateType> binary_op;
 
     __shared__ PredicateType sdata[CTA_SIZE];  context.barrier();
-    
+
     typedef typename Decomposition::index_type IndexType;
 
     // this block processes results in [range.begin(), range.end())
@@ -93,7 +93,7 @@ struct copy_if_intervals_closure
     IndexType base = range.begin();
 
     PredicateType predicate = 0;
-    
+
     // advance input iterators to this thread's starting position
     input   += base + context.thread_index();
     stencil += base + context.thread_index();
@@ -110,12 +110,12 @@ struct copy_if_intervals_closure
     {
       // read data
       sdata[context.thread_index()] = predicate = *stencil;
-      
+
       context.barrier();
 
       // scan block
       block::inclusive_scan(context, sdata, binary_op);
-      
+
       // write data
       if(predicate)
       {
@@ -146,12 +146,12 @@ struct copy_if_intervals_closure
       {
         sdata[context.thread_index()] = predicate = 0;
       }
-      
+
       context.barrier();
 
       // scan block
       block::inclusive_scan(context, sdata, binary_op);
-      
+
       // write data
       if(predicate) // expects predicate=false for >= interval_end
       {

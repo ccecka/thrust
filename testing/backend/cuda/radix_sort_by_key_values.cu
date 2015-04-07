@@ -25,7 +25,7 @@ struct TestRadixSortByKeyShortValues
   {
     thrust::host_vector<T>   h_keys = unittest::random_integers<T>(n);
     thrust::device_vector<T> d_keys = h_keys;
-    
+
     thrust::host_vector<short>   h_values(n);
     thrust::device_vector<short> d_values(n);
     thrust::sequence(h_values.begin(), h_values.end());
@@ -49,7 +49,7 @@ struct TestRadixSortByKeyLongLongValues
   {
     thrust::host_vector<T>   h_keys = unittest::random_integers<T>(n);
     thrust::device_vector<T> d_keys = h_keys;
-    
+
     thrust::host_vector<long long>   h_values(n);
     thrust::device_vector<long long> d_values(n);
     thrust::sequence(h_values.begin(), h_values.end());

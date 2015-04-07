@@ -31,7 +31,7 @@ namespace detail
 
 template <typename DerivedPolicy, typename ForwardIterator, typename BinaryPredicate>
 ForwardIterator max_element(execution_policy<DerivedPolicy> &exec,
-                            ForwardIterator first, 
+                            ForwardIterator first,
                             ForwardIterator last,
                             BinaryPredicate comp)
 {
@@ -41,7 +41,7 @@ ForwardIterator max_element(execution_policy<DerivedPolicy> &exec,
 
 template <typename DerivedPolicy, typename ForwardIterator, typename BinaryPredicate>
 ForwardIterator min_element(execution_policy<DerivedPolicy> &exec,
-                            ForwardIterator first, 
+                            ForwardIterator first,
                             ForwardIterator last,
                             BinaryPredicate comp)
 {
@@ -51,7 +51,7 @@ ForwardIterator min_element(execution_policy<DerivedPolicy> &exec,
 
 template <typename DerivedPolicy, typename ForwardIterator, typename BinaryPredicate>
 thrust::pair<ForwardIterator,ForwardIterator> minmax_element(execution_policy<DerivedPolicy> &exec,
-                                                             ForwardIterator first, 
+                                                             ForwardIterator first,
                                                              ForwardIterator last,
                                                              BinaryPredicate comp)
 {

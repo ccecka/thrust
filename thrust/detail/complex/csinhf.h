@@ -53,7 +53,7 @@
 
 namespace thrust{
 namespace detail{
-namespace complex{		      	
+namespace complex{
 
 using thrust::complex;
 
@@ -122,11 +122,11 @@ complex<float> csinf(complex<float> z){
   z = csinhf(complex<float>(-z.imag(), z.real()));
   return (complex<float>(z.imag(), -z.real()));
 }
-      
+
 } // namespace complex
 
 } // namespace detail
-  
+
 template <>
 __host__ __device__
 inline complex<float> sin(const complex<float>& z){

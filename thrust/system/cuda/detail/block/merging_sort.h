@@ -84,13 +84,13 @@ __device__ void transposition_sort(Context context,
                                    Compare comp)
 {
   const bool is_odd = i&0x1;
-  
+
   for(unsigned int round=size/2; round>0; --round)
   {
     // ODDS
     conditional_swap(keys_first, values_first, i, end, is_odd, comp);
     context.barrier();
-  
+
     // EVENS
     conditional_swap(keys_first, values_first, i, end, !is_odd, comp);
     context.barrier();
@@ -102,7 +102,7 @@ template<typename Context,
          typename RandomAccessIterator2,
          typename StrictWeakOrdering>
 __device__ void merge(Context context,
-                      RandomAccessIterator1 keys_first, 
+                      RandomAccessIterator1 keys_first,
                       RandomAccessIterator2 values_first,
                       const unsigned int i,
                       const unsigned int n,
@@ -154,7 +154,7 @@ __device__ void merge(Context context,
       keys_first[new_begin+rank] = key;
       values_first[new_begin+rank] = value;
     }
-    
+
     context.barrier();
 
     begin = new_begin;
@@ -183,9 +183,9 @@ __device__ void merging_sort(Context context,
   unsigned int i = context.thread_index();
   unsigned int h = 32;
   unsigned int begin=i&(~(h-1)),  end=min(n,begin+h);
-  
+
   transposition_sort(context, keys_first, values_first, i, end, h, comp);
-  
+
   // Phase 2: Apply merge tree to produce final sorted results
   merge(context, keys_first, values_first, i, n, begin, end, h, comp);
 } // end merging_sort()

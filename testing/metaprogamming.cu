@@ -4,7 +4,7 @@
 void TestLog2(void)
 {
     unsigned int result;
-    
+
     result = thrust::detail::mpl::math::log2<  1>::value;   ASSERT_EQUAL(result, 0);
     result = thrust::detail::mpl::math::log2<  2>::value;   ASSERT_EQUAL(result, 1);
     result = thrust::detail::mpl::math::log2<  3>::value;   ASSERT_EQUAL(result, 1);

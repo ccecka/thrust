@@ -49,7 +49,7 @@ __host__ __device__
                                           BinaryFunction binary_op)
 {
   // the pseudocode for deducing the type of the temporary used below:
-  // 
+  //
   // if UnaryFunction is AdaptableUnaryFunction
   //   TemporaryType = AdaptableUnaryFunction::result_type
   // else if OutputIterator is a "pure" output iterator
@@ -93,7 +93,7 @@ __host__ __device__
                                           AssociativeOperator binary_op)
 {
   // the pseudocode for deducing the type of the temporary used below:
-  // 
+  //
   // if UnaryFunction is AdaptableUnaryFunction
   //   TemporaryType = AdaptableUnaryFunction::result_type
   // else if OutputIterator is a "pure" output iterator

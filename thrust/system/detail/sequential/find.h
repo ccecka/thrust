@@ -16,7 +16,7 @@
 
 
 /*! \file find.h
- *  \brief Sequential implementation of find_if. 
+ *  \brief Sequential implementation of find_if.
  */
 
 #pragma once

@@ -13,7 +13,7 @@ void _TestReduceWithLargeTypes(void)
         h_data[i] = FixedVector<T,N>(i);
 
     thrust::device_vector< FixedVector<T,N> > d_data = h_data;
-    
+
     FixedVector<T,N> h_result = thrust::reduce(h_data.begin(), h_data.end(), FixedVector<T,N>(0));
     FixedVector<T,N> d_result = thrust::reduce(d_data.begin(), d_data.end(), FixedVector<T,N>(0));
 
@@ -29,7 +29,7 @@ void TestReduceWithLargeTypes(void)
   // XXX these take too long to compile
   //  _TestReduceWithLargeTypes<int,   32>();
   //  _TestReduceWithLargeTypes<int,   64>();
-  //  _TestReduceWithLargeTypes<int,  128>(); 
+  //  _TestReduceWithLargeTypes<int,  128>();
   //  _TestReduceWithLargeTypes<int,  256>();
   //  _TestReduceWithLargeTypes<int,  512>();
 }

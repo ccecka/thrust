@@ -15,7 +15,7 @@
 #define ASSERT_GEQUAL(X,Y)       unittest::assert_gequal((X),(Y), __FILE__,  __LINE__)
 #define ASSERT_ALMOST_EQUAL(X,Y) unittest::assert_almost_equal((X),(Y), __FILE__, __LINE__)
 #define KNOWN_FAILURE            { unittest::UnitTestKnownFailure f; f << "[" << __FILE__ ":" << __LINE__ << "]"; throw f;}
-                    
+
 #define ASSERT_EQUAL_RANGES(X,Y,Z)  unittest::assert_equal((X),(Y),(Z), __FILE__,  __LINE__)
 
 #define ASSERT_THROWS(X,Y)                                                         \
@@ -51,7 +51,7 @@ template<typename T>
 ////
 // check scalar values
 template <typename T1, typename T2>
-void assert_equal(const T1& a, const T2& b, 
+void assert_equal(const T1& a, const T2& b,
                   const std::string& filename = "unknown", int lineno = -1)
 {
     // convert a & b to a's value_type to avoid warning upon comparison
@@ -68,7 +68,7 @@ void assert_equal(const T1& a, const T2& b,
 
 // sometimes it's not possible to << a type
 template <typename T1, typename T2>
-void assert_equal_quiet(const T1& a, const T2& b, 
+void assert_equal_quiet(const T1& a, const T2& b,
                         const std::string& filename = "unknown", int lineno = -1)
 {
     if(!(a == b)){
@@ -81,7 +81,7 @@ void assert_equal_quiet(const T1& a, const T2& b,
 }
 
 template <typename T1, typename T2>
-void assert_lequal(const T1& a, const T2& b, 
+void assert_lequal(const T1& a, const T2& b,
                    const std::string& filename = "unknown", int lineno = -1)
 {
     if(!(a <= b)){
@@ -94,7 +94,7 @@ void assert_lequal(const T1& a, const T2& b,
 }
 
 template <typename T1, typename T2>
-void assert_gequal(const T1& a, const T2& b, 
+void assert_gequal(const T1& a, const T2& b,
                    const std::string& filename = "unknown", int lineno = -1)
 {
     if(!(a >= T1(b))){
@@ -124,7 +124,7 @@ bool almost_equal(const double& a, const double& b, const double& a_tol, const d
 }
 
 template <typename T1, typename T2>
-void assert_almost_equal(const T1& a, const T2& b, 
+void assert_almost_equal(const T1& a, const T2& b,
                          const std::string& filename = "unknown", int lineno = -1,
                          double a_tol = DEFAULT_ABSOLUTE_TOL, double r_tol = DEFAULT_RELATIVE_TOL)
 
@@ -140,7 +140,7 @@ void assert_almost_equal(const T1& a, const T2& b,
 
 
 template <typename T1, typename T2>
-  void assert_almost_equal(const thrust::complex<T1>& a, const thrust::complex<T2>& b, 
+  void assert_almost_equal(const thrust::complex<T1>& a, const thrust::complex<T2>& b,
                          const std::string& filename = "unknown", int lineno = -1,
                          double a_tol = DEFAULT_ABSOLUTE_TOL, double r_tol = DEFAULT_RELATIVE_TOL)
 
@@ -156,7 +156,7 @@ template <typename T1, typename T2>
 
 
 template <typename T1, typename T2>
-  void assert_almost_equal(const thrust::complex<T1>& a, const std::complex<T2>& b, 
+  void assert_almost_equal(const thrust::complex<T1>& a, const std::complex<T2>& b,
                          const std::string& filename = "unknown", int lineno = -1,
                          double a_tol = DEFAULT_ABSOLUTE_TOL, double r_tol = DEFAULT_RELATIVE_TOL)
 
@@ -189,7 +189,7 @@ class almost_equal_to<thrust::complex<T> >
         double a_tol, r_tol;
         almost_equal_to(double _a_tol = DEFAULT_ABSOLUTE_TOL, double _r_tol = DEFAULT_RELATIVE_TOL) : a_tol(_a_tol), r_tol(_r_tol) {}
         bool operator()(const thrust::complex<T>& a, const thrust::complex<T>& b) const {
-	  return almost_equal((double) a.real(), (double) b.real(), a_tol, r_tol) && 
+	  return almost_equal((double) a.real(), (double) b.real(), a_tol, r_tol) &&
 	    almost_equal((double) a.imag(), (double) b.imag(), a_tol, r_tol);
         }
 };
@@ -203,12 +203,12 @@ void assert_equal(ForwardIterator1 first1, ForwardIterator1 last1, ForwardIterat
 {
     typedef typename thrust::iterator_difference<ForwardIterator1>::type difference_type;
     typedef typename thrust::iterator_value<ForwardIterator1>::type InputType;
-    
+
     bool failure = false;
 
     difference_type length1 = thrust::distance(first1, last1);
     difference_type length2 = thrust::distance(first2, last2);
-    
+
     difference_type min_length = thrust::min(length1, length2);
 
     unittest::UnitTestFailure f;
@@ -222,7 +222,7 @@ void assert_equal(ForwardIterator1 first1, ForwardIterator1 last1, ForwardIterat
     }
 
     // check values
-    
+
     size_t mismatches = 0;
 
     for (difference_type i = 0; i < min_length; i++)
@@ -294,7 +294,7 @@ void assert_equal(const thrust::host_vector<T,Alloc>& A, const thrust::host_vect
 }
 
 template <typename T, typename Alloc>
-void assert_almost_equal(const thrust::host_vector<T,Alloc>& A, const thrust::host_vector<T,Alloc>& B, 
+void assert_almost_equal(const thrust::host_vector<T,Alloc>& A, const thrust::host_vector<T,Alloc>& B,
                          const std::string& filename = "unknown", int lineno = -1,
                          const double a_tol = DEFAULT_ABSOLUTE_TOL, const double r_tol = DEFAULT_RELATIVE_TOL)
 {

@@ -80,7 +80,7 @@ void scatter_tails_n(ConcurrentGroup &group,
 {
   // for each tail element in [flags_first, flags_first + n)
   // scatter the key and value to that element's corresponding flag element - 1
-  
+
   // the zip_iterators in this scatter_if can confuse nvcc's pointer space tracking for __CUDA_ARCH__ < 200
   // separate the scatters for __CUDA_ARCH__ < 200
 #if __CUDA_ARCH__ >= 200
@@ -92,14 +92,14 @@ void scatter_tails_n(ConcurrentGroup &group,
                    thrust::make_zip_iterator(thrust::make_tuple(values_result, keys_result)));
 #else
   bulk::scatter_if(group,
-                   values_first, 
+                   values_first,
                    values_first + n - 1,
                    thrust::make_transform_iterator(flags_first, thrust::placeholders::_1 - 1),
                    bulk::detail::make_tail_flags(flags_first, flags_first + n).begin(),
                    values_result);
 
   bulk::scatter_if(group,
-                   keys_first, 
+                   keys_first,
                    keys_first + n - 1,
                    thrust::make_transform_iterator(flags_first, thrust::placeholders::_1 - 1),
                    bulk::detail::make_tail_flags(flags_first, flags_first + n).begin(),

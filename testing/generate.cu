@@ -173,10 +173,10 @@ void TestGenerateNToDiscardIterator(const size_t n)
     T value = 13;
     return_value<T> f(value);
 
-    thrust::discard_iterator<thrust::host_system_tag> h_result = 
+    thrust::discard_iterator<thrust::host_system_tag> h_result =
       thrust::generate_n(thrust::discard_iterator<thrust::host_system_tag>(), n, f);
 
-    thrust::discard_iterator<thrust::device_system_tag> d_result = 
+    thrust::discard_iterator<thrust::device_system_tag> d_result =
       thrust::generate_n(thrust::discard_iterator<thrust::device_system_tag>(), n, f);
 
     thrust::discard_iterator<> reference(n);

@@ -22,7 +22,7 @@
 
 /*
  * Copyright David Abrahams and Thomas Becker 2000-2006.
- * 
+ *
  * Distributed under the Boost Software License, Version 1.0.
  * (See accompanying NOTICE file for the complete license)
  *
@@ -57,7 +57,7 @@ namespace thrust
  *
  *  The following code snippet demonstrates how to create a \p zip_iterator
  *  which represents the result of "zipping" multiple ranges together.
- *  
+ *
  *  \code
  *  #include <thrust/iterator/zip_iterator.h>
  *  #include <thrust/tuple.h>
@@ -148,7 +148,7 @@ template <typename IteratorTuple>
 
     /*! This constructor creates a new \p zip_iterator from a
      *  \p tuple of iterators.
-     *  
+     *
      *  \param iterator_tuple The \p tuple of iterators to copy from.
      */
     inline __host__ __device__

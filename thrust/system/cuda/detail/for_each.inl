@@ -158,7 +158,7 @@ RandomAccessIterator for_each_n(execution_policy<DerivedPolicy> &exec,
 #else
   return workaround::sequential_path(exec, first, n, f);
 #endif
-} 
+}
 
 
 template<typename DerivedPolicy,

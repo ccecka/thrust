@@ -33,41 +33,41 @@ void TestCopyIfDevice(ExecutionPolicy exec)
   size_t n = 1000;
   thrust::host_vector<int>   h_data = unittest::random_integers<int>(n);
   thrust::device_vector<int> d_data = h_data;
-  
+
   typename thrust::host_vector<int>::iterator   h_new_end;
   typename thrust::device_vector<int>::iterator d_new_end;
 
   thrust::device_vector<
     typename thrust::device_vector<int>::iterator
   > d_new_end_vec(1);
-  
+
   // test with Predicate that returns a bool
   {
     thrust::host_vector<int>   h_result(n);
     thrust::device_vector<int> d_result(n);
-    
+
     h_new_end = thrust::copy_if(h_data.begin(), h_data.end(), h_result.begin(), is_even<int>());
     copy_if_kernel<<<1,1>>>(exec, d_data.begin(), d_data.end(), d_result.begin(), is_even<int>(), d_new_end_vec.begin());
     d_new_end = d_new_end_vec[0];
-    
+
     h_result.resize(h_new_end - h_result.begin());
     d_result.resize(d_new_end - d_result.begin());
-    
+
     ASSERT_EQUAL(h_result, d_result);
   }
-  
+
   // test with Predicate that returns a non-bool
   {
     thrust::host_vector<int>   h_result(n);
     thrust::device_vector<int> d_result(n);
-    
+
     h_new_end = thrust::copy_if(h_data.begin(), h_data.end(), h_result.begin(), mod_3<int>());
     copy_if_kernel<<<1,1>>>(exec, d_data.begin(), d_data.end(), d_result.begin(), mod_3<int>(), d_new_end_vec.begin());
     d_new_end = d_new_end_vec[0];
-    
+
     h_result.resize(h_new_end - h_result.begin());
     d_result.resize(d_new_end - d_result.begin());
-    
+
     ASSERT_EQUAL(h_result, d_result);
   }
 }
@@ -93,11 +93,11 @@ void TestCopyIfCudaStreams()
   typedef typename Vector::value_type T;
 
   Vector data(5);
-  data[0] =  1; 
-  data[1] =  2; 
+  data[0] =  1;
+  data[1] =  2;
   data[2] =  1;
-  data[3] =  3; 
-  data[4] =  2; 
+  data[3] =  3;
+  data[4] =  2;
 
   Vector result(5);
 
@@ -105,8 +105,8 @@ void TestCopyIfCudaStreams()
   cudaStreamCreate(&s);
 
   typename Vector::iterator end = thrust::copy_if(thrust::cuda::par.on(s),
-                                                  data.begin(), 
-                                                  data.end(), 
+                                                  data.begin(),
+                                                  data.end(),
                                                   result.begin(),
                                                   is_even<int>());
 
@@ -132,48 +132,48 @@ void TestCopyIfStencilDevice(ExecutionPolicy exec)
 {
   size_t n = 1000;
   thrust::host_vector<int>   h_data(n); thrust::sequence(h_data.begin(), h_data.end());
-  thrust::device_vector<int> d_data(n); thrust::sequence(d_data.begin(), d_data.end()); 
-  
+  thrust::device_vector<int> d_data(n); thrust::sequence(d_data.begin(), d_data.end());
+
   thrust::host_vector<int>   h_stencil = unittest::random_integers<int>(n);
   thrust::device_vector<int> d_stencil = unittest::random_integers<int>(n);
-  
+
   thrust::host_vector<int>   h_result(n);
   thrust::device_vector<int> d_result(n);
-  
+
   typename thrust::host_vector<int>::iterator   h_new_end;
   typename thrust::device_vector<int>::iterator d_new_end;
 
   thrust::device_vector<
     typename thrust::device_vector<int>::iterator
   > d_new_end_vec(1);
-  
+
   // test with Predicate that returns a bool
   {
     thrust::host_vector<int>   h_result(n);
     thrust::device_vector<int> d_result(n);
-    
+
     h_new_end = thrust::copy_if(h_data.begin(), h_data.end(), h_result.begin(), is_even<int>());
     copy_if_kernel<<<1,1>>>(exec, d_data.begin(), d_data.end(), d_result.begin(), is_even<int>(), d_new_end_vec.begin());
     d_new_end = d_new_end_vec[0];
-    
+
     h_result.resize(h_new_end - h_result.begin());
     d_result.resize(d_new_end - d_result.begin());
-    
+
     ASSERT_EQUAL(h_result, d_result);
   }
-  
+
   // test with Predicate that returns a non-bool
   {
     thrust::host_vector<int>   h_result(n);
     thrust::device_vector<int> d_result(n);
-    
+
     h_new_end = thrust::copy_if(h_data.begin(), h_data.end(), h_result.begin(), mod_3<int>());
     copy_if_kernel<<<1,1>>>(exec, d_data.begin(), d_data.end(), d_result.begin(), mod_3<int>(), d_new_end_vec.begin());
     d_new_end = d_new_end_vec[0];
-    
+
     h_result.resize(h_new_end - h_result.begin());
     d_result.resize(d_new_end - d_result.begin());
-    
+
     ASSERT_EQUAL(h_result, d_result);
   }
 }
@@ -199,11 +199,11 @@ void TestCopyIfStencilCudaStreams()
   typedef typename Vector::value_type T;
 
   Vector data(5);
-  data[0] =  1; 
-  data[1] =  2; 
+  data[0] =  1;
+  data[1] =  2;
   data[2] =  1;
-  data[3] =  3; 
-  data[4] =  2; 
+  data[3] =  3;
+  data[4] =  2;
 
   Vector result(5);
 
@@ -218,7 +218,7 @@ void TestCopyIfStencilCudaStreams()
   cudaStreamCreate(&s);
 
   typename Vector::iterator end = thrust::copy_if(thrust::cuda::par.on(s),
-                                                  data.begin(), 
+                                                  data.begin(),
                                                   data.end(),
                                                   stencil.begin(),
                                                   result.begin(),

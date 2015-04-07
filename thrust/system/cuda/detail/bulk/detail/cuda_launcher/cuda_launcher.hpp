@@ -370,7 +370,7 @@ struct cuda_launcher<
   : public cuda_launcher_base<dynamic_group_size, parallel_group<agent<grainsize>,groupsize>,Closure>
 {
   typedef cuda_launcher_base<dynamic_group_size, parallel_group<agent<grainsize>,groupsize>,Closure> super_t;
-  typedef typename super_t::size_type size_type; 
+  typedef typename super_t::size_type size_type;
   typedef typename super_t::task_type task_type;
 
   typedef parallel_group<agent<grainsize>,groupsize> group_type;

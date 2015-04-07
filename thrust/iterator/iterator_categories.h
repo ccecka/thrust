@@ -21,7 +21,7 @@
 
 /*
  * (C) Copyright Jeremy Siek 2002.
- * 
+ *
  * Distributed under the Boost Software License, Version 1.0.
  * (See accompanying NOTICE file for the complete license)
  *

@@ -108,19 +108,19 @@ void TestUniqueSimple(void)
     typedef typename Vector::value_type T;
 
     Vector data(10);
-    data[0] = 11; 
-    data[1] = 11; 
+    data[0] = 11;
+    data[1] = 11;
     data[2] = 12;
-    data[3] = 20; 
-    data[4] = 29; 
-    data[5] = 21; 
-    data[6] = 21; 
-    data[7] = 31; 
-    data[8] = 31; 
-    data[9] = 37; 
+    data[3] = 20;
+    data[4] = 29;
+    data[5] = 21;
+    data[6] = 21;
+    data[7] = 31;
+    data[8] = 31;
+    data[9] = 37;
 
     typename Vector::iterator new_last;
-    
+
     new_last = thrust::unique(data.begin(), data.end());
 
     ASSERT_EQUAL(new_last - data.begin(), 7);
@@ -157,7 +157,7 @@ struct TestUnique
         d_new_last = thrust::unique(d_data.begin(), d_data.end());
 
         ASSERT_EQUAL(h_new_last - h_data.begin(), d_new_last - d_data.begin());
-        
+
         h_data.resize(h_new_last - h_data.begin());
         d_data.resize(d_new_last - d_data.begin());
 
@@ -173,21 +173,21 @@ void TestUniqueCopySimple(void)
     typedef typename Vector::value_type T;
 
     Vector data(10);
-    data[0] = 11; 
-    data[1] = 11; 
+    data[0] = 11;
+    data[1] = 11;
     data[2] = 12;
-    data[3] = 20; 
-    data[4] = 29; 
-    data[5] = 21; 
-    data[6] = 21; 
-    data[7] = 31; 
-    data[8] = 31; 
-    data[9] = 37; 
-    
+    data[3] = 20;
+    data[4] = 29;
+    data[5] = 21;
+    data[6] = 21;
+    data[7] = 31;
+    data[8] = 31;
+    data[9] = 37;
+
     Vector output(10, -1);
 
     typename Vector::iterator new_last;
-    
+
     new_last = thrust::unique_copy(data.begin(), data.end(), output.begin());
 
     ASSERT_EQUAL(new_last - output.begin(), 7);
@@ -216,7 +216,7 @@ struct TestUniqueCopy
     {
         thrust::host_vector<T>   h_data = unittest::random_integers<bool>(n);
         thrust::device_vector<T> d_data = h_data;
-        
+
         thrust::host_vector<T>   h_output(n);
         thrust::device_vector<T> d_output(n);
 
@@ -227,7 +227,7 @@ struct TestUniqueCopy
         d_new_last = thrust::unique_copy(d_data.begin(), d_data.end(), d_output.begin());
 
         ASSERT_EQUAL(h_new_last - h_output.begin(), d_new_last - d_output.begin());
-        
+
         h_data.resize(h_new_last - h_output.begin());
         d_data.resize(d_new_last - d_output.begin());
 

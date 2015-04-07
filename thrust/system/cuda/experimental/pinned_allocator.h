@@ -140,7 +140,7 @@ template<typename T>
      *  \return a \c pointer to the newly allocated objects.
      *  \note This method does not invoke \p value_type's constructor.
      *        It is the responsibility of the caller to initialize the
-     *        objects at the returned \c pointer. 
+     *        objects at the returned \c pointer.
      */
     __host__
     inline pointer allocate(size_type cnt,
@@ -176,7 +176,7 @@ template<typename T>
     inline void deallocate(pointer p, size_type cnt)
     {
       cudaError_t error = cudaFreeHost(p);
-      
+
       if(error)
       {
         throw thrust::system_error(error, thrust::cuda_category());

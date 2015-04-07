@@ -35,7 +35,7 @@ namespace detail
 
 
 template<typename DerivedPolicy,
-         typename InputIterator, 
+         typename InputIterator,
          typename OutputType,
          typename BinaryFunction>
   OutputType reduce(execution_policy<DerivedPolicy> &exec,

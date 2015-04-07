@@ -17,7 +17,7 @@ void TestMinElementSimple(void)
 
     ASSERT_EQUAL( *thrust::min_element(data.begin(), data.end()), 1);
     ASSERT_EQUAL( thrust::min_element(data.begin(), data.end()) - data.begin(), 2);
-    
+
     ASSERT_EQUAL( *thrust::min_element(data.begin(), data.end(), thrust::greater<T>()), 5);
     ASSERT_EQUAL( thrust::min_element(data.begin(), data.end(), thrust::greater<T>()) - data.begin(), 1);
 }
@@ -33,7 +33,7 @@ void TestMinElement(const size_t n)
     typename thrust::device_vector<T>::iterator d_min = thrust::min_element(d_data.begin(), d_data.end());
 
     ASSERT_EQUAL(h_min - h_data.begin(), d_min - d_data.begin());
-    
+
     typename thrust::host_vector<T>::iterator   h_max = thrust::min_element(h_data.begin(), h_data.end(), thrust::greater<T>());
     typename thrust::device_vector<T>::iterator d_max = thrust::min_element(d_data.begin(), d_data.end(), thrust::greater<T>());
 

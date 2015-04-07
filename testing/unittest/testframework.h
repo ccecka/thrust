@@ -83,10 +83,10 @@ inline void chop_prefix(std::string& str, const std::string& prefix)
 inline std::string base_class_name(const std::string& name)
 {
   std::string result = name;
-  
+
   // if the name begins with "struct ", chop it off
   chop_prefix(result, "struct ");
-  
+
   // if the name begins with "class ", chop it off
   chop_prefix(result, "class ");
 
@@ -112,7 +112,7 @@ class UnitTest {
         virtual ~UnitTest() {}
         virtual void run() {}
 
-        bool operator<(const UnitTest& u) const 
+        bool operator<(const UnitTest& u) const
         {
             return name < u.name;
         }
@@ -140,7 +140,7 @@ public:
 
   void register_test(UnitTest * test);
   virtual bool run_tests(const ArgumentSet& args, const ArgumentMap& kwargs);
-  void list_tests(void); 
+  void list_tests(void);
 
   static UnitTestDriver &s_driver();
 };
@@ -165,7 +165,7 @@ void VTEST##Device(void) {  VTEST< thrust::device_vector<short> >(); VTEST< thru
 DECLARE_UNITTEST(VTEST##Host);                                                                                    \
 DECLARE_UNITTEST(VTEST##Device);
 
-// Macro to create instances of a test for several 
+// Macro to create instances of a test for several
 // data types and array sizes
 #define DECLARE_VARIABLE_UNITTEST(TEST)                          \
 class TEST##UnitTest : public UnitTest {                         \
@@ -219,7 +219,7 @@ template<template <typename> class TestName, typename TypeList>
     {
         std::vector<size_t> sizes = get_test_sizes();
         for(size_t i = 0; i != sizes.size(); ++i)
-        {                                                 
+        {
             // get the first type in the list
             typedef typename unittest::get_type<TypeList,0>::type first_type;
 
@@ -227,7 +227,7 @@ template<template <typename> class TestName, typename TypeList>
 
             // loop over the types
             loop(sizes[i]);
-        }                                                 
+        }
     }
 }; // end VariableUnitTest
 
@@ -239,7 +239,7 @@ template<template <typename> class TestName,
     : public UnitTest
 {
   VectorUnitTest()
-    : UnitTest((base_class_name(unittest::type_name<TestName< Vector<int, Alloc<int> > > >()) + "<" + 
+    : UnitTest((base_class_name(unittest::type_name<TestName< Vector<int, Alloc<int> > > >()) + "<" +
                 base_class_name(unittest::type_name<Vector<int, Alloc<int> > >()) + ">").c_str())
   { }
 

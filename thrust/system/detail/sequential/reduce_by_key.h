@@ -43,7 +43,7 @@ template<typename DerivedPolicy,
 __host__ __device__
   thrust::pair<OutputIterator1,OutputIterator2>
     reduce_by_key(sequential::execution_policy<DerivedPolicy> &,
-                  InputIterator1 keys_first, 
+                  InputIterator1 keys_first,
                   InputIterator1 keys_last,
                   InputIterator2 values_first,
                   OutputIterator1 keys_output,

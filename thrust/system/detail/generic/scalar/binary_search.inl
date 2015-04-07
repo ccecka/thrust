@@ -62,7 +62,7 @@ RandomAccessIterator lower_bound_n(RandomAccessIterator first,
       n = i;
     }
   } // end while
-  
+
   return first + start;
 }
 
@@ -104,7 +104,7 @@ RandomAccessIterator upper_bound_n(RandomAccessIterator first,
       start = i + 1;
     }
   } // end while
-  
+
   return first + start;
 }
 

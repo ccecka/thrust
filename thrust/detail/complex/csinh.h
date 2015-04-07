@@ -53,7 +53,7 @@
 
 namespace thrust{
 namespace detail{
-namespace complex{		      	
+namespace complex{
 
 using thrust::complex;
 
@@ -176,7 +176,7 @@ __host__ __device__
 inline complex<ValueType> sin(const complex<ValueType>& z){
   const ValueType re = z.real();
   const ValueType im = z.imag();
-  return complex<ValueType>(std::sin(re) * std::cosh(im), 
+  return complex<ValueType>(std::sin(re) * std::cosh(im),
 			    std::cos(re) * std::sinh(im));
 }
 
@@ -186,7 +186,7 @@ __host__ __device__
 inline complex<ValueType> sinh(const complex<ValueType>& z){
   const ValueType re = z.real();
   const ValueType im = z.imag();
-  return complex<ValueType>(std::sinh(re) * std::cos(im), 
+  return complex<ValueType>(std::sinh(re) * std::cos(im),
 			    std::cosh(re) * std::sin(im));
 }
 

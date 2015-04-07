@@ -31,25 +31,25 @@ template<typename ExecutionPolicy>
 void TestSequenceDevice(ExecutionPolicy exec)
 {
   thrust::device_vector<int> v(5);
-  
+
   sequence_kernel<<<1,1>>>(exec, v.begin(), v.end());
-  
+
   ASSERT_EQUAL(v[0], 0);
   ASSERT_EQUAL(v[1], 1);
   ASSERT_EQUAL(v[2], 2);
   ASSERT_EQUAL(v[3], 3);
   ASSERT_EQUAL(v[4], 4);
-  
+
   sequence_kernel<<<1,1>>>(exec, v.begin(), v.end(), 10);
-  
+
   ASSERT_EQUAL(v[0], 10);
   ASSERT_EQUAL(v[1], 11);
   ASSERT_EQUAL(v[2], 12);
   ASSERT_EQUAL(v[3], 13);
   ASSERT_EQUAL(v[4], 14);
-  
+
   sequence_kernel<<<1,1>>>(exec, v.begin(), v.end(), 10, 2);
-  
+
   ASSERT_EQUAL(v[0], 10);
   ASSERT_EQUAL(v[1], 12);
   ASSERT_EQUAL(v[2], 14);
@@ -73,7 +73,7 @@ void TestSequenceCudaStreams()
 {
   typedef thrust::device_vector<int> Vector;
   typedef typename Vector::value_type T;
-  
+
   Vector v(5);
 
   cudaStream_t s;
@@ -96,7 +96,7 @@ void TestSequenceCudaStreams()
   ASSERT_EQUAL(v[2], 12);
   ASSERT_EQUAL(v[3], 13);
   ASSERT_EQUAL(v[4], 14);
-  
+
   thrust::sequence(thrust::cuda::par.on(s), v.begin(), v.end(), 10, 2);
   cudaStreamSynchronize(s);
 

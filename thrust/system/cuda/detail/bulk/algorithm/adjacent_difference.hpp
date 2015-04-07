@@ -63,7 +63,7 @@ RandomAccessIterator2 adjacent_difference(bulk::concurrent_group<bulk::agent<gra
   // XXX this implementation allows first to be equal to result
   //     when the input and output do not overlap, we can avoid the need for next_init
   //     and the barriers
-  
+
   typedef typename bulk::concurrent_group<bulk::agent<grainsize_>,groupsize>::size_type size_type;
 
   RandomAccessIterator2 return_me = result + (last - first);
@@ -77,7 +77,7 @@ RandomAccessIterator2 adjacent_difference(bulk::concurrent_group<bulk::agent<gra
   {
     init = *first_init;
   }
-  
+
   g.wait();
 
   for(; first < last; first += tile_size, result += tile_size)
@@ -130,7 +130,7 @@ RandomAccessIterator2 adjacent_difference(bulk::concurrent_group<bulk::agent<gra
       *result = init;
     }
 
-    result = bulk::adjacent_difference(g, first + 1, last, result + 1, init, binary_op); 
+    result = bulk::adjacent_difference(g, first + 1, last, result + 1, init, binary_op);
   } // end if
 
   return result;

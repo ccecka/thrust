@@ -31,7 +31,7 @@ void _TestStableSortByKeyWithLargeKeys(void)
 
     thrust::device_vector< FixedVector<T,N> > d_keys = h_keys;
     thrust::device_vector<   unsigned int   > d_vals = h_vals;
-    
+
     thrust::stable_sort_by_key(h_keys.begin(), h_keys.end(), h_vals.begin());
     thrust::stable_sort_by_key(d_keys.begin(), d_keys.end(), d_vals.begin());
 
@@ -75,7 +75,7 @@ void _TestStableSortByKeyWithLargeValues(void)
 
     thrust::device_vector<   unsigned int   > d_keys = h_keys;
     thrust::device_vector< FixedVector<T,N> > d_vals = h_vals;
-    
+
     thrust::stable_sort_by_key(h_keys.begin(), h_keys.end(), h_vals.begin());
     thrust::stable_sort_by_key(d_keys.begin(), d_keys.end(), d_vals.begin());
 
@@ -95,7 +95,7 @@ void TestStableSortByKeyWithLargeValues(void)
     _TestStableSortByKeyWithLargeValues<int,    4>();
     _TestStableSortByKeyWithLargeValues<int,    8>();
     _TestStableSortByKeyWithLargeValues<int,   16>();
-    
+
 // XXX these take too long to compile
 //    _TestStableSortByKeyWithLargeValues<int,   32>();
 //    _TestStableSortByKeyWithLargeValues<int,   64>();
@@ -126,7 +126,7 @@ void _TestStableSortByKeyWithLargeKeysAndValues(void)
 
     thrust::device_vector< FixedVector<T,N> > d_keys = h_keys;
     thrust::device_vector< FixedVector<T,N> > d_vals = h_vals;
-    
+
     thrust::stable_sort_by_key(h_keys.begin(), h_keys.end(), h_vals.begin());
     thrust::stable_sort_by_key(d_keys.begin(), d_keys.end(), d_vals.begin());
 

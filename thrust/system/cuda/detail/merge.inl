@@ -57,7 +57,7 @@ RandomAccessIterator4
   bulk_::inplace_merge(bulk_::bound<groupsize * grainsize>(exec),
                        stage, stage + n1, stage + n1 + n2,
                        comp);
-  
+
   // copy to the result
   // XXX this might be slightly faster with a bounded copy_n
   return bulk_::copy_n(exec, stage, n1 + n2, result);
@@ -156,7 +156,7 @@ struct locate_merge_path
 
 template<typename DerivedPolicy,
          typename RandomAccessIterator1,
-         typename RandomAccessIterator2, 
+         typename RandomAccessIterator2,
 	 typename RandomAccessIterator3,
          typename Compare>
 __host__ __device__
@@ -175,7 +175,7 @@ RandomAccessIterator3 merge(execution_policy<DerivedPolicy> &exec,
   // determined through empirical testing on K20c
   const size_type groupsize = (sizeof(value_type) == sizeof(int)) ? 256 : 256 + 32;
   const size_type grainsize = (sizeof(value_type) == sizeof(int)) ? 9   : 5;
-  
+
   const size_type tile_size = groupsize * grainsize;
 
   difference_type n = (last1 - first1) + (last2 - first2);
@@ -199,7 +199,7 @@ RandomAccessIterator3 merge(execution_policy<DerivedPolicy> &exec,
 
 template<typename DerivedPolicy,
          typename RandomAccessIterator1,
-         typename RandomAccessIterator2, 
+         typename RandomAccessIterator2,
 	 typename RandomAccessIterator3,
          typename Compare>
 __host__ __device__

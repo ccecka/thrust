@@ -45,7 +45,7 @@ __host__ __device__
             RandomAccessIterator first,
             RandomAccessIterator last)
 {
-  typedef typename thrust::iterator_value<RandomAccessIterator>::type value_type; 
+  typedef typename thrust::iterator_value<RandomAccessIterator>::type value_type;
   thrust::sort(exec, first, last, thrust::less<value_type>());
 } // end sort()
 

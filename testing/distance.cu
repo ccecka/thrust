@@ -22,7 +22,7 @@ void TestDistance(void)
     i += 49;
 
     ASSERT_EQUAL(thrust::distance(i, v.end()), 50);
-    
+
     ASSERT_EQUAL(thrust::distance(i, i), 0);
 }
 DECLARE_VECTOR_UNITTEST(TestDistance);

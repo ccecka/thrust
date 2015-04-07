@@ -47,7 +47,7 @@ template<typename Operation> struct binary_traits;
  *  Unary Function must define nested \c typedefs. Those \c typedefs are
  *  provided by the base class \p unary_function.
  *
- *  The following code snippet demonstrates how to construct an 
+ *  The following code snippet demonstrates how to construct an
  *  Adaptable Unary Function using \p unary_function.
  *
  *  \code
@@ -87,7 +87,7 @@ struct unary_function
  *  Binary Function must define nested \c typedefs. Those \c typedefs are
  *  provided by the base class \p binary_function.
  *
- *  The following code snippet demonstrates how to construct an 
+ *  The following code snippet demonstrates how to construct an
  *  Adaptable Binary Function using \p binary_function.
  *
  *  \code
@@ -1117,7 +1117,7 @@ struct minimum
   __host__ __device__ T operator()(const T &lhs, const T &rhs) const {return lhs < rhs ? lhs : rhs;}
 }; // end minimum
 
-/*! \p project1st is a function object that takes two arguments and returns 
+/*! \p project1st is a function object that takes two arguments and returns
  *  its first argument; the second argument is unused. It is essentially a
  *  generalization of identity to the case of a Binary Function.
  *
@@ -1158,7 +1158,7 @@ struct project1st
   __host__ __device__ const T1 &operator()(const T1 &lhs, const T2 &rhs) const {return lhs;}
 }; // end project1st
 
-/*! \p project2nd is a function object that takes two arguments and returns 
+/*! \p project2nd is a function object that takes two arguments and returns
  *  its second argument; the first argument is unused. It is essentially a
  *  generalization of identity to the case of a Binary Function.
  *
@@ -1221,7 +1221,7 @@ struct project2nd
  *  \see not1
  */
 template<typename Predicate>
-struct unary_negate 
+struct unary_negate
     : public thrust::unary_function<typename Predicate::argument_type, bool>
 {
   /*! Constructor takes a \p Predicate object to negate.
@@ -1262,7 +1262,7 @@ template<typename Predicate>
   __host__ __device__
   unary_negate<Predicate> not1(const Predicate &pred);
 
-/*! \p binary_negate is a function object adaptor: it is an Adaptable Binary 
+/*! \p binary_negate is a function object adaptor: it is an Adaptable Binary
  *  Predicate that represents the logical negation of some other Adaptable
  *  Binary Predicate. That is: if \c f is an object of class <tt>binary_negate<AdaptablePredicate></tt>,
  *  then there exists an object \c pred of class \c AdaptableBinaryPredicate
@@ -1288,8 +1288,8 @@ struct binary_negate
    */
   __host__ __device__
   bool operator()(const typename Predicate::first_argument_type& x, const typename Predicate::second_argument_type& y)
-  { 
-      return !pred(x,y); 
+  {
+      return !pred(x,y);
   }
 
   /*! \cond
@@ -1353,7 +1353,7 @@ template<typename BinaryPredicate>
  *    x[1] = 2;
  *    x[2] = 3;
  *    x[3] = 4;
- *    
+ *
  *    y[0] = 1;
  *    y[1] = 1;
  *    y[2] = 1;

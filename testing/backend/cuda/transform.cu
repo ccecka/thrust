@@ -16,9 +16,9 @@ void TestTransformUnaryDevice(ExecutionPolicy exec)
 {
   typedef thrust::device_vector<int> Vector;
   typedef typename Vector::value_type T;
-  
+
   typename Vector::iterator iter;
-  
+
   Vector input(3);
   Vector output(3);
   Vector result(3);
@@ -26,10 +26,10 @@ void TestTransformUnaryDevice(ExecutionPolicy exec)
   result[0] = -1; result[1] =  2; result[2] = -3;
 
   thrust::device_vector<typename Vector::iterator> iter_vec(1);
-  
+
   transform_kernel<<<1,1>>>(exec, input.begin(), input.end(), output.begin(), thrust::negate<T>(), iter_vec.begin());
   iter = iter_vec[0];
-  
+
   ASSERT_EQUAL(iter - output.begin(), input.size());
   ASSERT_EQUAL(output, result);
 }
@@ -60,19 +60,19 @@ void TestTransformIfUnaryNoStencilDevice(ExecutionPolicy exec)
 {
   typedef thrust::device_vector<int> Vector;
   typedef typename Vector::value_type T;
-  
+
   typename Vector::iterator iter;
-  
+
   Vector input(3);
   Vector output(3);
   Vector result(3);
-  
+
   input[0]   =  0; input[1]   = -2; input[2]   =  0;
-  output[0]  = -1; output[1]  = -2; output[2]  = -3; 
+  output[0]  = -1; output[1]  = -2; output[2]  = -3;
   result[0]  = -1; result[1]  =  2; result[2]  = -3;
 
   thrust::device_vector<typename Vector::iterator> iter_vec(1);
-  
+
   transform_if_kernel<<<1,1>>>(exec,
                                input.begin(), input.end(),
                                output.begin(),
@@ -80,7 +80,7 @@ void TestTransformIfUnaryNoStencilDevice(ExecutionPolicy exec)
                                thrust::identity<T>(),
                                iter_vec.begin());
   iter = iter_vec[0];
-  
+
   ASSERT_EQUAL(iter - output.begin(), input.size());
   ASSERT_EQUAL(output, result);
 }
@@ -111,21 +111,21 @@ void TestTransformIfUnaryDevice(ExecutionPolicy exec)
 {
   typedef thrust::device_vector<int> Vector;
   typedef typename Vector::value_type T;
-  
+
   typename Vector::iterator iter;
-  
+
   Vector input(3);
   Vector stencil(3);
   Vector output(3);
   Vector result(3);
-  
+
   input[0]   =  1; input[1]   = -2; input[2]   =  3;
-  output[0]  =  1; output[1]  =  2; output[2]  =  3; 
+  output[0]  =  1; output[1]  =  2; output[2]  =  3;
   stencil[0] =  1; stencil[1] =  0; stencil[2] =  1;
   result[0]  = -1; result[1]  =  2; result[2]  = -3;
 
   thrust::device_vector<typename Vector::iterator> iter_vec(1);
-  
+
   transform_if_kernel<<<1,1>>>(exec,
                                input.begin(), input.end(),
                                stencil.begin(),
@@ -135,7 +135,7 @@ void TestTransformIfUnaryDevice(ExecutionPolicy exec)
                                iter_vec.begin());
 
   iter = iter_vec[0];
-  
+
   ASSERT_EQUAL(iter - output.begin(), input.size());
   ASSERT_EQUAL(output, result);
 }
@@ -166,9 +166,9 @@ void TestTransformBinaryDevice(ExecutionPolicy exec)
 {
   typedef thrust::device_vector<int> Vector;
   typedef typename Vector::value_type T;
-  
+
   typename Vector::iterator iter;
-  
+
   Vector input1(3);
   Vector input2(3);
   Vector output(3);
@@ -178,10 +178,10 @@ void TestTransformBinaryDevice(ExecutionPolicy exec)
   result[0] =  5; result[1] = -7; result[2] = -3;
 
   thrust::device_vector<typename Vector::iterator> iter_vec(1);
-  
+
   transform_kernel<<<1,1>>>(exec, input1.begin(), input1.end(), input2.begin(), output.begin(), thrust::minus<T>(), iter_vec.begin());
   iter = iter_vec[0];
-  
+
   ASSERT_EQUAL(iter - output.begin(), input1.size());
   ASSERT_EQUAL(output, result);
 }
@@ -212,25 +212,25 @@ void TestTransformIfBinaryDevice(ExecutionPolicy exec)
 {
   typedef thrust::device_vector<int> Vector;
   typedef typename Vector::value_type T;
-  
+
   typename Vector::iterator iter;
-  
+
   Vector input1(3);
   Vector input2(3);
   Vector stencil(3);
   Vector output(3);
   Vector result(3);
-  
+
   input1[0]  =  1; input1[1]  = -2; input1[2]  =  3;
   input2[0]  = -4; input2[1]  =  5; input2[2]  =  6;
   stencil[0] =  0; stencil[1] =  1; stencil[2] =  0;
   output[0]  =  1; output[1]  =  2; output[2]  =  3;
   result[0]  =  5; result[1]  =  2; result[2]  = -3;
-  
+
   thrust::identity<T> identity;
 
   thrust::device_vector<typename Vector::iterator> iter_vec(1);
-  
+
   transform_if_kernel<<<1,1>>>(exec,
                                input1.begin(), input1.end(),
                                input2.begin(),
@@ -240,7 +240,7 @@ void TestTransformIfBinaryDevice(ExecutionPolicy exec)
                                thrust::not1(identity),
                                iter_vec.begin());
   iter = iter_vec[0];
-  
+
   ASSERT_EQUAL(iter - output.begin(), input1.size());
   ASSERT_EQUAL(output, result);
 }
@@ -261,7 +261,7 @@ void TestTransformUnaryCudaStreams()
 {
   typedef thrust::device_vector<int> Vector;
   typedef typename Vector::value_type T;
-  
+
   typename Vector::iterator iter;
 
   Vector input(3);
@@ -275,7 +275,7 @@ void TestTransformUnaryCudaStreams()
 
   iter = thrust::transform(thrust::cuda::par.on(s), input.begin(), input.end(), output.begin(), thrust::negate<T>());
   cudaStreamSynchronize(s);
-  
+
   ASSERT_EQUAL(iter - output.begin(), input.size());
   ASSERT_EQUAL(output, result);
 
@@ -304,7 +304,7 @@ void TestTransformBinaryCudaStreams()
 
   iter = thrust::transform(thrust::cuda::par.on(s), input1.begin(), input1.end(), input2.begin(), output.begin(), thrust::minus<T>());
   cudaStreamSynchronize(s);
-  
+
   ASSERT_EQUAL(iter - output.begin(), input1.size());
   ASSERT_EQUAL(output, result);
 

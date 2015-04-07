@@ -47,10 +47,10 @@ struct thread_array : public launch_bounds<>
 // CUDA built-in variables require nvcc
 #if THRUST_DEVICE_COMPILER == THRUST_DEVICE_COMPILER_NVCC
   __device__ __thrust_forceinline__ unsigned int thread_index(void) const { return threadIdx.x; }
-  __device__ __thrust_forceinline__ unsigned int thread_count(void) const { return blockDim.x * gridDim.x; } 
+  __device__ __thrust_forceinline__ unsigned int thread_count(void) const { return blockDim.x * gridDim.x; }
 #else
   __device__ __thrust_forceinline__ unsigned int thread_index(void) const { return 0; }
-  __device__ __thrust_forceinline__ unsigned int thread_count(void) const { return 0; } 
+  __device__ __thrust_forceinline__ unsigned int thread_count(void) const { return 0; }
 #endif // THRUST_DEVICE_COMPILER_NVCC
 };
 
@@ -60,7 +60,7 @@ struct blocked_thread_array : public launch_bounds<>
 // CUDA built-in variables require nvcc
 #if THRUST_DEVICE_COMPILER == THRUST_DEVICE_COMPILER_NVCC
   __device__ __thrust_forceinline__ unsigned int thread_index(void)    const { return threadIdx.x; }
-  __device__ __thrust_forceinline__ unsigned int block_dimension(void) const { return blockDim.x;  } 
+  __device__ __thrust_forceinline__ unsigned int block_dimension(void) const { return blockDim.x;  }
   __device__ __thrust_forceinline__ unsigned int block_index(void)     const { return blockIdx.x;  }
   __device__ __thrust_forceinline__ unsigned int grid_dimension(void)  const { return gridDim.x;   }
   __device__ __thrust_forceinline__ unsigned int linear_index(void)    const { return block_dimension() * block_index() + thread_index(); }

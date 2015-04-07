@@ -185,7 +185,7 @@ template<typename T, std::size_t N>
   class uninitialized_array
 {
   public:
-    typedef T             value_type; 
+    typedef T             value_type;
     typedef T&            reference;
     typedef const T&      const_reference;
     typedef T*            pointer;

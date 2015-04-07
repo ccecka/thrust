@@ -183,7 +183,7 @@ typename disable_if_bool_sort<RandomAccessIterator1>::type
   // call stable_radix_sort_by_key
   thrust::system::cuda::detail::detail::stable_radix_sort_by_key(exec, keys_first, keys_last, values_first, comp);
 }
-  
+
 
 } // end stable_primitive_sort_detail
 

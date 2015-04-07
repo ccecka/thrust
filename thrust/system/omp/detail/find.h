@@ -16,7 +16,7 @@
 
 
 /*! \file find.h
- *  \brief OpenMP implementation of find_if. 
+ *  \brief OpenMP implementation of find_if.
  */
 
 #pragma once

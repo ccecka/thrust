@@ -21,7 +21,7 @@
 
 /*
  * (C) Copyright John Maddock 2000.
- * 
+ *
  * Distributed under the Boost Software License, Version 1.0.
  * (See accompanying NOTICE file for the complete license)
  *

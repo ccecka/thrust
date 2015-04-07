@@ -43,36 +43,36 @@ void TestScanByKeyDevice(ExecutionPolicy exec)
     }
   }
   thrust::device_vector<int> d_keys = h_keys;
-  
+
   thrust::host_vector<int>   h_vals = unittest::random_integers<int>(n);
   for(size_t i = 0; i < n; i++)
   {
     h_vals[i] = i % 10;
   }
   thrust::device_vector<int> d_vals = h_vals;
-  
+
   thrust::host_vector<int>   h_output(n);
   thrust::device_vector<int> d_output(n);
-  
+
   thrust::inclusive_scan_by_key(h_keys.begin(), h_keys.end(), h_vals.begin(), h_output.begin());
   inclusive_scan_by_key_kernel<<<1,1>>>(exec, d_keys.begin(), d_keys.end(), d_vals.begin(), d_output.begin());
   ASSERT_EQUAL(d_output, h_output);
-  
+
   thrust::exclusive_scan_by_key(h_keys.begin(), h_keys.end(), h_vals.begin(), h_output.begin());
   exclusive_scan_by_key_kernel<<<1,1>>>(exec, d_keys.begin(), d_keys.end(), d_vals.begin(), d_output.begin());
   ASSERT_EQUAL(d_output, h_output);
-  
+
   thrust::exclusive_scan_by_key(h_keys.begin(), h_keys.end(), h_vals.begin(), h_output.begin(), 11);
   exclusive_scan_by_key_kernel<<<1,1>>>(exec, d_keys.begin(), d_keys.end(), d_vals.begin(), d_output.begin(), 11);
   ASSERT_EQUAL(d_output, h_output);
-  
+
   // in-place scans
   h_output = h_vals;
   d_output = d_vals;
   thrust::inclusive_scan_by_key(h_keys.begin(), h_keys.end(), h_output.begin(), h_output.begin());
   inclusive_scan_by_key_kernel<<<1,1>>>(exec,d_keys.begin(), d_keys.end(), d_output.begin(), d_output.begin());
   ASSERT_EQUAL(d_output, h_output);
-  
+
   h_output = h_vals;
   d_output = d_vals;
   thrust::exclusive_scan_by_key(h_keys.begin(), h_keys.end(), h_output.begin(), h_output.begin(), 11);
@@ -129,7 +129,7 @@ void TestInclusiveScanByKeyCudaStreams()
   ASSERT_EQUAL(output[4],  5);
   ASSERT_EQUAL(output[5],  6);
   ASSERT_EQUAL(output[6], 13);
-  
+
   thrust::inclusive_scan_by_key(thrust::cuda::par.on(s), keys.begin(), keys.end(), vals.begin(), output.begin(), thrust::equal_to<T>(), thrust::multiplies<T>());
   cudaStreamSynchronize(s);
 
@@ -140,7 +140,7 @@ void TestInclusiveScanByKeyCudaStreams()
   ASSERT_EQUAL(output[4],  5);
   ASSERT_EQUAL(output[5],  6);
   ASSERT_EQUAL(output[6], 42);
-  
+
   thrust::inclusive_scan_by_key(thrust::cuda::par.on(s), keys.begin(), keys.end(), vals.begin(), output.begin(), thrust::equal_to<T>());
   cudaStreamSynchronize(s);
 
@@ -178,7 +178,7 @@ void TestExclusiveScanByKeyCudaStreams()
 
   cudaStream_t s;
   cudaStreamCreate(&s);
-  
+
   Iterator iter = thrust::exclusive_scan_by_key(thrust::cuda::par.on(s), keys.begin(), keys.end(), vals.begin(), output.begin());
   cudaStreamSynchronize(s);
 
@@ -202,7 +202,7 @@ void TestExclusiveScanByKeyCudaStreams()
   ASSERT_EQUAL(output[4], 10);
   ASSERT_EQUAL(output[5], 10);
   ASSERT_EQUAL(output[6], 16);
-  
+
   thrust::exclusive_scan_by_key(thrust::cuda::par.on(s), keys.begin(), keys.end(), vals.begin(), output.begin(), T(10), thrust::equal_to<T>(), thrust::multiplies<T>());
   cudaStreamSynchronize(s);
 
@@ -213,7 +213,7 @@ void TestExclusiveScanByKeyCudaStreams()
   ASSERT_EQUAL(output[4], 10);
   ASSERT_EQUAL(output[5], 10);
   ASSERT_EQUAL(output[6], 60);
-  
+
   thrust::exclusive_scan_by_key(thrust::cuda::par.on(s), keys.begin(), keys.end(), vals.begin(), output.begin(), T(10), thrust::equal_to<T>());
   cudaStreamSynchronize(s);
 

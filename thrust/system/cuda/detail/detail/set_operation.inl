@@ -162,7 +162,7 @@ T right_neighbor(statically_blocked_thread_array<block_size> &ctx, const T &x, c
   }
 
   ctx.barrier();
-  
+
   tid -= storage_size;
   if(0 < tid && tid <= storage_size)
   {
@@ -240,7 +240,7 @@ inline __device__
                                          SetOperation set_op)
 {
   unsigned int thread_idx = ctx.thread_index();
-  
+
   // find partition offsets
   uint16_t diag = thrust::min<uint16_t>(n1 + n2, thread_idx * work_per_thread);
   thrust::pair<uint16_t,uint16_t> thread_input_begin = balanced_path(first1, n1, first2, n2, diag, 2, comp);
@@ -295,16 +295,16 @@ inline __device__
     uint16_t max_subpartition_size = block_size * work_per_thread - 1;
     difference diag = thrust::min<difference>(remaining_input_size.first + remaining_input_size.second, max_subpartition_size);
     thrust::pair<uint16_t,uint16_t> subpartition_size = balanced_path(first1, remaining_input_size.first, first2, remaining_input_size.second, diag, 4ll, comp);
-  
+
     typedef typename thrust::iterator_value<InputIterator2>::type value_type;
     if(stage_through_smem<value_type>::value)
     {
       // load the input into __shared__ storage
       __shared__ uninitialized_array<value_type, block_size * work_per_thread> s_input;
-  
+
       value_type *s_input_end1 = thrust::system::cuda::detail::block::copy_n(ctx, first1, subpartition_size.first,  s_input.begin());
       value_type *s_input_end2 = thrust::system::cuda::detail::block::copy_n(ctx, first2, subpartition_size.second, s_input_end1);
-  
+
       result += block::bounded_count_set_operation_n<block_size,work_per_thread>(ctx,
                                                                                  s_input.begin(), subpartition_size.first,
                                                                                  s_input_end1,    subpartition_size.second,
@@ -354,16 +354,16 @@ OutputIterator set_operation(statically_blocked_thread_array<block_size> &ctx,
     uint16_t max_subpartition_size = block_size * work_per_thread - 1;
     difference diag = thrust::min<difference>(remaining_input_size.first + remaining_input_size.second, max_subpartition_size);
     thrust::pair<uint16_t,uint16_t> subpartition_size = balanced_path(first1, remaining_input_size.first, first2, remaining_input_size.second, diag, 4ll, comp);
-    
+
     typedef typename thrust::iterator_value<InputIterator2>::type value_type;
     if(stage_through_smem<value_type>::value)
     {
       // load the input into __shared__ storage
       __shared__ uninitialized_array<value_type, block_size * work_per_thread> s_input;
-  
+
       value_type *s_input_end1 = thrust::system::cuda::detail::block::copy_n(ctx, first1, subpartition_size.first,  s_input.begin());
       value_type *s_input_end2 = thrust::system::cuda::detail::block::copy_n(ctx, first2, subpartition_size.second, s_input_end1);
-  
+
       result = block::bounded_set_operation_n<block_size,work_per_thread>(ctx,
                                                                           s_input.begin(), subpartition_size.first,
                                                                           s_input_end1,    subpartition_size.second,
@@ -380,7 +380,7 @@ OutputIterator set_operation(statically_blocked_thread_array<block_size> &ctx,
                                                                           comp,
                                                                           set_op);
     }
-  
+
     // advance input
     first1 += subpartition_size.first;
     first2 += subpartition_size.second;

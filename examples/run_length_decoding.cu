@@ -24,7 +24,7 @@ int main(void)
     input[3] = 'd';  lengths[3] = 2;
     input[4] = 'e';  lengths[4] = 9;
     input[5] = 'f';  lengths[5] = 2;
-    
+
     // print the initial data
     std::cout << "run-length encoded input:" << std::endl;
     for(size_t i = 0; i < 6; i++)
@@ -33,7 +33,7 @@ int main(void)
 
     // scan the lengths
     thrust::inclusive_scan(lengths.begin(), lengths.end(), lengths.begin());
-    
+
     // output size is sum of the run lengths
     int N = lengths.back();
 

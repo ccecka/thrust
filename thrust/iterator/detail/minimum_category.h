@@ -22,7 +22,7 @@ namespace thrust
 {
 
 namespace detail
-{ 
+{
 
 template<typename T1,
          typename T2  = minimum_type_detail::any_conversion,

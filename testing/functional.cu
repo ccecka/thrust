@@ -6,7 +6,7 @@
 #include <algorithm>
 
 __THRUST_DISABLE_MSVC_POSSIBLE_LOSS_OF_DATA_WARNING_BEGIN
-    
+
 const size_t NUM_SAMPLES = 10000;
 
 template <class InputVector, class OutputVector, class Operator, class ReferenceOperator>
@@ -14,7 +14,7 @@ void TestUnaryFunctional(void)
 {
     typedef typename InputVector::value_type  InputType;
     typedef typename OutputVector::value_type OutputType;
-    
+
     thrust::host_vector<InputType>  std_input = unittest::random_samples<InputType>(NUM_SAMPLES);
     thrust::host_vector<OutputType> std_output(NUM_SAMPLES);
 
@@ -32,7 +32,7 @@ void TestBinaryFunctional(void)
 {
     typedef typename InputVector::value_type  InputType;
     typedef typename OutputVector::value_type OutputType;
-    
+
     thrust::host_vector<InputType>  std_input1 = unittest::random_samples<InputType>(NUM_SAMPLES);
     thrust::host_vector<InputType>  std_input2 = unittest::random_samples<InputType>(NUM_SAMPLES);
     thrust::host_vector<OutputType> std_output(NUM_SAMPLES);
@@ -40,8 +40,8 @@ void TestBinaryFunctional(void)
     // Replace zeros to avoid divide by zero exceptions
     std::replace(std_input2.begin(), std_input2.end(), (InputType) 0, (InputType) 1);
 
-    InputVector input1 = std_input1; 
-    InputVector input2 = std_input2; 
+    InputVector input1 = std_input1;
+    InputVector input2 = std_input2;
     OutputVector output(NUM_SAMPLES);
 
     thrust::transform(    input1.begin(),     input1.end(),      input2.begin(),     output.begin(),          Operator());
@@ -197,7 +197,7 @@ void TestProject1stFunctional(void)
 
     Vector lhs(3);
     Vector rhs(3);
-    lhs[0] = 0;  rhs[0] = 3; 
+    lhs[0] = 0;  rhs[0] = 3;
     lhs[1] = 1;  rhs[1] = 4;
     lhs[2] = 2;  rhs[2] = 5;
 
@@ -216,7 +216,7 @@ void TestProject2ndFunctional(void)
 
     Vector lhs(3);
     Vector rhs(3);
-    lhs[0] = 0;  rhs[0] = 3; 
+    lhs[0] = 0;  rhs[0] = 3;
     lhs[1] = 1;  rhs[1] = 4;
     lhs[2] = 2;  rhs[2] = 5;
 
@@ -240,9 +240,9 @@ void TestMaximumFunctional(void)
 
     Vector output(3);
 
-    thrust::transform(input1.begin(), input1.end(), 
-                      input2.begin(), 
-                      output.begin(), 
+    thrust::transform(input1.begin(), input1.end(),
+                      input2.begin(),
+                      output.begin(),
                       thrust::maximum<T>());
 
     ASSERT_EQUAL(output[0], 8);
@@ -263,9 +263,9 @@ void TestMinimumFunctional(void)
 
     Vector output(3);
 
-    thrust::transform(input1.begin(), input1.end(), 
-                      input2.begin(), 
-                      output.begin(), 
+    thrust::transform(input1.begin(), input1.end(),
+                      input2.begin(),
+                      output.begin(),
                       thrust::minimum<T>());
 
     ASSERT_EQUAL(output[0], 5);
@@ -284,8 +284,8 @@ void TestNot1(void)
 
     Vector output(5);
 
-    thrust::transform(input.begin(), input.end(), 
-                      output.begin(), 
+    thrust::transform(input.begin(), input.end(),
+                      output.begin(),
                       thrust::not1(thrust::identity<T>()));
 
     ASSERT_EQUAL(output[0], 0);
@@ -308,9 +308,9 @@ void TestNot2(void)
 
     Vector output(5);
 
-    thrust::transform(input1.begin(), input1.end(), 
+    thrust::transform(input1.begin(), input1.end(),
                       input2.begin(),
-                      output.begin(), 
+                      output.begin(),
                       thrust::not2(thrust::equal_to<T>()));
 
     ASSERT_EQUAL(output[0], 0);

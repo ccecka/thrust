@@ -35,7 +35,7 @@ namespace thrust
 
 /*! \p sequence fills the range <tt>[first, last)</tt> with a sequence of numbers.
  *
- *  For each iterator \c i in the range <tt>[first, last)</tt>, this version of 
+ *  For each iterator \c i in the range <tt>[first, last)</tt>, this version of
  *  \p sequence performs the assignment <tt>*i =  (i - first)</tt>.
  *
  *  The algorithm's execution is parallelized as determined by \p exec.
@@ -77,7 +77,7 @@ __host__ __device__
 
 /*! \p sequence fills the range <tt>[first, last)</tt> with a sequence of numbers.
  *
- *  For each iterator \c i in the range <tt>[first, last)</tt>, this version of 
+ *  For each iterator \c i in the range <tt>[first, last)</tt>, this version of
  *  \p sequence performs the assignment <tt>*i =  (i - first)</tt>.
  *
  *  \param first The beginning of the sequence.
@@ -112,7 +112,7 @@ template<typename ForwardIterator>
 
 /*! \p sequence fills the range <tt>[first, last)</tt> with a sequence of numbers.
  *
- *  For each iterator \c i in the range <tt>[first, last)</tt>, this version of 
+ *  For each iterator \c i in the range <tt>[first, last)</tt>, this version of
  *  \p sequence performs the assignment <tt>*i =  init + (i - first)</tt>.
  *
  *  The algorithm's execution is parallelized as determined by \p exec.
@@ -159,7 +159,7 @@ __host__ __device__
 
 /*! \p sequence fills the range <tt>[first, last)</tt> with a sequence of numbers.
  *
- *  For each iterator \c i in the range <tt>[first, last)</tt>, this version of 
+ *  For each iterator \c i in the range <tt>[first, last)</tt>, this version of
  *  \p sequence performs the assignment <tt>*i =  init + (i - first)</tt>.
  *
  *  \param first The beginning of the sequence.
@@ -198,7 +198,7 @@ template<typename ForwardIterator, typename T>
 
 /*! \p sequence fills the range <tt>[first, last)</tt> with a sequence of numbers.
  *
- *  For each iterator \c i in the range <tt>[first, last)</tt>, this version of 
+ *  For each iterator \c i in the range <tt>[first, last)</tt>, this version of
  *  \p sequence performs the assignment <tt>*i =  init + step * (i - first)</tt>.
  *
  *  The algorithm's execution is parallelized as determined by \p exec.
@@ -247,7 +247,7 @@ __host__ __device__
 
 /*! \p sequence fills the range <tt>[first, last)</tt> with a sequence of numbers.
  *
- *  For each iterator \c i in the range <tt>[first, last)</tt>, this version of 
+ *  For each iterator \c i in the range <tt>[first, last)</tt>, this version of
  *  \p sequence performs the assignment <tt>*i =  init + step * (i - first)</tt>.
  *
  *  \param first The beginning of the sequence.

@@ -91,7 +91,7 @@ class system_error
 {
   public:
     // [19.5.5.2] Class system_error members
-    
+
     /*! Constructs an object of class \p system_error.
      *  \param ec The value returned by \p code().
      *  \param what_arg A string to include in the result returned by \p what().
@@ -142,7 +142,7 @@ class system_error
     /*! Destructor does not throw.
      */
     inline virtual ~system_error(void) throw () {};
-    
+
     /*! Returns an object encoding the error.
      *  \return <tt>ec</tt> or <tt>error_code(ev, ecat)</tt>, from the
      *          constructor, as appropriate.

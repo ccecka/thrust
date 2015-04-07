@@ -22,8 +22,8 @@ int main(void)
   thrust::device_vector<int> d_vec = h_vec;
 
   // initial value of the reduction
-  int init = 0; 
- 
+  int init = 0;
+
   // binary operation used to reduce values
   thrust::plus<int> binary_op;
 

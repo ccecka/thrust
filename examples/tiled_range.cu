@@ -12,9 +12,9 @@
 
 // this example illustrates how to tile a range multiple times
 // examples:
-//   tiled_range([0, 1, 2, 3], 1) -> [0, 1, 2, 3] 
-//   tiled_range([0, 1, 2, 3], 2) -> [0, 1, 2, 3, 0, 1, 2, 3] 
-//   tiled_range([0, 1, 2, 3], 3) -> [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3] 
+//   tiled_range([0, 1, 2, 3], 1) -> [0, 1, 2, 3]
+//   tiled_range([0, 1, 2, 3], 2) -> [0, 1, 2, 3, 0, 1, 2, 3]
+//   tiled_range([0, 1, 2, 3], 3) -> [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
 //   ...
 
 template <typename Iterator>
@@ -33,7 +33,7 @@ class tiled_range
 
         __host__ __device__
         difference_type operator()(const difference_type& i) const
-        { 
+        {
             return i % tile_size;
         }
     };
@@ -48,7 +48,7 @@ class tiled_range
     // construct repeated_range for the range [first,last)
     tiled_range(Iterator first, Iterator last, difference_type tiles)
         : first(first), last(last), tiles(tiles) {}
-   
+
     iterator begin(void) const
     {
         return PermutationIterator(first, TransformIterator(CountingIterator(0), tile_functor(last - first)));
@@ -58,7 +58,7 @@ class tiled_range
     {
         return begin() + tiles * (last - first);
     }
-    
+
     protected:
     Iterator first;
     Iterator last;
@@ -78,12 +78,12 @@ int main(void)
     thrust::copy(data.begin(), data.end(), std::ostream_iterator<int>(std::cout, " "));  std::cout << std::endl;
 
     typedef thrust::device_vector<int>::iterator Iterator;
-  
+
     // create tiled_range with two tiles
     tiled_range<Iterator> two(data.begin(), data.end(), 2);
     std::cout << "two tiles:   ";
     thrust::copy(two.begin(), two.end(), std::ostream_iterator<int>(std::cout, " "));  std::cout << std::endl;
-    
+
     // create tiled_range with three tiles
     tiled_range<Iterator> three(data.begin(), data.end(), 3);
     std::cout << "three tiles: ";

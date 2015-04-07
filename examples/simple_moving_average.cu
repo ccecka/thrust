@@ -11,8 +11,8 @@
 // using a parallel prefix-sum or "scan" operation.
 //
 // Note: additional numerical precision should be used in the cumulative summing
-// stage when computing the SMA of large data series.  The most straightforward 
-// remedy is to replace 'float' with 'double'.   Alternatively a Kahan or 
+// stage when computing the SMA of large data series.  The most straightforward
+// remedy is to replace 'float' with 'double'.   Alternatively a Kahan or
 // "compensated" summation algorithm could be applied [2].
 //
 // [1] http://en.wikipedia.org/wiki/Moving_average#Simple_moving_average
@@ -42,7 +42,7 @@ void simple_moving_average(const InputVector& data, size_t w, OutputVector& outp
 
     if (data.size() < w)
         return;
-    
+
     // allocate storage for cumulative sum
     thrust::device_vector<T> temp(data.size() + 1);
 
@@ -74,7 +74,7 @@ int main(void)
 
   // compute SMA using standard summation
   simple_moving_average(data, w, averages);
- 
+
   // print data series
   std::cout << "data series: [ ";
   for (size_t i = 0; i < data.size(); i++)

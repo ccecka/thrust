@@ -25,7 +25,7 @@ struct my_system : thrust::device_execution_policy<my_system> {};
 // Thrust to locate it when dispatching thrust::for_each.
 // The following parameters are as normal.
 template<typename Iterator, typename Function>
-  Iterator for_each(my_system, 
+  Iterator for_each(my_system,
                     Iterator first, Iterator last,
                     Function f)
 {

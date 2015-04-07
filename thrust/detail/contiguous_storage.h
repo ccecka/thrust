@@ -72,7 +72,7 @@ template<typename T, typename Alloc>
 
     __host__ __device__
     iterator begin(void);
-    
+
     __host__ __device__
     const_iterator begin(void) const;
 
@@ -137,7 +137,7 @@ template<typename T, typename Alloc>
     allocator_type m_allocator;
 
     iterator m_begin;
-    
+
     size_type m_size;
 
     // disallow assignment

@@ -64,7 +64,7 @@ struct TestTupleStableSort
 
      // select values
      transform(h_tuples.begin(), h_tuples.end(), h_values.begin(), GetFunctor<1>());
-     
+
      device_vector<T> d_values(h_values.size());
      transform(d_tuples.begin(), d_tuples.end(), d_values.begin(), GetFunctor<1>());
 

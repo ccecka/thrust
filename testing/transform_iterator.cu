@@ -17,10 +17,10 @@ void TestTransformIterator(void)
 
     Vector input(4);
     Vector output(4);
-    
+
     // initialize input
     thrust::sequence(input.begin(), input.end(), 1);
-   
+
     // construct transform_iterator
     thrust::transform_iterator<UnaryFunction, Iterator> iter(input.begin(), UnaryFunction());
 
@@ -44,15 +44,15 @@ void TestMakeTransformIterator(void)
 
     Vector input(4);
     Vector output(4);
-    
+
     // initialize input
     thrust::sequence(input.begin(), input.end(), 1);
-   
+
     // construct transform_iterator
     thrust::transform_iterator<UnaryFunction, Iterator> iter(input.begin(), UnaryFunction());
 
-    thrust::copy(thrust::make_transform_iterator(input.begin(), UnaryFunction()), 
-                 thrust::make_transform_iterator(input.end(), UnaryFunction()), 
+    thrust::copy(thrust::make_transform_iterator(input.begin(), UnaryFunction()),
+                 thrust::make_transform_iterator(input.end(), UnaryFunction()),
                  output.begin());
 
     ASSERT_EQUAL(output[0], -1);

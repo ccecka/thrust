@@ -551,7 +551,7 @@ template<typename InputIterator,
 /*! \p remove_if removes from the range <tt>[first, last)</tt> every element \p x
  *  such that <tt>pred(x)</tt> is \c true. That is, \p remove_if returns an
  *  iterator \c new_last such that the range <tt>[first, new_last)</tt> contains
- *  no elements for which \p pred of the corresponding stencil value is \c true. 
+ *  no elements for which \p pred of the corresponding stencil value is \c true.
  *  The iterators in the range <tt>[new_last,last)</tt> are all still dereferenceable,
  *  but the elements that they point to are unspecified. \p remove_if is stable,
  *  meaning that the relative order of elements that are not removed is unchanged.
@@ -617,7 +617,7 @@ __host__ __device__
 /*! \p remove_if removes from the range <tt>[first, last)</tt> every element \p x
  *  such that <tt>pred(x)</tt> is \c true. That is, \p remove_if returns an
  *  iterator \c new_last such that the range <tt>[first, new_last)</tt> contains
- *  no elements for which \p pred of the corresponding stencil value is \c true. 
+ *  no elements for which \p pred of the corresponding stencil value is \c true.
  *  The iterators in the range <tt>[new_last,last)</tt> are all still dereferenceable,
  *  but the elements that they point to are unspecified. \p remove_if is stable,
  *  meaning that the relative order of elements that are not removed is unchanged.
@@ -672,10 +672,10 @@ template<typename ForwardIterator,
 
 
 /*! \p remove_copy_if copies elements from the range <tt>[first,last)</tt> to a
- *  range beginning at \p result, except that elements for which \p pred of the 
- *  corresponding stencil value is \c true are not copied. The return value is 
+ *  range beginning at \p result, except that elements for which \p pred of the
+ *  corresponding stencil value is \c true are not copied. The return value is
  *  the end of the resulting range.  This operation is stable, meaning that the
- *  relative order of the elements that are copied is the same as the 
+ *  relative order of the elements that are copied is the same as the
  *  range <tt>[first,last)</tt>.
  *
  *  The algorithm's execution policy is parallelized as determined by \p exec.
@@ -739,10 +739,10 @@ __host__ __device__
 
 
 /*! \p remove_copy_if copies elements from the range <tt>[first,last)</tt> to a
- *  range beginning at \p result, except that elements for which \p pred of the 
- *  corresponding stencil value is \c true are not copied. The return value is 
+ *  range beginning at \p result, except that elements for which \p pred of the
+ *  corresponding stencil value is \c true are not copied. The return value is
  *  the end of the resulting range.  This operation is stable, meaning that the
- *  relative order of the elements that are copied is the same as the 
+ *  relative order of the elements that are copied is the same as the
  *  range <tt>[first,last)</tt>.
  *
  *  \param first The beginning of the range of interest.

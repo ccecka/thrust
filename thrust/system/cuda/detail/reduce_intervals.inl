@@ -63,12 +63,12 @@ struct commutative_reduce_intervals_closure
     extern_shared_ptr<OutputType>  shared_array;
 
     typedef typename Decomposition::index_type index_type;
-   
+
     // this block processes results in [range.begin(), range.end())
     thrust::system::detail::internal::index_range<index_type> range = decomposition[context.block_index()];
 
     index_type i = range.begin() + context.thread_index();
-      
+
     input += i;
 
     if(range.size() < context.block_dimension())
@@ -91,7 +91,7 @@ struct commutative_reduce_intervals_closure
           input  += shared_array_size;
         }
 
-        shared_array[context.thread_index()] = sum;  
+        shared_array[context.thread_index()] = sum;
       }
     }
     else
@@ -115,7 +115,7 @@ struct commutative_reduce_intervals_closure
       // write first shared_array_size values into shared memory
       if(context.thread_index() < shared_array_size)
       {
-        shared_array[context.thread_index()] = sum;  
+        shared_array[context.thread_index()] = sum;
       }
 
       // accumulate remaining values (if any) to shared memory in stages
@@ -123,7 +123,7 @@ struct commutative_reduce_intervals_closure
       {
         unsigned int lb = shared_array_size;
         unsigned int ub = shared_array_size + lb;
-        
+
         while(lb < context.block_dimension())
         {
           context.barrier();
@@ -139,11 +139,11 @@ struct commutative_reduce_intervals_closure
         }
       }
     }
-  
+
     context.barrier();
 
     block::reduce_n(context, shared_array, thrust::min<index_type>(range.size(), shared_array_size), binary_op);
-  
+
     if(context.thread_index() == 0)
     {
       output += context.block_index();
@@ -179,13 +179,13 @@ void reduce_intervals(execution_policy<ExecutionPolicy> &exec,
   {
     return;
   }
-  
+
   // TODO if (decomp.size() > deviceProperties.maxGridSize[0]) throw cuda exception (or handle general case)
 
   typedef detail::blocked_thread_array Context;
   typedef commutative_reduce_intervals_closure<InputIterator,OutputIterator,BinaryFunction,Decomposition,Context> Closure;
   typedef typename thrust::iterator_value<OutputIterator>::type OutputType;
-  
+
   detail::launch_calculator<Closure> calculator;
 
   thrust::tuple<size_t,size_t,size_t> config = calculator.with_variable_block_size_available_smem();
@@ -197,7 +197,7 @@ void reduce_intervals(execution_policy<ExecutionPolicy> &exec,
   // determine shared array size
   size_t shared_array_size  = thrust::min(max_memory / sizeof(OutputType), block_size);
   size_t shared_array_bytes = sizeof(OutputType) * shared_array_size;
-  
+
   // TODO if (shared_array_size < 1) throw cuda exception "insufficient shared memory"
 
   Closure closure(input, output, binary_op, decomp, shared_array_size);

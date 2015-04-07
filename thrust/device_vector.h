@@ -365,7 +365,7 @@ template<typename T, typename Alloc = thrust::device_malloc_allocator<T> >
      *  \param x The exemplar element to copy & insert.
      *  \return An iterator pointing to the newly inserted element.
      */
-    iterator insert(iterator position, const T &x); 
+    iterator insert(iterator position, const T &x);
 
     /*! This method inserts a copy of an exemplar value to a range at the
      *  specified position in this vector.

@@ -34,7 +34,7 @@ namespace thrust
  */
 
 
-/*! \p gather copies elements from a source array into a destination range according 
+/*! \p gather copies elements from a source array into a destination range according
  *  to a map. For each input iterator \c i in the range <tt>[map_first, map_last)</tt>, the
  *  value <tt>input_first[\*i]</tt> is assigned to <tt>*(result + (i - map_first))</tt>.
  *  \p RandomAccessIterator must permit random access.
@@ -93,7 +93,7 @@ __host__ __device__
                         OutputIterator                                              result);
 
 
-/*! \p gather copies elements from a source array into a destination range according 
+/*! \p gather copies elements from a source array into a destination range according
  *  to a map. For each input iterator \c i in the range <tt>[map_first, map_last)</tt>, the
  *  value <tt>input_first[\*i]</tt> is assigned to <tt>*(result + (i - map_first))</tt>.
  *  \p RandomAccessIterator must permit random access.
@@ -143,7 +143,7 @@ template<typename InputIterator,
                         OutputIterator       result);
 
 
-/*! \p gather_if conditionally copies elements from a source array into a destination 
+/*! \p gather_if conditionally copies elements from a source array into a destination
  *  range according to a map. For each input iterator \c i in the range <tt>[map_first, map_last)</tt>,
  *  such that the value of <tt>\*(stencil + (i - map_first))</tt> is \c true, the value
  *  <tt>input_first[\*i]</tt> is assigned to <tt>*(result + (i - map_first))</tt>.
@@ -213,7 +213,7 @@ __host__ __device__
                            OutputIterator                                              result);
 
 
-/*! \p gather_if conditionally copies elements from a source array into a destination 
+/*! \p gather_if conditionally copies elements from a source array into a destination
  *  range according to a map. For each input iterator \c i in the range <tt>[map_first, map_last)</tt>,
  *  such that the value of <tt>\*(stencil + (i - map_first))</tt> is \c true, the value
  *  <tt>input_first[\*i]</tt> is assigned to <tt>*(result + (i - map_first))</tt>.
@@ -274,7 +274,7 @@ template<typename InputIterator1,
                            OutputIterator       result);
 
 
-/*! \p gather_if conditionally copies elements from a source array into a destination 
+/*! \p gather_if conditionally copies elements from a source array into a destination
  *  range according to a map. For each input iterator \c i in the range <tt>[map_first, map_last)</tt>
  *  such that the value of <tt>pred(\*(stencil + (i - map_first)))</tt> is \c true,
  *  the value <tt>input_first[\*i]</tt> is assigned to <tt>*(result + (i - map_first))</tt>.
@@ -309,7 +309,7 @@ template<typename InputIterator1,
  *  #include <thrust/gather.h>
  *  #include <thrust/device_vector.h>
  *  #include <thrust/execution_policy.h>
- *  
+ *
  *  struct is_even
  *  {
  *    __host__ __device__
@@ -358,7 +358,7 @@ __host__ __device__
                            Predicate                                                   pred);
 
 
-/*! \p gather_if conditionally copies elements from a source array into a destination 
+/*! \p gather_if conditionally copies elements from a source array into a destination
  *  range according to a map. For each input iterator \c i in the range <tt>[map_first, map_last)</tt>
  *  such that the value of <tt>pred(\*(stencil + (i - map_first)))</tt> is \c true,
  *  the value <tt>input_first[\*i]</tt> is assigned to <tt>*(result + (i - map_first))</tt>.
@@ -388,7 +388,7 @@ __host__ __device__
  *  \code
  *  #include <thrust/gather.h>
  *  #include <thrust/device_vector.h>
- *  
+ *
  *  struct is_even
  *  {
  *    __host__ __device__

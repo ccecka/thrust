@@ -58,7 +58,7 @@ template<typename Allocator, typename T>
 {};
 
 
-// we know that std::allocator::construct's only effect is to call T's 
+// we know that std::allocator::construct's only effect is to call T's
 // default constructor, so we needn't use it for default construction
 // unless T's constructor does something interesting
 template<typename U, typename T>

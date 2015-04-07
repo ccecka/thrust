@@ -68,7 +68,7 @@ void TestSetIntersectionByKeyDescending(const size_t n)
     typename thrust::device_vector<T>::iterator,
     typename thrust::device_vector<T>::iterator
   > d_end;
-  
+
   h_end = thrust::set_intersection_by_key(h_a_key.begin(), h_a_key.end(),
                                           h_b_key.begin(), h_b_key.end(),
                                           h_a_val.begin(),

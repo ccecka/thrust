@@ -178,7 +178,7 @@ template<typename Ptr>
   typedef typename pointer_difference<Ptr>::type difference_type;
 
   template<typename U>
-    struct rebind 
+    struct rebind
   {
     typedef typename rebind_pointer<Ptr,U>::type other;
   };
@@ -188,7 +188,7 @@ template<typename Ptr>
   {
     // XXX this is supposed to be pointer::pointer_to(&r); (i.e., call a static member function of pointer called pointer_to)
     //     assume that pointer has a constructor from raw pointer instead
-    
+
     return pointer(&r);
   }
 

@@ -28,7 +28,7 @@
 
 #else
 
-// TODO add 
+// TODO add
 
 #define __thrust_forceinline__
 

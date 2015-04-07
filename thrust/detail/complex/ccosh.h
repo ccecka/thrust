@@ -52,7 +52,7 @@
 
 namespace thrust{
 namespace detail{
-namespace complex{		      	
+namespace complex{
 
 /*
  * Hyperbolic cosine of a complex argument z = x + i y.
@@ -63,10 +63,10 @@ namespace complex{
  * Exceptional values are noted in the comments within the source code.
  * These values and the return value were taken from n1124.pdf.
  */
-      
+
 __host__ __device__ inline
 thrust::complex<double> ccosh(const thrust::complex<double>& z){
-  
+
 
   const double huge = 8.98846567431157953864652595395e+307; // 0x1p1023
   double x, y, h;
@@ -171,7 +171,7 @@ thrust::complex<double> ccosh(const thrust::complex<double>& z){
 
 
 __host__ __device__ inline
-thrust::complex<double> ccos(const thrust::complex<double>& z){	
+thrust::complex<double> ccos(const thrust::complex<double>& z){
   /* ccos(z) = ccosh(I * z) */
   return (ccosh(thrust::complex<double>(-z.imag(), z.real())));
 }
@@ -185,16 +185,16 @@ __host__ __device__
 inline complex<ValueType> cos(const complex<ValueType>& z){
   const ValueType re = z.real();
   const ValueType im = z.imag();
-  return complex<ValueType>(std::cos(re) * std::cosh(im), 
+  return complex<ValueType>(std::cos(re) * std::cosh(im),
 			    -std::sin(re) * std::sinh(im));
 }
-  
+
 template <typename ValueType>
 __host__ __device__
 inline complex<ValueType> cosh(const complex<ValueType>& z){
   const ValueType re = z.real();
   const ValueType im = z.imag();
-  return complex<ValueType>(std::cosh(re) * std::cos(im), 
+  return complex<ValueType>(std::cosh(re) * std::cos(im),
 			    std::sinh(re) * std::sin(im));
 }
 

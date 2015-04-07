@@ -57,7 +57,7 @@ int main(void)
     thrust::device_vector<int> upper  = random_vector(N);
     thrust::device_vector<int> middle = random_vector(N);
     thrust::device_vector<int> lower  = random_vector(N);
-    
+
     std::cout << "Unsorted Keys" << std::endl;
     for(size_t i = 0; i < N; i++)
     {
@@ -75,7 +75,7 @@ int main(void)
 
     // Note: keys have not been modified
     // Note: permutation now maps unsorted keys to sorted order
-  
+
     // permute the key arrays by the final permuation
     apply_permutation(lower,  permutation);
     apply_permutation(middle, permutation);

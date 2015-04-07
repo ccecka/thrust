@@ -58,7 +58,7 @@ namespace detail
      typedef _Tp                           value_type;
      typedef integral_constant<_Tp, __v>   type;
    };
- 
+
  /// typedef for true_type
  typedef integral_constant<bool, true>     true_type;
 
@@ -316,7 +316,7 @@ template<typename From, typename To>
     typedef struct { char two_chars[2]; } no;
 
     static inline yes   test(To) { return yes(); }
-    static inline no    test(...) { return no(); } 
+    static inline no    test(...) { return no(); }
     static inline typename remove_reference<From>::type& from() { typename remove_reference<From>::type* ptr = 0; return *ptr; }
 
   public:
@@ -601,7 +601,7 @@ template<typename T1, typename T2>
   typedef struct { char array[2]; } no_type;
 
   template<typename T> static typename add_reference<T>::type declval();
-  
+
   template<unsigned int> struct helper { typedef void * type; };
 
   template<typename U1, typename U2> static yes_type test(typename helper<sizeof(declval<U1>() = declval<U2>())>::type);
@@ -635,7 +635,7 @@ template<typename T>
 
 template<typename T1, typename T2, typename Enable = void> struct promoted_numerical_type;
 
-template<typename T1, typename T2> 
+template<typename T1, typename T2>
   struct promoted_numerical_type<T1,T2,typename enable_if<and_
   <typename is_floating_point<T1>::type,typename is_floating_point<T2>::type>
   ::value>::type>
@@ -643,7 +643,7 @@ template<typename T1, typename T2>
   typedef larger_type<T1,T2> type;
   };
 
-template<typename T1, typename T2> 
+template<typename T1, typename T2>
   struct promoted_numerical_type<T1,T2,typename enable_if<and_
   <typename is_integral<T1>::type,typename is_floating_point<T2>::type>
   ::value>::type>

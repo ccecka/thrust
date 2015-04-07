@@ -31,7 +31,7 @@ int main(void)
 
     // transfer data to device
     thrust::device_vector<int> d_data(h_data);
-    
+
     // print the initial data
     std::cout << "initial data" << std::endl;
     thrust::copy(d_data.begin(), d_data.end(), std::ostream_iterator<int>(std::cout, " "));
@@ -39,7 +39,7 @@ int main(void)
 
     // sort data to bring equal elements together
     thrust::sort(d_data.begin(), d_data.end());
-    
+
     // print the sorted data
     std::cout << "sorted data" << std::endl;
     thrust::copy(d_data.begin(), d_data.end(), std::ostream_iterator<int>(std::cout, " "));
@@ -59,7 +59,7 @@ int main(void)
                           thrust::constant_iterator<int>(1),
                           d_output_keys.begin(),
                           d_output_counts.begin());
-    
+
     // print the counts
     std::cout << "values" << std::endl;
     thrust::copy(d_output_keys.begin(), d_output_keys.end(), std::ostream_iterator<int>(std::cout, " "));
@@ -76,9 +76,9 @@ int main(void)
 
     int mode = d_output_keys[mode_iter - d_output_counts.begin()];
     int occurances = *mode_iter;
-    
+
     std::cout << "Modal value " << mode << " occurs " << occurances << " times " << std::endl;
-    
+
     return 0;
 }
 

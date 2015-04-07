@@ -26,50 +26,50 @@ namespace thrust
   /* --- Binary Arithmetic Operators --- */
 
 template<typename ValueType>
-__host__ __device__ 
+__host__ __device__
 inline complex<ValueType> operator+(const complex<ValueType>& lhs,
 				      const complex<ValueType>& rhs){
   return complex<ValueType>(lhs.real()+rhs.real(),lhs.imag()+rhs.imag());
 }
 
 template<typename ValueType>
-__host__ __device__ 
+__host__ __device__
 inline complex<ValueType> operator+(const volatile complex<ValueType>& lhs,
 				      const volatile complex<ValueType>& rhs){
   return complex<ValueType>(lhs.real()+rhs.real(),lhs.imag()+rhs.imag());
 }
 
-template <typename ValueType> 
-__host__ __device__ 
+template <typename ValueType>
+__host__ __device__
 inline complex<ValueType> operator+(const complex<ValueType>& lhs, const ValueType & rhs){
   return complex<ValueType>(lhs.real()+rhs,lhs.imag());
 }
 
-template <typename ValueType> 
-__host__ __device__ 
+template <typename ValueType>
+__host__ __device__
 inline complex<ValueType> operator+(const ValueType& lhs, const complex<ValueType>& rhs){
   return complex<ValueType>(rhs.real()+lhs,rhs.imag());
 }
 
-template <typename ValueType> 
-__host__ __device__ 
+template <typename ValueType>
+__host__ __device__
 inline complex<ValueType> operator-(const complex<ValueType>& lhs, const complex<ValueType>& rhs){
   return complex<ValueType>(lhs.real()-rhs.real(),lhs.imag()-rhs.imag());
 }
 
-template <typename ValueType> 
+template <typename ValueType>
 __host__ __device__
 inline complex<ValueType> operator-(const complex<ValueType>& lhs, const ValueType & rhs){
   return complex<ValueType>(lhs.real()-rhs,lhs.imag());
 }
 
-template <typename ValueType> 
+template <typename ValueType>
 __host__ __device__
 inline complex<ValueType> operator-(const ValueType& lhs, const complex<ValueType>& rhs){
   return complex<ValueType>(lhs-rhs.real(),-rhs.imag());
 }
 
-template <typename ValueType> 
+template <typename ValueType>
 __host__ __device__
 inline complex<ValueType> operator*(const complex<ValueType>& lhs,
 				      const complex<ValueType>& rhs){
@@ -77,13 +77,13 @@ inline complex<ValueType> operator*(const complex<ValueType>& lhs,
 			    lhs.real()*rhs.imag()+lhs.imag()*rhs.real());
 }
 
-template <typename ValueType> 
+template <typename ValueType>
 __host__ __device__
 inline complex<ValueType> operator*(const complex<ValueType>& lhs, const ValueType & rhs){
   return complex<ValueType>(lhs.real()*rhs,lhs.imag()*rhs);
 }
 
-template <typename ValueType> 
+template <typename ValueType>
 __host__ __device__
 inline complex<ValueType> operator*(const ValueType& lhs, const complex<ValueType>& rhs){
   return complex<ValueType>(rhs.real()*lhs,rhs.imag()*lhs);
@@ -106,7 +106,7 @@ inline complex<ValueType> operator/(const complex<ValueType>& lhs, const complex
   return quot;
 }
 
-template <typename ValueType> 
+template <typename ValueType>
   __host__ __device__
   inline complex<ValueType> operator/(const complex<ValueType>& lhs, const ValueType & rhs){
   return complex<ValueType>(lhs.real()/rhs,lhs.imag()/rhs);
@@ -122,13 +122,13 @@ template <typename ValueType>
 
 /* --- Unary Arithmetic Operators --- */
 
-template <typename ValueType> 
+template <typename ValueType>
   __host__ __device__
   inline complex<ValueType> operator+(const complex<ValueType>& rhs){
   return rhs;
 }
 
-template <typename ValueType> 
+template <typename ValueType>
   __host__ __device__
   inline complex<ValueType> operator-(const complex<ValueType>& rhs){
   return rhs*-ValueType(1);
@@ -145,7 +145,7 @@ template <typename ValueType>
 }
 
 namespace detail{
-namespace complex{	
+namespace complex{
 __host__ __device__ inline float abs(const thrust::complex<float>& z){
   return hypotf(z.real(),z.imag());
 }
@@ -193,7 +193,7 @@ template <>
     float a = z.real()*4.0f;
     float b = z.imag()*4.0f;
     return (a*a+b*b)/16.0f;
-  } 
+  }
   return z.real()*z.real() + z.imag()*z.imag();
 }
 
@@ -204,13 +204,13 @@ template <>
     double a = z.real()*4.0;
     double b = z.imag()*4.0;
     return (a*a+b*b)/16.0;
-  } 
+  }
   return z.real()*z.real() + z.imag()*z.imag();
 }
 
 template <typename ValueType>
   __host__ __device__
-  inline complex<ValueType> polar(const ValueType & m, const ValueType & theta){ 
+  inline complex<ValueType> polar(const ValueType & m, const ValueType & theta){
   return complex<ValueType>(m * std::cos(theta),m * std::sin(theta));
 }
 

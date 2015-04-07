@@ -16,11 +16,11 @@
 
 
 // transform a tuple (int,value) into a tuple (bool,value,value)
-// where the bool is true for valid grid values and false for 
+// where the bool is true for valid grid values and false for
 // values in the padded region of the grid
 template <typename IndexType, typename ValueType>
-struct transform_tuple : 
-    public thrust::unary_function< thrust::tuple<IndexType,ValueType>, 
+struct transform_tuple :
+    public thrust::unary_function< thrust::tuple<IndexType,ValueType>,
                                    thrust::tuple<bool,ValueType,ValueType> >
 {
   typedef typename thrust::tuple<IndexType,ValueType>      InputTuple;
@@ -32,7 +32,7 @@ struct transform_tuple :
 
   __host__ __device__
     OutputTuple operator()(const InputTuple& t) const
-    { 
+    {
       bool is_valid = (thrust::get<0>(t) % N) < n;
       return OutputTuple(is_valid, thrust::get<1>(t), thrust::get<1>(t));
     }
@@ -51,9 +51,9 @@ struct reduce_tuple :
 
   __host__ __device__
     Tuple operator()(const Tuple& t0, const Tuple& t1) const
-    { 
+    {
       if(thrust::get<0>(t0) && thrust::get<0>(t1)) // both valid
-        return Tuple(true, 
+        return Tuple(true,
             thrust::min(thrust::get<1>(t0), thrust::get<1>(t1)),
             thrust::max(thrust::get<2>(t0), thrust::get<2>(t1)));
       else if (thrust::get<0>(t0))
@@ -90,7 +90,7 @@ int main(void)
     for(int j = 0; j < N; j++)
     {
       std::cout << data[i * N + j] << " ";
-    }   
+    }
     std::cout << "\n";
   }
   std::cout << "\n";
@@ -102,7 +102,7 @@ int main(void)
   transform_tuple<int,float>  unary_op(n, N);                // transformation operator
   reduce_tuple<int,float>     binary_op;                     // reduction operator
 
-  result_type result = 
+  result_type result =
     thrust::transform_reduce(
         thrust::make_zip_iterator(thrust::make_tuple(thrust::counting_iterator<int>(0), data.begin())),
         thrust::make_zip_iterator(thrust::make_tuple(thrust::counting_iterator<int>(0), data.begin())) + data.size(),

@@ -2,8 +2,8 @@
 #include <thrust/remove.h>
 #include <thrust/random.h>
 
-// This example generates random points in the 
-// unit square [0,1)x[0,1) and then removes all 
+// This example generates random points in the
+// unit square [0,1)x[0,1) and then removes all
 // points where x^2 + y^2 > 1
 //
 // The x and y coordinates are stored in separate arrays

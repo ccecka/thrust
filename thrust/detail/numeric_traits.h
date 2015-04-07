@@ -46,7 +46,7 @@ template<typename T>
         >,
         integral_constant<
           int,
-          sizeof(T) * std::numeric_limits<unsigned char>::digits - (is_signed<T>::value ? 1 : 0)  
+          sizeof(T) * std::numeric_limits<unsigned char>::digits - (is_signed<T>::value ? 1 : 0)
         >
       >::type
 {}; // end num_digits

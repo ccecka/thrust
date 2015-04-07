@@ -45,7 +45,7 @@ void inclusive_scan(Context context,
   typename thrust::iterator_value<InputIterator>::type val = first[context.thread_index()];
 
   if(block_size >    1) { if (context.thread_index() >=    1) { val = binary_op(first[context.thread_index() -    1], val); } context.barrier(); first[context.thread_index()] = val; context.barrier(); }
-  if(block_size >    2) { if (context.thread_index() >=    2) { val = binary_op(first[context.thread_index() -    2], val); } context.barrier(); first[context.thread_index()] = val; context.barrier(); } 
+  if(block_size >    2) { if (context.thread_index() >=    2) { val = binary_op(first[context.thread_index() -    2], val); } context.barrier(); first[context.thread_index()] = val; context.barrier(); }
   if(block_size >    4) { if (context.thread_index() >=    4) { val = binary_op(first[context.thread_index() -    4], val); } context.barrier(); first[context.thread_index()] = val; context.barrier(); }
   if(block_size >    8) { if (context.thread_index() >=    8) { val = binary_op(first[context.thread_index() -    8], val); } context.barrier(); first[context.thread_index()] = val; context.barrier(); }
   if(block_size >   16) { if (context.thread_index() >=   16) { val = binary_op(first[context.thread_index() -   16], val); } context.barrier(); first[context.thread_index()] = val; context.barrier(); }
@@ -77,9 +77,9 @@ void inclusive_scan_n(Context context,
       val = binary_op(first[context.thread_index() - i], val);
 
     context.barrier();
-    
+
     first[context.thread_index()] = val;
-    
+
     context.barrier();
   }
 } // end inclusive_scan()
@@ -103,7 +103,7 @@ void inclusive_scan_by_flag(Context context,
   typename thrust::iterator_value<InputIterator2>::type val = first2[context.thread_index()];
 
   if(block_size >    1) { if (context.thread_index() >=    1) { if (!flg) { flg |= first1[context.thread_index() -    1]; val = binary_op(first2[context.thread_index() -    1], val); } } context.barrier(); first1[context.thread_index()] = flg; first2[context.thread_index()] = val; context.barrier(); }
-  if(block_size >    2) { if (context.thread_index() >=    2) { if (!flg) { flg |= first1[context.thread_index() -    2]; val = binary_op(first2[context.thread_index() -    2], val); } } context.barrier(); first1[context.thread_index()] = flg; first2[context.thread_index()] = val; context.barrier(); } 
+  if(block_size >    2) { if (context.thread_index() >=    2) { if (!flg) { flg |= first1[context.thread_index() -    2]; val = binary_op(first2[context.thread_index() -    2], val); } } context.barrier(); first1[context.thread_index()] = flg; first2[context.thread_index()] = val; context.barrier(); }
   if(block_size >    4) { if (context.thread_index() >=    4) { if (!flg) { flg |= first1[context.thread_index() -    4]; val = binary_op(first2[context.thread_index() -    4], val); } } context.barrier(); first1[context.thread_index()] = flg; first2[context.thread_index()] = val; context.barrier(); }
   if(block_size >    8) { if (context.thread_index() >=    8) { if (!flg) { flg |= first1[context.thread_index() -    8]; val = binary_op(first2[context.thread_index() -    8], val); } } context.barrier(); first1[context.thread_index()] = flg; first2[context.thread_index()] = val; context.barrier(); }
   if(block_size >   16) { if (context.thread_index() >=   16) { if (!flg) { flg |= first1[context.thread_index() -   16]; val = binary_op(first2[context.thread_index() -   16], val); } } context.barrier(); first1[context.thread_index()] = flg; first2[context.thread_index()] = val; context.barrier(); }
@@ -131,23 +131,23 @@ void inclusive_scan_by_flag_n(Context context,
   // TODO support n > context.block_dimension()
   typename thrust::iterator_value<InputIterator1>::type flg = first1[context.thread_index()];
   typename thrust::iterator_value<InputIterator2>::type val = first2[context.thread_index()];
-  
+
   for (unsigned int i = 1; i < n; i <<= 1)
   {
-    if (context.thread_index() < n && context.thread_index() >= i) 
+    if (context.thread_index() < n && context.thread_index() >= i)
     {
       if (!flg)
-      { 
+      {
         flg |= first1[context.thread_index() - i];
         val  = binary_op(first2[context.thread_index() - i], val);
       }
     }
 
     context.barrier();
-    
+
     first1[context.thread_index()] = flg;
     first2[context.thread_index()] = val;
-    
+
     context.barrier();
   }
 } // end inclusive_scan_by_flag()

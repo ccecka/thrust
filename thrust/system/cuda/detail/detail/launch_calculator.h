@@ -39,7 +39,7 @@ class launch_calculator
   function_attributes_t attributes;
 
   public:
-  
+
   __host__ __device__
   launch_calculator();
 
@@ -52,7 +52,7 @@ class launch_calculator
   template<typename UnaryFunction>
   __host__ __device__
   thrust::tuple<size_t,size_t,size_t> with_variable_block_size(UnaryFunction block_size_to_smem_size) const;
-  
+
   __host__ __device__
   thrust::tuple<size_t,size_t,size_t> with_variable_block_size_available_smem(void) const;
 

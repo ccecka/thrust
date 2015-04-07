@@ -248,7 +248,7 @@ scan(bulk::bounded<
     RandomAccessIterator2,
     BinaryFunction
   >::type intermediate_type;
-  
+
   typedef typename bulk::bounded<
     bound,
     bulk::concurrent_group<bulk::agent<grainsize>,groupsize>
@@ -259,45 +259,45 @@ scan(bulk::bounded<
 
   // make a local copy from the input
   input_type local_inputs[grainsize];
-  
+
   size_type local_offset = grainsize * tid;
   size_type local_size = thrust::max<size_type>(0,thrust::min<size_type>(grainsize, n - grainsize * tid));
-  
+
   bulk::copy_n(bulk::bound<grainsize>(g.this_exec), first + local_offset, local_size, local_inputs);
-  
+
   // XXX this should be uninitialized<intermediate_type>
   intermediate_type x;
-  
+
   if(local_size)
   {
     x = local_inputs[0];
     x = bulk::accumulate(bulk::bound<grainsize-1>(g.this_exec), local_inputs + 1, local_inputs + local_size, x, binary_op);
   } // end if
-  
+
   g.wait();
-  
+
   if(local_size)
   {
     result[tid] = x;
   } // end if
-  
+
   g.wait();
 
   // count the number of spine elements
   const size_type spine_n = (n >= g.size() * g.this_exec.grainsize()) ? g.size() : (n + g.this_exec.grainsize() - 1) / g.this_exec.grainsize();
-  
+
   // exclusive scan the array of per-thread sums
   // XXX this call is another bounded scan
   //     the bound is groupsize
   carry_in = bounded_inplace_exclusive_scan(g, result, spine_n, carry_in, binary_op);
-  
+
   if(local_size)
   {
     x = result[tid];
   } // end if
-  
+
   g.wait();
-  
+
   if(inclusive)
   {
     bulk::inclusive_scan(bulk::bound<grainsize>(g.this_exec), local_inputs, local_inputs + local_size, result + local_offset, x, binary_op);
@@ -306,7 +306,7 @@ scan(bulk::bounded<
   {
     bulk::exclusive_scan(bulk::bound<grainsize>(g.this_exec), local_inputs, local_inputs + local_size, result + local_offset, x, binary_op);
   } // end else
-  
+
   g.wait();
 
   return carry_in;
@@ -370,7 +370,7 @@ __device__ void scan_with_buffer(bulk::concurrent_group<bulk::agent<grainsize>,g
   for(; first < last; first += elements_per_group, result += elements_per_group)
   {
     size_type partition_size = thrust::min<size_type>(elements_per_group, last - first);
-    
+
     // stage data through shared memory
     bulk::copy_n(g, first, partition_size, stage.inputs);
 
@@ -379,8 +379,8 @@ __device__ void scan_with_buffer(bulk::concurrent_group<bulk::agent<grainsize>,g
                                stage.results,
                                carry_in,
                                binary_op);
-    
-    // copy to result 
+
+    // copy to result
     bulk::copy_n(g, stage.results, partition_size, result);
   } // end for
 } // end scan_with_buffer()

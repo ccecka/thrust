@@ -38,7 +38,7 @@ launch_calculator<Closure>::launch_calculator(void)
   : properties(device_properties()),
     attributes(closure_attributes<Closure>())
 {}
-  
+
 template<typename Closure>
 __host__ __device__
 launch_calculator<Closure>::launch_calculator(const device_properties_t& properties, const function_attributes_t& attributes)
@@ -90,7 +90,7 @@ thrust::tuple<size_t,size_t,size_t> launch_calculator<Closure>::with_variable_bl
   thrust::pair<size_t, size_t> config = default_block_configuration(block_size_to_smem_size);
   return thrust::tuple<size_t,size_t,size_t>(config.second * properties.multiProcessorCount, config.first, block_size_to_smem_size(config.first));
 }
-  
+
 template<typename Closure>
 __host__ __device__
 thrust::tuple<size_t,size_t,size_t> launch_calculator<Closure>::with_variable_block_size_available_smem(void) const

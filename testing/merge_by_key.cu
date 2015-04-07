@@ -219,7 +219,7 @@ template<typename T>
     thrust::discard_iterator<>
   > discard_pair;
 
-  discard_pair h_result = 
+  discard_pair h_result =
     thrust::merge_by_key(h_a_keys.begin(), h_a_keys.end(),
                          h_b_keys.begin(), h_b_keys.end(),
                          h_a_vals.begin(),
@@ -227,7 +227,7 @@ template<typename T>
                          thrust::make_discard_iterator(),
                          thrust::make_discard_iterator());
 
-  discard_pair d_result = 
+  discard_pair d_result =
     thrust::merge_by_key(d_a_keys.begin(), d_a_keys.end(),
                          d_b_keys.begin(), d_b_keys.end(),
                          d_a_vals.begin(),

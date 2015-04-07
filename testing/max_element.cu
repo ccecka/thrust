@@ -17,7 +17,7 @@ void TestMaxElementSimple(void)
 
     ASSERT_EQUAL( *thrust::max_element(data.begin(), data.end()), 5);
     ASSERT_EQUAL( thrust::max_element(data.begin(), data.end()) - data.begin(), 1);
-    
+
     ASSERT_EQUAL( *thrust::max_element(data.begin(), data.end(), thrust::greater<T>()), 1);
     ASSERT_EQUAL( thrust::max_element(data.begin(), data.end(), thrust::greater<T>()) - data.begin(), 2);
 }
@@ -33,7 +33,7 @@ void TestMaxElement(const size_t n)
     typename thrust::device_vector<T>::iterator d_max = thrust::max_element(d_data.begin(), d_data.end());
 
     ASSERT_EQUAL(h_max - h_data.begin(), d_max - d_data.begin());
-    
+
     typename thrust::host_vector<T>::iterator   h_min = thrust::max_element(h_data.begin(), h_data.end(), thrust::greater<T>());
     typename thrust::device_vector<T>::iterator d_min = thrust::max_element(d_data.begin(), d_data.end(), thrust::greater<T>());
 

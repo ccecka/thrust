@@ -34,8 +34,8 @@ template<typename System1,
          typename InputIterator,
          typename OutputIterator>
   OutputIterator copy_cross_system(cross_system<System1,System2> systems,
-                                   InputIterator begin, 
-                                   InputIterator end, 
+                                   InputIterator begin,
+                                   InputIterator end,
                                    OutputIterator result);
 
 
@@ -45,8 +45,8 @@ template<typename System1,
          typename Size,
          typename OutputIterator>
   OutputIterator copy_cross_system_n(cross_system<System1,System2> systems,
-                                     InputIterator begin, 
-                                     Size n, 
+                                     InputIterator begin,
+                                     Size n,
                                      OutputIterator result);
 
 

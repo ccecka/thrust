@@ -22,11 +22,11 @@ void TestPartitionSimple(void)
     typedef typename Vector::iterator   Iterator;
 
     Vector data(5);
-    data[0] = 1; 
-    data[1] = 2; 
+    data[0] = 1;
+    data[1] = 2;
     data[2] = 1;
-    data[3] = 1; 
-    data[4] = 2; 
+    data[3] = 1;
+    data[4] = 2;
 
     Iterator iter = thrust::partition(data.begin(), data.end(), is_even<T>());
 
@@ -56,11 +56,11 @@ void TestPartitionStencilSimple(void)
     data[4] = 1;
 
     Vector stencil(5);
-    stencil[0] = 1; 
-    stencil[1] = 2; 
+    stencil[0] = 1;
+    stencil[1] = 2;
     stencil[2] = 1;
-    stencil[3] = 1; 
-    stencil[4] = 2; 
+    stencil[3] = 1;
+    stencil[4] = 2;
 
     Iterator iter = thrust::partition(data.begin(), data.end(), stencil.begin(), is_even<T>());
 
@@ -83,11 +83,11 @@ void TestPartitionCopySimple(void)
     typedef typename Vector::value_type T;
 
     Vector data(5);
-    data[0] =  1; 
-    data[1] =  2; 
+    data[0] =  1;
+    data[1] =  2;
     data[2] =  1;
-    data[3] =  1; 
-    data[4] =  2; 
+    data[3] =  1;
+    data[4] =  2;
 
     Vector true_results(2);
     Vector false_results(3);
@@ -118,18 +118,18 @@ void TestPartitionCopyStencilSimple(void)
     typedef typename Vector::value_type T;
 
     Vector data(5);
-    data[0] =  0; 
-    data[1] =  1; 
+    data[0] =  0;
+    data[1] =  1;
     data[2] =  0;
-    data[3] =  0; 
-    data[4] =  1; 
+    data[3] =  0;
+    data[4] =  1;
 
     Vector stencil(5);
-    stencil[0] =  1; 
-    stencil[1] =  2; 
+    stencil[0] =  1;
+    stencil[1] =  2;
     stencil[2] =  1;
-    stencil[3] =  1; 
-    stencil[4] =  2; 
+    stencil[3] =  1;
+    stencil[4] =  2;
 
     Vector true_results(2);
     Vector false_results(3);
@@ -161,11 +161,11 @@ void TestStablePartitionSimple(void)
     typedef typename Vector::iterator   Iterator;
 
     Vector data(5);
-    data[0] =  1; 
-    data[1] =  2; 
+    data[0] =  1;
+    data[1] =  2;
     data[2] =  1;
-    data[3] =  3; 
-    data[4] =  2; 
+    data[3] =  3;
+    data[4] =  2;
 
     Iterator iter = thrust::stable_partition(data.begin(), data.end(), is_even<T>());
 
@@ -189,11 +189,11 @@ void TestStablePartitionStencilSimple(void)
     typedef typename Vector::iterator   Iterator;
 
     Vector data(5);
-    data[0] =  1; 
-    data[1] =  2; 
+    data[0] =  1;
+    data[1] =  2;
     data[2] =  1;
-    data[3] =  3; 
-    data[4] =  2; 
+    data[3] =  3;
+    data[4] =  2;
 
     Vector stencil(5);
     stencil[0] = 0;
@@ -223,11 +223,11 @@ void TestStablePartitionCopySimple(void)
     typedef typename Vector::value_type T;
 
     Vector data(5);
-    data[0] =  1; 
-    data[1] =  2; 
+    data[0] =  1;
+    data[1] =  2;
     data[2] =  1;
-    data[3] =  1; 
-    data[4] =  2; 
+    data[3] =  1;
+    data[4] =  2;
 
     Vector true_results(2);
     Vector false_results(3);
@@ -258,11 +258,11 @@ void TestStablePartitionCopyStencilSimple(void)
     typedef typename Vector::value_type T;
 
     Vector data(5);
-    data[0] =  1; 
-    data[1] =  2; 
+    data[0] =  1;
+    data[1] =  2;
     data[2] =  1;
-    data[3] =  1; 
-    data[4] =  2; 
+    data[3] =  1;
+    data[4] =  2;
 
     Vector stencil(5);
     stencil[0] = false;
@@ -348,7 +348,7 @@ struct TestPartitionCopy
         // setup input ranges
         thrust::host_vector<T>   h_data = unittest::random_integers<T>(n);
         thrust::device_vector<T> d_data = h_data;
-        
+
         size_t n_true  = thrust::count_if(h_data.begin(), h_data.end(), is_even<T>());
         size_t n_false = n - n_true;
 
@@ -392,7 +392,7 @@ struct TestPartitionCopyStencil
         thrust::host_vector<T>   h_stencil = unittest::random_integers<T>(n);
         thrust::device_vector<T> d_data = h_data;
         thrust::device_vector<T> d_stencil = h_stencil;
-        
+
         size_t n_true  = thrust::count_if(h_data.begin(), h_data.end(), is_even<T>());
         size_t n_false = n - n_true;
 
@@ -436,7 +436,7 @@ struct TestStablePartitionCopyStencil
         thrust::host_vector<T>   h_stencil = unittest::random_integers<T>(n);
         thrust::device_vector<T> d_data = h_data;
         thrust::device_vector<T> d_stencil = h_stencil;
-        
+
         size_t n_true  = thrust::count_if(h_stencil.begin(), h_stencil.end(), is_even<T>());
         size_t n_false = n - n_true;
 
@@ -478,7 +478,7 @@ struct TestPartitionCopyToDiscardIterator
         // setup input ranges
         thrust::host_vector<T>   h_data = unittest::random_integers<T>(n);
         thrust::device_vector<T> d_data = h_data;
-        
+
         size_t n_true  = thrust::count_if(h_data.begin(), h_data.end(), is_even<T>());
         size_t n_false = n - n_true;
 
@@ -583,7 +583,7 @@ struct TestPartitionCopyStencilToDiscardIterator
         thrust::host_vector<T>   h_stencil = unittest::random_integers<T>(n);
         thrust::device_vector<T> d_data = h_data;
         thrust::device_vector<T> d_stencil = h_stencil;
-        
+
         size_t n_true  = thrust::count_if(h_stencil.begin(), h_stencil.end(), is_even<T>());
         size_t n_false = n - n_true;
 
@@ -732,7 +732,7 @@ struct TestStablePartitionCopy
         // setup input ranges
         thrust::host_vector<T>   h_data = unittest::random_integers<T>(n);
         thrust::device_vector<T> d_data = h_data;
-        
+
         size_t n_true  = thrust::count_if(h_data.begin(), h_data.end(), is_even<T>());
         size_t n_false = n - n_true;
 
@@ -770,7 +770,7 @@ struct TestStablePartitionCopyToDiscardIterator
         // setup input ranges
         thrust::host_vector<T>   h_data = unittest::random_integers<T>(n);
         thrust::device_vector<T> d_data = h_data;
-        
+
         size_t n_true  = thrust::count_if(h_data.begin(), h_data.end(), is_even<T>());
         size_t n_false = n - n_true;
 
@@ -875,7 +875,7 @@ struct TestStablePartitionCopyStencilToDiscardIterator
         thrust::host_vector<T>   h_stencil = unittest::random_integers<T>(n);
         thrust::device_vector<T> d_data = h_data;
         thrust::device_vector<T> d_stencil = h_stencil;
-        
+
         size_t n_true  = thrust::count_if(h_stencil.begin(), h_stencil.end(), is_even<T>());
         size_t n_false = n - n_true;
 
@@ -995,7 +995,7 @@ void TestPartitionZipIterator(void)
     Vector data1(5);
     Vector data2(5);
 
-    data1[0] = 1;  data2[0] = 2; 
+    data1[0] = 1;  data2[0] = 2;
     data1[1] = 2;  data2[1] = 1;
     data1[2] = 1;  data2[2] = 2;
     data1[3] = 1;  data2[3] = 2;
@@ -1041,7 +1041,7 @@ void TestPartitionStencilZipIterator(void)
     Vector stencil1(5);
     Vector stencil2(5);
 
-    stencil1[0] = 1;  stencil2[0] = 2; 
+    stencil1[0] = 1;  stencil2[0] = 2;
     stencil1[1] = 2;  stencil2[1] = 1;
     stencil1[2] = 1;  stencil2[2] = 2;
     stencil1[3] = 1;  stencil2[3] = 2;
@@ -1077,7 +1077,7 @@ void TestStablePartitionZipIterator(void)
     Vector data1(5);
     Vector data2(5);
 
-    data1[0] = 1;  data2[0] = 2; 
+    data1[0] = 1;  data2[0] = 2;
     data1[1] = 2;  data2[1] = 0;
     data1[2] = 1;  data2[2] = 3;
     data1[3] = 1;  data2[3] = 2;
@@ -1123,7 +1123,7 @@ void TestStablePartitionStencilZipIterator(void)
     Vector stencil1(5);
     Vector stencil2(5);
 
-    stencil1[0] = 1;  stencil2[0] = 2; 
+    stencil1[0] = 1;  stencil2[0] = 2;
     stencil1[1] = 2;  stencil2[1] = 0;
     stencil1[2] = 1;  stencil2[2] = 3;
     stencil1[3] = 1;  stencil2[3] = 2;

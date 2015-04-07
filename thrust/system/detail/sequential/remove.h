@@ -58,7 +58,7 @@ __host__ __device__
   if(first == last)
     return first;
 
-  // result always trails first 
+  // result always trails first
   ForwardIterator result = first;
 
   ++first;
@@ -105,7 +105,7 @@ __host__ __device__
   if(first == last)
     return first;
 
-  // result always trails first 
+  // result always trails first
   ForwardIterator result = first;
 
   ++first;

@@ -40,7 +40,7 @@ void TestMinMaxElement(const size_t n)
 
     ASSERT_EQUAL(h_min - h_data.begin(), d_min - d_data.begin());
     ASSERT_EQUAL(h_max - h_data.begin(), d_max - d_data.begin());
-    
+
     h_max = thrust::minmax_element(h_data.begin(), h_data.end(), thrust::greater<T>()).first;
     d_max = thrust::minmax_element(d_data.begin(), d_data.end(), thrust::greater<T>()).first;
     h_min = thrust::minmax_element(h_data.begin(), h_data.end(), thrust::greater<T>()).second;

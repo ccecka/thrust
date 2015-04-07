@@ -11,8 +11,8 @@
 // Vector Functions //
 //////////////////////
 
-// convert xxx_vector<T1> to xxx_vector<T2> 
-template <class ExampleVector, typename NewType> 
+// convert xxx_vector<T1> to xxx_vector<T2>
+template <class ExampleVector, typename NewType>
 struct vector_like
 {
     typedef typename ExampleVector::allocator_type alloc;
@@ -41,7 +41,7 @@ void TestVectorLowerBoundSimple(void)
     // test with integral output type
     IntVector integral_output(10);
     thrust::lower_bound(vec.begin(), vec.end(), input.begin(), input.end(), integral_output.begin());
-    
+
     typename IntVector::iterator output_end = thrust::lower_bound(vec.begin(), vec.end(), input.begin(), input.end(), integral_output.begin());
 
     ASSERT_EQUAL((output_end - integral_output.begin()), 10);
@@ -257,13 +257,13 @@ void TestVectorBinarySearchSimple(void)
     ASSERT_EQUAL(bool_output[7],  true);
     ASSERT_EQUAL(bool_output[8],  true);
     ASSERT_EQUAL(bool_output[9], false);
-    
+
     // test with integral output type
     IntVector integral_output(10, 2);
     typename IntVector::iterator int_output_end = thrust::binary_search(vec.begin(), vec.end(), input.begin(), input.end(), integral_output.begin());
 
     ASSERT_EQUAL((int_output_end - integral_output.begin()), 10);
-    
+
     ASSERT_EQUAL(integral_output[0], 1);
     ASSERT_EQUAL(integral_output[1], 0);
     ASSERT_EQUAL(integral_output[2], 1);
@@ -334,7 +334,7 @@ struct TestVectorLowerBound
 
     thrust::host_vector<T>   h_input = unittest::random_integers<T>(2*n);
     thrust::device_vector<T> d_input = h_input;
-    
+
     thrust::host_vector<int>   h_output(2*n);
     thrust::device_vector<int> d_output(2*n);
 
@@ -357,7 +357,7 @@ struct TestVectorUpperBound
 
     thrust::host_vector<T>   h_input = unittest::random_integers<T>(2*n);
     thrust::device_vector<T> d_input = h_input;
-    
+
     thrust::host_vector<int>   h_output(2*n);
     thrust::device_vector<int> d_output(2*n);
 
@@ -379,7 +379,7 @@ struct TestVectorBinarySearch
 
     thrust::host_vector<T>   h_input = unittest::random_integers<T>(2*n);
     thrust::device_vector<T> d_input = h_input;
-    
+
     thrust::host_vector<int>   h_output(2*n);
     thrust::device_vector<int> d_output(2*n);
 
@@ -401,7 +401,7 @@ struct TestVectorLowerBoundDiscardIterator
 
     thrust::host_vector<T>   h_input = unittest::random_integers<T>(2*n);
     thrust::device_vector<T> d_input = h_input;
-    
+
     thrust::discard_iterator<> h_result =
       thrust::lower_bound(h_vec.begin(), h_vec.end(), h_input.begin(), h_input.end(), thrust::make_discard_iterator());
     thrust::discard_iterator<> d_result =

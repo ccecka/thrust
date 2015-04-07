@@ -11,7 +11,7 @@ template <typename T>
 struct linear_index_to_row_index : public thrust::unary_function<T,T>
 {
   T C; // number of columns
-  
+
   __host__ __device__
   linear_index_to_row_index(T C) : C(C) {}
 
@@ -33,11 +33,11 @@ int main(void)
   thrust::device_vector<int> array(R * C);
   for (size_t i = 0; i < array.size(); i++)
     array[i] = dist(rng);
-  
+
   // allocate storage for row sums and indices
   thrust::device_vector<int> row_sums(R);
   thrust::device_vector<int> row_indices(R);
-  
+
   // compute row sums by summing values with equal row indices
   thrust::reduce_by_key
     (thrust::make_transform_iterator(thrust::counting_iterator<int>(0), linear_index_to_row_index<int>(C)),
@@ -48,7 +48,7 @@ int main(void)
      thrust::equal_to<int>(),
      thrust::plus<int>());
 
-  // print data 
+  // print data
   for(int i = 0; i < R; i++)
   {
     std::cout << "[ ";

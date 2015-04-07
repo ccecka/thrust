@@ -112,7 +112,7 @@ void TestReduceMixedTypes(void)
 
     // float -> int should use using plus<int> operator by default
     ASSERT_EQUAL(thrust::reduce(float_input.begin(), float_input.end(), (int) 0), 10);
-    
+
     // int -> float should use using plus<float> operator by default
     ASSERT_EQUAL(thrust::reduce(int_input.begin(), int_input.end(), (float) 0.5), 10.5);
 }
@@ -185,7 +185,7 @@ void TestReduceWithIndirection(void)
     table[5] = 2;
 
     T result = thrust::reduce(data.begin(), data.end(), T(0), plus_mod3<T>(thrust::raw_pointer_cast(&table[0])));
-    
+
     ASSERT_EQUAL(result, T(1));
 }
 DECLARE_VECTOR_UNITTEST(TestReduceWithIndirection);
@@ -198,12 +198,12 @@ template<typename T>
 
   thrust::counting_iterator<T, thrust::host_system_tag>   h_first = thrust::make_counting_iterator<T>(0);
   thrust::counting_iterator<T, thrust::device_system_tag> d_first = thrust::make_counting_iterator<T>(0);
-  
+
   T init = 13;
-  
+
   T h_result = thrust::reduce(h_first, h_first + n, init);
   T d_result = thrust::reduce(d_first, d_first + n, init);
-  
+
   // we use ASSERT_ALMOST_EQUAL because we're testing floating point types
   ASSERT_ALMOST_EQUAL(h_result, d_result);
 }

@@ -78,7 +78,7 @@ RandomAccessIterator for_each_n(execution_policy<DerivedPolicy> &,
 
   // return the end of the range
   return first + n;
-} // end for_each_n 
+} // end for_each_n
 
 
 template<typename DerivedPolicy,

@@ -18,7 +18,7 @@ void TestTabulateDevice(ExecutionPolicy exec)
   typedef thrust::device_vector<int> Vector;
   using namespace thrust::placeholders;
   typedef typename Vector::value_type T;
-  
+
   Vector v(5);
 
   tabulate_kernel<<<1,1>>>(exec, v.begin(), v.end(), thrust::identity<T>());
@@ -36,7 +36,7 @@ void TestTabulateDevice(ExecutionPolicy exec)
   ASSERT_EQUAL(v[2], -2);
   ASSERT_EQUAL(v[3], -3);
   ASSERT_EQUAL(v[4], -4);
-  
+
   tabulate_kernel<<<1,1>>>(exec, v.begin(), v.end(), _1 * _1 * _1);
 
   ASSERT_EQUAL(v[0], 0);
@@ -63,7 +63,7 @@ void TestTabulateCudaStreams()
   using namespace thrust::placeholders;
   typedef thrust::device_vector<int> Vector;
   typedef typename Vector::value_type T;
-  
+
   Vector v(5);
 
   cudaStream_t s;
@@ -86,7 +86,7 @@ void TestTabulateCudaStreams()
   ASSERT_EQUAL(v[2], -2);
   ASSERT_EQUAL(v[3], -3);
   ASSERT_EQUAL(v[4], -4);
-  
+
   thrust::tabulate(thrust::cuda::par.on(s), v.begin(), v.end(), _1 * _1 * _1);
   cudaStreamSynchronize(s);
 

@@ -34,20 +34,20 @@ void TestUniqueDevice(ExecutionPolicy exec)
   typedef Vector::value_type T;
 
   Vector data(10);
-  data[0] = 11; 
-  data[1] = 11; 
+  data[0] = 11;
+  data[1] = 11;
   data[2] = 12;
-  data[3] = 20; 
-  data[4] = 29; 
-  data[5] = 21; 
-  data[6] = 21; 
-  data[7] = 31; 
-  data[8] = 31; 
-  data[9] = 37; 
+  data[3] = 20;
+  data[4] = 29;
+  data[5] = 21;
+  data[6] = 21;
+  data[7] = 31;
+  data[8] = 31;
+  data[9] = 37;
 
   thrust::device_vector<Vector::iterator> new_last_vec(1);
   Vector::iterator new_last;
-  
+
   unique_kernel<<<1,1>>>(exec, data.begin(), data.end(), new_last_vec.begin());
   new_last = new_last_vec[0];
 
@@ -90,23 +90,23 @@ void TestUniqueCudaStreams()
   typedef Vector::value_type T;
 
   Vector data(10);
-  data[0] = 11; 
-  data[1] = 11; 
+  data[0] = 11;
+  data[1] = 11;
   data[2] = 12;
-  data[3] = 20; 
-  data[4] = 29; 
-  data[5] = 21; 
-  data[6] = 21; 
-  data[7] = 31; 
-  data[8] = 31; 
-  data[9] = 37; 
+  data[3] = 20;
+  data[4] = 29;
+  data[5] = 21;
+  data[6] = 21;
+  data[7] = 31;
+  data[8] = 31;
+  data[9] = 37;
 
   thrust::device_vector<Vector::iterator> new_last_vec(1);
   Vector::iterator new_last;
 
   cudaStream_t s;
   cudaStreamCreate(&s);
-  
+
   new_last = thrust::unique(thrust::cuda::par.on(s), data.begin(), data.end());
   cudaStreamSynchronize(s);
 
@@ -155,22 +155,22 @@ void TestUniqueCopyDevice(ExecutionPolicy exec)
   typedef Vector::value_type T;
 
   Vector data(10);
-  data[0] = 11; 
-  data[1] = 11; 
+  data[0] = 11;
+  data[1] = 11;
   data[2] = 12;
-  data[3] = 20; 
-  data[4] = 29; 
-  data[5] = 21; 
-  data[6] = 21; 
-  data[7] = 31; 
-  data[8] = 31; 
-  data[9] = 37; 
-  
+  data[3] = 20;
+  data[4] = 29;
+  data[5] = 21;
+  data[6] = 21;
+  data[7] = 31;
+  data[8] = 31;
+  data[9] = 37;
+
   Vector output(10, -1);
 
   thrust::device_vector<Vector::iterator> new_last_vec(1);
   Vector::iterator new_last;
-  
+
   unique_copy_kernel<<<1,1>>>(exec, data.begin(), data.end(), output.begin(), new_last_vec.begin());
   new_last = new_last_vec[0];
 
@@ -213,17 +213,17 @@ void TestUniqueCopyCudaStreams()
   typedef Vector::value_type T;
 
   Vector data(10);
-  data[0] = 11; 
-  data[1] = 11; 
+  data[0] = 11;
+  data[1] = 11;
   data[2] = 12;
-  data[3] = 20; 
-  data[4] = 29; 
-  data[5] = 21; 
-  data[6] = 21; 
-  data[7] = 31; 
-  data[8] = 31; 
-  data[9] = 37; 
-  
+  data[3] = 20;
+  data[4] = 29;
+  data[5] = 21;
+  data[6] = 21;
+  data[7] = 31;
+  data[8] = 31;
+  data[9] = 37;
+
   Vector output(10, -1);
 
   thrust::device_vector<Vector::iterator> new_last_vec(1);
@@ -231,7 +231,7 @@ void TestUniqueCopyCudaStreams()
 
   cudaStream_t s;
   cudaStreamCreate(&s);
-  
+
   new_last = thrust::unique_copy(thrust::cuda::par.on(s), data.begin(), data.end(), output.begin());
   cudaStreamSynchronize(s);
 

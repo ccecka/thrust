@@ -59,7 +59,7 @@ struct copy_iterators
 
     // invalid - reference<int> is not convertible to int&
     // assign_reference_to_reference(*in, *out);
-   
+
     // valid - reference<int> explicitly converted to int&
     assign_reference_to_reference(thrust::raw_reference_cast(*in), thrust::raw_reference_cast(*out));
 
@@ -74,7 +74,7 @@ void print(const std::string& name, const Vector& v)
   typedef typename Vector::value_type T;
 
   std::cout << name << ": ";
-  thrust::copy(v.begin(), v.end(), std::ostream_iterator<T>(std::cout, " "));  
+  thrust::copy(v.begin(), v.end(), std::ostream_iterator<T>(std::cout, " "));
   std::cout << "\n";
 }
 
@@ -102,11 +102,11 @@ int main(void)
   thrust::for_each(thrust::counting_iterator<int,System>(0),
                    thrust::counting_iterator<int,System>(N),
                    copy_iterators<Iterator,Iterator>(A.begin(), B.begin()));
-  
+
   std::cout << "After A->B Copy" << std::endl;
   print("A", A);
   print("B", B);
- 
+
   return 0;
 }
 

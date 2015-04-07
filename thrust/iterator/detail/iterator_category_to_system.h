@@ -47,7 +47,7 @@ template<typename Category>
         >::value,
 
         detail::identity_<thrust::host_system_tag>,
-        
+
         // convertible to device iterator?
         eval_if<
           or_<

@@ -43,7 +43,7 @@ namespace random
  *
  *  \tparam RealType The type of floating point number to produce.
  *
- *  The following code snippet demonstrates examples of using a \p uniform_real_distribution with a 
+ *  The following code snippet demonstrates examples of using a \p uniform_real_distribution with a
  *  random number engine to produce random integers drawn from a given range:
  *
  *  \code
@@ -88,7 +88,7 @@ template<typename RealType = double>
 {
   public:
     // types
-    
+
     /*! \typedef result_type
      *  \brief The type of the floating point number produced by this \p uniform_real_distribution.
      */
@@ -100,10 +100,10 @@ template<typename RealType = double>
     typedef thrust::pair<RealType,RealType> param_type;
 
     // constructors and reset functions
-    
+
     /*! This constructor creates a new \p uniform_real_distribution from two values defining the
      *  half-open interval of the distribution.
-     *  
+     *
      *  \param a The smallest floating point number to potentially produce. Defaults to \c 0.0.
      *  \param b The smallest number larger than the largest floating point number to potentially produce. Defaults to \c 1.0.
      */
@@ -112,7 +112,7 @@ template<typename RealType = double>
 
     /*! This constructor creates a new \p uniform_real_distribution from a \p param_type object
      *  encapsulating the range of the distribution.
-     *  
+     *
      *  \param parm A \p param_type object encapsulating the parameters (i.e., the range) of the distribution.
      */
     __host__ __device__
@@ -134,7 +134,7 @@ template<typename RealType = double>
     __host__ __device__
     result_type operator()(UniformRandomNumberGenerator &urng);
 
-    /*! This method produces a new uniform random integer as if by creating a new \p uniform_real_distribution 
+    /*! This method produces a new uniform random integer as if by creating a new \p uniform_real_distribution
      *  from the given \p param_type object, and calling its <tt>operator()</tt> method with the given
      *  \p UniformRandomNumberGenerator as a source of randomness.
      *

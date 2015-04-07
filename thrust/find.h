@@ -37,7 +37,7 @@ namespace thrust
  */
 
 
-/*! \p find returns the first iterator \c i in the range 
+/*! \p find returns the first iterator \c i in the range
  *  <tt>[first, last)</tt> such that <tt>*i == value</tt>
  *  or \c last if no such iterator exists.
  *
@@ -52,7 +52,7 @@ namespace thrust
  *  \tparam DerivedPolicy The name of the derived execution policy.
  *  \tparam InputIterator is a model of <a href="http://www.sgi.com/tech/stl/InputIterator.html">Input Iterator</a>
  *          and \p InputIterator's \c value_type is equality comparable to type \c T.
- *  \tparam T is a model of <a href="http://www.sgi.com/tech/stl/LessThanComparable.html">EqualityComparable</a>. 
+ *  \tparam T is a model of <a href="http://www.sgi.com/tech/stl/LessThanComparable.html">EqualityComparable</a>.
  *
  *  \code
  *  #include <thrust/find.h>
@@ -84,7 +84,7 @@ InputIterator find(const thrust::detail::execution_policy_base<DerivedPolicy> &e
                    const T& value);
 
 
-/*! \p find returns the first iterator \c i in the range 
+/*! \p find returns the first iterator \c i in the range
  *  <tt>[first, last)</tt> such that <tt>*i == value</tt>
  *  or \c last if no such iterator exists.
  *
@@ -95,7 +95,7 @@ InputIterator find(const thrust::detail::execution_policy_base<DerivedPolicy> &e
  *
  *  \tparam InputIterator is a model of <a href="http://www.sgi.com/tech/stl/InputIterator.html">Input Iterator</a>
  *          and \p InputIterator's \c value_type is equality comparable to type \c T.
- *  \tparam T is a model of <a href="http://www.sgi.com/tech/stl/LessThanComparable.html">EqualityComparable</a>. 
+ *  \tparam T is a model of <a href="http://www.sgi.com/tech/stl/LessThanComparable.html">EqualityComparable</a>.
  *
  *  \code
  *  #include <thrust/find.h>
@@ -124,7 +124,7 @@ InputIterator find(InputIterator first,
                    const T& value);
 
 
-/*! \p find_if returns the first iterator \c i in the range 
+/*! \p find_if returns the first iterator \c i in the range
  *  <tt>[first, last)</tt> such that <tt>pred(*i)</tt> is \c true
  *  or \c last if no such iterator exists.
  *
@@ -191,7 +191,7 @@ InputIterator find_if(const thrust::detail::execution_policy_base<DerivedPolicy>
                       Predicate pred);
 
 
-/*! \p find_if returns the first iterator \c i in the range 
+/*! \p find_if returns the first iterator \c i in the range
  *  <tt>[first, last)</tt> such that <tt>pred(*i)</tt> is \c true
  *  or \c last if no such iterator exists.
  *
@@ -250,7 +250,7 @@ InputIterator find_if(InputIterator first,
                       Predicate pred);
 
 
-/*! \p find_if_not returns the first iterator \c i in the range 
+/*! \p find_if_not returns the first iterator \c i in the range
  *  <tt>[first, last)</tt> such that <tt>pred(*i)</tt> is \c false
  *  or \c last if no such iterator exists.
  *
@@ -317,7 +317,7 @@ InputIterator find_if_not(const thrust::detail::execution_policy_base<DerivedPol
                           Predicate pred);
 
 
-/*! \p find_if_not returns the first iterator \c i in the range 
+/*! \p find_if_not returns the first iterator \c i in the range
  *  <tt>[first, last)</tt> such that <tt>pred(*i)</tt> is \c false
  *  or \c last if no such iterator exists.
  *

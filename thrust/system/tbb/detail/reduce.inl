@@ -61,7 +61,7 @@ struct body
   void operator()(const ::tbb::blocked_range<Size> &r)
   {
     // we assume that blocked_range specifies a contiguous range of integers
-    
+
     if (r.empty()) return; // nothing to do
 
     RandomAccessIterator iter = first + r.begin();
@@ -86,7 +86,7 @@ struct body
       sum = binary_op(sum, temp);
     }
   } // end operator()()
-  
+
   void join(body& b)
   {
     sum = binary_op(sum, b.sum);
@@ -97,7 +97,7 @@ struct body
 
 
 template<typename DerivedPolicy,
-         typename InputIterator, 
+         typename InputIterator,
          typename OutputType,
          typename BinaryFunction>
   OutputType reduce(execution_policy<DerivedPolicy> &exec,
@@ -106,7 +106,7 @@ template<typename DerivedPolicy,
                     OutputType init,
                     BinaryFunction binary_op)
 {
-  typedef typename thrust::iterator_difference<InputIterator>::type Size; 
+  typedef typename thrust::iterator_difference<InputIterator>::type Size;
 
   Size n = thrust::distance(begin, end);
 

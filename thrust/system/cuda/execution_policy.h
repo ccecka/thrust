@@ -179,21 +179,21 @@ struct tag : thrust::system::cuda::execution_policy<tag> { unspecified };
  *    cudaStream_t s1, s2;
  *    cudaStreamCreate(&s1);
  *    cudaStreamCreate(&s2);
- *  
+ *
  *    thrust::counting_iterator<int> iter(0);
- *  
+ *
  *    // execute for_each on two different streams
  *    thrust::for_each(thrust::cuda::par(s1), iter, iter + 1, printf_functor(s1));
  *    thrust::for_each(thrust::cuda::par(s2), iter, iter + 1, printf_functor(s2));
- *  
+ *
  *    // synchronize with both streams
  *    cudaStreamSynchronize(s1);
  *    cudaStreamSynchronize(s2);
- *  
+ *
  *    // destroy streams
  *    cudaStreamDestroy(s1);
  *    cudaStreamDestroy(s2);
- *  
+ *
  *    return 0;
  *  }
  *  \endcode

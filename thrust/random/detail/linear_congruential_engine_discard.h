@@ -58,7 +58,7 @@ template<thrust::detail::uint32_t a, thrust::detail::uint32_t m>
     //     figure out a robust implementation of this later
     unsigned long long multiplier = a;
     unsigned long long multiplier_to_z = 1;
-    
+
     // see http://en.wikipedia.org/wiki/Modular_exponentiation
     while(z > 0)
     {
@@ -88,7 +88,7 @@ struct linear_congruential_engine_discard
     const result_type c = LinearCongruentialEngine::increment;
     const result_type a = LinearCongruentialEngine::multiplier;
     const result_type m = LinearCongruentialEngine::modulus;
-    
+
     // XXX WAR unused variable warnings
     (void) c;
     (void) a;

@@ -24,7 +24,7 @@
 namespace thrust
 {
 namespace detail
-{ 
+{
 
 
 template<typename T1,

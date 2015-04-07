@@ -18,17 +18,17 @@ void TestInnerProductDevice(ExecutionPolicy exec)
 
   thrust::host_vector<int> h_v1 = unittest::random_integers<int>(n);
   thrust::host_vector<int> h_v2 = unittest::random_integers<int>(n);
-  
+
   thrust::device_vector<int> d_v1 = h_v1;
   thrust::device_vector<int> d_v2 = h_v2;
-  
+
   thrust::device_vector<int> result(1);
-  
+
   int init = 13;
-  
+
   int expected = thrust::inner_product(h_v1.begin(), h_v1.end(), h_v2.begin(), init);
   inner_product_kernel<<<1,1>>>(exec, d_v1.begin(), d_v1.end(), d_v2.begin(), init, result.begin());
-  
+
   ASSERT_EQUAL(expected, result[0]);
 }
 
@@ -56,7 +56,7 @@ void TestInnerProductCudaStreams()
 
   cudaStream_t s;
   cudaStreamCreate(&s);
-  
+
   int init = 3;
   int result = thrust::inner_product(thrust::cuda::par.on(s), v1.begin(), v1.end(), v2.begin(), init);
   ASSERT_EQUAL(result, 7);

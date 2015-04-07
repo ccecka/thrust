@@ -39,8 +39,8 @@ void TestVectorManipulation(size_t n)
     ASSERT_EQUAL(vec1.size(), n + 3);
     vec1.resize(n);
     ASSERT_EQUAL(vec1.size(), n);
-    ASSERT_EQUAL(vec1, src); 
-    
+    ASSERT_EQUAL(vec1, src);
+
     vec1.resize(n + 20, (T) 11);
     Vector tail(vec1.begin() + n, vec1.end());
     ASSERT_EQUAL( (tail == std::vector<T>(20, (T) 11)), true);

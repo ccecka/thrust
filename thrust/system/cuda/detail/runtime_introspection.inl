@@ -40,9 +40,9 @@ inline void uncached_device_properties(device_properties_t &p, int device_id)
 {
 #ifndef __CUDA_ARCH__
   cudaDeviceProp properties;
-  
+
   cudaError_t error = cudaGetDeviceProperties(&properties, device_id);
-  
+
   throw_on_error(error, "cudaGetDeviceProperties in get_device_properties");
 
   // be careful about how this is initialized!
@@ -106,7 +106,7 @@ inline void cached_device_properties(device_properties_t &p, int device_id)
     // disallow the compiler to move the write to properties_exist[device_id]
     // before the initialization of device_properties[device_id]
     __thrust_compiler_fence();
-    
+
     properties_exist[device_id] = true;
   }
 

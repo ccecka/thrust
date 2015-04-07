@@ -12,9 +12,9 @@
 
 // this example illustrates how to make repeated access to a range of values
 // examples:
-//   repeated_range([0, 1, 2, 3], 1) -> [0, 1, 2, 3] 
+//   repeated_range([0, 1, 2, 3], 1) -> [0, 1, 2, 3]
 //   repeated_range([0, 1, 2, 3], 2) -> [0, 0, 1, 1, 2, 2, 3, 3]
-//   repeated_range([0, 1, 2, 3], 3) -> [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3] 
+//   repeated_range([0, 1, 2, 3], 3) -> [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3]
 //   ...
 
 template <typename Iterator>
@@ -33,7 +33,7 @@ class repeated_range
 
         __host__ __device__
         difference_type operator()(const difference_type& i) const
-        { 
+        {
             return i / repeats;
         }
     };
@@ -48,7 +48,7 @@ class repeated_range
     // construct repeated_range for the range [first,last)
     repeated_range(Iterator first, Iterator last, difference_type repeats)
         : first(first), last(last), repeats(repeats) {}
-   
+
     iterator begin(void) const
     {
         return PermutationIterator(first, TransformIterator(CountingIterator(0), repeat_functor(repeats)));
@@ -58,7 +58,7 @@ class repeated_range
     {
         return begin() + repeats * (last - first);
     }
-    
+
     protected:
     Iterator first;
     Iterator last;
@@ -78,12 +78,12 @@ int main(void)
     thrust::copy(data.begin(), data.end(), std::ostream_iterator<int>(std::cout, " "));  std::cout << std::endl;
 
     typedef thrust::device_vector<int>::iterator Iterator;
-  
+
     // create repeated_range with elements repeated twice
     repeated_range<Iterator> twice(data.begin(), data.end(), 2);
     std::cout << "repeated x2: ";
     thrust::copy(twice.begin(), twice.end(), std::ostream_iterator<int>(std::cout, " "));  std::cout << std::endl;
-    
+
     // create repeated_range with elements repeated x3
     repeated_range<Iterator> thrice(data.begin(), data.end(), 3);
     std::cout << "repeated x3: ";

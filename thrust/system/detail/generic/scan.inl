@@ -46,7 +46,7 @@ __host__ __device__
                                 OutputIterator result)
 {
   // the pseudocode for deducing the type of the temporary used below:
-  // 
+  //
   // if OutputIterator is a "pure" output iterator
   //   TemporaryType = InputIterator::value_type
   // else
@@ -73,7 +73,7 @@ __host__ __device__
                                 OutputIterator result)
 {
   // the pseudocode for deducing the type of the temporary used below:
-  // 
+  //
   // if OutputIterator is a "pure" output iterator
   //   TemporaryType = InputIterator::value_type
   // else

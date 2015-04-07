@@ -31,7 +31,7 @@ __host__ __device__ __thrust_forceinline__
 Integer clz(Integer x)
 {
   // XXX optimize by lowering to intrinsics
-  
+
   int num_bits = 8 * sizeof(Integer);
   int num_bits_minus_one = num_bits - 1;
 

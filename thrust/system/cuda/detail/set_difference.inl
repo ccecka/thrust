@@ -46,7 +46,7 @@ struct serial_bounded_set_difference
   {
     thrust::detail::uint32_t active_mask = 0;
     thrust::detail::uint32_t active_bit = 1;
-  
+
     while(first1 != last1 && first2 != last2)
     {
       if(comp(*first1,*first2))
@@ -64,7 +64,7 @@ struct serial_bounded_set_difference
         ++first1;
         ++first2;
       } // end else
-  
+
       ++result;
       active_bit <<= 1;
     } // end while
@@ -77,7 +77,7 @@ struct serial_bounded_set_difference
       active_mask |= active_bit;
       active_bit <<= 1;
     }
-  
+
     return active_mask;
   }
 
@@ -90,7 +90,7 @@ struct serial_bounded_set_difference
                Compare comp)
   {
     Size result = 0;
-  
+
     while(first1 != last1 && first2 != last2)
     {
       if(comp(*first1,*first2))
@@ -108,7 +108,7 @@ struct serial_bounded_set_difference
         ++first2;
       } // end else
     } // end while
-  
+
     return result + last1 - first1;
   }
 }; // end serial_bounded_set_difference
@@ -119,7 +119,7 @@ struct serial_bounded_set_difference
 
 template<typename DerivedPolicy,
          typename RandomAccessIterator1,
-         typename RandomAccessIterator2, 
+         typename RandomAccessIterator2,
 	 typename RandomAccessIterator3,
          typename Compare>
 __host__ __device__

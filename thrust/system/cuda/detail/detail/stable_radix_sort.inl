@@ -58,7 +58,7 @@ cudaError_t cub_sort_keys_wrapper(void *d_temp_storage,
 {
   struct workaround
   {
-    __host__ 
+    __host__
     static cudaError_t host_path(void *d_temp_storage,
                                  size_t &temp_storage_bytes,
                                  cub_::DoubleBuffer<Key> &d_keys,
@@ -114,7 +114,7 @@ cudaError_t cub_sort_keys_wrapper(void *d_temp_storage,
 {
   struct workaround
   {
-    __host__ 
+    __host__
     static cudaError_t host_path(void *d_temp_storage,
                                  size_t &temp_storage_bytes,
                                  cub_::DoubleBuffer<Key> &d_keys,
@@ -277,7 +277,7 @@ cudaError_t cub_sort_pairs_wrapper(void *d_temp_storage,
 {
   struct workaround
   {
-    __host__ 
+    __host__
     static cudaError_t host_path(void *d_temp_storage,
                                  size_t &temp_storage_bytes,
                                  cub_::DoubleBuffer<Key> &d_keys,
@@ -336,7 +336,7 @@ cudaError_t cub_sort_pairs_wrapper(void *d_temp_storage,
 {
   struct workaround
   {
-    __host__ 
+    __host__
     static cudaError_t host_path(void *d_temp_storage,
                                  size_t &temp_storage_bytes,
                                  cub_::DoubleBuffer<Key> &d_keys,

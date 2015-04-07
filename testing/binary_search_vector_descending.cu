@@ -9,8 +9,8 @@
 // Vector Functions //
 //////////////////////
 
-// convert xxx_vector<T1> to xxx_vector<T2> 
-template <class ExampleVector, typename NewType> 
+// convert xxx_vector<T1> to xxx_vector<T2>
+template <class ExampleVector, typename NewType>
 struct vector_like
 {
     typedef typename ExampleVector::allocator_type alloc;
@@ -129,13 +129,13 @@ void TestVectorBinarySearchDescendingSimple(void)
   ASSERT_EQUAL(true,  bool_output[7]);
   ASSERT_EQUAL(true,  bool_output[8]);
   ASSERT_EQUAL(false, bool_output[9]);
-  
+
   // test with integral output type
   IntVector integral_output(10, 2);
   typename IntVector::iterator int_output_end = thrust::binary_search(vec.begin(), vec.end(), input.begin(), input.end(), integral_output.begin(), thrust::greater<int>());
 
   ASSERT_EQUAL_QUIET(int_output_end, integral_output.end());
-  
+
   ASSERT_EQUAL(1, integral_output[0]);
   ASSERT_EQUAL(0, integral_output[1]);
   ASSERT_EQUAL(1, integral_output[2]);
@@ -160,7 +160,7 @@ struct TestVectorLowerBoundDescending
 
     thrust::host_vector<T>   h_input = unittest::random_integers<T>(2*n);
     thrust::device_vector<T> d_input = h_input;
-    
+
     thrust::host_vector<int>   h_output(2*n);
     thrust::device_vector<int> d_output(2*n);
 
@@ -183,7 +183,7 @@ struct TestVectorUpperBoundDescending
 
     thrust::host_vector<T>   h_input = unittest::random_integers<T>(2*n);
     thrust::device_vector<T> d_input = h_input;
-    
+
     thrust::host_vector<int>   h_output(2*n);
     thrust::device_vector<int> d_output(2*n);
 
@@ -205,7 +205,7 @@ struct TestVectorBinarySearchDescending
 
     thrust::host_vector<T>   h_input = unittest::random_integers<T>(2*n);
     thrust::device_vector<T> d_input = h_input;
-    
+
     thrust::host_vector<int>   h_output(2*n);
     thrust::device_vector<int> d_output(2*n);
 

@@ -7,7 +7,7 @@
 #include <algorithm>
 
 // This example illustrates how to implement the SAXPY
-// operation (Y[i] = a * X[i] + Y[i]) using Thrust. 
+// operation (Y[i] = a * X[i] + Y[i]) using Thrust.
 // The saxpy_slow function demonstrates the most
 // straightforward implementation using a temporary
 // array and two separate transformations, one with
@@ -22,7 +22,7 @@ struct saxpy_functor : public thrust::binary_function<float,float,float>
     saxpy_functor(float _a) : a(_a) {}
 
     __host__ __device__
-        float operator()(const float& x, const float& y) const { 
+        float operator()(const float& x, const float& y) const {
             return a * x + y;
         }
 };
@@ -36,10 +36,10 @@ void saxpy_fast(float A, thrust::device_vector<float>& X, thrust::device_vector<
 void saxpy_slow(float A, thrust::device_vector<float>& X, thrust::device_vector<float>& Y)
 {
     thrust::device_vector<float> temp(X.size());
-   
+
     // temp <- A
     thrust::fill(temp.begin(), temp.end(), A);
-    
+
     // temp <- A * X
     thrust::transform(X.begin(), X.end(), temp.begin(), temp.begin(), thrust::multiplies<float>());
 
@@ -70,7 +70,7 @@ int main(void)
         // fast method
         saxpy_fast(2.0, X, Y);
     }
-    
+
     return 0;
 }
 

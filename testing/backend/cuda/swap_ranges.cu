@@ -30,7 +30,7 @@ void TestSwapRangesDevice(ExecutionPolicy exec)
   ASSERT_EQUAL(v1[2], 7);
   ASSERT_EQUAL(v1[3], 8);
   ASSERT_EQUAL(v1[4], 9);
-  
+
   ASSERT_EQUAL(v2[0], 0);
   ASSERT_EQUAL(v2[1], 1);
   ASSERT_EQUAL(v2[2], 2);
@@ -72,7 +72,7 @@ void TestSwapRangesCudaStreams()
   ASSERT_EQUAL(v1[2], 7);
   ASSERT_EQUAL(v1[3], 8);
   ASSERT_EQUAL(v1[4], 9);
-  
+
   ASSERT_EQUAL(v2[0], 0);
   ASSERT_EQUAL(v2[1], 1);
   ASSERT_EQUAL(v2[2], 2);

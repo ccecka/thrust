@@ -113,9 +113,9 @@ void TestUninitializedFillPOD(void)
     ASSERT_EQUAL(v[4], 4);
 
     exemplar = 8;
-    
+
     thrust::uninitialized_fill(v.begin() + 0, v.begin() + 3, exemplar);
-    
+
     ASSERT_EQUAL(v[0], exemplar);
     ASSERT_EQUAL(v[1], exemplar);
     ASSERT_EQUAL(v[2], exemplar);
@@ -123,9 +123,9 @@ void TestUninitializedFillPOD(void)
     ASSERT_EQUAL(v[4], 4);
 
     exemplar = 9;
-    
+
     thrust::uninitialized_fill(v.begin() + 2, v.end(), exemplar);
-    
+
     ASSERT_EQUAL(v[0], 8);
     ASSERT_EQUAL(v[1], 8);
     ASSERT_EQUAL(v[2], exemplar);
@@ -135,7 +135,7 @@ void TestUninitializedFillPOD(void)
     exemplar = 1;
 
     thrust::uninitialized_fill(v.begin(), v.end(), exemplar);
-    
+
     ASSERT_EQUAL(v[0], exemplar);
     ASSERT_EQUAL(v[1], exemplar);
     ASSERT_EQUAL(v[2], exemplar);
@@ -227,9 +227,9 @@ void TestUninitializedFillNPOD(void)
     ASSERT_EQUAL_QUIET(v.begin() + 4, iter);
 
     exemplar = 8;
-    
+
     iter = thrust::uninitialized_fill_n(v.begin() + 0, 3, exemplar);
-    
+
     ASSERT_EQUAL(v[0], exemplar);
     ASSERT_EQUAL(v[1], exemplar);
     ASSERT_EQUAL(v[2], exemplar);
@@ -238,9 +238,9 @@ void TestUninitializedFillNPOD(void)
     ASSERT_EQUAL_QUIET(v.begin() + 3, iter);
 
     exemplar = 9;
-    
+
     iter = thrust::uninitialized_fill_n(v.begin() + 2, 3, exemplar);
-    
+
     ASSERT_EQUAL(v[0], 8);
     ASSERT_EQUAL(v[1], 8);
     ASSERT_EQUAL(v[2], exemplar);
@@ -251,7 +251,7 @@ void TestUninitializedFillNPOD(void)
     exemplar = 1;
 
     iter = thrust::uninitialized_fill_n(v.begin(), v.size(), exemplar);
-    
+
     ASSERT_EQUAL(v[0], exemplar);
     ASSERT_EQUAL(v[1], exemplar);
     ASSERT_EQUAL(v[2], exemplar);

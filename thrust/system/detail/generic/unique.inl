@@ -65,9 +65,9 @@ __host__ __device__
                          BinaryPredicate binary_pred)
 {
   typedef typename thrust::iterator_traits<ForwardIterator>::value_type InputType;
-  
+
   thrust::detail::temporary_array<InputType,DerivedPolicy> input(exec, first, last);
-  
+
   return thrust::unique_copy(exec, input.begin(), input.end(), first, binary_pred);
 } // end unique()
 
@@ -100,13 +100,13 @@ __host__ __device__
   // empty sequence
   if(first == last)
     return output;
-  
+
   thrust::detail::temporary_array<int,DerivedPolicy> stencil(exec, thrust::distance(first, last));
-  
+
   // mark first element in each group
-  stencil[0] = 1; 
-  thrust::transform(exec, first, last - 1, first + 1, stencil.begin() + 1, thrust::detail::not2(binary_pred)); 
-  
+  stencil[0] = 1;
+  thrust::transform(exec, first, last - 1, first + 1, stencil.begin() + 1, thrust::detail::not2(binary_pred));
+
   return thrust::copy_if(exec, first, last, stencil.begin(), output, thrust::identity<int>());
 } // end unique_copy()
 

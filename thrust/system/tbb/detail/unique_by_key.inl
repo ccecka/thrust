@@ -37,7 +37,7 @@ template<typename DerivedPolicy,
          typename BinaryPredicate>
   thrust::pair<ForwardIterator1,ForwardIterator2>
     unique_by_key(execution_policy<DerivedPolicy> &exec,
-                  ForwardIterator1 keys_first, 
+                  ForwardIterator1 keys_first,
                   ForwardIterator1 keys_last,
                   ForwardIterator2 values_first,
                   BinaryPredicate binary_pred)
@@ -55,7 +55,7 @@ template<typename DerivedPolicy,
          typename BinaryPredicate>
   thrust::pair<OutputIterator1,OutputIterator2>
     unique_by_key_copy(execution_policy<DerivedPolicy> &exec,
-                       InputIterator1 keys_first, 
+                       InputIterator1 keys_first,
                        InputIterator1 keys_last,
                        InputIterator2 values_first,
                        OutputIterator1 keys_output,

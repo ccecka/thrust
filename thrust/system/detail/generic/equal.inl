@@ -35,7 +35,7 @@ __host__ __device__
 bool equal(thrust::execution_policy<DerivedPolicy> &exec, InputIterator1 first1, InputIterator1 last1, InputIterator2 first2)
 {
   typedef typename thrust::iterator_traits<InputIterator1>::value_type InputType1;
-  
+
   return thrust::equal(exec, first1, last1, first2, thrust::detail::equal_to<InputType1>());
 }
 

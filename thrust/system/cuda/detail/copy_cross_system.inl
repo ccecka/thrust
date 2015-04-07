@@ -49,7 +49,7 @@ template<typename System1,
                                          InputIterator begin,
                                          InputIterator end,
                                          RandomAccessIterator result,
-                                         thrust::incrementable_traversal_tag, 
+                                         thrust::incrementable_traversal_tag,
                                          thrust::random_access_traversal_tag)
 {
   //std::cerr << std::endl;
@@ -72,7 +72,7 @@ template<typename System1,
                                            InputIterator first,
                                            Size n,
                                            RandomAccessIterator result,
-                                           thrust::incrementable_traversal_tag, 
+                                           thrust::incrementable_traversal_tag,
                                            thrust::random_access_traversal_tag)
 {
   typedef typename thrust::iterator_value<InputIterator>::type InputType;
@@ -94,7 +94,7 @@ template<typename System1,
                                    RandomAccessIterator begin,
                                    RandomAccessIterator end,
                                    OutputIterator result,
-                                   thrust::random_access_traversal_tag, 
+                                   thrust::random_access_traversal_tag,
                                    thrust::incrementable_traversal_tag)
 {
   typedef typename thrust::iterator_value<RandomAccessIterator>::type InputType;
@@ -114,7 +114,7 @@ template<typename System1,
                                      RandomAccessIterator first,
                                      Size n,
                                      OutputIterator result,
-                                     thrust::random_access_traversal_tag, 
+                                     thrust::random_access_traversal_tag,
                                      thrust::incrementable_traversal_tag)
 {
   typedef typename thrust::iterator_value<RandomAccessIterator>::type InputType;
@@ -144,7 +144,7 @@ template<typename System1,
 //  std::cerr << "random access copy_device_to_host(): trivial" << std::endl;
 //  std::cerr << "general copy_device_to_host(): RandomAccessIterator1: " << typeid(RandomAccessIterator1).name() << std::endl;
 //  std::cerr << "general copy_device_to_host(): RandomAccessIterator2: " << typeid(RandomAccessIterator2).name() << std::endl;
-  
+
   // how many elements to copy?
   typename thrust::iterator_traits<RandomAccessIterator1>::difference_type n = end - begin;
 
@@ -270,11 +270,11 @@ template<typename System1,
          typename InputIterator,
          typename OutputIterator>
   OutputIterator copy_cross_system(cross_system<System1,System2> systems,
-                                   InputIterator begin, 
-                                   InputIterator end, 
+                                   InputIterator begin,
+                                   InputIterator end,
                                    OutputIterator result)
 {
-  return copy_cross_system(systems, begin, end, result, 
+  return copy_cross_system(systems, begin, end, result,
           typename thrust::iterator_traversal<InputIterator>::type(),
           typename thrust::iterator_traversal<OutputIterator>::type());
 }
@@ -285,11 +285,11 @@ template<typename System1,
          typename Size,
          typename OutputIterator>
   OutputIterator copy_cross_system_n(cross_system<System1,System2> systems,
-                                     InputIterator begin, 
-                                     Size n, 
+                                     InputIterator begin,
+                                     Size n,
                                      OutputIterator result)
 {
-  return copy_cross_system_n(systems, begin, n, result, 
+  return copy_cross_system_n(systems, begin, n, result,
           typename thrust::iterator_traversal<InputIterator>::type(),
           typename thrust::iterator_traversal<OutputIterator>::type());
 }

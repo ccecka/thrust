@@ -86,13 +86,13 @@ void TestGather(const size_t n)
     // source vectors to gather from
     thrust::host_vector<T>   h_source = unittest::random_samples<T>(source_size);
     thrust::device_vector<T> d_source = h_source;
-  
+
     // gather indices
     thrust::host_vector<unsigned int> h_map = unittest::random_integers<unsigned int>(n);
 
     for(size_t i = 0; i < n; i++)
         h_map[i] =  h_map[i] % source_size;
-    
+
     thrust::device_vector<unsigned int> d_map = h_map;
 
     // gather destination
@@ -115,16 +115,16 @@ void TestGatherToDiscardIterator(const size_t n)
     // source vectors to gather from
     thrust::host_vector<T>   h_source = unittest::random_samples<T>(source_size);
     thrust::device_vector<T> d_source = h_source;
-  
+
     // gather indices
     thrust::host_vector<unsigned int> h_map = unittest::random_integers<unsigned int>(n);
 
     for(size_t i = 0; i < n; i++)
         h_map[i] =  h_map[i] % source_size;
-    
+
     thrust::device_vector<unsigned int> d_map = h_map;
 
-    thrust::discard_iterator<> h_result = 
+    thrust::discard_iterator<> h_result =
       thrust::gather(h_map.begin(), h_map.end(), h_source.begin(), thrust::make_discard_iterator());
 
     thrust::discard_iterator<> d_result =
@@ -168,7 +168,7 @@ struct is_even_gather_if
 {
     __host__ __device__
     bool operator()(const T i) const
-    { 
+    {
         return (i % 2) == 0;
     }
 };
@@ -243,21 +243,21 @@ void TestGatherIf(const size_t n)
     // source vectors to gather from
     thrust::host_vector<T>   h_source = unittest::random_samples<T>(source_size);
     thrust::device_vector<T> d_source = h_source;
-  
+
     // gather indices
     thrust::host_vector<unsigned int> h_map = unittest::random_integers<unsigned int>(n);
 
     for(size_t i = 0; i < n; i++)
         h_map[i] = h_map[i] % source_size;
-    
+
     thrust::device_vector<unsigned int> d_map = h_map;
-    
+
     // gather stencil
     thrust::host_vector<unsigned int> h_stencil = unittest::random_integers<unsigned int>(n);
 
     for(size_t i = 0; i < n; i++)
         h_stencil[i] = h_stencil[i] % 2;
-    
+
     thrust::device_vector<unsigned int> d_stencil = h_stencil;
 
     // gather destination
@@ -281,21 +281,21 @@ void TestGatherIfToDiscardIterator(const size_t n)
     // source vectors to gather from
     thrust::host_vector<T>   h_source = unittest::random_samples<T>(source_size);
     thrust::device_vector<T> d_source = h_source;
-  
+
     // gather indices
     thrust::host_vector<unsigned int> h_map = unittest::random_integers<unsigned int>(n);
 
     for(size_t i = 0; i < n; i++)
         h_map[i] = h_map[i] % source_size;
-    
+
     thrust::device_vector<unsigned int> d_map = h_map;
-    
+
     // gather stencil
     thrust::host_vector<unsigned int> h_stencil = unittest::random_integers<unsigned int>(n);
 
     for(size_t i = 0; i < n; i++)
         h_stencil[i] = h_stencil[i] % 2;
-    
+
     thrust::device_vector<unsigned int> d_stencil = h_stencil;
 
     thrust::discard_iterator<> h_result =
@@ -333,7 +333,7 @@ void TestGatherCountingIterator(void)
                    output.begin());
 
     ASSERT_EQUAL(output, map);
-    
+
     // map has any_system_tag
     thrust::fill(output.begin(), output.end(), 0);
     thrust::gather(thrust::make_counting_iterator(0),
@@ -342,7 +342,7 @@ void TestGatherCountingIterator(void)
                    output.begin());
 
     ASSERT_EQUAL(output, map);
-    
+
     // source and map have any_system_tag
     thrust::fill(output.begin(), output.end(), 0);
     thrust::gather(thrust::make_counting_iterator(0),

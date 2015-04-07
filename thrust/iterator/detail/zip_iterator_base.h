@@ -45,7 +45,7 @@ class advance_iterator
 public:
   inline __host__ __device__
   advance_iterator(DiffType step) : m_step(step) {}
-  
+
   __thrust_hd_warning_disable__
   template<typename Iterator>
   inline __host__ __device__
@@ -81,7 +81,7 @@ struct dereference_iterator
 {
   template<typename Iterator>
   struct apply
-  { 
+  {
     typedef typename
       iterator_traits<Iterator>::reference
     type;
@@ -119,8 +119,8 @@ template<typename UnaryMetaFunctionClass, class Arg1, class Arg2>
 }; // end apply2
 
 
-// Meta-accumulate algorithm for tuples. Note: The template 
-// parameter StartType corresponds to the initial value in 
+// Meta-accumulate algorithm for tuples. Note: The template
+// parameter StartType corresponds to the initial value in
 // ordinary accumulation.
 //
 template<class Tuple, class BinaryMetaFun, class StartType>
@@ -139,7 +139,7 @@ template<
      , typename tuple_meta_accumulate<
            typename Tuple::tail_type
          , BinaryMetaFun
-         , StartType 
+         , StartType
        >::type
    >::type type;
 };
@@ -195,7 +195,7 @@ Fun tuple_for_each(thrust::null_type, Fun f)
 template<typename Tuple, typename Fun>
 inline __host__ __device__
 Fun tuple_for_each(Tuple& t, Fun f)
-{ 
+{
   f( t.get_head() );
   return tuple_for_each(t.get_tail(), f);
 } // end tuple_for_each()
@@ -214,8 +214,8 @@ inline bool tuple_equal(thrust::null_type, thrust::null_type)
 template<typename Tuple1, typename Tuple2>
 __host__ __device__
 bool tuple_equal(Tuple1 const& t1, Tuple2 const& t2)
-{ 
-  return t1.get_head() == t2.get_head() && 
+{
+  return t1.get_head() == t2.get_head() &&
   tuple_equal(t1.get_tail(), t2.get_tail());
 } // end tuple_equal()
 
@@ -254,7 +254,7 @@ struct minimum_traversal_category_in_iterator_tuple
       IteratorTuple
     , thrust::iterator_traversal
   >::type tuple_of_traversal_tags;
-      
+
   typedef typename tuple_impl_specific::tuple_meta_accumulate<
       tuple_of_traversal_tags
     , minimum_category_lambda
@@ -353,7 +353,7 @@ template<typename IteratorTuple>
 //
 // Class zip_iterator_base
 //
-// Builds and exposes the iterator facade type from which the zip 
+// Builds and exposes the iterator facade type from which the zip
 // iterator will be derived.
 //
 template<typename IteratorTuple>
@@ -382,14 +382,14 @@ template<typename IteratorTuple>
     // iterator tuple
     typedef typename
     minimum_traversal_category_in_iterator_tuple<IteratorTuple>::type traversal_category;
-  
+
  public:
-  
+
     // The iterator facade type from which the zip iterator will
     // be derived.
     typedef thrust::iterator_facade<
         zip_iterator<IteratorTuple>,
-        value_type,  
+        value_type,
         system,
         traversal_category,
         reference,

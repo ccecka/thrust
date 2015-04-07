@@ -50,7 +50,7 @@ class bad_alloc
   private:
     std::string m_what;
 }; // end bad_alloc
-  
+
 } // end detail
 } // end system
 } // end thrust

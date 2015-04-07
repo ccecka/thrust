@@ -73,8 +73,8 @@ template<typename Closure,
          bool launch_by_value = sizeof(Closure) <= 256>
   struct closure_launcher_base
 {
-  typedef void (*launch_function_t)(Closure); 
- 
+  typedef void (*launch_function_t)(Closure);
+
   __host__ __device__
   static launch_function_t get_launch_function()
   {
@@ -112,8 +112,8 @@ template<typename Closure,
 template<typename Closure>
   struct closure_launcher_base<Closure,false>
 {
-  typedef void (*launch_function_t)(const Closure *); 
- 
+  typedef void (*launch_function_t)(const Closure *);
+
   __host__ __device__
   static launch_function_t get_launch_function(void)
   {
@@ -150,13 +150,13 @@ template<typename Closure>
     : public closure_launcher_base<Closure>
 {
   typedef closure_launcher_base<Closure> super_t;
-  
+
   __host__ __device__
   static inline const device_properties_t& device_properties(void)
   {
     return device_properties();
   }
-  
+
   __host__ __device__
   static inline function_attributes_t function_attributes(void)
   {
@@ -242,7 +242,7 @@ function_attributes_t cached_closure_attributes()
 
 } // end closure_attributes_detail
 
-  
+
 template<typename Closure>
 __host__ __device__
 function_attributes_t closure_attributes()

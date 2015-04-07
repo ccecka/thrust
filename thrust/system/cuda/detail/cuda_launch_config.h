@@ -67,7 +67,7 @@ struct function_attributes_t
  *  \param properties The cudaDeviceProp corresponding to a GPU on which to launch the __global__ function of interest.
  *  \return A CUDA block size, in number of threads, which the resources of the GPU's streaming multiprocessor can
  *          accomodate and which is intended to promote occupancy. The result is equivalent to the one performed by
- *          the "CUDA Occupancy Calculator". 
+ *          the "CUDA Occupancy Calculator".
  *  \note The __global__ function of interest is presumed to use 0 bytes of dynamically-allocated __shared__ memory.
  */
 inline __host__ __device__
@@ -83,7 +83,7 @@ std::size_t block_size_with_maximum_potential_occupancy(const function_attribute
  *         of dynamically-allocated __shared__ memory required by a CUDA block of that size.
  *  \return A CUDA block size, in number of threads, which the resources of the GPU's streaming multiprocessor can
  *          accomodate and which is intended to promote occupancy. The result is equivalent to the one performed by
- *          the "CUDA Occupancy Calculator". 
+ *          the "CUDA Occupancy Calculator".
  */
 template<typename UnaryFunction>
 inline __host__ __device__
@@ -350,7 +350,7 @@ size_t proportional_smem_allocation(const device_properties_t   &properties,
 
   size_t total_smem_per_block  = cuda_launch_config_detail::util::round_z(smem_per_processor / blocks_per_processor, smem_allocation_unit);
   size_t static_smem_per_block = attributes.sharedSizeBytes;
-  
+
   return total_smem_per_block - static_smem_per_block;
 }
 
@@ -363,7 +363,7 @@ size_t max_blocksize_subject_to_smem_usage(const device_properties_t   &properti
 {
   size_t largest_blocksize = (thrust::min)(properties.maxThreadsPerBlock, attributes.maxThreadsPerBlock);
   size_t granularity = properties.warpSize;
-  
+
   for(int blocksize = largest_blocksize; blocksize > 0; blocksize -= granularity)
   {
     size_t total_smem_usage = blocksize_to_dynamic_smem_usage(blocksize) + attributes.sharedSizeBytes;

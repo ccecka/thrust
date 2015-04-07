@@ -55,7 +55,7 @@
 
 namespace thrust{
 namespace detail{
-namespace complex{		      	
+namespace complex{
 
 using thrust::complex;
 
@@ -113,7 +113,7 @@ complex<double> csqrt(const complex<double>& z){
     b *= 4.0;
     scale = 2;
   }
-	
+
 
   /* Algorithm 312, CACM vol 10, Oct 1967. */
   if (a >= 0.0) {
@@ -132,7 +132,7 @@ complex<double> csqrt(const complex<double>& z){
   else
     return (result);
 }
-      
+
 } // namespace complex
 
 } // namespace detail

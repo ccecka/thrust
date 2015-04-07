@@ -26,23 +26,23 @@ void TestEqualDevice(ExecutionPolicy exec, const size_t n)
   thrust::device_vector<T> d_data1 = unittest::random_samples<T>(n);
   thrust::device_vector<T> d_data2 = unittest::random_samples<T>(n);
   thrust::device_vector<bool> d_result(1, false);
-  
+
   //empty ranges
   equal_kernel<<<1,1>>>(exec, d_data1.begin(), d_data1.begin(), d_data1.begin(), d_result.begin());
   ASSERT_EQUAL(d_result[0], true);
-  
+
   //symmetric cases
   equal_kernel<<<1,1>>>(exec, d_data1.begin(), d_data1.end(), d_data1.begin(), d_result.begin());
   ASSERT_EQUAL(d_result[0], true);
-  
+
   if(n > 0)
   {
     d_data1[0] = 0; d_data2[0] = 1;
-    
+
     //different vectors
     equal_kernel<<<1,1>>>(exec, d_data1.begin(), d_data1.end(), d_data2.begin(), d_result.begin());
     ASSERT_EQUAL(d_result[0], false);
-    
+
     //different predicates
     equal_kernel<<<1,1>>>(exec, d_data1.begin(), d_data1.begin() + 1, d_data2.begin(), thrust::less<T>(), d_result.begin());
     ASSERT_EQUAL(d_result[0], true);
@@ -77,16 +77,16 @@ void TestEqualCudaStreams()
 
   cudaStream_t s;
   cudaStreamCreate(&s);
-  
+
   ASSERT_EQUAL(thrust::equal(thrust::cuda::par.on(s), v1.begin(), v1.end(), v1.begin()), true);
   ASSERT_EQUAL(thrust::equal(thrust::cuda::par.on(s), v1.begin(), v1.end(), v2.begin()), false);
   ASSERT_EQUAL(thrust::equal(thrust::cuda::par.on(s), v2.begin(), v2.end(), v2.begin()), true);
-  
+
   ASSERT_EQUAL(thrust::equal(thrust::cuda::par.on(s), v1.begin(), v1.begin() + 0, v1.begin()), true);
   ASSERT_EQUAL(thrust::equal(thrust::cuda::par.on(s), v1.begin(), v1.begin() + 1, v1.begin()), true);
   ASSERT_EQUAL(thrust::equal(thrust::cuda::par.on(s), v1.begin(), v1.begin() + 3, v2.begin()), true);
   ASSERT_EQUAL(thrust::equal(thrust::cuda::par.on(s), v1.begin(), v1.begin() + 4, v2.begin()), false);
-  
+
   ASSERT_EQUAL(thrust::equal(thrust::cuda::par.on(s), v1.begin(), v1.end(), v2.begin(), thrust::less_equal<int>()), true);
   ASSERT_EQUAL(thrust::equal(thrust::cuda::par.on(s), v1.begin(), v1.end(), v2.begin(), thrust::greater<int>()),    false);
 

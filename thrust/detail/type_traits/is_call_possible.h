@@ -29,24 +29,24 @@ namespace detail
 namespace is_call_possible_detail
 {
 
-template<typename T> class void_exp_result {}; 
+template<typename T> class void_exp_result {};
 
-template<typename T, typename U> 
-U const& operator,(U const&, void_exp_result<T>); 
+template<typename T, typename U>
+U const& operator,(U const&, void_exp_result<T>);
 
-template<typename T, typename U> 
-U& operator,(U&, void_exp_result<T>); 
+template<typename T, typename U>
+U& operator,(U&, void_exp_result<T>);
 
-template<typename src_type, typename dest_type> 
-struct clone_constness 
+template<typename src_type, typename dest_type>
+struct clone_constness
 {
-  typedef dest_type type; 
-}; 
+  typedef dest_type type;
+};
 
-template<typename src_type, typename dest_type> 
-struct clone_constness<const src_type, dest_type> 
-{ 
-  typedef const dest_type type; 
+template<typename src_type, typename dest_type>
+struct clone_constness<const src_type, dest_type>
+{
+  typedef const dest_type type;
 };
 
 } // end is_call_possible_detail
@@ -157,5 +157,5 @@ struct trait_name                                                               
   public:                                                                                                                                 \
     static const bool value = impl<trait_name##_has_member<T,Signature>::value, Signature>::value;                                        \
     typedef thrust::detail::integral_constant<bool,value> type;                                                                           \
-}; 
+};
 

@@ -23,12 +23,12 @@ int main(void)
 
     // storage for the nonzero indices
     thrust::device_vector<int> indices(8);
-    
+
     // counting iterators define a sequence [0, 8)
     thrust::counting_iterator<int> first(0);
     thrust::counting_iterator<int> last = first + 8;
 
-    // compute indices of nonzero elements 
+    // compute indices of nonzero elements
     typedef thrust::device_vector<int>::iterator IndexIterator;
 
     IndexIterator indices_end = thrust::copy_if(first, last,

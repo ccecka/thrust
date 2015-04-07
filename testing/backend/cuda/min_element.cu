@@ -29,13 +29,13 @@ void TestMinElementDevice(ExecutionPolicy exec)
   typedef typename thrust::device_vector<int>::iterator iter_type;
 
   thrust::device_vector<iter_type> d_result(1);
-  
+
   typename thrust::host_vector<int>::iterator   h_min = thrust::min_element(h_data.begin(), h_data.end());
 
   min_element_kernel<<<1,1>>>(exec, d_data.begin(), d_data.end(), d_result.begin());
   ASSERT_EQUAL(h_min - h_data.begin(), (iter_type)d_result[0] - d_data.begin());
 
-  
+
   typename thrust::host_vector<int>::iterator   h_max = thrust::min_element(h_data.begin(), h_data.end(), thrust::greater<int>());
 
   min_element_kernel<<<1,1>>>(exec, d_data.begin(), d_data.end(), thrust::greater<int>(), d_result.begin());
@@ -75,7 +75,7 @@ void TestMinElementCudaStreams()
 
   ASSERT_EQUAL( *thrust::min_element(thrust::cuda::par.on(s), data.begin(), data.end()), 1);
   ASSERT_EQUAL( thrust::min_element(thrust::cuda::par.on(s), data.begin(), data.end()) - data.begin(), 2);
-  
+
   ASSERT_EQUAL( *thrust::min_element(thrust::cuda::par.on(s), data.begin(), data.end(), thrust::greater<T>()), 5);
   ASSERT_EQUAL( thrust::min_element(thrust::cuda::par.on(s), data.begin(), data.end(), thrust::greater<T>()) - data.begin(), 1);
 

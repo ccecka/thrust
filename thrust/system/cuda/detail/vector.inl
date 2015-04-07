@@ -90,7 +90,7 @@ template<typename T, typename Allocator>
   super_t::operator=(x);
   return *this;
 }
-      
+
 } // end cuda
 } // end system
 } // end thrust

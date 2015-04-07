@@ -54,7 +54,7 @@ struct range
       first2(first2), last2(last2),
       result(result), comp(comp), grain_size(grain_size)
   {}
-  
+
   range(range& r, ::tbb::split)
     : first1(r.first1), last1(r.last1),
       first2(r.first2), last2(r.last2),
@@ -77,7 +77,7 @@ struct range
       mid2 += n2 / 2;
       mid1 = thrust::upper_bound(thrust::seq, first1, last1, raw_reference_cast(*mid2), comp);
     }
-    
+
     // set first range to [first1, mid1), [first2, mid2), result
     r.last1 = mid1;
     r.last2 = mid2;
@@ -150,7 +150,7 @@ struct range
       keys_result(keys_result), values_result(values_result),
       comp(comp), grain_size(grain_size)
   {}
-  
+
   range(range& r, ::tbb::split)
     : keys_first1(r.keys_first1), keys_last1(r.keys_last1),
       keys_first2(r.keys_first2), keys_last2(r.keys_last2),
@@ -176,12 +176,12 @@ struct range
       mid2 += n2 / 2;
       mid1 = thrust::upper_bound(thrust::seq, keys_first1, keys_last1, raw_reference_cast(*mid2), comp);
     }
-    
+
     // set first range to [keys_first1, mid1), [keys_first2, mid2), keys_result, values_result
     r.keys_last1 = mid1;
     r.keys_last2 = mid2;
 
-    // set second range to [mid1, keys_last1), [mid2, keys_last2), keys_result + (mid1 - keys_first1) + (mid2 - keys_first2), values_result + (mid1 - keys_first1) + (mid2 - keys_first2) 
+    // set second range to [mid1, keys_last1), [mid2, keys_last2), keys_result + (mid1 - keys_first1) + (mid2 - keys_first2), values_result + (mid1 - keys_first1) + (mid2 - keys_first2)
     keys_first1 = mid1;
     keys_first2 = mid2;
     values_first1 += thrust::distance(r.keys_first1, mid1);

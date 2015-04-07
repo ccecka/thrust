@@ -68,7 +68,7 @@ RandomAccessIterator for_each_n(bounded<bound, bulk::agent<grainsize> > &b,
 
   return first + n;
 } // end for_each_n()
-                                
+
 
 } // end bulk
 BULK_NAMESPACE_SUFFIX

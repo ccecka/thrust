@@ -48,7 +48,7 @@ template<typename Pointer>
     __host__ __device__
     normal_iterator(Pointer p)
       : super_t(p) {}
-    
+
     template<typename OtherPointer>
     __host__ __device__
     normal_iterator(const normal_iterator<OtherPointer> &other,

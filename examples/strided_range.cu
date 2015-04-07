@@ -12,7 +12,7 @@
 
 // this example illustrates how to make strided access to a range of values
 // examples:
-//   strided_range([0, 1, 2, 3, 4, 5, 6], 1) -> [0, 1, 2, 3, 4, 5, 6] 
+//   strided_range([0, 1, 2, 3, 4, 5, 6], 1) -> [0, 1, 2, 3, 4, 5, 6]
 //   strided_range([0, 1, 2, 3, 4, 5, 6], 2) -> [0, 2, 4, 6]
 //   strided_range([0, 1, 2, 3, 4, 5, 6], 3) -> [0, 3, 6]
 //   ...
@@ -33,7 +33,7 @@ class strided_range
 
         __host__ __device__
         difference_type operator()(const difference_type& i) const
-        { 
+        {
             return stride * i;
         }
     };
@@ -48,7 +48,7 @@ class strided_range
     // construct strided_range for the range [first,last)
     strided_range(Iterator first, Iterator last, difference_type stride)
         : first(first), last(last), stride(stride) {}
-   
+
     iterator begin(void) const
     {
         return PermutationIterator(first, TransformIterator(CountingIterator(0), stride_functor(stride)));
@@ -58,7 +58,7 @@ class strided_range
     {
         return begin() + ((last - first) + (stride - 1)) / stride;
     }
-    
+
     protected:
     Iterator first;
     Iterator last;
@@ -82,11 +82,11 @@ int main(void)
     thrust::copy(data.begin(), data.end(), std::ostream_iterator<int>(std::cout, " "));  std::cout << std::endl;
 
     typedef thrust::device_vector<int>::iterator Iterator;
-    
+
     // create strided_range with indices [0,2,4,6]
     strided_range<Iterator> evens(data.begin(), data.end(), 2);
     std::cout << "sum of even indices: " << thrust::reduce(evens.begin(), evens.end()) << std::endl;
-    
+
     // create strided_range with indices [1,3,5,7]
     strided_range<Iterator> odds(data.begin() + 1, data.end(), 2);
     std::cout << "sum of odd indices:  " << thrust::reduce(odds.begin(), odds.end()) << std::endl;

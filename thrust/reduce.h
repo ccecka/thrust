@@ -46,7 +46,7 @@ namespace thrust
  *
  *  Note that \p reduce also assumes that the binary reduction operator (in this
  *  case operator+) is commutative.  If the reduction operator is not commutative
- *  then \p thrust::reduce should not be used.  Instead, one could use 
+ *  then \p thrust::reduce should not be used.  Instead, one could use
  *  \p inclusive_scan (which does not require commutativity) and select the
  *  last element of the output array.
  *
@@ -96,7 +96,7 @@ __host__ __device__
  *
  *  Note that \p reduce also assumes that the binary reduction operator (in this
  *  case operator+) is commutative.  If the reduction operator is not commutative
- *  then \p thrust::reduce should not be used.  Instead, one could use 
+ *  then \p thrust::reduce should not be used.  Instead, one could use
  *  \p inclusive_scan (which does not require commutativity) and select the
  *  last element of the output array.
  *
@@ -139,7 +139,7 @@ template<typename InputIterator> typename
  *
  *  Note that \p reduce also assumes that the binary reduction operator (in this
  *  case operator+) is commutative.  If the reduction operator is not commutative
- *  then \p thrust::reduce should not be used.  Instead, one could use 
+ *  then \p thrust::reduce should not be used.  Instead, one could use
  *  \p inclusive_scan (which does not require commutativity) and select the
  *  last element of the output array.
  *
@@ -192,7 +192,7 @@ __host__ __device__
  *
  *  Note that \p reduce also assumes that the binary reduction operator (in this
  *  case operator+) is commutative.  If the reduction operator is not commutative
- *  then \p thrust::reduce should not be used.  Instead, one could use 
+ *  then \p thrust::reduce should not be used.  Instead, one could use
  *  \p inclusive_scan (which does not require commutativity) and select the
  *  last element of the output array.
  *
@@ -237,7 +237,7 @@ template<typename InputIterator, typename T>
  *
  *  Note that \p reduce also assumes that the binary reduction operator (in this
  *  case \p binary_op) is commutative.  If the reduction operator is not commutative
- *  then \p thrust::reduce should not be used.  Instead, one could use 
+ *  then \p thrust::reduce should not be used.  Instead, one could use
  *  \p inclusive_scan (which does not require commutativity) and select the
  *  last element of the output array.
  *
@@ -301,7 +301,7 @@ __host__ __device__
  *
  *  Note that \p reduce also assumes that the binary reduction operator (in this
  *  case \p binary_op) is commutative.  If the reduction operator is not commutative
- *  then \p thrust::reduce should not be used.  Instead, one could use 
+ *  then \p thrust::reduce should not be used.  Instead, one could use
  *  \p inclusive_scan (which does not require commutativity) and select the
  *  last element of the output array.
  *
@@ -348,7 +348,7 @@ template<typename InputIterator,
  *  For each group of consecutive keys in the range <tt>[keys_first, keys_last)</tt>
  *  that are equal, \p reduce_by_key copies the first element of the group to the
  *  \c keys_output. The corresponding values in the range are reduced using the
- *  \c plus and the result copied to \c values_output. 
+ *  \c plus and the result copied to \c values_output.
  *
  *  This version of \p reduce_by_key uses the function object \c equal_to
  *  to test for equality and \c plus to reduce values with equal keys.
@@ -393,7 +393,7 @@ template<typename InputIterator,
  *  // The first four keys in C are now {1, 3, 2, 1} and new_end.first - C is 4.
  *  // The first four values in D are now {9, 21, 9, 3} and new_end.second - D is 4.
  *  \endcode
- *  
+ *
  *  \see reduce
  *  \see unique_copy
  *  \see unique_by_key
@@ -407,7 +407,7 @@ template<typename DerivedPolicy,
 __host__ __device__
   thrust::pair<OutputIterator1,OutputIterator2>
   reduce_by_key(const thrust::detail::execution_policy_base<DerivedPolicy> &exec,
-                InputIterator1 keys_first, 
+                InputIterator1 keys_first,
                 InputIterator1 keys_last,
                 InputIterator2 values_first,
                 OutputIterator1 keys_output,
@@ -418,7 +418,7 @@ __host__ __device__
  *  For each group of consecutive keys in the range <tt>[keys_first, keys_last)</tt>
  *  that are equal, \p reduce_by_key copies the first element of the group to the
  *  \c keys_output. The corresponding values in the range are reduced using the
- *  \c plus and the result copied to \c values_output. 
+ *  \c plus and the result copied to \c values_output.
  *
  *  This version of \p reduce_by_key uses the function object \c equal_to
  *  to test for equality and \c plus to reduce values with equal keys.
@@ -457,7 +457,7 @@ __host__ __device__
  *  // The first four keys in C are now {1, 3, 2, 1} and new_end.first - C is 4.
  *  // The first four values in D are now {9, 21, 9, 3} and new_end.second - D is 4.
  *  \endcode
- *  
+ *
  *  \see reduce
  *  \see unique_copy
  *  \see unique_by_key
@@ -468,7 +468,7 @@ template<typename InputIterator1,
          typename OutputIterator1,
          typename OutputIterator2>
   thrust::pair<OutputIterator1,OutputIterator2>
-  reduce_by_key(InputIterator1 keys_first, 
+  reduce_by_key(InputIterator1 keys_first,
                 InputIterator1 keys_last,
                 InputIterator2 values_first,
                 OutputIterator1 keys_output,
@@ -479,7 +479,7 @@ template<typename InputIterator1,
  *  For each group of consecutive keys in the range <tt>[keys_first, keys_last)</tt>
  *  that are equal, \p reduce_by_key copies the first element of the group to the
  *  \c keys_output. The corresponding values in the range are reduced using the
- *  \c plus and the result copied to \c values_output. 
+ *  \c plus and the result copied to \c values_output.
  *
  *  This version of \p reduce_by_key uses the function object \c binary_pred
  *  to test for equality and \c plus to reduce values with equal keys.
@@ -527,7 +527,7 @@ template<typename InputIterator1,
  *  // The first four keys in C are now {1, 3, 2, 1} and new_end.first - C is 4.
  *  // The first four values in D are now {9, 21, 9, 3} and new_end.second - D is 4.
  *  \endcode
- *  
+ *
  *  \see reduce
  *  \see unique_copy
  *  \see unique_by_key
@@ -542,7 +542,7 @@ template<typename DerivedPolicy,
 __host__ __device__
   thrust::pair<OutputIterator1,OutputIterator2>
   reduce_by_key(const thrust::detail::execution_policy_base<DerivedPolicy> &exec,
-                InputIterator1 keys_first, 
+                InputIterator1 keys_first,
                 InputIterator1 keys_last,
                 InputIterator2 values_first,
                 OutputIterator1 keys_output,
@@ -554,7 +554,7 @@ __host__ __device__
  *  For each group of consecutive keys in the range <tt>[keys_first, keys_last)</tt>
  *  that are equal, \p reduce_by_key copies the first element of the group to the
  *  \c keys_output. The corresponding values in the range are reduced using the
- *  \c plus and the result copied to \c values_output. 
+ *  \c plus and the result copied to \c values_output.
  *
  *  This version of \p reduce_by_key uses the function object \c binary_pred
  *  to test for equality and \c plus to reduce values with equal keys.
@@ -596,7 +596,7 @@ __host__ __device__
  *  // The first four keys in C are now {1, 3, 2, 1} and new_end.first - C is 4.
  *  // The first four values in D are now {9, 21, 9, 3} and new_end.second - D is 4.
  *  \endcode
- *  
+ *
  *  \see reduce
  *  \see unique_copy
  *  \see unique_by_key
@@ -608,7 +608,7 @@ template<typename InputIterator1,
          typename OutputIterator2,
          typename BinaryPredicate>
   thrust::pair<OutputIterator1,OutputIterator2>
-  reduce_by_key(InputIterator1 keys_first, 
+  reduce_by_key(InputIterator1 keys_first,
                 InputIterator1 keys_last,
                 InputIterator2 values_first,
                 OutputIterator1 keys_output,
@@ -620,8 +620,8 @@ template<typename InputIterator1,
  *  For each group of consecutive keys in the range <tt>[keys_first, keys_last)</tt>
  *  that are equal, \p reduce_by_key copies the first element of the group to the
  *  \c keys_output. The corresponding values in the range are reduced using the
- *  \c BinaryFunction \c binary_op and the result copied to \c values_output. 
- *  Specifically, if consecutive key iterators \c i and \c (i + 1) are 
+ *  \c BinaryFunction \c binary_op and the result copied to \c values_output.
+ *  Specifically, if consecutive key iterators \c i and \c (i + 1) are
  *  such that <tt>binary_pred(*i, *(i+1))</tt> is \c true, then the corresponding
  *  values are reduced to a single value with \c binary_op.
  *
@@ -675,7 +675,7 @@ template<typename InputIterator1,
  *  // The first four keys in C are now {1, 3, 2, 1} and new_end.first - C is 4.
  *  // The first four values in D are now {9, 21, 9, 3} and new_end.second - D is 4.
  *  \endcode
- *  
+ *
  *  \see reduce
  *  \see unique_copy
  *  \see unique_by_key
@@ -691,7 +691,7 @@ template<typename DerivedPolicy,
 __host__ __device__
   thrust::pair<OutputIterator1,OutputIterator2>
   reduce_by_key(const thrust::detail::execution_policy_base<DerivedPolicy> &exec,
-                InputIterator1 keys_first, 
+                InputIterator1 keys_first,
                 InputIterator1 keys_last,
                 InputIterator2 values_first,
                 OutputIterator1 keys_output,
@@ -704,8 +704,8 @@ __host__ __device__
  *  For each group of consecutive keys in the range <tt>[keys_first, keys_last)</tt>
  *  that are equal, \p reduce_by_key copies the first element of the group to the
  *  \c keys_output. The corresponding values in the range are reduced using the
- *  \c BinaryFunction \c binary_op and the result copied to \c values_output. 
- *  Specifically, if consecutive key iterators \c i and \c (i + 1) are 
+ *  \c BinaryFunction \c binary_op and the result copied to \c values_output.
+ *  Specifically, if consecutive key iterators \c i and \c (i + 1) are
  *  such that <tt>binary_pred(*i, *(i+1))</tt> is \c true, then the corresponding
  *  values are reduced to a single value with \c binary_op.
  *
@@ -753,7 +753,7 @@ __host__ __device__
  *  // The first four keys in C are now {1, 3, 2, 1} and new_end.first - C is 4.
  *  // The first four values in D are now {9, 21, 9, 3} and new_end.second - D is 4.
  *  \endcode
- *  
+ *
  *  \see reduce
  *  \see unique_copy
  *  \see unique_by_key
@@ -766,7 +766,7 @@ template<typename InputIterator1,
          typename BinaryPredicate,
          typename BinaryFunction>
   thrust::pair<OutputIterator1,OutputIterator2>
-  reduce_by_key(InputIterator1 keys_first, 
+  reduce_by_key(InputIterator1 keys_first,
                 InputIterator1 keys_last,
                 InputIterator2 values_first,
                 OutputIterator1 keys_output,

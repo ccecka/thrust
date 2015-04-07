@@ -37,7 +37,7 @@ struct TestVectorRangeInsertSimple
 
         ASSERT_EQUAL(1, v2[6]);
         ASSERT_EQUAL(2, v2[7]);
-        
+
         ASSERT_EQUAL(8,  v2.size());
         ASSERT_EQUAL(10, v2.capacity());
 
@@ -199,7 +199,7 @@ struct TestVectorFillInsertSimple
 
         ASSERT_EQUAL(1, v1[6]);
         ASSERT_EQUAL(2, v1[7]);
-        
+
         ASSERT_EQUAL(8,  v1.size());
         ASSERT_EQUAL(10, v1.capacity());
 

@@ -18,15 +18,15 @@ void TestAllOfDevice(ExecutionPolicy exec)
   typedef int T;
   thrust::device_vector<T> v(3, 1);
   thrust::device_vector<bool> result(1);
-  
+
   all_of_kernel<<<1,1>>>(exec, v.begin(), v.end(), thrust::identity<T>(), result.begin());
   ASSERT_EQUAL(true, result[0]);
-  
+
   v[1] = 0;
-  
+
   all_of_kernel<<<1,1>>>(exec, v.begin(), v.end(), thrust::identity<T>(), result.begin());
   ASSERT_EQUAL(false, result[0]);
-  
+
   all_of_kernel<<<1,1>>>(exec, v.begin() + 0, v.begin() + 0, thrust::identity<T>(), result.begin());
   ASSERT_EQUAL(true, result[0]);
 
@@ -59,18 +59,18 @@ void TestAllOfCudaStreams()
 {
   typedef thrust::device_vector<int> Vector;
   typedef typename Vector::value_type T;
-  
+
   Vector v(3, 1);
 
   cudaStream_t s;
   cudaStreamCreate(&s);
-  
+
   ASSERT_EQUAL(thrust::all_of(thrust::cuda::par.on(s), v.begin(), v.end(), thrust::identity<T>()), true);
-  
+
   v[1] = 0;
-  
+
   ASSERT_EQUAL(thrust::all_of(thrust::cuda::par.on(s), v.begin(), v.end(), thrust::identity<T>()), false);
-  
+
   ASSERT_EQUAL(thrust::all_of(thrust::cuda::par.on(s), v.begin() + 0, v.begin() + 0, thrust::identity<T>()), true);
   ASSERT_EQUAL(thrust::all_of(thrust::cuda::par.on(s), v.begin() + 0, v.begin() + 1, thrust::identity<T>()), true);
   ASSERT_EQUAL(thrust::all_of(thrust::cuda::par.on(s), v.begin() + 0, v.begin() + 2, thrust::identity<T>()), false);
@@ -93,18 +93,18 @@ template<typename ExecutionPolicy>
 void TestAnyOfDevice(ExecutionPolicy exec)
 {
   typedef int T;
-  
+
   thrust::device_vector<T> v(3, 1);
   thrust::device_vector<bool> result(1);
-  
+
   any_of_kernel<<<1,1>>>(exec, v.begin(), v.end(), thrust::identity<T>(), result.begin());
   ASSERT_EQUAL(true, result[0]);
-  
+
   v[1] = 0;
-  
+
   any_of_kernel<<<1,1>>>(exec, v.begin(), v.end(), thrust::identity<T>(), result.begin());
   ASSERT_EQUAL(true, result[0]);
-  
+
   any_of_kernel<<<1,1>>>(exec, v.begin() + 0, v.begin() + 0, thrust::identity<T>(), result.begin());
   ASSERT_EQUAL(false, result[0]);
 
@@ -146,7 +146,7 @@ void TestAnyOfCudaStreams()
   ASSERT_EQUAL(thrust::any_of(thrust::cuda::par.on(s), v.begin(), v.end(), thrust::identity<T>()), true);
 
   v[1] = 0;
-  
+
   ASSERT_EQUAL(thrust::any_of(thrust::cuda::par.on(s), v.begin(), v.end(), thrust::identity<T>()), true);
 
   ASSERT_EQUAL(thrust::any_of(thrust::cuda::par.on(s), v.begin() + 0, v.begin() + 0, thrust::identity<T>()), false);
@@ -171,18 +171,18 @@ template<typename ExecutionPolicy>
 void TestNoneOfDevice(ExecutionPolicy exec)
 {
   typedef int T;
-  
+
   thrust::device_vector<T> v(3, 1);
   thrust::device_vector<bool> result(1);
-  
+
   none_of_kernel<<<1,1>>>(exec, v.begin(), v.end(), thrust::identity<T>(), result.begin());
   ASSERT_EQUAL(false, result[0]);
-  
+
   v[1] = 0;
-  
+
   none_of_kernel<<<1,1>>>(exec, v.begin(), v.end(), thrust::identity<T>(), result.begin());
   ASSERT_EQUAL(false, result[0]);
-  
+
   none_of_kernel<<<1,1>>>(exec, v.begin() + 0, v.begin() + 0, thrust::identity<T>(), result.begin());
   ASSERT_EQUAL(true, result[0]);
 
@@ -224,7 +224,7 @@ void TestNoneOfCudaStreams()
   ASSERT_EQUAL(thrust::none_of(thrust::cuda::par.on(s), v.begin(), v.end(), thrust::identity<T>()), false);
 
   v[1] = 0;
-  
+
   ASSERT_EQUAL(thrust::none_of(thrust::cuda::par.on(s), v.begin(), v.end(), thrust::identity<T>()), false);
 
   ASSERT_EQUAL(thrust::none_of(thrust::cuda::par.on(s), v.begin() + 0, v.begin() + 0, thrust::identity<T>()), true);

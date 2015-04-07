@@ -624,8 +624,8 @@ parallel_group<concurrent_group<> > grid(size_t num_groups = use_default, size_t
 {
   return par(con(group_size,heap_size), num_groups);
 }
-               
-  
+
+
 
 
 inline __host__ __device__

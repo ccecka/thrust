@@ -60,39 +60,39 @@ __host__ __device__ inline
 float frexp_expf(float x, int *expt){
   const uint32_t k = 235;                 /* constant for reduction */
   const float kln2 =  162.88958740F;       /* k * ln2 */
-	
+
   // should this be a double instead?
   float exp_x;
   uint32_t hx;
-	
+
   exp_x = expf(x - kln2);
   get_float_word(hx, exp_x);
   *expt = (hx >> 23) - (0x7f + 127) + k;
   set_float_word(exp_x, (hx & 0x7fffff) | ((0x7f + 127) << 23));
   return (exp_x);
 }
-      
+
 __host__ __device__ inline
-complex<float> 
+complex<float>
 ldexp_cexpf(complex<float> z, int expt)
 {
   float x, y, exp_x, scale1, scale2;
   int ex_expt, half_expt;
-	
+
   x = z.real();
   y = z.imag();
   exp_x = frexp_expf(x, &ex_expt);
   expt += ex_expt;
-	
+
   half_expt = expt / 2;
   set_float_word(scale1, (0x7f + half_expt) << 23);
   half_expt = expt - half_expt;
   set_float_word(scale2, (0x7f + half_expt) << 23);
-	
+
   return (complex<float>(std::cos(y) * exp_x * scale1 * scale2,
 			 std::sin(y) * exp_x * scale1 * scale2));
 }
-      
+
 __host__ __device__ inline
 complex<float> cexpf(const complex<float>& z){
   float x, y, exp_x;
@@ -154,8 +154,8 @@ complex<float> cexpf(const complex<float>& z){
 
 template <>
 __host__ __device__
-inline complex<float> exp(const complex<float>& z){    
+inline complex<float> exp(const complex<float>& z){
   return detail::complex::cexpf(z);
-}    
-  
+}
+
 } // namespace thrust

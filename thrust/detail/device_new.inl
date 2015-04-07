@@ -45,7 +45,7 @@ template<typename T>
 
   // run copy constructors at p here
   thrust::uninitialized_fill(result, result + n, exemplar);
-  
+
   return result;
 } // end device_new()
 

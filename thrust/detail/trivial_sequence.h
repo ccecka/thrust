@@ -63,7 +63,7 @@ struct _trivial_sequence<Iterator, DerivedPolicy, thrust::detail::false_type>
 {
     typedef typename thrust::iterator_value<Iterator>::type iterator_value;
     typedef typename thrust::detail::temporary_array<iterator_value, DerivedPolicy>::iterator iterator_type;
-    
+
     thrust::detail::temporary_array<iterator_value, DerivedPolicy> buffer;
 
     __host__ __device__

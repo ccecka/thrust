@@ -105,20 +105,20 @@ void TestSetIntersection(const size_t n)
 
   thrust::stable_sort(h_a.begin(), h_a.end());
   thrust::stable_sort(h_b.begin(), h_b.end());
-  
+
   thrust::device_vector<T> d_a = h_a;
   thrust::device_vector<T> d_b = h_b;
 
   for (size_t i = 0; i < num_sizes; i++)
   {
     size_t size = sizes[i];
-    
+
     thrust::host_vector<T>   h_result(n + size);
     thrust::device_vector<T> d_result(n + size);
 
     typename thrust::host_vector<T>::iterator   h_end;
     typename thrust::device_vector<T>::iterator d_end;
-    
+
     h_end = thrust::set_intersection(h_a.begin(), h_a.end(),
                                      h_b.begin(), h_b.begin() + size,
                                      h_result.begin());
@@ -152,12 +152,12 @@ void TestSetIntersectionToDiscardIterator(const size_t n)
   thrust::discard_iterator<> d_result;
 
   thrust::host_vector<T> h_reference(n);
-  typename thrust::host_vector<T>::iterator h_end = 
+  typename thrust::host_vector<T>::iterator h_end =
     thrust::set_intersection(h_a.begin(), h_a.end(),
                              h_b.begin(), h_b.end(),
                              h_reference.begin());
   h_reference.erase(h_end, h_reference.end());
-  
+
   h_result = thrust::set_intersection(h_a.begin(), h_a.end(),
                                       h_b.begin(), h_b.end(),
                                       thrust::make_discard_iterator());
@@ -189,7 +189,7 @@ void TestSetIntersectionEquivalentRanges(const size_t n)
 
   typename thrust::host_vector<T>::iterator   h_end;
   typename thrust::device_vector<T>::iterator d_end;
-  
+
   h_end = thrust::set_intersection(h_a.begin(), h_a.end(),
                                    h_b.begin(), h_b.end(),
                                    h_result.begin());
@@ -235,7 +235,7 @@ void TestSetIntersectionMultiset(const size_t n)
 
   typename thrust::host_vector<T>::iterator h_end;
   typename thrust::device_vector<T>::iterator d_end;
-  
+
   h_end = thrust::set_intersection(h_a.begin(), h_a.end(),
                                    h_b.begin(), h_b.end(),
                                    h_result.begin());

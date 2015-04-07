@@ -50,13 +50,13 @@ template<bool UpperBound, typename T, typename It, typename Comp>
 __host__ __device__ int BinarySearch(It data, int count, T key, Comp comp) {
 	int begin = 0;
 	int end = count;
-	while(begin < end) 
+	while(begin < end)
 		BinarySearchIteration<UpperBound, int>(data, begin, end, key, 1, comp);
 	return begin;
 }
 
 template<bool UpperBound, typename IntT, typename T, typename It, typename Comp>
-__host__ __device__ int BiasedBinarySearch(It data, int count, T key, 
+__host__ __device__ int BiasedBinarySearch(It data, int count, T key,
 	IntT levels, Comp comp) {
 	int begin = 0;
 	int end = count;
@@ -79,11 +79,11 @@ template<bool UpperBound, typename It1, typename It2, typename Comp>
 __host__ __device__ int MergePath(It1 a, int aCount, It2 b, int bCount, int diag, Comp comp)
 {
   typedef typename thrust::iterator_traits<It1>::value_type T;
-  
+
   int begin = thrust::max(0, diag - bCount);
   int end   = thrust::min(diag, aCount);
-  
-  while(begin < end) 
+
+  while(begin < end)
   {
     int mid = (begin + end)>> 1;
     T aKey = a[mid];
@@ -112,35 +112,35 @@ thrust::pair<Size1,Size1>
 
   Size1 aIndex = balanced_path_detail::MergePath<false>(first1, n1, first2, n2, diag, comp);
   Size1 bIndex = diag - aIndex;
-  
+
   bool star = false;
   if(bIndex < n2)
   {
     T x = first2[bIndex];
-    
+
     // Search for the beginning of the duplicate run in both A and B.
     Size1 aStart = balanced_path_detail::BiasedBinarySearch<false>(first1, aIndex, x, levels, comp);
     Size1 bStart = balanced_path_detail::BiasedBinarySearch<false>(first2, bIndex, x, levels, comp);
-    
+
     // The distance between x's merge path and its lower_bound is its rank.
     // We add up the a and b ranks and evenly distribute them to
     // get a stairstep path.
     Size1 aRun = aIndex - aStart;
     Size1 bRun = bIndex - bStart;
     Size1 xCount = aRun + bRun;
-    
+
     // Attempt to advance b and regress a.
     Size1 bAdvance = thrust::max(xCount >> 1, xCount - aRun);
     Size1 bEnd     = thrust::min<Size1>(n2, bStart + bAdvance + 1);
     Size1 bRunEnd  = balanced_path_detail::BinarySearch<true>(first2 + bIndex, bEnd - bIndex, x, comp) + bIndex;
     bRun = bRunEnd - bStart;
-    
+
     bAdvance = thrust::min(bAdvance, bRun);
     Size1 aAdvance = xCount - bAdvance;
-    
+
     bool roundUp = (aAdvance == bAdvance + 1) && (bAdvance < bRun);
     aIndex = aStart + aAdvance;
-    
+
     if(roundUp) star = true;
   }
 

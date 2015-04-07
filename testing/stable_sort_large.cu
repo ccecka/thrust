@@ -13,7 +13,7 @@ void _TestStableSortWithLargeKeys(void)
         h_keys[i] = FixedVector<T,N>(rand());
 
     thrust::device_vector< FixedVector<T,N> > d_keys = h_keys;
-    
+
     thrust::stable_sort(h_keys.begin(), h_keys.end());
     thrust::stable_sort(d_keys.begin(), d_keys.end());
 

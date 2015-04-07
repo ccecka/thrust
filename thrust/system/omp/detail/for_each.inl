@@ -76,7 +76,7 @@ RandomAccessIterator for_each_n(execution_policy<DerivedPolicy> &,
 #endif // THRUST_DEVICE_COMPILER_IS_OMP_CAPABLE
 
   return first + n;
-} // end for_each_n() 
+} // end for_each_n()
 
 template<typename DerivedPolicy,
          typename RandomAccessIterator,

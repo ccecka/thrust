@@ -42,7 +42,7 @@ template<typename DerivedPolicy,
          typename BinaryPredicate>
 __host__ __device__
 ForwardIterator min_element(sequential::execution_policy<DerivedPolicy> &,
-                            ForwardIterator first, 
+                            ForwardIterator first,
                             ForwardIterator last,
                             BinaryPredicate comp)
 {
@@ -72,7 +72,7 @@ template<typename DerivedPolicy,
          typename BinaryPredicate>
 __host__ __device__
 ForwardIterator max_element(sequential::execution_policy<DerivedPolicy> &,
-                            ForwardIterator first, 
+                            ForwardIterator first,
                             ForwardIterator last,
                             BinaryPredicate comp)
 {
@@ -102,7 +102,7 @@ template<typename DerivedPolicy,
          typename BinaryPredicate>
 __host__ __device__
 thrust::pair<ForwardIterator,ForwardIterator> minmax_element(sequential::execution_policy<DerivedPolicy> &,
-                                                             ForwardIterator first, 
+                                                             ForwardIterator first,
                                                              ForwardIterator last,
                                                              BinaryPredicate comp)
 {
@@ -111,7 +111,7 @@ thrust::pair<ForwardIterator,ForwardIterator> minmax_element(sequential::executi
     BinaryPredicate,
     bool
   > wrapped_comp(comp);
-  
+
   ForwardIterator imin = first;
   ForwardIterator imax = first;
 

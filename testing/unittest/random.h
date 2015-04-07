@@ -63,8 +63,8 @@ template<typename T>
       thrust::uniform_int_distribution<unsigned int> dist(0,20);
 
       return static_cast<T>(dist(rng));
-  } 
-}; 
+  }
+};
 
 
 

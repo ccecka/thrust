@@ -17,7 +17,7 @@
 #pragma once
 
 #include <thrust/system/cuda/detail/bulk/detail/config.hpp>
-#include <thrust/system/cuda/detail/bulk/algorithm/copy.hpp> 
+#include <thrust/system/cuda/detail/bulk/algorithm/copy.hpp>
 #include <thrust/system/cuda/detail/bulk/algorithm/reduce.hpp>
 #include <thrust/system/cuda/detail/bulk/algorithm/scan.hpp>
 #include <thrust/system/cuda/detail/bulk/algorithm/accumulate.hpp>

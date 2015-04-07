@@ -17,10 +17,10 @@ void TestReverseDevice(ExecutionPolicy exec)
   size_t n = 1000;
   thrust::host_vector<int> h_data = unittest::random_integers<int>(n);
   thrust::device_vector<int> d_data = h_data;
-  
+
   thrust::reverse(h_data.begin(), h_data.end());
   reverse_kernel<<<1,1>>>(exec, raw_pointer_cast(d_data.data()), raw_pointer_cast(d_data.data() + d_data.size()));
-  
+
   ASSERT_EQUAL(h_data, d_data);
 };
 

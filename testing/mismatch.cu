@@ -17,12 +17,12 @@ void TestMismatchSimple(void)
     ASSERT_EQUAL(thrust::mismatch(a.begin(), a.end(), b.begin()).second - b.begin(), 2);
 
     b[2] = 3;
-    
+
     ASSERT_EQUAL(thrust::mismatch(a.begin(), a.end(), b.begin()).first  - a.begin(), 3);
     ASSERT_EQUAL(thrust::mismatch(a.begin(), a.end(), b.begin()).second - b.begin(), 3);
-    
+
     b[3] = 4;
-    
+
     ASSERT_EQUAL(thrust::mismatch(a.begin(), a.end(), b.begin()).first  - a.begin(), 4);
     ASSERT_EQUAL(thrust::mismatch(a.begin(), a.end(), b.begin()).second - b.begin(), 4);
 }

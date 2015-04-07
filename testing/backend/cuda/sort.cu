@@ -33,14 +33,14 @@ void TestComparisonSortDevice(ExecutionPolicy exec, const size_t n, Compare comp
 {
   thrust::host_vector<T>   h_data = unittest::random_integers<T>(n);
   thrust::device_vector<T> d_data = h_data;
-  
+
   thrust::device_vector<bool> is_supported(1);
   sort_kernel<<<1,1>>>(exec, d_data.begin(), d_data.end(), comp, is_supported.begin());
 
   if(is_supported[0])
   {
     thrust::sort(h_data.begin(), h_data.end(), comp);
-    
+
     ASSERT_EQUAL(h_data, d_data);
   }
 };
@@ -131,7 +131,7 @@ void TestSortCudaStreams()
   cudaStreamSynchronize(s);
 
   ASSERT_EQUAL(true, thrust::is_sorted(keys.begin(), keys.end()));
-                      
+
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestSortCudaStreams);
@@ -159,7 +159,7 @@ void TestComparisonSortCudaStreams()
   cudaStreamSynchronize(s);
 
   ASSERT_EQUAL(true, thrust::is_sorted(keys.begin(), keys.end(), my_less<int>()));
-                      
+
   cudaStreamDestroy(s);
 }
 DECLARE_UNITTEST(TestComparisonSortCudaStreams);

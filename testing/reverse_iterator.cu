@@ -71,7 +71,7 @@ void TestReverseIteratorCopy(void)
   source[3] = 40;
 
   Vector destination(4,0);
-  
+
   thrust::copy(thrust::make_reverse_iterator(source.end()),
                thrust::make_reverse_iterator(source.begin()),
                destination.begin());

@@ -111,20 +111,20 @@ template<typename T>
 
   thrust::stable_sort(h_a.begin(), h_a.end());
   thrust::stable_sort(h_b.begin(), h_b.end());
-  
+
   thrust::device_vector<T> d_a = h_a;
   thrust::device_vector<T> d_b = h_b;
 
   for (size_t i = 0; i < num_sizes; i++)
   {
     size_t size = sizes[i];
-    
+
     thrust::host_vector<T>   h_result(n + size);
     thrust::device_vector<T> d_result(n + size);
 
     typename thrust::host_vector<T>::iterator   h_end;
     typename thrust::device_vector<T>::iterator d_end;
-    
+
     h_end = thrust::merge(h_a.begin(), h_a.end(),
                           h_b.begin(), h_b.begin() + size,
                           h_result.begin());
@@ -153,12 +153,12 @@ template<typename T>
   thrust::device_vector<T> d_a = h_a;
   thrust::device_vector<T> d_b = h_b;
 
-  thrust::discard_iterator<> h_result = 
+  thrust::discard_iterator<> h_result =
     thrust::merge(h_a.begin(), h_a.end(),
                   h_b.begin(), h_b.end(),
                   thrust::make_discard_iterator());
 
-  thrust::discard_iterator<> d_result = 
+  thrust::discard_iterator<> d_result =
     thrust::merge(d_a.begin(), d_a.end(),
                   d_b.begin(), d_b.end(),
                   thrust::make_discard_iterator());
@@ -188,7 +188,7 @@ template<typename T>
 
   typename thrust::host_vector<T>::iterator h_end;
   typename thrust::device_vector<T>::iterator d_end;
-  
+
   h_end = thrust::merge(h_a.begin(), h_a.end(),
                         h_b.begin(), h_b.end(),
                         h_result.begin(),

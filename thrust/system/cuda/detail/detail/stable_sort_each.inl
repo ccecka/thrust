@@ -126,7 +126,7 @@ void bounded_inplace_merge_adjacent_partitions(Context &ctx,
 
     // find the limits of the partitions of the input this group of threads will merge
     Size partition_first1 = thrust::min<Size>(n, input_start);
-    Size partition_first2 = thrust::min<Size>(n, partition_first1 + input_size); 
+    Size partition_first2 = thrust::min<Size>(n, partition_first1 + input_size);
     Size partition_last2  = thrust::min<Size>(n, partition_first2 + input_size);
 
     Size n1 = partition_first2 - partition_first1;
@@ -173,7 +173,7 @@ void bounded_stable_sort(Context &ctx,
   // each thread creates a local copy of its partition of the array
   value_type local_keys[work_per_thread];
   bounded_copy_n<work_per_thread>(first + ctx.thread_index() * work_per_thread, local_tile_size, local_keys);
-  
+
   // if we're in the final partial tile, fill the remainder of the local_keys with with the max value
   if(local_tile_size < work_per_thread)
   {
@@ -186,7 +186,7 @@ void bounded_stable_sort(Context &ctx,
         max_key = comp(max_key, local_keys[i]) ? local_keys[i] : max_key;
       }
     }
-    
+
     // fill in the remainder with max_key
     for(unsigned int i = 0; i < work_per_thread; ++i)
     {
@@ -202,7 +202,7 @@ void bounded_stable_sort(Context &ctx,
   {
     static_stable_sort<work_per_thread>(local_keys, comp);
   }
-  
+
   // Store the locally sorted keys into shared memory.
   bounded_copy_n<work_per_thread>(local_keys, local_tile_size, first + ctx.thread_index() * work_per_thread);
   ctx.barrier();
@@ -247,13 +247,13 @@ struct stable_sort_each_copy_closure
     unsigned int work_per_block = ctx.block_dimension() * work_per_thread;
     unsigned int offset = work_per_block * ctx.block_index();
     unsigned int tile_size = thrust::min<unsigned int>(work_per_block, n - offset);
-    
+
     // load input tile into buffer
     thrust::system::cuda::detail::block::copy_n_global_to_shared<work_per_thread>(ctx, first + offset, tile_size, staging_buffer);
 
     // sort input in buffer
     block::bounded_stable_sort<work_per_thread>(ctx, staging_buffer, tile_size, comp);
-    
+
     // store result to gmem
     thrust::system::cuda::detail::block::copy_n(ctx, staging_buffer, tile_size, result + offset);
   }
@@ -267,7 +267,7 @@ struct stable_sort_each_copy_closure
     // stage this operation through smem
     // the size of this array is block_size * (work_per_thread + 1)
     value_type *s_keys = thrust::system::cuda::detail::extern_shared_ptr<value_type>();
-    
+
     this->operator()(s_keys);
   }
 };
@@ -308,7 +308,7 @@ void stable_sort_each_copy(execution_policy<DerivedPolicy> &exec,
   > closure_type;
 
   closure_type closure(first, n, result, comp);
-  
+
   typedef typename thrust::iterator_value<RandomAccessIterator1>::type value_type;
 
   const size_t num_smem_elements_per_block = block_size * (work_per_thread + 1);

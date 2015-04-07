@@ -73,7 +73,7 @@ void TestInnerProductWithOperator(void)
 
     // compute (v1 - v2) and perform a multiplies reduction
     T init = 3;
-    T result = thrust::inner_product(v1.begin(), v1.end(), v2.begin(), init, 
+    T result = thrust::inner_product(v1.begin(), v1.end(), v2.begin(), init,
                                       thrust::multiplies<T>(), thrust::minus<T>());
     ASSERT_EQUAL(result, 90);
 }

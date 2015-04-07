@@ -31,8 +31,8 @@ namespace thrust
 
 __thrust_hd_warning_disable__
 template<typename DerivedPolicy,
-         typename InputIterator, 
-         typename UnaryFunction, 
+         typename InputIterator,
+         typename UnaryFunction,
          typename OutputType,
          typename BinaryFunction>
 __host__ __device__
@@ -48,8 +48,8 @@ __host__ __device__
 } // end transform_reduce()
 
 
-template<typename InputIterator, 
-         typename UnaryFunction, 
+template<typename InputIterator,
+         typename UnaryFunction,
          typename OutputType,
          typename BinaryFunction>
   OutputType transform_reduce(InputIterator first,

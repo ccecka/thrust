@@ -76,7 +76,7 @@ struct reduce_partitions
 
     if(this_group.index() != 0)
     {
-      // noticeably faster to pass the last element as the init 
+      // noticeably faster to pass the last element as the init
       init = thrust::raw_reference_cast(last[-1]);
       --last;
     } // end if

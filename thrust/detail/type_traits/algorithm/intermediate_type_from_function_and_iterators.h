@@ -31,7 +31,7 @@ namespace detail
 // which aggregate intermediate results from a function before writing to an output iterator
 
 // the pseudocode for deducing the type of the temporary used below:
-// 
+//
 // if Function is an AdaptableFunction
 //   result = Function::result_type
 // else if OutputIterator2 is a "pure" output iterator

@@ -8,7 +8,7 @@
 #include <iterator>
 #include <iostream>
 
-// This example demonstrates how to expand an input sequence by 
+// This example demonstrates how to expand an input sequence by
 // replicating each element a variable number of times. For example,
 //
 //   expand([2,2,2],[A,B,C]) -> [A,A,B,B,C,C]
@@ -26,13 +26,13 @@ OutputIterator expand(InputIterator1 first1,
                       OutputIterator output)
 {
   typedef typename thrust::iterator_difference<InputIterator1>::type difference_type;
-  
+
   difference_type input_size  = thrust::distance(first1, last1);
   difference_type output_size = thrust::reduce(first1, last1);
 
   // scan the counts to obtain output offsets for each input element
   thrust::device_vector<difference_type> output_offsets(input_size, 0);
-  thrust::exclusive_scan(first1, last1, output_offsets.begin()); 
+  thrust::exclusive_scan(first1, last1, output_offsets.begin());
 
   // scatter the nonzero counts into their corresponding output positions
   thrust::device_vector<difference_type> output_indices(output_size, 0);

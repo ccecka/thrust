@@ -83,7 +83,7 @@ inline device_properties_t device_properties_cached(int device_id)
     // disallow the compiler to move the write to properties_exist[device_id]
     // before the initialization of device_properties[device_id]
     __thrust_compiler_fence();
-    
+
     properties_exist[device_id] = true;
   }
 
@@ -113,7 +113,7 @@ inline int current_device()
 
   if(result < 0)
   {
-    bulk::detail::throw_on_error(cudaErrorNoDevice, "current_device(): after cudaGetDevice"); 
+    bulk::detail::throw_on_error(cudaErrorNoDevice, "current_device(): after cudaGetDevice");
   }
 
   return result;
@@ -137,7 +137,7 @@ inline function_attributes_t function_attributes(KernelFunction kernel)
   fun_ptr_type fun_ptr = reinterpret_cast<fun_ptr_type>(kernel);
 
   cudaFuncAttributes attributes;
-  
+
   bulk::detail::throw_on_error(cudaFuncGetAttributes(&attributes, fun_ptr), "function_attributes(): after cudaFuncGetAttributes");
 
   // be careful about how this is initialized!

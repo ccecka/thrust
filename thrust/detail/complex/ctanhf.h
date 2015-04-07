@@ -58,7 +58,7 @@
 
 namespace thrust{
 namespace detail{
-namespace complex{		      	
+namespace complex{
 
 using thrust::complex;
 

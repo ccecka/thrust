@@ -190,7 +190,7 @@ inline __host__ __device__
 
 #endif // msvc 2005 WAR
 
-  
+
 } // end detail
 } // end cuda
 } // end system

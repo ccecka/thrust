@@ -13,7 +13,7 @@
 
 
 
-// convert a linear index to a linear index in the transpose 
+// convert a linear index to a linear index in the transpose
 struct transpose_index : public thrust::unary_function<size_t,size_t>
 {
   size_t m, n;
@@ -35,7 +35,7 @@ struct transpose_index : public thrust::unary_function<size_t,size_t>
 struct row_index : public thrust::unary_function<size_t,size_t>
 {
   size_t n;
-  
+
   __host__ __device__
   row_index(size_t _n) : n(_n) {}
 
@@ -51,7 +51,7 @@ template <typename T>
 void transpose(size_t m, size_t n, thrust::device_vector<T>& src, thrust::device_vector<T>& dst)
 {
   thrust::counting_iterator<size_t> indices(0);
-  
+
   thrust::gather
     (thrust::make_transform_iterator(indices, transpose_index(n, m)),
      thrust::make_transform_iterator(indices, transpose_index(n, m)) + dst.size(),

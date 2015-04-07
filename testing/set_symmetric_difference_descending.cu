@@ -48,7 +48,7 @@ void TestSetSymmetricDifferenceDescending(const size_t n)
 
   typename thrust::host_vector<T>::iterator h_end;
   typename thrust::device_vector<T>::iterator d_end;
-  
+
   h_end = thrust::set_symmetric_difference(h_a.begin(), h_a.end(),
                                            h_b.begin(), h_b.end(),
                                            h_result.begin(),

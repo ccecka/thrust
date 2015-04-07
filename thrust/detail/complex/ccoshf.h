@@ -53,23 +53,23 @@
 
 namespace thrust{
 namespace detail{
-namespace complex{		      	
+namespace complex{
 
 using thrust::complex;
-      
+
 __host__ __device__ inline
 complex<float> ccoshf(const complex<float>& z){
   float x, y, h;
   uint32_t hx, hy, ix, iy;
-  const float huge = 1.70141183460469231731687303716e+38; //0x1p127;	
-  
-  
+  const float huge = 1.70141183460469231731687303716e+38; //0x1p127;
+
+
   x = z.real();
   y = z.imag();
-  
+
   get_float_word(hx, x);
   get_float_word(hy, y);
-  
+
   ix = 0x7fffffff & hx;
   iy = 0x7fffffff & hy;
   if (ix < 0x7f800000 && iy < 0x7f800000) {
@@ -95,7 +95,7 @@ complex<float> ccoshf(const complex<float>& z){
       return (complex<float>(h * h * cosf(y), h * sinf(y)));
     }
   }
-  
+
   if (ix == 0 && iy >= 0x7f800000){
     return (complex<float>(y - y, copysignf(0.0f, x * (y - y))));
   }
@@ -104,11 +104,11 @@ complex<float> ccoshf(const complex<float>& z){
       return (complex<float>(x * x, copysignf(0.0f, x) * y));
     return (complex<float>(x * x, copysignf(0.0f, (x + x) * y)));
   }
-  
+
   if (ix < 0x7f800000 && iy >= 0x7f800000){
     return (complex<float>(y - y, x * (y - y)));
   }
-  
+
   if (ix >= 0x7f800000 && (hx & 0x7fffff) == 0) {
     if (iy >= 0x7f800000)
       return (complex<float>(x * x, x * (y - y)));
@@ -116,9 +116,9 @@ complex<float> ccoshf(const complex<float>& z){
   }
   return (complex<float>((x * x) * (y - y), (x + x) * (y - y)));
 }
-  
+
 __host__ __device__ inline
-complex<float> ccosf(const complex<float>& z){	
+complex<float> ccosf(const complex<float>& z){
   return (ccoshf(complex<float>(-z.imag(), z.real())));
 }
 
@@ -131,11 +131,11 @@ __host__ __device__
 inline complex<float> cos(const complex<float>& z){
   return detail::complex::ccosf(z);
 }
-  
+
 template <>
 __host__ __device__
 inline complex<float> cosh(const complex<float>& z){
   return detail::complex::ccoshf(z);
 }
-  
+
 } // namespace thrust

@@ -69,7 +69,7 @@ struct TestZipIteratorReduceByKey
       ASSERT_EQUAL(h_data4, d_data4);
       ASSERT_EQUAL(h_data5, d_data5);
     }
-    
+
     // The tests below get miscompiled on Tesla hw for 8b types
 
 #if THRUST_DEVICE_SYSTEM == THRUST_DEVICE_SYSTEM_CUDA

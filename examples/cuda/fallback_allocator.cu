@@ -109,14 +109,14 @@ int main(void)
   // this example requires both unified addressing and memory mapping
   if(!properties.unifiedAddressing || !properties.canMapHostMemory)
   {
-    std::cout << "Device #" << device 
+    std::cout << "Device #" << device
               << " [" << properties.name << "] does not support memory mapping" << std::endl;
     return 0;
   }
   else
   {
-    std::cout << "Testing fallback_allocator on device #" << device 
-              << " [" << properties.name << "] with " 
+    std::cout << "Testing fallback_allocator on device #" << device
+              << " [" << properties.name << "] with "
               << properties.totalGlobalMem << " bytes of device memory" << std::endl;
   }
 

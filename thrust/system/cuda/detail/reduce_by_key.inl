@@ -232,7 +232,7 @@ template<typename Size,
 __host__ __device__
 thrust::pair<OutputIterator1,OutputIterator2>
 reduce_by_key(execution_policy<DerivedPolicy> &exec,
-              InputIterator1 keys_first, 
+              InputIterator1 keys_first,
               InputIterator1 keys_last,
               InputIterator2 values_first,
               OutputIterator1 keys_result,
@@ -281,7 +281,7 @@ reduce_by_key(execution_policy<DerivedPolicy> &exec,
   const size_type grainsize = 5;
   size_type tile_size = groupsize * grainsize;
 
-  const size_type interval_size = threshold_of_parallelism; 
+  const size_type interval_size = threshold_of_parallelism;
 
   size_type subscription = 100;
   size_type num_groups = thrust::min<size_type>(subscription * bulk_::concurrent_group<>::hardware_concurrency(), (n + interval_size - 1) / interval_size);
@@ -319,7 +319,7 @@ reduce_by_key(execution_policy<DerivedPolicy> &exec,
                                 thrust::equal_to<thrust::tuple<size_type,bool> >(),
                                 binary_op);
 
-  // sum each tail carry value into the result 
+  // sum each tail carry value into the result
   reduce_by_key_detail::sum_tail_carries(exec,
                                          interval_values.begin(), interval_values.end(),
                                          interval_output_offsets.begin(), interval_output_offsets.end(),
@@ -343,7 +343,7 @@ template<typename DerivedPolicy,
 __host__ __device__
 thrust::pair<OutputIterator1,OutputIterator2>
 reduce_by_key(execution_policy<DerivedPolicy> &exec,
-              InputIterator1 keys_first, 
+              InputIterator1 keys_first,
               InputIterator1 keys_last,
               InputIterator2 values_first,
               OutputIterator1 keys_result,
@@ -355,7 +355,7 @@ reduce_by_key(execution_policy<DerivedPolicy> &exec,
 
   typedef typename thrust::iterator_difference<InputIterator1>::type difference_type;
 
-  // opportunistically use a narrower type for counting when possible 
+  // opportunistically use a narrower type for counting when possible
   // this is a significant performance optimization in the range of 10-15%
   if(keys_last - keys_first <= static_cast<difference_type>(UINT_MAX))
   {
@@ -395,7 +395,7 @@ template<typename DerivedPolicy,
 __host__ __device__
 thrust::pair<OutputIterator1,OutputIterator2>
 reduce_by_key(execution_policy<DerivedPolicy> &exec,
-              InputIterator1 keys_first, 
+              InputIterator1 keys_first,
               InputIterator1 keys_last,
               InputIterator2 values_first,
               OutputIterator1 keys_result,

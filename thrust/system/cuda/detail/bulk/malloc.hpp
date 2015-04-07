@@ -93,7 +93,7 @@ class os
       return m_program_break;
     }
 
-    
+
     __device__ inline void *data_segment_begin() const
     {
       return s_data_segment_begin;
@@ -121,15 +121,15 @@ class singleton_unsafe_on_chip_allocator
     __device__ inline singleton_unsafe_on_chip_allocator(size_t max_data_segment_size)
       : m_os(max_data_segment_size)
     {}
-  
+
     __device__ inline void *allocate(size_t size)
     {
       size_t aligned_size = align8(size);
-    
+
       block *prev = find_first_free_insertion_point(heap_begin(), heap_end(), aligned_size);
-    
+
       block *b;
-    
+
       if(prev != heap_end() && (b = prev->next()) != heap_end())
       {
         // can we split?
@@ -137,7 +137,7 @@ class singleton_unsafe_on_chip_allocator
         {
           split_block(b, aligned_size);
         } // end if
-    
+
         b->set_is_free(false);
       } // end if
       else
@@ -149,27 +149,27 @@ class singleton_unsafe_on_chip_allocator
           return 0;
         } // end if
       } // end else
-    
+
       return b->data();
     } // end allocate()
-  
-  
+
+
     __device__ inline void deallocate(void *ptr)
     {
       if(ptr != 0)
       {
         block *b = get_block(ptr);
-    
+
         // free the block
         b->set_is_free(true);
-    
+
         // try to fuse the freed block the previous block
         if(b->prev() && b->prev()->is_free())
         {
           b = b->prev();
           fuse_block(b);
         } // end if
-    
+
         // now try to fuse with the next block
         if(b->next() != heap_end())
         {
@@ -243,8 +243,8 @@ class singleton_unsafe_on_chip_allocator
         size_t m_size    : 8 * sizeof(size_t) - 1;
         block *m_prev;
     };
-  
-  
+
+
     os     m_os;
 
     __device__ inline block *heap_begin() const
@@ -257,93 +257,93 @@ class singleton_unsafe_on_chip_allocator
     {
       return reinterpret_cast<block*>(m_os.program_break());
     } // end heap_end();
-  
-  
+
+
     __device__ inline void split_block(block *b, size_t size)
     {
       block *new_block;
-    
+
       // emplace a new block within the old one's data segment
       new_block = reinterpret_cast<block*>(b->byte_at(size));
-    
+
       // the new block's size is the old block's size less the size of the split less the size of a block
       new_block->set_size(b->size() - size - sizeof(block));
-    
+
       new_block->set_prev(b);
       new_block->set_is_free(true);
-    
+
       // the old block's size is the size of the split
       b->set_size(size);
-    
+
       // link the old block to the new one
       if(new_block->next() != heap_end())
       {
         new_block->next()->set_prev(new_block);
       } // end if
     } // end split_block()
-  
-  
+
+
     __device__ inline bool fuse_block(block *b)
     {
       if(b->next() != heap_end() && b->next()->is_free())
       {
         // increment b's size by sizeof(block) plus the next's block's data size
         b->set_size(sizeof(block) + b->next()->size() + b->size());
-    
+
         if(b->next() != heap_end())
         {
           b->next()->set_prev(b);
         }
-    
+
         return true;
       }
-    
+
       return false;
     } // end fuse_block()
-  
-  
+
+
     __device__ inline static block *get_block(void *data)
     {
       // the block metadata lives sizeof(block) bytes to the left of data
       void *ptr = reinterpret_cast<char*>(data) - sizeof(block);
       return reinterpret_cast<block *>(ptr);
     } // end get_block()
-  
-  
+
+
     __device__ inline static block *find_first_free_insertion_point(block *first, block *last, size_t size)
     {
       block *prev = last;
-    
+
       while(first != last && !(first->is_free() && first->size() >= size))
       {
         prev = first;
         first = first->next();
       }
-    
+
       return prev;
     } // end find_first_free_insertion_point()
-  
-  
+
+
     __device__ inline block *extend_heap(block *prev, size_t size)
     {
       // the new block goes at the current end of the heap
       block *new_block = heap_end();
-    
+
       // move the break to the right to accomodate both a block and the requested allocation
       if(m_os.sbrk(sizeof(block) + size) == reinterpret_cast<void*>(-1))
       {
         // allocation failed
         return new_block;
       }
-    
+
       on_chip_cast(new_block)->set_size(size);
       on_chip_cast(new_block)->set_prev(prev);
       on_chip_cast(new_block)->set_is_free(false);
-    
+
       return new_block;
     } // end extend_heap()
-  
-  
+
+
     __device__ inline static size_t align8(size_t size)
     {
       return ((((size - 1) >> 3) << 3) + 8);
@@ -499,7 +499,7 @@ inline __device__ void *shmalloc(size_t num_bytes)
 {
   // first try on_chip_malloc
   void *result = detail::on_chip_malloc(num_bytes);
-  
+
 #if __CUDA_ARCH__ >= 200
   if(!result)
   {
@@ -515,7 +515,7 @@ inline __device__ void *unsafe_shmalloc(size_t num_bytes)
 {
   // first try on_chip_malloc
   void *result = detail::unsafe_on_chip_malloc(num_bytes);
-  
+
 #if __CUDA_ARCH__ >= 200
   if(!result)
   {

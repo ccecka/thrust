@@ -25,8 +25,8 @@ namespace thrust
 
 template <class UnaryFunction, class Iterator, class Reference, class Value>
   class transform_iterator;
-  
-namespace detail 
+
+namespace detail
 {
 
 // Compute the iterator_adaptor instantiation to be used for transform_iterator

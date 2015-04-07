@@ -54,16 +54,16 @@ struct inclusive_body
   inclusive_body(InputIterator input, OutputIterator output, BinaryFunction binary_op, ValueType dummy)
     : input(input), output(output), binary_op(binary_op), sum(dummy), first_call(true)
   {}
-    
+
   inclusive_body(inclusive_body& b, ::tbb::split)
     : input(b.input), output(b.output), binary_op(b.binary_op), sum(b.sum), first_call(true)
   {}
 
-  template<typename Size> 
+  template<typename Size>
   void operator()(const ::tbb::blocked_range<Size>& r, ::tbb::pre_scan_tag)
   {
     InputIterator iter = input + r.begin();
- 
+
     ValueType temp = *iter;
 
     ++iter;
@@ -75,11 +75,11 @@ struct inclusive_body
       sum = temp;
     else
       sum = binary_op(sum, temp);
-      
+
     first_call = false;
   }
-  
-  template<typename Size> 
+
+  template<typename Size>
   void operator()(const ::tbb::blocked_range<Size>& r, ::tbb::final_scan_tag)
   {
     InputIterator  iter1 = input  + r.begin();
@@ -105,12 +105,12 @@ struct inclusive_body
   void reverse_join(inclusive_body& b)
   {
     sum = binary_op(b.sum, sum);
-  } 
+  }
 
   void assign(inclusive_body& b)
   {
     sum = b.sum;
-  } 
+  }
 };
 
 
@@ -129,16 +129,16 @@ struct exclusive_body
   exclusive_body(InputIterator input, OutputIterator output, BinaryFunction binary_op, ValueType init)
     : input(input), output(output), binary_op(binary_op), sum(init), first_call(true)
   {}
-    
+
   exclusive_body(exclusive_body& b, ::tbb::split)
     : input(b.input), output(b.output), binary_op(b.binary_op), sum(b.sum), first_call(true)
   {}
 
-  template<typename Size> 
+  template<typename Size>
   void operator()(const ::tbb::blocked_range<Size>& r, ::tbb::pre_scan_tag)
   {
     InputIterator iter = input + r.begin();
- 
+
     ValueType temp = *iter;
 
     ++iter;
@@ -150,11 +150,11 @@ struct exclusive_body
       sum = temp;
     else
       sum = binary_op(sum, temp);
-      
+
     first_call = false;
   }
-  
-  template<typename Size> 
+
+  template<typename Size>
   void operator()(const ::tbb::blocked_range<Size>& r, ::tbb::final_scan_tag)
   {
     InputIterator  iter1 = input  + r.begin();
@@ -166,19 +166,19 @@ struct exclusive_body
       *iter2 = sum;
       sum = temp;
     }
-    
+
     first_call = false;
   }
 
   void reverse_join(exclusive_body& b)
   {
     sum = binary_op(b.sum, sum);
-  } 
+  }
 
   void assign(exclusive_body& b)
   {
     sum = b.sum;
-  } 
+  }
 };
 
 } // end scan_detail
@@ -195,7 +195,7 @@ template<typename InputIterator,
                                 BinaryFunction binary_op)
 {
   // the pseudocode for deducing the type of the temporary used below:
-  // 
+  //
   // if BinaryFunction is AdaptableBinaryFunction
   //   TemporaryType = AdaptableBinaryFunction::result_type
   // else if OutputIterator is a "pure" output iterator
@@ -205,7 +205,7 @@ template<typename InputIterator,
   //
   // XXX upon c++0x, TemporaryType needs to be:
   // result_of<BinaryFunction>::type
-  
+
   using namespace thrust::detail;
 
   typedef typename eval_if<
@@ -217,9 +217,9 @@ template<typename InputIterator,
       thrust::iterator_value<OutputIterator>
     >
   >::type ValueType;
-  
-  typedef typename thrust::iterator_difference<InputIterator>::type Size; 
-  
+
+  typedef typename thrust::iterator_difference<InputIterator>::type Size;
+
   Size n = thrust::distance(first, last);
 
   if (n != 0)
@@ -228,7 +228,7 @@ template<typename InputIterator,
     Body scan_body(first, result, binary_op, *first);
     ::tbb::parallel_scan(::tbb::blocked_range<Size>(0,n), scan_body);
   }
- 
+
   thrust::advance(result, n);
 
   return result;
@@ -247,7 +247,7 @@ template<typename InputIterator,
                                 BinaryFunction binary_op)
 {
   // the pseudocode for deducing the type of the temporary used below:
-  // 
+  //
   // if BinaryFunction is AdaptableBinaryFunction
   //   TemporaryType = AdaptableBinaryFunction::result_type
   // else if OutputIterator is a "pure" output iterator
@@ -270,8 +270,8 @@ template<typename InputIterator,
     >
   >::type ValueType;
 
-  typedef typename thrust::iterator_difference<InputIterator>::type Size; 
-  
+  typedef typename thrust::iterator_difference<InputIterator>::type Size;
+
   Size n = thrust::distance(first, last);
 
   if (n != 0)
@@ -280,11 +280,11 @@ template<typename InputIterator,
     Body scan_body(first, result, binary_op, init);
     ::tbb::parallel_scan(::tbb::blocked_range<Size>(0,n), scan_body);
   }
- 
+
   thrust::advance(result, n);
 
   return result;
-} 
+}
 
 } // end namespace detail
 } // end namespace tbb

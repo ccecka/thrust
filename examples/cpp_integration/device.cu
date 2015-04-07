@@ -11,7 +11,7 @@ void sort_on_device(thrust::host_vector<int>& h_vec)
 
     // sort data on the device
     thrust::sort(d_vec.begin(), d_vec.end());
-    
+
     // transfer data back to host
     thrust::copy(d_vec.begin(), d_vec.end(), h_vec.begin());
 }

@@ -60,9 +60,9 @@ void SetUnion(const Vector& A, const Vector& B)
 
   // set_union returns an iterator C_end denoting the end of input
   typename Vector::iterator C_end;
-  
+
   C_end = thrust::set_union(A.begin(), A.end(), B.begin(), B.end(), C.begin());
-  
+
   // shrink C to exactly fit output
   C.erase(C_end, C.end());
 
@@ -77,9 +77,9 @@ void SetIntersection(const Vector& A, const Vector& B)
 
   // set_union returns an iterator C_end denoting the end of input
   typename Vector::iterator C_end;
-  
+
   C_end = thrust::set_intersection(A.begin(), A.end(), B.begin(), B.end(), C.begin());
-  
+
   // shrink C to exactly fit output
   C.erase(C_end, C.end());
 
@@ -94,9 +94,9 @@ void SetDifference(const Vector& A, const Vector& B)
 
   // set_union returns an iterator C_end denoting the end of input
   typename Vector::iterator C_end;
-  
+
   C_end = thrust::set_difference(A.begin(), A.end(), B.begin(), B.end(), C.begin());
-  
+
   // shrink C to exactly fit output
   C.erase(C_end, C.end());
 
@@ -111,9 +111,9 @@ void SetSymmetricDifference(const Vector& A, const Vector& B)
 
   // set_union returns an iterator C_end denoting the end of input
   typename Vector::iterator C_end;
-  
+
   C_end = thrust::set_symmetric_difference(A.begin(), A.end(), B.begin(), B.end(), C.begin());
-  
+
   // shrink C to exactly fit output
   C.erase(C_end, C.end());
 

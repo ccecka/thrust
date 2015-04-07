@@ -32,14 +32,14 @@ void TestMergeDevice(ExecutionPolicy exec)
 
   thrust::stable_sort(h_a.begin(), h_a.end());
   thrust::stable_sort(h_b.begin(), h_b.end());
-  
+
   thrust::device_vector<int> d_a = h_a;
   thrust::device_vector<int> d_b = h_b;
 
   for(size_t i = 0; i < num_sizes; i++)
   {
     size_t size = sizes[i];
-    
+
     thrust::host_vector<int>   h_result(n + size);
     thrust::device_vector<int> d_result(n + size);
 
@@ -47,7 +47,7 @@ void TestMergeDevice(ExecutionPolicy exec)
 
     typedef typename thrust::device_vector<int>::iterator iter_type;
     thrust::device_vector<iter_type> d_end(1);
-    
+
     h_end = thrust::merge(h_a.begin(), h_a.end(),
                           h_b.begin(), h_b.begin() + size,
                           h_result.begin());

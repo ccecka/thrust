@@ -43,11 +43,11 @@ int word_count(const thrust::device_vector<char>& input)
                                    0,                               // initialize sum to 0
                                    thrust::plus<int>(),             // sum values together
                                    is_word_start());       // how to compare the left and right characters
-    
+
     // if the first character is alphabetical, then it also begins a word
     if (is_alpha(input.front()))
         wc++;
-    
+
     return wc;
 }
 
@@ -65,15 +65,15 @@ int main(void)
 
     std::cout << "Text sample:" << std::endl;
     std::cout << raw_input << std::endl;
-    
+
     // transfer to device
     thrust::device_vector<char> input(raw_input, raw_input + sizeof(raw_input));
 
     // count words
     int wc = word_count(input);
-    
+
     std::cout << "Text sample contains " << wc << " words" << std::endl;
-        
+
     return 0;
 }
 

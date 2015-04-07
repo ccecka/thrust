@@ -214,7 +214,7 @@ template <typename T>
 
     //ASSERT_EQUAL(true, (detail::is_convertible<zip_iterator_system_type3, thrust::experimental::space::any>::value) );
 
-    
+
     // test host/any
     typedef tuple<Iterator1, Iterator5>                IteratorTuple4;
     typedef zip_iterator<IteratorTuple4> ZipIterator4;
@@ -327,8 +327,8 @@ struct TestZipIteratorTransform
                d_result.begin(),
                SumTwoTuple());
     ASSERT_EQUAL(h_result, d_result);
-    
-    
+
+
     // Tuples with 3 elements
     transform( make_zip_iterator(make_tuple(h_data0.begin(), h_data1.begin(), h_data2.begin())),
                make_zip_iterator(make_tuple(h_data0.end(),   h_data1.end(),   h_data2.end())),

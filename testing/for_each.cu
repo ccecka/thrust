@@ -22,7 +22,7 @@ void TestForEachSimple(void)
 
     Vector input(5);
     Vector output(7, (T) 0);
-    
+
     input[0] = 3; input[1] = 2; input[2] = 3; input[3] = 4; input[4] = 6;
 
     mark_present_for_each<T> f;
@@ -88,7 +88,7 @@ void TestForEachNSimple(void)
 
     Vector input(5);
     Vector output(7, (T) 0);
-    
+
     input[0] = 3; input[1] = 2; input[2] = 3; input[3] = 4; input[4] = 6;
 
     mark_present_for_each<T> f;
@@ -193,12 +193,12 @@ template <typename T>
 void TestForEach(const size_t n)
 {
     const size_t output_size = std::min((size_t) 10, 2 * n);
-    
+
     thrust::host_vector<T> h_input = unittest::random_integers<T>(n);
 
     for(size_t i = 0; i < n; i++)
         h_input[i] =  ((size_t) h_input[i]) % output_size;
-    
+
     thrust::device_vector<T> d_input = h_input;
 
     thrust::host_vector<T>   h_output(output_size, (T) 0);
@@ -208,7 +208,7 @@ void TestForEach(const size_t n)
     mark_present_for_each<T> d_f;
     h_f.ptr = &h_output[0];
     d_f.ptr = (&d_output[0]).get();
-    
+
     typename thrust::host_vector<T>::iterator h_result =
       thrust::for_each(h_input.begin(), h_input.end(), h_f);
 
@@ -226,12 +226,12 @@ template <typename T>
 void TestForEachN(const size_t n)
 {
     const size_t output_size = std::min((size_t) 10, 2 * n);
-    
+
     thrust::host_vector<T> h_input = unittest::random_integers<T>(n);
 
     for(size_t i = 0; i < n; i++)
         h_input[i] =  ((size_t) h_input[i]) % output_size;
-    
+
     thrust::device_vector<T> d_input = h_input;
 
     thrust::host_vector<T>   h_output(output_size, (T) 0);
@@ -241,7 +241,7 @@ void TestForEachN(const size_t n)
     mark_present_for_each<T> d_f;
     h_f.ptr = &h_output[0];
     d_f.ptr = (&d_output[0]).get();
-    
+
     typename thrust::host_vector<T>::iterator h_result =
       thrust::for_each_n(h_input.begin(), h_input.size(), h_f);
 
@@ -260,7 +260,7 @@ struct SetFixedVectorToConstant
 {
     FixedVector<T,N> exemplar;
 
-    SetFixedVectorToConstant(T scalar) : exemplar(scalar) {} 
+    SetFixedVectorToConstant(T scalar) : exemplar(scalar) {}
 
     __host__ __device__
     void operator()(FixedVector<T,N>& t)
@@ -281,7 +281,7 @@ void _TestForEachWithLargeTypes(void)
         h_data[i] = FixedVector<T,N>(i);
 
     thrust::device_vector< FixedVector<T,N> > d_data = h_data;
-   
+
     SetFixedVectorToConstant<T,N> func(123);
 
     thrust::for_each(h_data.begin(), h_data.end(), func);
@@ -320,7 +320,7 @@ void _TestForEachNWithLargeTypes(void)
         h_data[i] = FixedVector<T,N>(i);
 
     thrust::device_vector< FixedVector<T,N> > d_data = h_data;
-   
+
     SetFixedVectorToConstant<T,N> func(123);
 
     thrust::for_each_n(h_data.begin(), h_data.size(), func);

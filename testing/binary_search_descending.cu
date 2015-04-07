@@ -113,7 +113,7 @@ void TestScalarEqualRangeDescendingSimple(void)
     ASSERT_EQUAL_QUIET(vec.begin() + 1, thrust::equal_range(vec.begin(), vec.end(), 7, thrust::greater<int>()).first);
     ASSERT_EQUAL_QUIET(vec.begin() + 0, thrust::equal_range(vec.begin(), vec.end(), 8, thrust::greater<int>()).first);
     ASSERT_EQUAL_QUIET(vec.begin() + 0, thrust::equal_range(vec.begin(), vec.end(), 9, thrust::greater<int>()).first);
-    
+
     ASSERT_EQUAL_QUIET(vec.begin() + 5, thrust::equal_range(vec.begin(), vec.end(), 0, thrust::greater<int>()).second);
     ASSERT_EQUAL_QUIET(vec.begin() + 4, thrust::equal_range(vec.begin(), vec.end(), 1, thrust::greater<int>()).second);
     ASSERT_EQUAL_QUIET(vec.begin() + 4, thrust::equal_range(vec.begin(), vec.end(), 2, thrust::greater<int>()).second);

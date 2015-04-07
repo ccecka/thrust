@@ -35,7 +35,7 @@
 #define __HOST_COMPILER_VERSION__  _MSC_VER
 #elif defined(__INTEL_COMPILER) // Intel Compiler
 #define __HOST_COMPILER_NAME__ "ICC"
-#define __HOST_COMPILER_VERSION__  __INTEL_COMPILER 
+#define __HOST_COMPILER_VERSION__  __INTEL_COMPILER
 #else // Unknown
 #define __HOST_COMPILER_NAME__ "UNKNOWN"
 #define __HOST_COMPILER_VERSION__ 0

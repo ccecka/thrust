@@ -33,7 +33,7 @@ namespace thrust
 {
 
 /*
- *  Calls to the standard math library from inside the thrust namespace 
+ *  Calls to the standard math library from inside the thrust namespace
  *  with real arguments require explicit scope otherwise they will fail
  *  to resolve as it will find the equivalent complex function but then
  *  fail to match the template, and give up looking for other scopes.
@@ -52,7 +52,7 @@ namespace thrust
   /*! \p complex is the Thrust equivalent to <tt>std::complex</tt>. It is functionally
    *  equivalent to it, but can also be used in device code which <tt>std::complex</tt> currently cannot.
    *
-   *  \tparam T The type used to hold the real and imaginary parts. Should be <tt>float</tt> 
+   *  \tparam T The type used to hold the real and imaginary parts. Should be <tt>float</tt>
    *  or <tt>double</tt>. Others types are not supported.
    *
    */
@@ -72,7 +72,7 @@ public:
    *  \param re The real part of the number.
    *  \param im The imaginary part of the number.
    */
-  inline __host__ __device__      
+  inline __host__ __device__
   complex(const T & re = T(), const T& im = T());
 
   /*! This copy constructor copies from a \p complex with a type that
@@ -82,10 +82,10 @@ public:
    *
    *  \tparam X is convertible to \c value_type.
    */
-  template <typename X> 
+  template <typename X>
   inline __host__ __device__
   complex(const complex<X> & z);
-  
+
   /*! This copy constructor copies from a <tt>std::complex</tt> with a type that
    *  is convertible to this \p complex \c value_type.
    *
@@ -93,7 +93,7 @@ public:
    *
    *  \tparam X is convertible to \c value_type.
    */
-  template <typename X> 
+  template <typename X>
     inline __host__
   complex(const std::complex<X> & z);
 
@@ -101,7 +101,7 @@ public:
 
   /* --- Compound Assignment Operators --- */
 
-  /*! Adds a \p complex to this \p complex and 
+  /*! Adds a \p complex to this \p complex and
    *  assigns the result to this \p complex.
    *
    *  \param z The \p complex to be Added.
@@ -109,7 +109,7 @@ public:
   __host__ __device__
   inline complex<T>& operator+=(const complex<T> z);
 
-  /*! Subtracts a \p complex from this \p complex and 
+  /*! Subtracts a \p complex from this \p complex and
    *  assigns the result to this \p complex.
    *
    *  \param z The \p complex to be subtracted.
@@ -117,7 +117,7 @@ public:
   __host__ __device__
   inline complex<T>& operator-=(const complex<T> z);
 
-  /*! Multiplies this \p complex by another \p complex and 
+  /*! Multiplies this \p complex by another \p complex and
    *  assigns the result to this \p complex.
    *
    *  \param z The \p complex to be multiplied.
@@ -125,7 +125,7 @@ public:
   __host__ __device__
   inline complex<T>& operator*=(const complex<T> z);
 
-  /*! Divides this \p complex by another \p complex and 
+  /*! Divides this \p complex by another \p complex and
    *  assigns the result to this \p complex.
    *
    *  \param z The \p complex to be divided.
@@ -135,7 +135,7 @@ public:
 
 
 
-  /* --- Getter functions --- 
+  /* --- Getter functions ---
    * The volatile ones are there to help for example
    * with certain reductions optimizations
    */
@@ -158,7 +158,7 @@ public:
 
 
 
-  /* --- Setter functions --- 
+  /* --- Setter functions ---
    * The volatile ones are there to help for example
    * with certain reductions optimizations
    */
@@ -234,8 +234,8 @@ template<typename T> __host__ __device__ inline complex<T> conj(const complex<T>
 template<typename T> __host__ __device__ inline complex<T> polar(const T& m, const T& theta = 0);
 
 /*! Returns the projection of a \p complex on the Riemann sphere.
- *  For all finite \p complex it returns the argument. For \p complexs 
- *  with a non finite part returns (INFINITY,+/-0) where the sign of 
+ *  For all finite \p complex it returns the argument. For \p complexs
+ *  with a non finite part returns (INFINITY,+/-0) where the sign of
  *  the zero matches the sign of the imaginary part of the argument.
  *
  *  \param z The \p complex argument.
@@ -476,7 +476,7 @@ template <typename T> __host__ __device__ complex<T> tanh(const complex<T>&z);
 
 /*! Returns the complex arc cosine of a \p complex number.
  *
- *  The range of the real part of the result is [0, Pi] and 
+ *  The range of the real part of the result is [0, Pi] and
  *  the range of the imaginary part is [-inf, +inf]
  *
  *  \param z The \p complex argument.
@@ -485,7 +485,7 @@ template <typename T> __host__ __device__ complex<T> acos(const complex<T>& z);
 
 /*! Returns the complex arc sine of a \p complex number.
  *
- *  The range of the real part of the result is [-Pi/2, Pi/2] and 
+ *  The range of the real part of the result is [-Pi/2, Pi/2] and
  *  the range of the imaginary part is [-inf, +inf]
  *
  *  \param z The \p complex argument.
@@ -494,7 +494,7 @@ template <typename T> __host__ __device__ complex<T> asin(const complex<T>& z);
 
 /*! Returns the complex arc tangent of a \p complex number.
  *
- *  The range of the real part of the result is [-Pi/2, Pi/2] and 
+ *  The range of the real part of the result is [-Pi/2, Pi/2] and
  *  the range of the imaginary part is [-inf, +inf]
  *
  *  \param z The \p complex argument.
@@ -507,7 +507,7 @@ template <typename T> __host__ __device__ complex<T> atan(const complex<T>& z);
 
 /*! Returns the complex inverse hyperbolic cosine of a \p complex number.
  *
- *  The range of the real part of the result is [0, +inf] and 
+ *  The range of the real part of the result is [0, +inf] and
  *  the range of the imaginary part is [-Pi, Pi]
  *
  *  \param z The \p complex argument.
@@ -516,7 +516,7 @@ template <typename T> __host__ __device__ complex<T> acosh(const complex<T>& z);
 
 /*! Returns the complex inverse hyperbolic sine of a \p complex number.
  *
- *  The range of the real part of the result is [-inf, +inf] and 
+ *  The range of the real part of the result is [-inf, +inf] and
  *  the range of the imaginary part is [-Pi/2, Pi/2]
  *
  *  \param z The \p complex argument.
@@ -525,7 +525,7 @@ template <typename T> __host__ __device__ complex<T> asinh(const complex<T>& z);
 
 /*! Returns the complex inverse hyperbolic tangent of a \p complex number.
  *
- *  The range of the real part of the result is [-inf, +inf] and 
+ *  The range of the real part of the result is [-inf, +inf] and
  *  the range of the imaginary part is [-Pi/2, Pi/2]
  *
  *  \param z The \p complex argument.
@@ -551,7 +551,7 @@ operator<<(std::basic_ostream<charT, traits>& os, const complex<ValueType>& z);
  * - (real)
  * - (real, imaginary)
  *
- * The values read must be convertible to the \p complex's \c value_type 
+ * The values read must be convertible to the \p complex's \c value_type
  *
  *  \param is The input stream.
  *  \param z The \p complex number to set.

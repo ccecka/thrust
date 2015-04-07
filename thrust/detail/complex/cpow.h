@@ -50,21 +50,21 @@ template <typename T>
 #if !defined _MSC_VER
 
 template <typename T, typename U>
-  __host__ __device__ 
+  __host__ __device__
   inline complex<typename detail::promoted_numerical_type<T,U>::type > pow(const complex<T>& z, const complex<T>& exponent){
   typedef typename detail::promoted_numerical_type<T,U>::type PromotedType;
   return thrust::exp(thrust::log(complex<PromotedType>(z))*complex<PromotedType>(exponent));
 }
 
 template <typename T, typename U>
-  __host__ __device__ 
+  __host__ __device__
   inline complex<typename detail::promoted_numerical_type<T,U>::type > pow(const complex<T>& z, const U& exponent){
   typedef typename detail::promoted_numerical_type<T,U>::type PromotedType;
   return thrust::exp(thrust::log(complex<PromotedType>(z))*PromotedType(exponent));
 }
 
 template <typename T, typename U>
-  __host__ __device__ 
+  __host__ __device__
   inline complex<typename detail::promoted_numerical_type<T,U>::type > pow(const T& x, const complex<U>& exponent){
   typedef typename detail::promoted_numerical_type<T,U>::type PromotedType;
   return thrust::exp(std::log(PromotedType(x))*complex<PromotedType>(exponent));

@@ -25,7 +25,7 @@ void print_range(const std::string& name, Iterator first, Iterator last)
     typedef typename std::iterator_traits<Iterator>::value_type T;
 
     std::cout << name << ": ";
-    thrust::copy(first, last, std::ostream_iterator<T>(std::cout, " "));  
+    thrust::copy(first, last, std::ostream_iterator<T>(std::cout, " "));
     std::cout << "\n";
 }
 
@@ -43,7 +43,7 @@ int main(void)
 
     // initialize array to [0, 1, 2, ... ]
     thrust::sequence(values.begin(), values.end());
-    
+
     print_range("values", values.begin(), values.end());
 
     // allocate output storage, here we conservatively assume all values will be copied
@@ -54,14 +54,14 @@ int main(void)
 
     print_range("output", output.begin(), output_end);
 
-    // another approach is to count the number of values that will 
+    // another approach is to count the number of values that will
     // be copied, and allocate an array of the right size
     size_t N_odd = thrust::count_if(values.begin(), values.end(), is_odd<int>());
-    
+
     Vector small_output(N_odd);
-    
+
     thrust::copy_if(values.begin(), values.end(), small_output.begin(), is_odd<int>());
-    
+
     print_range("small_output", small_output.begin(), small_output.end());
 
     // we can also compact sequences with the remove functions, which do the opposite of copy

@@ -44,7 +44,7 @@ void print_range(const std::string& name, Iterator first, Iterator last)
     typedef typename std::iterator_traits<Iterator>::value_type T;
 
     std::cout << name << ": ";
-    thrust::copy(first, last, std::ostream_iterator<T>(std::cout, " "));  
+    thrust::copy(first, last, std::ostream_iterator<T>(std::cout, " "));
     std::cout << "\n";
 }
 
@@ -70,7 +70,7 @@ int main(void)
     values[5] =  0;
     values[6] =  3;
     values[7] =  8;
-    
+
     print_range("values         ", values.begin(), values.end());
 
     // define some more types
@@ -79,7 +79,7 @@ int main(void)
     // create a transform_iterator that applies clamp() to the values array
     ClampedVectorIterator cv_begin = thrust::make_transform_iterator(values.begin(), clamp<int>(lo, hi));
     ClampedVectorIterator cv_end   = cv_begin + values.size();
-    
+
     // now [clamped_begin, clamped_end) defines a sequence of clamped values
     print_range("clamped values ", cv_begin, cv_end);
 
@@ -98,7 +98,7 @@ int main(void)
 
     CountingIterator count_begin(0);
     CountingIterator count_end(10);
-    
+
     print_range("sequence         ", count_begin, count_end);
 
     ClampedCountingIterator cs_begin = thrust::make_transform_iterator(count_begin, clamp<int>(lo, hi));
@@ -111,7 +111,7 @@ int main(void)
     ////
     // combine transform_iterator with another transform_iterator
     typedef thrust::transform_iterator<thrust::negate<int>, ClampedCountingIterator> NegatedClampedCountingIterator;
-    
+
     NegatedClampedCountingIterator ncs_begin = thrust::make_transform_iterator(cs_begin, thrust::negate<int>());
     NegatedClampedCountingIterator ncs_end   = thrust::make_transform_iterator(cs_end,   thrust::negate<int>());
 
@@ -124,7 +124,7 @@ int main(void)
 
     NegatedVectorIterator nv_begin(values.begin(), simple_negate<int>());
     NegatedVectorIterator nv_end(values.end(), simple_negate<int>());
-    
+
     print_range("negated values ", nv_begin, nv_end);
 
     return 0;

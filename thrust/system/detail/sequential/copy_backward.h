@@ -32,8 +32,8 @@ __thrust_hd_warning_disable__
 template<typename BidirectionalIterator1,
          typename BidirectionalIterator2>
 __host__ __device__
-BidirectionalIterator2 copy_backward(BidirectionalIterator1 first, 
-                                     BidirectionalIterator1 last, 
+BidirectionalIterator2 copy_backward(BidirectionalIterator1 first,
+                                     BidirectionalIterator1 last,
                                      BidirectionalIterator2 result)
 {
   while (first != last)

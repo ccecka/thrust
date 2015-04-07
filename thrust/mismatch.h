@@ -39,7 +39,7 @@ namespace thrust
 
 
 /*! \p mismatch finds the first position where the two ranges <tt>[first1, last1)</tt>
- *  and <tt>[first2, first2 + (last1 - first1))</tt> differ. The two versions of 
+ *  and <tt>[first2, first2 + (last1 - first1))</tt> differ. The two versions of
  *  \p mismatch use different tests for whether elements differ.
  *
  *  This version of \p mismatch finds the first iterator \c i in <tt>[first1, last1)</tt>
@@ -69,7 +69,7 @@ namespace thrust
  *  thrust::device_vector<int> vec1(4);
  *  thrust::device_vector<int> vec2(4);
  *
- *  vec1[0] = 0;  vec2[0] = 0; 
+ *  vec1[0] = 0;  vec2[0] = 0;
  *  vec1[1] = 5;  vec2[1] = 5;
  *  vec1[2] = 3;  vec2[2] = 8;
  *  vec1[3] = 7;  vec2[3] = 7;
@@ -95,7 +95,7 @@ thrust::pair<InputIterator1, InputIterator2> mismatch(const thrust::detail::exec
 
 
 /*! \p mismatch finds the first position where the two ranges <tt>[first1, last1)</tt>
- * and <tt>[first2, first2 + (last1 - first1))</tt> differ. The two versions of 
+ * and <tt>[first2, first2 + (last1 - first1))</tt> differ. The two versions of
  * \p mismatch use different tests for whether elements differ.
  *
  * This version of \p mismatch finds the first iterator \c i in <tt>[first1, last1)</tt>
@@ -120,7 +120,7 @@ thrust::pair<InputIterator1, InputIterator2> mismatch(const thrust::detail::exec
  *  thrust::device_vector<int> vec1(4);
  *  thrust::device_vector<int> vec2(4);
  *
- *  vec1[0] = 0;  vec2[0] = 0; 
+ *  vec1[0] = 0;  vec2[0] = 0;
  *  vec1[1] = 5;  vec2[1] = 5;
  *  vec1[2] = 3;  vec2[2] = 8;
  *  vec1[3] = 7;  vec2[3] = 7;
@@ -144,7 +144,7 @@ thrust::pair<InputIterator1, InputIterator2> mismatch(InputIterator1 first1,
 
 
 /*! \p mismatch finds the first position where the two ranges <tt>[first1, last1)</tt>
- *  and <tt>[first2, first2 + (last1 - first1))</tt> differ. The two versions of 
+ *  and <tt>[first2, first2 + (last1 - first1))</tt> differ. The two versions of
  *  \p mismatch use different tests for whether elements differ.
  *
  *  This version of \p mismatch finds the first iterator \c i in <tt>[first1, last1)</tt>
@@ -175,7 +175,7 @@ thrust::pair<InputIterator1, InputIterator2> mismatch(InputIterator1 first1,
  *  thrust::device_vector<int> vec1(4);
  *  thrust::device_vector<int> vec2(4);
  *
- *  vec1[0] = 0;  vec2[0] = 0; 
+ *  vec1[0] = 0;  vec2[0] = 0;
  *  vec1[1] = 5;  vec2[1] = 5;
  *  vec1[2] = 3;  vec2[2] = 8;
  *  vec1[3] = 7;  vec2[3] = 7;
@@ -202,7 +202,7 @@ thrust::pair<InputIterator1, InputIterator2> mismatch(const thrust::detail::exec
 
 
 /*! \p mismatch finds the first position where the two ranges <tt>[first1, last1)</tt>
- * and <tt>[first2, first2 + (last1 - first1))</tt> differ. The two versions of 
+ * and <tt>[first2, first2 + (last1 - first1))</tt> differ. The two versions of
  * \p mismatch use different tests for whether elements differ.
  *
  * This version of \p mismatch finds the first iterator \c i in <tt>[first1, last1)</tt>
@@ -228,7 +228,7 @@ thrust::pair<InputIterator1, InputIterator2> mismatch(const thrust::detail::exec
  *  thrust::device_vector<int> vec1(4);
  *  thrust::device_vector<int> vec2(4);
  *
- *  vec1[0] = 0;  vec2[0] = 0; 
+ *  vec1[0] = 0;  vec2[0] = 0;
  *  vec1[1] = 5;  vec2[1] = 5;
  *  vec1[2] = 3;  vec2[2] = 8;
  *  vec1[3] = 7;  vec2[3] = 7;

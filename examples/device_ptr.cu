@@ -12,15 +12,15 @@ int main(void)
   // allocate memory buffer to store 10 integers on the device
   thrust::device_ptr<int> d_ptr = thrust::device_malloc<int>(10);
 
-  // device_ptr supports pointer arithmetic 
+  // device_ptr supports pointer arithmetic
   thrust::device_ptr<int> first = d_ptr;
   thrust::device_ptr<int> last  = d_ptr + 10;
   std::cout << "device array contains " << (last - first) << " values\n";
-  
+
   // algorithms work as expected
   thrust::sequence(first, last);
   std::cout << "sum of values is " << thrust::reduce(first, last) << "\n";
-  
+
   // device memory can be read and written transparently
   d_ptr[0] = 10;
   d_ptr[1] = 11;

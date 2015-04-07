@@ -117,7 +117,7 @@ template<typename UIntType, size_t w, size_t k, size_t q, size_t s>
 
     /*! This constructor, which optionally accepts a seed, initializes a new
      *  \p linear_feedback_shift_engine.
-     *  
+     *
      *  \param value The seed used to intialize this \p linear_feedback_shift_engine's state.
      */
     __host__ __device__
@@ -132,7 +132,7 @@ template<typename UIntType, size_t w, size_t k, size_t q, size_t s>
     void seed(result_type value = default_seed);
 
     // generating functions
-    
+
     /*! This member function produces a new random value and updates this \p linear_feedback_shift_engine's state.
      *  \return A new random number.
      */

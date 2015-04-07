@@ -76,7 +76,7 @@ struct adjacent_difference_closure
   Context        context;
 
   typedef Context context_type;
-  
+
   __host__ __device__
   adjacent_difference_closure(InputIterator1 input,
                               InputIterator2 input_copy,
@@ -94,24 +94,24 @@ struct adjacent_difference_closure
 
     // this block processes results in [range.begin(), range.end())
     thrust::system::detail::internal::index_range<index_type> range = decomp[context.block_index()];
-    
+
     input_copy += context.block_index() - 1;
-      
+
     // prime the temp values for all threads so we don't need to launch a default constructor
     InputType next_left = (context.block_index() == 0) ? thrust::raw_reference_cast(*input) : thrust::raw_reference_cast(*input_copy);
 
     index_type base = range.begin();
     index_type i    = range.begin() + context.thread_index();
-    
+
     if(i < range.end())
     {
       if(context.thread_index() > 0)
       {
         InputIterator1 temp = input + (i - 1);
         next_left = *temp;
-      }              
+      }
     }
-    
+
     input  += i;
     output += i;
 
@@ -183,15 +183,15 @@ OutputIterator adjacent_difference(execution_policy<DerivedPolicy> &exec,
                  first,
                  temp.begin());
 
-  
+
   typedef typename thrust::detail::temporary_array<InputType,DerivedPolicy>::iterator InputIterator2;
   typedef detail::blocked_thread_array Context;
   typedef adjacent_difference_closure<InputIterator,InputIterator2,OutputIterator,BinaryFunction,Decomposition,Context> Closure;
 
-  Closure closure(first, temp.begin(), result, binary_op, decomp); 
+  Closure closure(first, temp.begin(), result, binary_op, decomp);
 
   detail::launch_closure(exec, closure, decomp.size());
-  
+
   return result + n;
 } // end adjacent_difference()
 

@@ -78,11 +78,11 @@ struct inclusive_downsweep
                              BinaryFunction binary_op)
   {
     typename Decomposition::range range = decomp[this_group.index()];
-  
+
     RandomAccessIterator1 last = first + range.second;
     first += range.first;
     result += range.first;
-  
+
     if(this_group.index() == 0)
     {
       bulk_::inclusive_scan(this_group, first, last, result, binary_op);
@@ -108,11 +108,11 @@ struct exclusive_downsweep
                              BinaryFunction binary_op)
   {
     typename Decomposition::range range = decomp[this_group.index()];
-  
+
     RandomAccessIterator1 last = first + range.second;
     first += range.first;
     result += range.first;
-  
+
     typename thrust::iterator_value<RandomAccessIterator2>::type carry = carries_first[this_group.index()];
 
     bulk_::exclusive_scan(this_group, first, last, result, carry, binary_op);
@@ -147,7 +147,7 @@ template<typename T>
     sizeof(T) <=     sizeof(int) ? accumulate_tiles_tuning_impl<int>::groupsize :
     sizeof(T) <= 2 * sizeof(int) ? accumulate_tiles_tuning_impl<double>::groupsize :
     128;
-  
+
   static const int grainsize =
     sizeof(T) <=     sizeof(int) ? accumulate_tiles_tuning_impl<int>::grainsize :
     sizeof(T) <= 2 * sizeof(int) ? accumulate_tiles_tuning_impl<double>::grainsize :
@@ -178,7 +178,7 @@ struct accumulate_tiles
                              BinaryFunction binary_op)
   {
     typedef typename thrust::iterator_value<RandomAccessIterator1>::type value_type;
-    
+
     typename Decomposition::range range = decomp[this_group.index()];
 
     const bool commutative = thrust::detail::is_commutative<BinaryFunction>::value;
@@ -220,7 +220,7 @@ OutputIterator inclusive_scan(execution_policy<DerivedPolicy> &exec,
   Size n = last - first;
 
   cudaStream_t s = stream(thrust::detail::derived_cast(exec));
-  
+
   const Size threshold_of_parallelism = 20000;
 
   if(n < threshold_of_parallelism)
@@ -252,7 +252,7 @@ OutputIterator inclusive_scan(execution_policy<DerivedPolicy> &exec,
     aligned_decomposition<Size> decomp(n, num_groups, tile_size);
 
     thrust::detail::temporary_array<intermediate_type,DerivedPolicy> carries(exec, num_groups);
-    	
+
     // Run the parallel raking reduce as an upsweep.
     // n loads + num_groups stores
     Size heap_size = groupsize * sizeof(intermediate_type);
@@ -308,7 +308,7 @@ OutputIterator exclusive_scan(execution_policy<DerivedPolicy> &exec,
   Size n = last - first;
 
   cudaStream_t s = stream(thrust::detail::derived_cast(exec));
-  
+
   const Size threshold_of_parallelism = 20000;
 
   if(n < threshold_of_parallelism)
@@ -340,12 +340,12 @@ OutputIterator exclusive_scan(execution_policy<DerivedPolicy> &exec,
     aligned_decomposition<Size> decomp(n, num_groups, tile_size);
 
     thrust::detail::temporary_array<intermediate_type,DerivedPolicy> carries(exec, num_groups);
-    	
+
     // Run the parallel raking reduce as an upsweep.
     // n loads + num_groups stores
     Size heap_size = groupsize * sizeof(intermediate_type);
     bulk_::async(bulk_::grid<groupsize,grainsize>(num_groups,heap_size,s), scan_detail::accumulate_tiles(), bulk_::root.this_exec, first, decomp, carries.begin(), binary_op);
-    
+
     // scan the sums to get the carries
     // num_groups loads + num_groups stores
     const Size groupsize2 = sizeof(intermediate_type) <= 2 * sizeof(int) ? 256 : 128;

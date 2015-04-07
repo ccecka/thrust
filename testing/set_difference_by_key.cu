@@ -217,12 +217,12 @@ void TestSetDifferenceByKeyEquivalentRanges(const size_t n)
     typename thrust::host_vector<T>::iterator,
     typename thrust::host_vector<T>::iterator
   > h_end;
-  
+
   thrust::pair<
     typename thrust::device_vector<T>::iterator,
     typename thrust::device_vector<T>::iterator
   > d_end;
-  
+
   h_end = thrust::set_difference_by_key(h_a_key.begin(), h_a_key.end(),
                                         h_b_key.begin(), h_b_key.end(),
                                         h_a_val.begin(),
@@ -289,7 +289,7 @@ void TestSetDifferenceByKeyMultiset(const size_t n)
     typename thrust::device_vector<T>::iterator,
     typename thrust::device_vector<T>::iterator
   > d_end;
-  
+
   h_end = thrust::set_difference_by_key(h_a_key.begin(), h_a_key.end(),
                                         h_b_key.begin(), h_b_key.end(),
                                         h_a_val.begin(),

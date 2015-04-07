@@ -55,7 +55,7 @@
 
 namespace thrust{
 namespace detail{
-namespace complex{		      	
+namespace complex{
 
 using thrust::complex;
 
@@ -95,7 +95,7 @@ complex<float> csqrtf(const complex<float>& z){
    * the normal code path below.
    */
 
-  /* 
+  /*
    * Unlike in the FreeBSD code we'll avoid using double precision as
    * not all hardware supports it.
    */
@@ -132,7 +132,7 @@ complex<float> csqrtf(const complex<float>& z){
     return (result * 0.5f);
   else
     return (result);
-}      
+}
 
 } // namespace complex
 

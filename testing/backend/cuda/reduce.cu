@@ -16,15 +16,15 @@ void TestReduceDevice(ExecutionPolicy exec, const size_t n)
 {
   thrust::host_vector<T>   h_data = unittest::random_integers<T>(n);
   thrust::device_vector<T> d_data = h_data;
-  
+
   thrust::device_vector<T> d_result(1);
-  
+
   T init = 13;
-  
+
   T h_result = thrust::reduce(h_data.begin(), h_data.end(), init);
-  
+
   reduce_kernel<<<1,1>>>(exec, d_data.begin(), d_data.end(), init, d_result.begin());
-  
+
   ASSERT_EQUAL(h_result, d_result[0]);
 }
 

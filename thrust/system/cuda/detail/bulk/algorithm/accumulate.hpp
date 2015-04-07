@@ -143,16 +143,16 @@ T accumulate(bulk::concurrent_group<bulk::agent<grainsize>,groupsize> &g,
   __shared__ uninitialized<buffer_type> buffer_impl;
   buffer_type *buffer = &buffer_impl.get();
 #endif
-  
+
   for(; first < last; first += elements_per_group)
   {
     // XXX each iteration is essentially a bounded accumulate
-    
+
     size_type partition_size = thrust::min<size_type>(elements_per_group, last - first);
-    
+
     // copy partition into smem
     bulk::copy_n(g, first, partition_size, buffer->inputs.data());
-    
+
     T this_sum;
     size_type local_offset = grainsize * g.this_exec.index();
 
@@ -176,7 +176,7 @@ T accumulate(bulk::concurrent_group<bulk::agent<grainsize>,groupsize> &g,
     } // end if
 
     g.wait();
-    
+
     // sum over the group
     sum = accumulate_detail::destructive_accumulate_n(g, buffer->sums.data(), thrust::min<size_type>(groupsize,n), sum, binary_op);
   } // end for

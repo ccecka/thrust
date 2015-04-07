@@ -12,17 +12,17 @@ template <class Vector>
 void InitializeSimpleKeyRadixSortTest(Vector& unsorted_keys, Vector& sorted_keys)
 {
     unsorted_keys.resize(7);
-    unsorted_keys[0] = 1; 
-    unsorted_keys[1] = 3; 
+    unsorted_keys[0] = 1;
+    unsorted_keys[1] = 3;
     unsorted_keys[2] = 6;
     unsorted_keys[3] = 5;
     unsorted_keys[4] = 2;
     unsorted_keys[5] = 0;
     unsorted_keys[6] = 4;
 
-    sorted_keys.resize(7); 
-    sorted_keys[0] = 0; 
-    sorted_keys[1] = 1; 
+    sorted_keys.resize(7);
+    sorted_keys[0] = 0;
+    sorted_keys[1] = 1;
     sorted_keys[2] = 2;
     sorted_keys[3] = 3;
     sorted_keys[4] = 4;
@@ -33,27 +33,27 @@ void InitializeSimpleKeyRadixSortTest(Vector& unsorted_keys, Vector& sorted_keys
 template <class Vector>
 void InitializeSimpleStableKeyRadixSortTest(Vector& unsorted_keys, Vector& sorted_keys)
 {
-    unsorted_keys.resize(9);   
-    unsorted_keys[0] = 25; 
-    unsorted_keys[1] = 14; 
-    unsorted_keys[2] = 35; 
-    unsorted_keys[3] = 16; 
-    unsorted_keys[4] = 26; 
-    unsorted_keys[5] = 34; 
-    unsorted_keys[6] = 36; 
-    unsorted_keys[7] = 24; 
-    unsorted_keys[8] = 15; 
-    
+    unsorted_keys.resize(9);
+    unsorted_keys[0] = 25;
+    unsorted_keys[1] = 14;
+    unsorted_keys[2] = 35;
+    unsorted_keys[3] = 16;
+    unsorted_keys[4] = 26;
+    unsorted_keys[5] = 34;
+    unsorted_keys[6] = 36;
+    unsorted_keys[7] = 24;
+    unsorted_keys[8] = 15;
+
     sorted_keys.resize(9);
-    sorted_keys[0] = 14; 
-    sorted_keys[1] = 16; 
-    sorted_keys[2] = 15; 
-    sorted_keys[3] = 25; 
-    sorted_keys[4] = 26; 
-    sorted_keys[5] = 24; 
-    sorted_keys[6] = 35; 
-    sorted_keys[7] = 34; 
-    sorted_keys[8] = 36; 
+    sorted_keys[0] = 14;
+    sorted_keys[1] = 16;
+    sorted_keys[2] = 15;
+    sorted_keys[3] = 25;
+    sorted_keys[4] = 26;
+    sorted_keys[5] = 24;
+    sorted_keys[6] = 35;
+    sorted_keys[7] = 34;
+    sorted_keys[8] = 36;
 }
 
 

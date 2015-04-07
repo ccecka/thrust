@@ -74,11 +74,11 @@ InputIterator find(InputIterator first,
                    const T& value)
 {
   using thrust::system::detail::generic::select_system;
-  
+
   typedef typename thrust::iterator_system<InputIterator>::type System;
-  
+
   System system;
-  
+
   return thrust::find(select_system(system), first, last, value);
 }
 
@@ -88,11 +88,11 @@ InputIterator find_if(InputIterator first,
                       Predicate pred)
 {
   using thrust::system::detail::generic::select_system;
-  
+
   typedef typename thrust::iterator_system<InputIterator>::type System;
-  
+
   System system;
-  
+
   return thrust::find_if(select_system(system), first, last, pred);
 }
 
@@ -102,11 +102,11 @@ InputIterator find_if_not(InputIterator first,
                           Predicate pred)
 {
   using thrust::system::detail::generic::select_system;
-  
+
   typedef typename thrust::iterator_system<InputIterator>::type System;
-  
+
   System system;
-  
+
   return thrust::find_if_not(select_system(system), first, last, pred);
 }
 

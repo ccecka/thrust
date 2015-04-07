@@ -76,7 +76,7 @@ void bounded_inplace_merge(Context &ctx, Iterator first, Size n1, Size n2, Compa
 
   Size end1 = n1;
   Size end2 = n2;
-  
+
   // each thread does a local sequential merge
   typedef typename thrust::iterator_value<Iterator>::type value_type;
   value_type local_result[work_per_thread];
@@ -116,7 +116,7 @@ void staged_bounded_merge(Context &ctx,
 
   // cooperatively merge in place
   block::bounded_inplace_merge<work_per_thread>(ctx, staging_buffer, n1, n2, comp);
-  
+
   // store result in buffer to result
   cuda::detail::block::copy_n(ctx, staging_buffer, n1 + n2, result);
 }
@@ -137,7 +137,7 @@ thrust::tuple<int,int,int,int> find_mergesort_interval(int partition_first1, int
   int end1 = thrust::min<int>(n, partition_first1 + right_mp);
   int start2 = thrust::min<int>(n, partition_first2 + diag - mp);
   int end2 = thrust::min<int>(n, partition_first2 + diag + num_elements_per_block - right_mp);
-  
+
   // The end partition of the last block for each merge operation is computed
   // and stored as the begin partition for the subsequent merge. i.e. it is
   // the same partition but in the wrong coordinate system, so its 0 when it
@@ -202,7 +202,7 @@ struct merge_adjacent_partitions_closure
     context_type ctx;
 
     Size work_per_block = ctx.block_dimension() * work_per_thread;
-    
+
     Size start1 = 0, end1 = 0, start2 = 0, end2 = 0;
 
     thrust::tie(start1,end1,start2,end2) =
@@ -225,7 +225,7 @@ struct merge_adjacent_partitions_closure
     // stage this operation through smem
     // the size of this array is block_size * (work_per_thread + 1)
     value_type *s_keys = thrust::system::cuda::detail::extern_shared_ptr<value_type>();
-    
+
     this->operator()(s_keys);
   }
 };
@@ -322,7 +322,7 @@ struct locate_merge_path
     // note we clamp to the end of the total input to handle the last partial list
     Size n1 = thrust::min<Size>(size, haystack_size - start1);
     Size n2 = thrust::min<Size>(size, haystack_size - start2);
-    
+
     // note that diag is computed as an offset from the beginning of the first list
     Size diag = thrust::min<Size>(n1 + n2, num_elements_per_block * merge_path_idx - start1);
 
@@ -398,7 +398,7 @@ void stable_merge_sort_n(thrust::system::cuda::execution_policy<DerivedPolicy> &
   const unsigned int num_smem_elements_per_block = block_size * (work_per_thread + 1);
 
   thrust::detail::temporary_array<T,DerivedPolicy> virtual_smem(exec, virtualize_smem<T>(num_smem_elements_per_block) ? (num_blocks * num_smem_elements_per_block) : 0);
-  
+
   // depending on the number of passes
   // we'll either do the initial segmented sort inplace or not
   // ping being true means the latest data is in the source array
@@ -418,7 +418,7 @@ void stable_merge_sort_n(thrust::system::cuda::execution_policy<DerivedPolicy> &
   }
 
   thrust::detail::temporary_array<Size,DerivedPolicy> merge_paths(exec, num_blocks + 1);
-  
+
   for(Size pass = 0; pass < num_passes; ++pass, ping = !ping)
   {
     Size num_blocks_per_merge = 2 << pass;

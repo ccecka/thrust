@@ -90,7 +90,7 @@ struct my_allocator_with_custom_destroy
   {
     use_me_to_alloc.deallocate(ptr,n);
   }
-  
+
   // use composition rather than inheritance
   // to avoid inheriting std::allocator's member
   // function construct

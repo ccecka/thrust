@@ -53,17 +53,17 @@ void TestFindDevice(ExecutionPolicy exec)
 
   thrust::host_vector<int>   h_data = unittest::random_integers<int>(n);
   thrust::device_vector<int> d_data = h_data;
-  
+
   typename thrust::host_vector<int>::iterator   h_iter;
-  
+
   typedef typename thrust::device_vector<int>::iterator iter_type;
   thrust::device_vector<iter_type> d_result(1);
-  
+
   h_iter = thrust::find(h_data.begin(), h_data.end(), int(0));
   find_kernel<<<1,1>>>(exec, d_data.begin(), d_data.end(), int(0), d_result.begin());
-  
+
   ASSERT_EQUAL(h_iter - h_data.begin(), (iter_type)d_result[0] - d_data.begin());
-  
+
   for(size_t i = 1; i < n; i *= 2)
   {
     int sample = h_data[i];
@@ -102,16 +102,16 @@ void TestFindIfDevice(ExecutionPolicy exec)
 
   thrust::host_vector<int>   h_data = unittest::random_integers<int>(n);
   thrust::device_vector<int> d_data = h_data;
-  
+
   typename thrust::host_vector<int>::iterator   h_iter;
-  
+
   typedef typename thrust::device_vector<int>::iterator iter_type;
   thrust::device_vector<iter_type> d_result(1);
-  
+
   h_iter = thrust::find_if(h_data.begin(), h_data.end(), equal_to_value_pred<int>(0));
   find_if_kernel<<<1,1>>>(exec, d_data.begin(), d_data.end(), equal_to_value_pred<int>(0), d_result.begin());
   ASSERT_EQUAL(h_iter - h_data.begin(), (iter_type)d_result[0] - d_data.begin());
-  
+
   for (size_t i = 1; i < n; i *= 2)
   {
     int sample = h_data[i];
@@ -149,16 +149,16 @@ void TestFindIfNotDevice(ExecutionPolicy exec)
   size_t n = 100;
   thrust::host_vector<int>   h_data = unittest::random_integers<int>(n);
   thrust::device_vector<int> d_data = h_data;
-  
+
   typename thrust::host_vector<int>::iterator   h_iter;
-  
+
   typedef typename thrust::device_vector<int>::iterator iter_type;
   thrust::device_vector<iter_type> d_result(1);
-  
+
   h_iter = thrust::find_if_not(h_data.begin(), h_data.end(), not_equal_to_value_pred<int>(0));
   find_if_not_kernel<<<1,1>>>(exec, d_data.begin(), d_data.end(), not_equal_to_value_pred<int>(0), d_result.begin());
   ASSERT_EQUAL(h_iter - h_data.begin(), (iter_type)d_result[0] - d_data.begin());
-  
+
   for(size_t i = 1; i < n; i *= 2)
   {
     int sample = h_data[i];
@@ -194,7 +194,7 @@ void TestFindCudaStreams()
 
   cudaStream_t s;
   cudaStreamCreate(&s);
-  
+
   ASSERT_EQUAL(thrust::find(thrust::cuda::par.on(s), vec.begin(), vec.end(), 0) - vec.begin(), 5);
   ASSERT_EQUAL(thrust::find(thrust::cuda::par.on(s), vec.begin(), vec.end(), 1) - vec.begin(), 0);
   ASSERT_EQUAL(thrust::find(thrust::cuda::par.on(s), vec.begin(), vec.end(), 2) - vec.begin(), 1);

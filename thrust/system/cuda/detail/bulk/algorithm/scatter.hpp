@@ -55,7 +55,7 @@ void scatter_if(const bounded<bound,agent<grainsize> > &exec,
 template<std::size_t bound,
          std::size_t groupsize,
          std::size_t grainsize,
-         typename RandomAccessIterator1, 
+         typename RandomAccessIterator1,
          typename RandomAccessIterator2,
          typename RandomAccessIterator3,
          typename RandomAccessIterator4>
@@ -114,7 +114,7 @@ scatter_if(bulk::bounded<
 
 template<std::size_t groupsize,
          std::size_t grainsize,
-         typename RandomAccessIterator1, 
+         typename RandomAccessIterator1,
          typename RandomAccessIterator2,
          typename RandomAccessIterator3,
          typename RandomAccessIterator4>

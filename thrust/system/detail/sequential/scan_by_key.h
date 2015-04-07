@@ -132,7 +132,7 @@ __host__ __device__
       if (!binary_pred(temp_key, key))
         next = init;  // reset sum
 
-      *result = next;  
+      *result = next;
       next = binary_op(next, temp_value);
 
       temp_key = key;

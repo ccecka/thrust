@@ -37,7 +37,7 @@ namespace sequential
 
 __thrust_hd_warning_disable__
 template<typename DerivedPolicy,
-         typename InputIterator, 
+         typename InputIterator,
          typename OutputType,
          typename BinaryFunction>
 __host__ __device__

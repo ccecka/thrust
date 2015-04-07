@@ -106,7 +106,7 @@ int main(void)
     thrust::sort(keys.begin(), keys.end());
     print(keys);
   }
-  
+
   std::cout << "\nsorting integers (descending)\n";
   {
     thrust::device_vector<int> keys(N);
@@ -115,7 +115,7 @@ int main(void)
     thrust::sort(keys.begin(), keys.end(), thrust::greater<int>());
     print(keys);
   }
-  
+
   std::cout << "\nsorting integers (user-defined comparison)\n";
   {
     thrust::device_vector<int> keys(N);
@@ -133,7 +133,7 @@ int main(void)
     thrust::sort(keys.begin(), keys.end());
     print(keys);
   }
-  
+
   std::cout << "\nsorting pairs\n";
   {
     thrust::device_vector< thrust::pair<int,int> > keys(N);
@@ -142,7 +142,7 @@ int main(void)
     thrust::sort(keys.begin(), keys.end());
     print(keys);
   }
-  
+
   std::cout << "\nkey-value sorting\n";
   {
     thrust::device_vector<int> keys(N);
@@ -152,7 +152,7 @@ int main(void)
     thrust::sort_by_key(keys.begin(), keys.end(), values.begin());
     print(keys, values);
   }
-  
+
   std::cout << "\nkey-value sorting (descending)\n";
   {
     thrust::device_vector<int> keys(N);
